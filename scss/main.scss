@@ -1,0 +1,163 @@
+$icon-font-path: "/bower_components/bootstrap-sass-official/assets/fonts/bootstrap/";
+// bower:scss
+@import "bower_components/bootstrap-sass-official/assets/stylesheets/bootstrap.scss";
+// endbower
+#board {
+  position: relative;
+  top: 4em;
+}
+.navbar-brand {
+  float: none;
+}
+.plumb {
+  position: absolute;
+  border: 1px solid;
+  border-radius: 5px;
+}
+#debian {
+  top: 1em;
+  left: 50%;
+}
+#bash{
+  top: 15em;
+  left: 0;
+}
+#vim{
+  top: 15em;
+  left: 15%;
+}
+#mysql{
+  top: 15em;
+  left: 30%;
+}
+#postfix{
+  top: 15em;
+  left: 45%;
+}
+#dovecot{
+  top: 20em;
+  left: 45%;
+  padding: 1em;
+}
+#roundcube{
+  top: 25em;
+  left: 45%;
+}
+#ntop{
+  top: 15em;
+  left: 60%;
+}
+#nagios{
+  top: 15em;
+  left: 70%;
+}
+#cacti{
+  top: 20em;
+  left: 70%;
+}
+#puppet{
+  top: 15em;
+  left: 84%;
+}
+#awstats{
+  top: 20em;
+  left: 60%;
+  padding: 1em;
+}
+#iptables{
+  top: 27em;
+  left: 0;
+  padding: 1em;
+}
+#tc{
+  top: 27em;
+  left: 10%;
+  padding: 1em;
+}
+#c{
+  top: 35em;
+  left: 50%;
+  padding: 5px;
+}
+#php{
+  top: 48em;
+  left: 0;
+}
+#ruby{
+  top: 48em;
+  left: 16%;
+}
+#rails{
+  top: 58em;
+  left: 18%;
+}
+#slim{
+  top: 69em;
+  padding: 1em;
+  left: 19%;
+}
+#scss{
+  top: 55em;
+  left: 30%;
+}
+#golang{
+  top: 48em;
+  left: 30%;
+}
+#erlang{
+  top: 59em;
+  left: 34%;
+}
+#javascript{
+  top: 48em;
+  left: 50%;
+}
+#html{
+  top: 48em;
+  left: 90%;
+}
+#css{
+  top: 58em;
+  left: 90%;
+}
+#jquery{
+  top: 60em;
+  left: 62%;
+}
+#angularjs{
+  top: 65em;
+  left: 31%;
+}
+#yeoman{
+  top: 72em;
+  left: 47%;
+}
+#grunt{
+  top: 72em;
+  left: 32%;
+}
+#bower{
+  top: 72em;
+  left: 62%;
+}
+#gulp{
+  top: 84em;
+  left: 32%;
+}
+#coffeescript{
+  top: 60em;
+  left: 53%;
+}
+#ionic{
+  top: 55em;
+  left: 80%;
+  padding: 1em;
+}
+#jsplumb{
+  top: 63em;
+  left: 77%;
+}
+#jsplot{
+  top: 71em;
+  left: 76%;
+}
