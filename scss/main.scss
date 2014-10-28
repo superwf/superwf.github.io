@@ -1,6 +1,6 @@
-$icon-font-path: "/bower_components/bootstrap-sass-official/assets/fonts/bootstrap/";
+$icon-font-path: "/dev/bower_components/bootstrap-sass-official/assets/fonts/bootstrap/";
 // bower:scss
-@import "bower_components/bootstrap-sass-official/assets/stylesheets/bootstrap.scss";
+@import "dev/bower_components/bootstrap-sass-official/assets/stylesheets/bootstrap.scss";
 // endbower
 #board {
   position: relative;
@@ -13,6 +13,12 @@ $icon-font-path: "/bower_components/bootstrap-sass-official/assets/fonts/bootstr
   position: absolute;
   border: 1px solid;
   border-radius: 5px;
+  .text {
+    font-family: 'Open Sans';
+    font-weight: bold;
+    font-size: 2em;
+    padding: 1em;
+  }
 }
 #debian {
   top: 1em;
@@ -35,49 +41,44 @@ $icon-font-path: "/bower_components/bootstrap-sass-official/assets/fonts/bootstr
   left: 45%;
 }
 #dovecot{
-  top: 20em;
+  top: 22em;
   left: 45%;
-  padding: 1em;
 }
 #roundcube{
-  top: 25em;
-  left: 45%;
+  top: 28em;
+  left: 42%;
 }
 #ntop{
   top: 15em;
   left: 60%;
 }
 #nagios{
-  top: 15em;
+  top: 29em;
   left: 70%;
 }
 #cacti{
-  top: 20em;
-  left: 70%;
+  top: 10em;
+  left: 73%;
 }
 #puppet{
   top: 15em;
   left: 84%;
 }
 #awstats{
-  top: 20em;
+  top: 22em;
   left: 60%;
-  padding: 1em;
 }
 #iptables{
-  top: 27em;
+  top: 29em;
   left: 0;
-  padding: 1em;
 }
 #tc{
-  top: 27em;
-  left: 10%;
-  padding: 1em;
+  top: 34em;
+  left: 3%;
 }
 #c{
   top: 35em;
   left: 50%;
-  padding: 5px;
 }
 #php{
   top: 48em;
@@ -93,12 +94,11 @@ $icon-font-path: "/bower_components/bootstrap-sass-official/assets/fonts/bootstr
 }
 #slim{
   top: 69em;
-  padding: 1em;
   left: 19%;
 }
 #scss{
-  top: 55em;
-  left: 30%;
+  top: 69em;
+  left: 8%;
 }
 #golang{
   top: 48em;
@@ -117,47 +117,50 @@ $icon-font-path: "/bower_components/bootstrap-sass-official/assets/fonts/bootstr
   left: 90%;
 }
 #css{
-  top: 58em;
+  top: 61em;
   left: 90%;
 }
 #jquery{
-  top: 60em;
-  left: 62%;
+  top: 70em;
+  left: 56%;
 }
 #angularjs{
-  top: 65em;
+  top: 73em;
   left: 31%;
 }
 #yeoman{
-  top: 72em;
+  top: 85em;
   left: 47%;
 }
 #grunt{
-  top: 72em;
+  top: 85em;
   left: 32%;
 }
 #bower{
-  top: 72em;
+  top: 85em;
   left: 62%;
 }
 #gulp{
-  top: 84em;
-  left: 32%;
+  top: 85em;
+  left: 16%;
 }
 #coffeescript{
-  top: 60em;
+  top: 62em;
   left: 53%;
 }
 #ionic{
-  top: 55em;
-  left: 80%;
-  padding: 1em;
+  top: 62em;
+  left: 71%;
+}
+#cordova{
+  top: 47em;
+  left: 71%;
 }
 #jsplumb{
-  top: 63em;
-  left: 77%;
+  top: 70em;
+  left: 74%;
 }
-#jsplot{
-  top: 71em;
+#jqplot{
+  top: 76em;
   left: 76%;
 }
