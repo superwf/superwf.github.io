@@ -79978,6 +79978,21 @@ angular.module('Superwf').controller('HomeCtrl', [
       anchors: ['Left', 'Top']
     }, connectStyle);
     jsPlumb.connect({
+      source: 'mysql',
+      target: 'mongodb',
+      anchors: ['Bottom', 'Top']
+    }, connectStyle);
+    jsPlumb.connect({
+      source: 'mongodb',
+      target: 'couchdb',
+      anchors: ['Bottom', 'Top']
+    }, connectStyle);
+    jsPlumb.connect({
+      source: 'couchdb',
+      target: 'riak',
+      anchors: ['Right', 'Left']
+    }, connectStyle);
+    jsPlumb.connect({
       source: 'debian',
       target: 'postfix',
       anchors: ['Bottom', 'Top']
@@ -100976,7 +100991,6 @@ angular.module('Superwf').factory('jsplumb', [
 'use strict';
 angular.module('Superwf').controller('MainCtrl', [
   '$scope', function($scope) {
-    $scope.$broadcast('event:title', 'superwf.github.io');
     return null;
   }
 ]);

@@ -24,6 +24,21 @@ angular.module('Superwf').controller 'HomeCtrl', ['$scope', ($scope) ->
     anchors: ['Left', 'Top']
   }, connectStyle)
   jsPlumb.connect({
+    source:'mysql'
+    target:'mongodb'
+    anchors: ['Bottom', 'Top']
+  }, connectStyle)
+  jsPlumb.connect({
+    source:'mongodb'
+    target:'couchdb'
+    anchors: ['Bottom', 'Top']
+  }, connectStyle)
+  jsPlumb.connect({
+    source:'couchdb'
+    target:'riak'
+    anchors: ['Right', 'Left']
+  }, connectStyle)
+  jsPlumb.connect({
     source:'debian'
     target:'postfix'
     anchors: ['Bottom', 'Top']
