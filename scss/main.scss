@@ -52,13 +52,19 @@ $icon-font-path: "/dev/bower_components/bootstrap-sass-official/assets/fonts/boo
 }
 #couchdb{
   top: 35em;
-  left: 16%;
+  left: 18%;
   width: 153px;
   height: 129px;
 }
+#pouchdb{
+  top: 38em;
+  left: 0%;
+  width: 171px;
+  height: 43px;
+}
 #riak{
   top: 37em;
-  left: 33%;
+  left: 36%;
   width: 203px;
   height: 90px;
 }

@@ -79989,6 +79989,11 @@ angular.module('Superwf').controller('HomeCtrl', [
     }, connectStyle);
     jsPlumb.connect({
       source: 'couchdb',
+      target: 'pouchdb',
+      anchors: ['Left', 'Right']
+    }, connectStyle);
+    jsPlumb.connect({
+      source: 'mongodb',
       target: 'riak',
       anchors: ['Right', 'Left']
     }, connectStyle);
