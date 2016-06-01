@@ -2,8 +2,3 @@
 *.swo
 /tmp/
 node_modules
-dev/bower_components
-dev/js
-dev/css
-dev/views
-dev/images
