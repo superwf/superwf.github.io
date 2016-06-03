@@ -172,31 +172,37 @@ window.onload = function() {
     .append('path')
     .attr({class: 'link'})
     .attr('d', diagonal)
-  let node = svg.selectAll('.node')
-    .data(nodes)
-    .enter()
-    .append('g')
-    .attr('class', 'node')
-    .attr('transform', function(d) {
-      let transform = 'translate(' + (d.x - 50) + ', ' + (d.y - 50) + ')'
-      return transform
-    })
-    // .style('transform', function(d) {
-    //   let transform = ''
-    //   if (d.depth > 0) {
-    //     console.log(d)
-    //     return 'rotateX(90deg)'
-    //   }
+  let node = svg.selectAll('.node').data(nodes)
+    // .enter()
+    // .append('g')
+    // .attr('class', 'node')
+    // .attr('transform', function(d) {
+    //   let transform = 'translate(' + (d.x - 50) + ', ' + (d.y - 50) + ')'
     //   return transform
     // })
+    // .classed('revert rotateX90', function(d) {
+    //   return d.depth > 0
+    // })
 
-  // node.transition()
-  // .duration(2000)
-  // .ease('linear')
-  // .style('transform', () => {
-  //   let transform = 'rotateX(0deg)'
-  //   return transform
-  // })
+  node
+  .enter()
+  .append('image')
+  .attr('xlink:href', d => {
+    return require(`../images/${d.name}.png`)
+  }).attr({width: 100, height: 100})
+  .attr('x', function(d) {
+    return d.x - 50
+  })
+  .attr('y', function(d) {
+    return d.y - 50
+  })
+  .classed('revert rotateX90', function(d) {
+    return d.depth > 0
+  })
+
+  setTimeout(() => {
+    node.classed('rotateX90', false)
+  }, growTime)
 
   // setTimeout(() => {
   //   svg.selectAll('.node')
@@ -209,9 +215,6 @@ window.onload = function() {
 
   // node.append('circle')
   //   .attr('r', 50);
-  node.append('image').attr('xlink:href', d => {
-    return require(`../images/${d.name}.png`)
-  }).attr({width: 100, height: 100})
 
   // node.append('text')
   //   .attr('dx', function(d) { return d.children ? -8 : 8; })
