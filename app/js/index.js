@@ -1,8 +1,11 @@
 // import Vue from 'vue'
 import d3 from 'd3'
 import '../less/index.less'
+// import once from 'lodash/once'
+// import times from 'lodash/times'
 // import Circle from '../components/circle.vue'
 // import template from '../views/svg.html'
+import treeData from '../data/tree.js'
 
 window.onload = function() {
   // new Vue({
@@ -126,109 +129,93 @@ window.onload = function() {
   //   .attr('y', d => {return d.y})
   // })
 
-  let svg = d3.select('svg')
-    .append('g')
-    .attr('transform', 'translate(350, 100)')
-
-  let treeData = {
-    name: 'debian',
-    children: [{
-      name: 'vim',
-    }, {
-      name: 'bash',
-    }]
-  }
 
   let tree = d3.layout.tree()
     // .size([width, height - 200])
-    .nodeSize([200, 300])
-    // .separation(function(a, b) {
-    //   return 1
-    // })
-
-  let diagonal = d3.svg.diagonal()
-    .projection(function(d, i) {
-      // 顶点定在首图的下部
-      if (i === 0) {
-        return [d.x, d.y + 50]
-      }
-      // 终点定在children图的顶部
-      if (i === 3) {
-        return [d.x, d.y - 50]
-      }
-      return [d.x, d.y]
-    })
+    .nodeSize([150, 250])
 
   let nodes = tree.nodes(treeData)
-  let links = tree.links(nodes)
 
-  let growTime = 1500
+  let centerWidth = 2000
+  let svg = d3.select('svg')
+    .append('g')
+    .attr('transform', `translate(${centerWidth}, 100)`)
+  // let growTime = 1500
 
-  console.log(nodes)
-  // console.log(links)
-  let lines = svg.selectAll('.link')
-    .data(links)
+  let draw = nodes => {
+    let links = tree.links(nodes)
+
+    let diagonal = d3.svg.diagonal()
+      .projection(function(d, i) {
+        // 顶点定在首图的下部
+        if (i === 0) {
+          return [d.x, d.y + 50]
+        }
+        // 终点定在children图的顶部
+        if (i === 3) {
+          return [d.x, d.y - 50]
+        }
+        return [d.x, d.y]
+      })
+
+    let lines = svg.selectAll('.link')
+      .data(links)
+      .enter()
+      .append('path')
+      .attr({class: 'link'})
+      .attr('d', diagonal)
+    setTimeout(() => {
+      lines.attr({'marker-end': 'url(#arrow)'})
+    }, 1000)
+    let node = svg.selectAll('.node').data(nodes)
+
+    node
     .enter()
-    .append('path')
-    .attr({class: 'link'})
-    .attr('d', diagonal)
-  let node = svg.selectAll('.node').data(nodes)
-    // .enter()
-    // .append('g')
-    // .attr('class', 'node')
-    // .attr('transform', function(d) {
-    //   let transform = 'translate(' + (d.x - 50) + ', ' + (d.y - 50) + ')'
-    //   return transform
+    .append('image')
+    .attr('xlink:href', d => {
+      return require(`../images/${d.name}.png`)
+    }).attr({width: 100, height: 100})
+    .attr('x', function(d) {
+      return d.x - 50
+    })
+    .attr('y', function(d) {
+      return d.y - 40
+    })
+    .on('click', function() {
+      console.log(this.getBoundingClientRect())
+      d3.select(this)
+      .style('transform', 'rotate(0deg)')
+      .transition()
+      .duration(500)
+      .ease('bounce')
+      .style('transform', 'rotate(30deg)')
+    })
+    // .on('mousemove', function() {
+    //   d3.event.preventDefault()
+    //   d3.event.stopPropagation()
     // })
-    // .classed('revert rotateX90', function(d) {
-    //   return d.depth > 0
+    // .on('mouseout', function() {
+    //   d3.select(this)
+    //   .transition()
+    //   .duration(1000)
+    //   .ease('bounce')
+    //   .style('transform', 'rotate(0deg)')
     // })
+    .classed('revert', true)
+  }
 
-  node
-  .enter()
-  .append('image')
-  .attr('xlink:href', d => {
-    return require(`../images/${d.name}.png`)
-  }).attr({width: 100, height: 100})
-  .attr('x', function(d) {
-    return d.x - 50
-  })
-  .attr('y', function(d) {
-    return d.y - 50
-  })
-  .classed('revert rotateX90', function(d) {
-    return d.depth > 0
-  })
+  draw(nodes)
 
-  setTimeout(() => {
-    node.classed('rotateX90', false)
-  }, growTime)
 
-  // setTimeout(() => {
-  //   svg.selectAll('.node')
-  //   .data(nodes)
-  //   .style('transform', function(d) {
-  //     let transform = 'translate(' + (d.x - 50) + 'px, ' + (d.y - 50) + 'px)'
-  //     return transform
-  //   })
-  // }, growTime)
-
-  // node.append('circle')
-  //   .attr('r', 50);
-
-  // node.append('text')
-  //   .attr('dx', function(d) { return d.children ? -8 : 8; })
-  //   .attr('dy', 3)
-  //   .style('text-anchor', function(d) {
-  //     return d.children ? 'end' : 'start'
-  //   })
-  //   .text(function(d) { return d.name; })
-
-  // let l = document.querySelector('.link')
-  // let duration = getComputedStyle(l).animationDuration
-  // duration = parseInt(duration)
-
-  setTimeout(() => {
-    lines.attr({'marker-end': 'url(#arrow)'})
-  }, growTime)
+  // times(7, t => {
+  //   setTimeout(() => {
+  //     draw(filter(nodes, n => {
+  //       return n.depth <= t
+  //     }))
+  //     // node.classed('rotateX90', d => {
+  //     //   return t < d.depth
+  //     // })
+  //     // lines.attr({'marker-end': 'url(#arrow)'})
+  //   }, growTime * t)
+  // })
 }
