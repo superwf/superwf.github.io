@@ -33,3 +33,35 @@ body {
   cursor: pointer;
   backface-visibility: hidden;
 }
+
+#cube-container {
+  perspective-origin: center center;
+  perspective: 1200px;
+  #cube {
+    position: relative;
+    top: 100px;
+    width: 400px;
+    margin: 0 auto;
+    height: 400px;
+    transform-style: preserve-3d;
+    > div {
+      width: 400px;
+      height: 400px;
+      position: absolute;
+      background-color: grey;
+      transform-style: preserve-3d;
+      &.top {
+        transform: rotateX(90deg) translateZ(200px);
+      }
+      &.right {
+        transform: rotateY(90deg) translateZ(200px);
+      }
+      &.left {
+        transform: rotateY(-90deg) translateZ(200px);
+      }
+      &.bottom {
+        transform: rotateX(-90deg) translateZ(200px);
+      }
+    }
+  }
+}
