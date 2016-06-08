@@ -3,6 +3,7 @@ var webpack = require('webpack')
 module.exports = {
   entry: {
     index: './app/js/index.js',
+    impress: './app/js/impress.js',
   },
   output: {
     // path: __dirname + '/public/js',

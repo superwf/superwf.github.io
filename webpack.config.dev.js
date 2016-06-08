@@ -16,6 +16,17 @@ var plugins = [
       collapseWhitespace: true,
     }
   }),
+  new HtmlWebpackPlugin({
+    chunks: ['impress'],
+    filename: 'impress.html',
+    inject: 'head',
+    template: './app/views/impress.jade',
+    minify: {
+      removeComments: true,
+      collapseInlineTagWhitespace: true,
+      collapseWhitespace: true,
+    }
+  }),
   new webpack.SourceMapDevToolPlugin({
     exclude: /node_modules/,
   }),
@@ -34,9 +45,9 @@ config.devServer = {
   colors: true,
   // 将所有不存在文件的请求都重新定位到/index.html
   // 单页应用配置路由功能必备
-  historyApiFallback: {
-    index: '/'
-  },
+  // historyApiFallback: {
+  //   index: '/'
+  // },
   host: '0.0.0.0',
   port: 9000,
 }

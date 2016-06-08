@@ -1,0 +1,35 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  overflow: hidden;
+  font-family: 'PT Sans', sans-serif;
+}
+
+#impress {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transition: all 1s ease-in-out;
+  transform-style: preserve-3d;
+  transform-origin: left top 0px;
+  perspective-origin: top;
+  & > .canvas {
+    transform-origin: left top 0px;
+    transition: all 1s ease-in-out;
+    position: absolute;
+    transform-style: preserve-3d;
+  }
+}
+
+.step {
+  position: absolute;
+  border: 1px solid #eee;
+  width: 300px;
+  transform-style: preserve-3d;
+  text-align: center;
+  cursor: pointer;
+  backface-visibility: hidden;
+}
