@@ -6,7 +6,7 @@ var pfx = (function() {
     prefixes = 'Webkit Moz O ms Khtml'.split(' '),
     memory = {};
 
-  return function(prop) {
+  return prop => {
     if (typeof memory[prop] === 'undefined') {
 
       var ucProp  = prop.charAt(0).toUpperCase() + prop.substr(1),
@@ -26,7 +26,7 @@ var pfx = (function() {
 
 // copy from impress.js
 // set css to el
-var css = function(el, props) {
+var css = (el, props) => {
   var key, pkey
   for (key in props) {
     if (props.hasOwnProperty(key)) {
@@ -39,7 +39,7 @@ var css = function(el, props) {
   return el
 }
 
-window.onload = function() {
+window.onload = () => {
   let root = document.getElementById('impress')
   let canvas = document.createElement('div')
   canvas.classList.add('canvas')
