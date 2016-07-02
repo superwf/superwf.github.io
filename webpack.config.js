@@ -39,7 +39,7 @@ module.exports = {
         loader: 'jade-loader',
       },
       {test: /\.(eot|woff|ttf|svg|woff2)$/, loader: 'url-loader'},
-      {test: /\.png$/, loader: 'url-loader?limit=20192',
+      {test: /\.png$/, loader: 'url-loader',
         query: {mimetype: 'image/png'}
       },
     ]

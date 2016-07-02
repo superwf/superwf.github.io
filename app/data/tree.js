@@ -4,9 +4,13 @@ export default {
     name: 'debian',
     children: [{
       name: 'ubuntu',
+      children: [{
+        name: 'bash',
+        children: [{
+          name: 'vim',
+        }]
+      }]
     }]
-  }, {
-    name: 'vim',
   }, {
     name: 'chrome',
     children: [{
@@ -20,9 +24,13 @@ export default {
     }, {
       name: 'jquery',
       children: [{
-        name: 'jsplot',
-      }, {
-        name: 'jsplumb',
+        name: 'lodash',
+        children: [{
+          name: 'jsplot',
+          children: [{
+            name: 'jsplumb',
+          }]
+        }]
       }]
     }, {
       name: 'css',
@@ -33,17 +41,20 @@ export default {
         }]
       }]
     }, {
-      name: 'angularjs',
-    }, {
       name: 'es6',
       children: [{
-        name: 'react',
-      }, {
-        name: 'vue',
+        name: 'coffeescript',
+        children: [{
+          name: 'angularjs',
+          children: [{
+            name: 'react',
+            children: [{
+              name: 'vue',
+            }]
+          }]
+        }]
       }]
     }]
-  }, {
-    name: 'bash',
   }, {
     name: 'nginx',
     children: [{
@@ -73,32 +84,29 @@ export default {
     children: [{
       name: 'rails',
       children: [{
-        name: 'coffeescript',
-      }, {
         name: 'puppet'
       }]
     }]
   }, {
     name: 'nodejs',
     children: [{
-      name: 'gulp',
+      name: 'grunt',
       children: [{
-        name: 'grunt',
+        name: 'gulp',
       }],
     }, {
       name: 'bower',
+      children: [{
+        name: 'browserify',
+        children: [{
+          name: 'webpack',
+        }]
+      }],
     }, {
       name: 'socketio',
       children: [{
         name: 'meteor',
       }]
-    }, {
-      name: 'lodash',
-    }, {
-      name: 'browserify',
-      children: [{
-        name: 'webpack',
-      }],
     }, {
       name: 'jasmine',
       children: [{
