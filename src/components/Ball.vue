@@ -67,6 +67,7 @@ steps.push({
 /* overview */
 steps.unshift({
   x: 0,
+  z: 500,
   content: '',
   scale: 3,
   rotateX: 30,
