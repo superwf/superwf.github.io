@@ -1,70 +1,47 @@
 module.exports = {
-  ecmaFeatures: {
-    ecmascript: 7,
-    jsx: true,
-    modules: true
-  },
-  env: {
-    es6: true,
-    browser: true,
-    node: true,
-    mocha: true,
-    jquery: true,
-    jasmine: true
-  },
-  globals: ['expect', 'loadjs', 'jQuery'],
+  root: true,
   parser: 'babel-eslint',
-  rules: {
-    'strict': [2, 'never'],
-    'quotes': [2, 'single'],
-    'babel/object-shorthand': 1,
-    'babel/arrow-parens': 0,
-    'babel/array-bracket-spacing': 1,
-    'babel/no-await-in-loop': 1,
-    'react/jsx-uses-react': 2,
-    'react/jsx-uses-vars': 2,
-    'react/react-in-jsx-scope': 0,
-    'no-undef': [2],
-    'no-unused-vars': [2, {vars: 'local'}],
-    'no-eval': [2],
-    'no-dupe-keys': 2,
-    'no-dupe-args': 2,
-    'no-inner-declarations': 2,
-    'no-irregular-whitespace': 2,
-    'no-sparse-arrays': 2,
-    'no-unexpected-multiline': 2,
-    'no-unreachable': 2,
-    'valid-typeof': 2,
-    'use-isnan': 2,
-    'computed-property-spacing': [2, 'never'],
-    'indent': [2, 2],
-    'keyword-spacing': 2,
-    'linebreak-style': [2, 'unix'],
-    'no-lonely-if': 2,
-    'no-spaced-func': 2,
-    'no-whitespace-before-property': 2,
-    'no-unneeded-ternary': 2,
-    'no-trailing-spaces': 2,
-    'object-curly-spacing': 2,
-    'space-before-function-paren': [2, 'never'],
-    'space-unary-ops': [1, {words: true, nonwords: false}],
-    'space-infix-ops': 2,
-    'space-in-parens': [2, 'never'],
-    'space-before-blocks': [2, 'always'],
-    'key-spacing': ['error', {afterColon: true}],
-    'comma-spacing': ['error', {after: true}],
-    // for es6
-    'prefer-spread': 2,
-    'arrow-parens': [2, 'as-needed'],
-    'arrow-spacing': [2, {before: true, after: true}],
-    'constructor-super': 2,
-    'generator-star-spacing': [1, {before: false, after: true}],
-    'no-class-assign': 2,
-    'no-const-assign': 2,
-    'require-yield': 2,
+  parserOptions: {
+    sourceType: 'module'
   },
+  extends: 'airbnb-base',
+  // required to lint *.vue files
   plugins: [
-    'babel',
-    'react',
+    'html'
   ],
-};
+  env: {
+    browser: true,
+  },
+  // check if imports actually resolve
+  'settings': {
+    'import/resolver': {
+      'webpack': {
+        'config': 'build/webpack.base.conf.js'
+      }
+    }
+  },
+  // add your custom rules here
+  'rules': {
+    // don't require .vue extension when importing
+    'import/extensions': ['error', 'always', {
+      'js': 'never',
+      'vue': 'never'
+    }],
+    // allow debugger during development
+    'no-debugger': process.env.NODE_ENV === 'production' ? 2 : 0,
+    'import/no-extraneous-dependencies': ['error', {devDependencies: true, optionalDependencies: false, peerDependencies: false}],
+    'no-console': 0,
+    semi: 0,
+    'no-underscore-dangle': ['error', {
+      allowAfterThis: true,
+      allowAfterSuper: true,
+    }],
+    'no-param-reassign': 0,
+    'global-require': 0,
+    'import/no-dynamic-require': 0,
+    'import/prefer-default-export': 0,
+    'prefer-arrow-callback': 0,
+    'comma-dangle': 0,
+    'no-unused-vars': ['error', { argsIgnorePattern: 'h' }],
+  }
+}
