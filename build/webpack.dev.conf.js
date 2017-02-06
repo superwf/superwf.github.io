@@ -30,7 +30,7 @@ module.exports = merge(baseWebpackConfig, {
       filename: 'index.html',
       favicon: './logo.png',
       template: 'src/index.html',
-      inject: false
+      inject: true
     }),
     new FriendlyErrors()
   ]

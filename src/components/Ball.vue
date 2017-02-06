@@ -5,121 +5,70 @@
 
 <script>
 import Vue from 'vue'
-import VueImpress from '../src'
+import VueImpress from 'vue-impress'
+import 'vue-impress/dist/vue-impress.css'
+import imageList from '../images.json'
 
 Vue.use(VueImpress)
+
+const ImageComponent = {
+  props: ['src'],
+  template: '<img :src="src" />',
+}
 
 const steps = []
 const radius = 500
 
-// const initDegree = 0
-// const zStep = 15
-const size = 12
+/* 每行数量 */
+const size = 11
 const degreeStep = 360 / size
 
-for (let i = 0; i < size; i += 1) {
-  // const rotateX = i * 10
-  // const xRadius = (rotateX * Math.PI) / 180
-  // const rotateZ = (Math.random() * 720) - 360
-  // const zRadius = (rotateZ * Math.PI) / 180
-  // const zRadius = (90 * Math.PI) / 180
-  // console.log(Math.sin(zRadius))
-  const degree = (degreeStep * i * Math.PI) / 180
-  steps.push({
-    // x: Math.cos(xRadius) * (Math.sin(zRadius) * radius),
-    // y: Math.sin(xRadius) * (Math.sin(zRadius) * radius),
-    // z: Math.cos(zRadius) * radius,
-    // rotateY: rotateZ,
-    // rotateX: 90 - rotateX,
-    x: Math.cos(degree) * radius,
-    y: 0,
-    z: Math.sin(degree) * radius,
-    rotateY: 90 - (degreeStep * i),
-    content: 'center'
-  })
-}
-
-/* 上扬30度 */
 const rotateOrder = ['y', 'x', 'z']
-const yUp30 = Math.sin((30 * Math.PI) / 180) * radius
-const xRadius30 = Math.cos((30 * Math.PI) / 180) * radius
-for (let i = 0; i < size; i += 1) {
-  const degree = (degreeStep * i * Math.PI) / 180
-  steps.push({
-    x: Math.cos(degree) * xRadius30,
-    y: -yUp30,
-    z: Math.sin(degree) * xRadius30,
-    rotateY: 90 - (degreeStep * i),
-    rotateX: 30,
-    rotateOrder,
-    content: 'up30'
-  })
+let line = 0
+
+for (let verticalDegree = 60; verticalDegree >= -60; verticalDegree -= 30) {
+  const y = Math.sin((verticalDegree * Math.PI) / 180) * radius
+  const xRadius60 = Math.cos((verticalDegree * Math.PI) / 180) * radius
+  for (let i = 0; i < size; i += 1) {
+    const degree = (degreeStep * i * Math.PI) / 180
+    const src = `app/images/${imageList[i + (line * size)]}`
+    steps.push({
+      x: Math.cos(degree) * xRadius60,
+      y,
+      z: Math.sin(degree) * xRadius60,
+      rotateY: 90 - (degreeStep * i),
+      rotateX: -verticalDegree,
+      rotateOrder,
+      component: ImageComponent,
+      props: { src },
+    })
+  }
+  line += 1
 }
 
-/* 下30度 */
-for (let i = 0; i < size; i += 1) {
-  const degree = (degreeStep * i * Math.PI) / 180
-  steps.push({
-    x: Math.cos(degree) * xRadius30,
-    y: yUp30,
-    z: Math.sin(degree) * xRadius30,
-    rotateY: 90 - (degreeStep * i),
-    rotateX: -30,
-    rotateOrder,
-    content: 'down30'
-  })
-}
-
-/* 上60度 */
-const yUp60 = Math.sin((60 * Math.PI) / 180) * radius
-const xRadius60 = Math.cos((60 * Math.PI) / 180) * radius
-for (let i = 0; i < size; i += 1) {
-  const degree = (degreeStep * i * Math.PI) / 180
-  steps.push({
-    x: Math.cos(degree) * xRadius60,
-    y: -yUp60,
-    z: Math.sin(degree) * xRadius60,
-    rotateY: 90 - (degreeStep * i),
-    rotateX: 60,
-    rotateOrder,
-    content: 'up'
-  })
-}
-
-/* 下60度 */
-for (let i = 0; i < size; i += 1) {
-  const degree = (degreeStep * i * Math.PI) / 180
-  steps.push({
-    x: Math.cos(degree) * xRadius60,
-    y: yUp60,
-    z: Math.sin(degree) * xRadius60,
-    rotateY: 90 - (degreeStep * i),
-    rotateX: -60,
-    rotateOrder,
-    content: 'down60'
-  })
-}
-
-/* bottom */
+/* bottom and top */
 steps.push({
   x: 0,
   y: -radius,
   z: 0,
   rotateX: 90,
-  content: 'top'
+  component: ImageComponent,
+  props: { src: `app/images/${imageList[imageList.length - 1]}` },
 })
 steps.push({
   x: 0,
   y: radius,
   z: 0,
   rotateX: -90,
-  content: 'bottom'
+  component: ImageComponent,
+  props: { src: `app/images/${imageList[imageList.length - 2]}` },
 })
 
+/* overview */
 steps.unshift({
   x: 0,
   content: '',
-  scale: 2,
+  scale: 3,
   rotateX: 30,
 })
 
@@ -162,13 +111,11 @@ export default {
     text-align: center;
     cursor: pointer;
   }
+  .impress-step img {
+    width: 100px;
+    height: 100px;
+  }
   .impress-step.active {
     cursor: auto;
-  }
-  .impress-step:nth-of-type(even) {
-    color: red;
-  }
-  .impress-step:nth-of-type(odd) {
-    color: blue;
   }
 </style>

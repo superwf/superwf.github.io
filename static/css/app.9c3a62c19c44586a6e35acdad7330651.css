@@ -1,0 +1,5 @@
+body,html{overflow:hidden;height:100%;padding:0;margin:0;box-sizing:border-box}.impress-step{text-align:center;cursor:pointer}.impress-step img{width:100px;height:100px}.impress-step.active{cursor:auto}/*!
+ * vue-impress v0.0.5
+ * Released under the MIT License.
+ */.impress-viewport{transition-property:transform,perspective;will-change:transform,perspective}.impress-canvas{will-change:transform;transition-property:transform;display:-ms-flexbox;display:flex;-ms-flex-pack:center;justify-content:center;-ms-flex-align:center;align-items:center}.impress-canvas,.impress-viewport{height:100%;width:100%}.impress-canvas,.impress-step,.impress-viewport{transform-origin:center center 0;transform-style:preserve-3d;position:absolute}.impress-step{font-size:30px;transition:opacity 1s;will-change:opactiy;opacity:.3}.impress-step.active{opacity:1}
+/*# sourceMappingURL=app.9c3a62c19c44586a6e35acdad7330651.css.map*/
