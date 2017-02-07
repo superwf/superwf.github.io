@@ -6161,9 +6161,9 @@ vue-hot-reload-api@^2.0.1:
   version "2.0.8"
   resolved "http://registry.npm.taobao.org/vue-hot-reload-api/download/vue-hot-reload-api-2.0.8.tgz#b3ba6a9a443d561b14f2785c8ea056618cb2faa3"
 
-vue-impress@0.0.5:
-  version "0.0.5"
-  resolved "http://registry.npm.taobao.org/vue-impress/download/vue-impress-0.0.5.tgz#2acecffc70a04ca082dceabbe140565972307ae0"
+vue-impress@0.0.6:
+  version "0.0.6"
+  resolved "https://registry.yarnpkg.com/vue-impress/-/vue-impress-0.0.6.tgz#968932dc4caff22f6963b306b92c64bbb73082ce"
   dependencies:
     vue "^2.1.10"
 

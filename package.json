@@ -21,7 +21,7 @@
   "dependencies": {
     "d3": "^3.5.17",
     "vue": "^2.1.10",
-    "vue-impress": "0.0.5"
+    "vue-impress": "0.0.6"
   },
   "devDependencies": {
     "autoprefixer": "^6.4.0",
