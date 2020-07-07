@@ -1,0 +1,614 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    
+    <title>老王的日志</title>
+    <meta name="viewport" content="width=device-width,minimum-scale=1">
+    <meta name="generator" content="Hugo 0.68.3" />
+    
+    
+      <META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW">
+    
+
+    
+    
+      <link href="/dist/css/app.1cb140d8ba31d5b2f1114537dd04802a.css" rel="stylesheet">
+    
+
+    
+
+    
+      
+    
+
+    
+    
+      <link href="/posts/index.xml" rel="alternate" type="application/rss+xml" title="老王的日志" />
+      <link href="/posts/index.xml" rel="feed" type="application/rss+xml" title="老王的日志" />
+      
+    
+    
+    <meta property="og:title" content="Posts" />
+<meta property="og:description" content="" />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="http://superwf.github.io/posts/" />
+<meta property="og:updated_time" content="2020-04-29T01:53:50+00:00" />
+<meta itemprop="name" content="Posts">
+<meta itemprop="description" content=""><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Posts"/>
+<meta name="twitter:description" content=""/>
+
+  </head>
+
+  <body class="ma0 avenir bg-near-white">
+
+    
+
+  <header>
+    <div class="pb3-m pb6-l bg-black">
+      <nav class="pv3 ph3 ph4-ns" role="navigation">
+  <div class="flex-l justify-between items-center center">
+    <a href="http://superwf.github.io/" class="f3 fw2 hover-white no-underline white-90 dib">
+      老王的日志
+    </a>
+    <div class="flex-l items-center">
+      
+
+      
+        <ul class="pl0 mr3">
+          
+          <li class="list f5 f4-ns fw4 dib pr3">
+            <a class="hover-white no-underline white-90" href="/migrate2020/" title="migrate2020 page">
+              migrate2020
+            </a>
+          </li>
+          
+          <li class="list f5 f4-ns fw4 dib pr3">
+            <a class="hover-white no-underline white-90" href="/coder-life/" title="coder-life page">
+              coder-life
+            </a>
+          </li>
+          
+        </ul>
+      
+      
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    </div>
+  </div>
+</nav>
+
+      <div class="tc-l pv3 ph3 ph4-ns">
+        <h1 class="f2 f-subheadline-l fw2 light-silver mb0 lh-title">
+          Posts
+        </h1>
+        
+      </div>
+    </div>
+  </header>
+
+
+    <main class="pb7" role="main">
+      
+  <article class="pa3 pa4-ns nested-copy-line-height nested-img">
+    <section class="cf ph3 ph5-l pv3 pv4-l f4 tc-l center measure-wide lh-copy mid-gray"></section>
+    <section class="flex-ns flex-wrap justify-around mt5">
+      
+        <div class="relative w-100 w-30-l mb4 bg-white"><div class="relative w-100 mb4 bg-white nested-copy-line-height">
+  <div class="bg-white mb3 pa4 gray overflow-hidden">
+    <span class="f6 db">Posts</span>
+    <h1 class="f3 near-black">
+      <a href="http://superwf.github.io/p1385/" class="link black dim">
+        jest的一次失败的mock
+      </a>
+    </h1>
+    <div class="nested-links f5 lh-copy nested-copy-line-height">
+      今天添加了一个新测试用例，在需要mock的文件模块旁边添加了__mocks__然后里面添加了同名文件，之后在test文件里指定
+jest.mock(‘moduleA’)
+但无论如何都会加载实际模块而不是__mocks__文件夹里的内容。经过了一大轮的拼写检查、jest.doMock、为jest.mock添加第二个参数临时实现，还试了一下automock，全都不行。
+最后发现该模块为了调整测试环境，在jestSetup文件里被使用了……
+难怪无法mock，自己的坑啊。
+    </div>
+  </div>
+</div>
+</div>
+      
+        <div class="relative w-100 w-30-l mb4 bg-white"><div class="relative w-100 mb4 bg-white nested-copy-line-height">
+  <div class="bg-white mb3 pa4 gray overflow-hidden">
+    <span class="f6 db">Posts</span>
+    <h1 class="f3 near-black">
+      <a href="http://superwf.github.io/p1380/" class="link black dim">
+        webpack/uglifyjs的remove  dead_code功能
+      </a>
+    </h1>
+    <div class="nested-links f5 lh-copy nested-copy-line-height">
+      昨天在项目里加上了mobx-react-devtools开发环境调试用。但是生产环境不希望有，于是加上了
+&lt;br /&gt; import MobxDevTools from 'mobx-react-devtools'&lt;br /&gt; ...&lt;br /&gt; render () {&lt;br /&gt; return ...&lt;br /&gt; {process.env.NODE_ENV !== 'production' &amp;&amp; &lt;MobxDevTools /&gt;
+}&lt;br /&gt; }&lt;br /&gt;
+打包后发现代码体积明显增大，即使加了webpack生产环境打包的UglifyJsPlugin({
+uglifyOptions: { compress: { dead_code: true } }
+})
+也去不掉。应该是因为import是静态引入的特点造成的。
+最后自己想了个法子解决了一下，写一个空组件
+export default null
+在webpack的alias里判断生产环境，则添加alias[‘mobx-react-devtools’] = ‘./app/component/Null.jsx’
+在生产环境中吧这个空组件替换进去，如果还有其他希望生产环境中排除的都可以如此解决。
+    </div>
+  </div>
+</div>
+</div>
+      
+        <div class="relative w-100 w-30-l mb4 bg-white"><div class="relative w-100 mb4 bg-white nested-copy-line-height">
+  <div class="bg-white mb3 pa4 gray overflow-hidden">
+    <span class="f6 db">Posts</span>
+    <h1 class="f3 near-black">
+      <a href="http://superwf.github.io/p1377/" class="link black dim">
+        learning typescript
+      </a>
+    </h1>
+    <div class="nested-links f5 lh-copy nested-copy-line-height">
+      
+    </div>
+  </div>
+</div>
+</div>
+      
+        <div class="relative w-100 w-30-l mb4 bg-white"><div class="relative w-100 mb4 bg-white nested-copy-line-height">
+  <div class="bg-white mb3 pa4 gray overflow-hidden">
+    <span class="f6 db">Posts</span>
+    <h1 class="f3 near-black">
+      <a href="http://superwf.github.io/p1375/" class="link black dim">
+        modern vim
+      </a>
+    </h1>
+    <div class="nested-links f5 lh-copy nested-copy-line-height">
+      vim进阶的又一本宝典，用了这么多年vim之后，仍然会感觉有很多东西需要掌握，有更多的插件等待挖掘
+以下是一些读书笔记。
+    </div>
+  </div>
+</div>
+</div>
+      
+        <div class="relative w-100 w-30-l mb4 bg-white"><div class="relative w-100 mb4 bg-white nested-copy-line-height">
+  <div class="bg-white mb3 pa4 gray overflow-hidden">
+    <span class="f6 db">Posts</span>
+    <h1 class="f3 near-black">
+      <a href="http://superwf.github.io/p1373/" class="link black dim">
+        smacss
+      </a>
+    </h1>
+    <div class="nested-links f5 lh-copy nested-copy-line-height">
+      
+    </div>
+  </div>
+</div>
+</div>
+      
+        <div class="relative w-100 w-30-l mb4 bg-white"><div class="relative w-100 mb4 bg-white nested-copy-line-height">
+  <div class="bg-white mb3 pa4 gray overflow-hidden">
+    <span class="f6 db">Posts</span>
+    <h1 class="f3 near-black">
+      <a href="http://superwf.github.io/p1369/" class="link black dim">
+        You Don’t Know JS 下卷
+      </a>
+    </h1>
+    <div class="nested-links f5 lh-copy nested-copy-line-height">
+      
+    </div>
+  </div>
+</div>
+</div>
+      
+        <div class="relative w-100 w-30-l mb4 bg-white"><div class="relative w-100 mb4 bg-white nested-copy-line-height">
+  <div class="bg-white mb3 pa4 gray overflow-hidden">
+    <span class="f6 db">Posts</span>
+    <h1 class="f3 near-black">
+      <a href="http://superwf.github.io/p1367/" class="link black dim">
+        css font字体文件过大问题
+      </a>
+    </h1>
+    <div class="nested-links f5 lh-copy nested-copy-line-height">
+      今天在console里看到了这么一行提示
+Intervention: WebFonts use adaptive timeouts to take fallback fonts 查了一下，是因为字体文件体积过大时，可能会造成使用该字体的元素在字体下载前后出现闪烁的问题。有学到了一个新属性font-display。按需要，指定block比较合适，因为字体图标一时也找不到什么合适的占位字体。
+https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display
+    </div>
+  </div>
+</div>
+</div>
+      
+        <div class="relative w-100 w-30-l mb4 bg-white"><div class="relative w-100 mb4 bg-white nested-copy-line-height">
+  <div class="bg-white mb3 pa4 gray overflow-hidden">
+    <span class="f6 db">Posts</span>
+    <h1 class="f3 near-black">
+      <a href="http://superwf.github.io/p1362/" class="link black dim">
+        fetch与promise.finally
+      </a>
+    </h1>
+    <div class="nested-links f5 lh-copy nested-copy-line-height">
+      es7里面的Promise.prototype.finally，可以通过core-js的polyfill来补全。
+本以为加上了core-js就可以了，但真的遇到不支持的浏览器仍然会报没有finally方法的错误。
+打开控制台调试，发现Promise.prototype.finally已经打上补丁是存在的。
+最后发现，在chrome中
+在火狐的低版本浏览器中
+ fetch返回的是个伪Promise对象，并不是全局Promise的实例，怪不得没有finally方法。
+干脆通过自己加上一段代码polyfill上去得了
+  
+    </div>
+  </div>
+</div>
+</div>
+      
+        <div class="relative w-100 w-30-l mb4 bg-white"><div class="relative w-100 mb4 bg-white nested-copy-line-height">
+  <div class="bg-white mb3 pa4 gray overflow-hidden">
+    <span class="f6 db">Posts</span>
+    <h1 class="f3 near-black">
+      <a href="http://superwf.github.io/p1355/" class="link black dim">
+        后端对于restful接口返回状态码的理解
+      </a>
+    </h1>
+    <div class="nested-links f5 lh-copy nested-copy-line-height">
+      今天在上班路上突然理解了一件长久以来困扰我的事情。
+做前端这几年，遇到做后端的接口，全都声称是restful接口，但使用http状态码作为判定条件的一个都没有，统统返回200然后在消息体里自定义状态码。
+原因大概因为jquery或axios等接口请求库，默认配置下，接口若返回非200响应，里面的消息体就拿不到啦。在大部分人的前端知识体系中，非200意味着抛出错误，消息体什么的当然拿不到，所以当应用出错时希望拿到错误提示等信息，必须还是返回200的状态。
+其实，非200的状态返回的消息，前端一样拿得到，只是需要一些额外配置一下。但后端人员对于前端jquery ajax请求应用的示例作为标准，或者理所当然认为前端人员的水平也只能获取到200返回的消息。于是就出现了各种各样的自定义消息体…
+推荐一下fetch，返回的是Response对象，只要是服务端相应了，里面都可以拿到各种接口返回数据，只有在网络出问题比如请求不可达的情况下会抛出错误。
+最后为自己的库做个广告 fxios
+    </div>
+  </div>
+</div>
+</div>
+      
+        <div class="relative w-100 w-30-l mb4 bg-white"><div class="relative w-100 mb4 bg-white nested-copy-line-height">
+  <div class="bg-white mb3 pa4 gray overflow-hidden">
+    <span class="f6 db">Posts</span>
+    <h1 class="f3 near-black">
+      <a href="http://superwf.github.io/p1352/" class="link black dim">
+        deno与typescript
+      </a>
+    </h1>
+    <div class="nested-links f5 lh-copy nested-copy-line-height">
+      多年前用过coffeescript，后来换工作之后因为团队里没人用，被强制放弃了。也幸亏放弃了coffeescript，才能紧跟ecmascript语法的发展，之后就一直用babel走标准es语法路线，在选择编译型前端(类似coffee需要编译成js才能运行)语言的时候都非常谨慎。
+之前我在flowtype与typescript之间一直倾向flowtype，一点是因为是facebook出品和react是一家，另一点是因为flowtype允许渐进式引入项目。typescript则是一旦使用则必须全部使用，至于是微软出品倒是不太介意。
+最近node的作者新开了个deno，默认直接运行typescript，node一下成了没爹的娃，可持续性堪忧。最重要的一点是：typescript赢了，各位准备深入学习吧。已经提早入ts坑的同学们，恭喜路子走对了。
+    </div>
+  </div>
+</div>
+</div>
+      
+    </section>
+
+<ul class="pagination">
+    
+    <li class="page-item">
+        <a href="/posts/" class="page-link" aria-label="First"><span aria-hidden="true">&laquo;&laquo;</span></a>
+    </li>
+    
+    <li class="page-item">
+    <a href="/posts/page/3/" class="page-link" aria-label="Previous"><span aria-hidden="true">&laquo;</span></a>
+    </li>
+    
+    
+    
+    
+    
+    
+    
+        
+        
+    
+    
+    <li class="page-item"><a class="page-link" href="/posts/">1</a></li>
+    
+    
+    
+    
+    
+    
+        
+        
+    
+    
+    <li class="page-item"><a class="page-link" href="/posts/page/2/">2</a></li>
+    
+    
+    
+    
+    
+    
+        
+        
+    
+    
+    <li class="page-item"><a class="page-link" href="/posts/page/3/">3</a></li>
+    
+    
+    
+    
+    
+    
+        
+        
+    
+    
+    <li class="page-item active"><a class="page-link" href="/posts/page/4/">4</a></li>
+    
+    
+    
+    
+    
+    
+        
+        
+    
+    
+    <li class="page-item"><a class="page-link" href="/posts/page/5/">5</a></li>
+    
+    
+    
+    
+    
+    
+        
+        
+    
+    
+    <li class="page-item disabled"><span aria-hidden="true">&nbsp;&hellip;&nbsp;</span></li>
+    
+    
+    
+    
+    
+    
+        
+        
+    
+    
+    
+    
+    
+    
+    
+        
+        
+    
+    
+    
+    
+    
+    
+    
+        
+        
+    
+    
+    
+    
+    
+    
+    
+        
+        
+    
+    
+    
+    
+    
+    
+    
+        
+        
+    
+    
+    
+    
+    
+    
+    
+        
+        
+    
+    
+    
+    
+    
+    
+    
+        
+        
+    
+    
+    
+    
+    
+    
+    
+        
+        
+    
+    
+    
+    
+    
+    
+    
+        
+        
+    
+    
+    
+    
+    
+    
+    
+        
+        
+    
+    
+    
+    
+    
+    
+    
+        
+        
+    
+    
+    
+    
+    
+    
+    
+        
+        
+    
+    
+    
+    
+    
+    
+    
+        
+        
+    
+    
+    
+    
+    
+    
+    
+        
+        
+    
+    
+    
+    
+    
+    
+    
+        
+        
+    
+    
+    
+    
+    
+    
+    
+        
+        
+    
+    
+    
+    
+    
+    
+    
+        
+        
+    
+    
+    
+    
+    
+    
+    
+        
+        
+    
+    
+    
+    
+    
+    
+    
+        
+        
+    
+    
+    
+    
+    
+    
+    
+        
+        
+    
+    
+    
+    
+    
+    
+    
+        
+        
+    
+    
+    
+    
+    
+    
+    
+        
+        
+    
+    
+    <li class="page-item"><a class="page-link" href="/posts/page/28/">28</a></li>
+    
+    
+    <li class="page-item">
+    <a href="/posts/page/5/" class="page-link" aria-label="Next"><span aria-hidden="true">&raquo;</span></a>
+    </li>
+    
+    <li class="page-item">
+        <a href="/posts/page/28/" class="page-link" aria-label="Last"><span aria-hidden="true">&raquo;&raquo;</span></a>
+    </li>
+    
+</ul>
+
+</article>
+
+    </main>
+    <footer class="bg-black bottom-0 w-100 pa3" role="contentinfo">
+  <div class="flex justify-between">
+  <a class="f4 fw4 hover-white no-underline white-70 dn dib-ns pv2 ph3" href="http://superwf.github.io/" >
+    &copy;  老王的日志 2020 
+  </a>
+    <div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+</div>
+  </div>
+</footer>
+
+    
+
+  <script src="/dist/js/app.3fc0f988d21662902933.js"></script>
+
+
+  </body>
+</html>

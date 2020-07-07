@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>dart on 老王的日志</title>
+    <link>http://superwf.github.io/categories/dart/</link>
+    <description>Recent content in dart on 老王的日志</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-CN</language>
+    <lastBuildDate>Mon, 10 Jun 2019 14:43:44 +0000</lastBuildDate>
+    
+	<atom:link href="http://superwf.github.io/categories/dart/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Packt Learning Dart 2nd Edition</title>
+      <link>http://superwf.github.io/p1485/</link>
+      <pubDate>Mon, 10 Jun 2019 14:43:44 +0000</pubDate>
+      
+      <guid>http://superwf.github.io/p1485/</guid>
+      <description>最近flutter很火。抽空看了一下dart的语法。
+dart是一个既支持jit又支持aot编译的语言。
+但书里也没写如何aot编译为二进制文件。
+dart大部分语法对于typescript使用者来说无门槛。只要import就全部变量直接可用这点，对于es的显式import有些不习惯，不过有language sever的ide支持，补全功能与ts一样好用。
+async/await与前端开发一摸一样，promise换成了future。</description>
+    </item>
+    
+  </channel>
+</rss>

@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>mysql on 老王的日志</title>
+    <link>http://superwf.github.io/categories/mysql/</link>
+    <description>Recent content in mysql on 老王的日志</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-CN</language>
+    <lastBuildDate>Thu, 27 Nov 2014 07:51:58 +0000</lastBuildDate>
+    
+	<atom:link href="http://superwf.github.io/categories/mysql/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>ERROR 1615 (HY000): Prepared statement needs to be re-prepared</title>
+      <link>http://superwf.github.io/p937/</link>
+      <pubDate>Thu, 27 Nov 2014 07:51:58 +0000</pubDate>
+      
+      <guid>http://superwf.github.io/p937/</guid>
+      <description>今天部署到服务器,运行之后报错,一开始还以为是golang的mysql库的问题.
+生成的sql语句在服务器上手动执行也没问题.
+最可气的是执行的sql语句经过过滤报错,若直接将客户端变量与sql语句相加生成的sql语句不报错.简直是把人往sql注入的坑里带.
+后来查到
+https://www.linuxwind.org/page/2
+改了mysql的俩量之后,总算通过了.</description>
+    </item>
+    
+    <item>
+      <title>mysql的innodb</title>
+      <link>http://superwf.github.io/p900/</link>
+      <pubDate>Fri, 25 Jul 2014 01:34:15 +0000</pubDate>
+      
+      <guid>http://superwf.github.io/p900/</guid>
+      <description>其实可能应该叫mariadb了，最近听了老于的建议，换成了mariadb。
+迁移之后因为新服务器内存大了很多，加大了缓存解决了很多之前锁表的问题。
+设置binlog之后，在从机上同步时发现master上设置的binlog-ignore-db = mysql,information_schema没起作用，从机还是照常同步
+后来在从机上设置replicate-ignore-db = mysql,information_schema也没起作用
+可能是mysql从5.5还是什么版本之后，需要多行设置，或者就是之前网上那些示例全写错了
+应该写成
+binlog-ignore-db = mysql
+binlog-ignore-db = information_schema
+replicate-ignore-db = mysql
+replicate-ignore-db = information_schema</description>
+    </item>
+    
+    <item>
+      <title>mysql 主从机设置</title>
+      <link>http://superwf.github.io/p115/</link>
+      <pubDate>Fri, 24 Jun 2011 08:27:38 +0000</pubDate>
+      
+      <guid>http://superwf.github.io/p115/</guid>
+      <description>mysql 从5.1开始就好像不支持将主从配置写在my.ini里了，得先开服务然后用sql语句来操作同步，参考
+http://www.ooso.net/archives/547
+  </description>
+    </item>
+    
+    <item>
+      <title>mysql 网络连接慢</title>
+      <link>http://superwf.github.io/p113/</link>
+      <pubDate>Wed, 22 Jun 2011 03:53:48 +0000</pubDate>
+      
+      <guid>http://superwf.github.io/p113/</guid>
+      <description>公司有个老程序，数据库一直是win下的，想迁移到linux的mysql下，结果里面好多的sql语句乱写，大小写混乱导致linux下的mysql好多找不到表
+迁移后每次建立连接要花5秒左右的时间。连接之后查询倒是很快，网上搜了，在my.ini里加了
+不让mysql解析客户端的域名，连接终于快了</description>
+    </item>
+    
+    <item>
+      <title>mysql 1251错误</title>
+      <link>http://superwf.github.io/p111/</link>
+      <pubDate>Tue, 21 Jun 2011 08:15:06 +0000</pubDate>
+      
+      <guid>http://superwf.github.io/p111/</guid>
+      <description>今天用php4连接linux里的mysql5.1，报的这个错，代码1251
+解决方法
+其一:
+其二:
+总之得用mysql4兼容模式重新设置一下密码</description>
+    </item>
+    
+  </channel>
+</rss>

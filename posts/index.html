@@ -1,0 +1,672 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    
+    <title>老王的日志</title>
+    <meta name="viewport" content="width=device-width,minimum-scale=1">
+    <meta name="generator" content="Hugo 0.68.3" />
+    
+    
+      <META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW">
+    
+
+    
+    
+      <link href="/dist/css/app.1cb140d8ba31d5b2f1114537dd04802a.css" rel="stylesheet">
+    
+
+    
+
+    
+      
+    
+
+    
+    
+      <link href="/posts/index.xml" rel="alternate" type="application/rss+xml" title="老王的日志" />
+      <link href="/posts/index.xml" rel="feed" type="application/rss+xml" title="老王的日志" />
+      
+    
+    
+    <meta property="og:title" content="Posts" />
+<meta property="og:description" content="" />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="http://superwf.github.io/posts/" />
+<meta property="og:updated_time" content="2020-04-29T01:53:50+00:00" />
+<meta itemprop="name" content="Posts">
+<meta itemprop="description" content=""><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Posts"/>
+<meta name="twitter:description" content=""/>
+
+  </head>
+
+  <body class="ma0 avenir bg-near-white">
+
+    
+
+  <header>
+    <div class="pb3-m pb6-l bg-black">
+      <nav class="pv3 ph3 ph4-ns" role="navigation">
+  <div class="flex-l justify-between items-center center">
+    <a href="http://superwf.github.io/" class="f3 fw2 hover-white no-underline white-90 dib">
+      老王的日志
+    </a>
+    <div class="flex-l items-center">
+      
+
+      
+        <ul class="pl0 mr3">
+          
+          <li class="list f5 f4-ns fw4 dib pr3">
+            <a class="hover-white no-underline white-90" href="/migrate2020/" title="migrate2020 page">
+              migrate2020
+            </a>
+          </li>
+          
+          <li class="list f5 f4-ns fw4 dib pr3">
+            <a class="hover-white no-underline white-90" href="/coder-life/" title="coder-life page">
+              coder-life
+            </a>
+          </li>
+          
+        </ul>
+      
+      
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    </div>
+  </div>
+</nav>
+
+      <div class="tc-l pv3 ph3 ph4-ns">
+        <h1 class="f2 f-subheadline-l fw2 light-silver mb0 lh-title">
+          Posts
+        </h1>
+        
+      </div>
+    </div>
+  </header>
+
+
+    <main class="pb7" role="main">
+      
+  <article class="pa3 pa4-ns nested-copy-line-height nested-img">
+    <section class="cf ph3 ph5-l pv3 pv4-l f4 tc-l center measure-wide lh-copy mid-gray"></section>
+    <section class="flex-ns flex-wrap justify-around mt5">
+      
+        <div class="relative w-100 w-30-l mb4 bg-white"><div class="relative w-100 mb4 bg-white nested-copy-line-height">
+  <div class="bg-white mb3 pa4 gray overflow-hidden">
+    <span class="f6 db">Posts</span>
+    <h1 class="f3 near-black">
+      <a href="http://superwf.github.io/p1560/" class="link black dim">
+        Rust vs C/C&#43;&#43;
+      </a>
+    </h1>
+    <div class="nested-links f5 lh-copy nested-copy-line-height">
+      一个现代化语言所应具备的特性大体如下
+首要条件，图灵完备
+有统一安装源的第三方包管理平台与集成工具，可以自动解决各种依赖与版本管理，ruby、js、python等都有现成的案例，linux的apt与yum也都属于这种工具。
+友好的单元测试编写与运行环境。
+代码风格自动格式化工具
+与ide集成的静态类型检查（language server）
+方便快速的编译命令
+良好设计的模块分隔规则
+异步/多线程处理
+良好设计的错误处理模式
+方便的注释与代码文档化提取工具
+方便的内存管理，自动GC或其他更好的方式，手动内存管理对于业务开发太耗费人工并且引入更多bug。
+跨平台运行、编译表现的一致性。
+rust安装与版本升级都用rustup
+cargo默认添加依赖得手动添加，想达到’npm insall’这种自动安装依赖，需要安装cargo-edit
+安装的过程中报了个错误X86_64_UNKNOWN_LINUX_GNU_OPENSSL_LIB_DIR，需要先安装libssl-dev
+    </div>
+  </div>
+</div>
+</div>
+      
+        <div class="relative w-100 w-30-l mb4 bg-white"><div class="relative w-100 mb4 bg-white nested-copy-line-height">
+  <div class="bg-white mb3 pa4 gray overflow-hidden">
+    <span class="f6 db">Posts</span>
+    <h1 class="f3 near-black">
+      <a href="http://superwf.github.io/p1536/" class="link black dim">
+        Manning.Electron.in.Action
+      </a>
+    </h1>
+    <div class="nested-links f5 lh-copy nested-copy-line-height">
+      《manning electron in action》
+electorn的优势
+集成最新的chromium，不用被浏览器兼容性托后腿
+可同时访问浏览器与本地api，没有任何浏览器开发程序的限制
+主要特性
+分为主进程与0个或多个renderer进程
+学的时候正赶上electron7的安装bug，由于配置了内网远程安装路径上少了个v，总是安装失败
+后来自己在node_modules/@electron/get中自己改了一下代码去掉路径中的v，然后再手动执行node node_modules/electron/install.js。
+这个bug在cnpm的issues中已经有人提了，之后不久应该会有修正。
+前几章用存储并展示markdown文件与操作clipboard的小例子讲解了main与renderer之间如何通信。
+但目前版本中在renderer进程中目前已经默认关闭了nodeIntegretion。
+比较好的方式是在创建BrowserWindow的时候使用参数，使用
+{
+webPreferences: {
+preload: __dirname + ‘./preload.js’,
+}
+}
+在指定的preload.js中将ipc模块负值到全局window上。
+前面的例子都是比较原始的开发流程，开发，编译，看看效果
+直到第11章，引入了其他类型脚本编译，开发环境livereload，开始精彩起来，示例工程为Jetsetter，一个管理收拾履行物品打包的小应用。
+13章，测试，使用spectron，底层仍然调用selenium，selenium用过当时感觉api不太友好没太深入。
+不过spectron里面可以使用async await，和puppeteer非常像，比较友好，而且更好的是可以直接访问ui层，这个比puppeteer好像还强点
+不知道在当今是否可以与puppeteer结合
+说到底spectron仍然是黑盒测试，而非单元测试。
+14章 打包
+electron-packager 与 electron-forge
+15章
+错误收集，使用 minidump读取错误二进制文件
+程序内更新升级，这个功能封装的很方便。
+16章 发布苹果的app store，呃，没苹果产品，跳过
+appendix
+之前的所有例子详解
+    </div>
+  </div>
+</div>
+</div>
+      
+        <div class="relative w-100 w-30-l mb4 bg-white"><div class="relative w-100 mb4 bg-white nested-copy-line-height">
+  <div class="bg-white mb3 pa4 gray overflow-hidden">
+    <span class="f6 db">Posts</span>
+    <h1 class="f3 near-black">
+      <a href="http://superwf.github.io/p1539/" class="link black dim">
+        ubuntu下录屏
+      </a>
+    </h1>
+    <div class="nested-links f5 lh-copy nested-copy-line-height">
+      今天为了写个教程，需要录制屏幕来辅助讲解
+之前一直用recordmydesktop生成ogv文件，突然发现上传到github之后ogv是不能播放的
+没关系，反正也不需要声音，转成gif吧，后来查了一下，ubuntu有ffmpeg工具可以直接完成这项工作。
+网上的教程比较老，还得自己添加ppa源，马上ubuntu20都要出了，官方源就带，直接装ffmpeg就行不需要外部源。
+但还是麻烦，需要先录制屏幕，再手动转图，中间步骤还没法自动化
+再找吧，找到了peek，真是好东东，直接录屏到gif呢。需要添加安装源。
+sudo add-apt-repository ppa:peek-developers/stable
+等等，peek的选项里好像有其他几个图片支持，apng和webm都是个什么，赶紧查一下。
+apng是png的一种扩展，既有png的优势，又能动。
+webp用过，chrome支持，有技术优势，也能动，如果可以直接生成的话，是最佳选择，但peek的生成选项里没有这个。
+webm是视频格式，对标的是mp4，属于视频和音频流。
+试了一下推送github，webm不能显示，apng没问题。
+最终选定apng。
+    </div>
+  </div>
+</div>
+</div>
+      
+        <div class="relative w-100 w-30-l mb4 bg-white"><div class="relative w-100 mb4 bg-white nested-copy-line-height">
+  <div class="bg-white mb3 pa4 gray overflow-hidden">
+    <span class="f6 db">Posts</span>
+    <h1 class="f3 near-black">
+      <a href="http://superwf.github.io/p1534/" class="link black dim">
+        webpack proxy的changeOrigin
+      </a>
+    </h1>
+    <div class="nested-links f5 lh-copy nested-copy-line-height">
+      开发环境中经常要用到webpack的proxy
+在后端有域名校验的情况下，需要经常修改代理的请求http header中的host来模拟验证过程，其中的changeOrigin是关键字段。
+在http-proxy-middleware的文档中可以看到
+changeOrigin 的注释是 needed for virtual hosted sites
+其含义还是很模糊，通过wireshark抓包最终确认
+changeOrigin: true
+实际请求host与target中配置的一致
+changeOrigin: false (默认值)
+实际请求host与浏览器url中的一致
+    </div>
+  </div>
+</div>
+</div>
+      
+        <div class="relative w-100 w-30-l mb4 bg-white"><div class="relative w-100 mb4 bg-white nested-copy-line-height">
+  <div class="bg-white mb3 pa4 gray overflow-hidden">
+    <span class="f6 db">Posts</span>
+    <h1 class="f3 near-black">
+      <a href="http://superwf.github.io/p1530/" class="link black dim">
+        使用unpkg站点可使用的umd发布格式发布npm包
+      </a>
+    </h1>
+    <div class="nested-links f5 lh-copy nested-copy-line-height">
+       如果发布的npm包需要在unpkg这种cdn中应用，需要在package.json中添加unpkg或browser字段，如果都没有，会使用main字段，main也没有则会直接使用文件夹下的index.js，指向打包编译为umd格式的文件。 该优先级识别顺序在express-unpkg包的源码中可查询。  
+    </div>
+  </div>
+</div>
+</div>
+      
+        <div class="relative w-100 w-30-l mb4 bg-white"><div class="relative w-100 mb4 bg-white nested-copy-line-height">
+  <div class="bg-white mb3 pa4 gray overflow-hidden">
+    <span class="f6 db">Posts</span>
+    <h1 class="f3 near-black">
+      <a href="http://superwf.github.io/p1525/" class="link black dim">
+        热替换
+      </a>
+    </h1>
+    <div class="nested-links f5 lh-copy nested-copy-line-height">
+      一次hmr热替换失效问题 {#%E4%B8%80%E6%AC%A1hmr%E7%83%AD%E6%9B%BF%E6%8D%A2%E5%A4%B1%E6%95%88%E9%97%AE%E9%A2%98}  webpack配置 {#webpack%E9%85%8D%E7%BD%AE} 在devServer中添加hot项
+ 代码配合 {#%E4%BB%A3%E7%A0%81%E9%85%8D%E5%90%88} 在webpack的entry中制定的源码中需要
+这种由webpack提供的hmr方案是不需要react-hot-loader的
+ 以下是我遇到的一次热替换失效问题 {#%E4%BB%A5%E4%B8%8B%E6%98%AF%E6%88%91%E9%81%87%E5%88%B0%E7%9A%84%E4%B8%80%E6%AC%A1%E7%83%AD%E6%9B%BF%E6%8D%A2%E5%A4%B1%E6%95%88%E9%97%AE%E9%A2%98} 在一次进行代码优化之后，发现热替换失效，最开始没在意，认为升级webpack或loader即可修正。
+经过两些天的开发工作之后按F5倍感疲惫，决定彻底解决该问题。
+尝试各种依赖升级，之后与另一个项目对比发现在所有依赖与工程配置都一样的情况下，另一个项目的hmr正常工作，问题项目就是工作。
+在问题项目中，非React.lazy加载的组件都可正常hmr。
+问题集中在了路由加载，最终发现，routes的路由数组，由于代码优化，被放到了其中一个数据store的属性中，导致hmr失效。将routes数组全部经过react的props层层传递，即可使hmr正常工作。
+    </div>
+  </div>
+</div>
+</div>
+      
+        <div class="relative w-100 w-30-l mb4 bg-white"><div class="relative w-100 mb4 bg-white nested-copy-line-height">
+  <div class="bg-white mb3 pa4 gray overflow-hidden">
+    <span class="f6 db">Posts</span>
+    <h1 class="f3 near-black">
+      <a href="http://superwf.github.io/p1503/" class="link black dim">
+        requestAnimationFrame
+      </a>
+    </h1>
+    <div class="nested-links f5 lh-copy nested-copy-line-height">
+      requestAnimationFrame的特点是在每帧渲染时调用，可以根据当前运行硬件大幅优化动画流畅度。还有一个隐形的特性就是只在当前窗口激活状态才会运行，这也是它可以节省计算资源的一大优势。
+有些优化场景会有监听当前页面激活状态的需求，只有在当前页面激活时才定时请求后端数据来达到数据半即时更新的效果。
+通常的解决方案都是监听“visibilitychange”事件，通过该事件的切换状态开启或关闭监听。例如如下代码
+在原生支持requestAnimationFrame的浏览器上，可以通过该函数达到同样的效果，不用手动去监听 visibilitychange。
+例如如下代码
+    </div>
+  </div>
+</div>
+</div>
+      
+        <div class="relative w-100 w-30-l mb4 bg-white"><div class="relative w-100 mb4 bg-white nested-copy-line-height">
+  <div class="bg-white mb3 pa4 gray overflow-hidden">
+    <span class="f6 db">Posts</span>
+    <h1 class="f3 near-black">
+      <a href="http://superwf.github.io/p1498/" class="link black dim">
+        面试技能分级
+      </a>
+    </h1>
+    <div class="nested-links f5 lh-copy nested-copy-line-height">
+      最近面试很多新人，对于很多技能等级的描述是非常模糊的。
+这个问题其实对每个人来说都是一样的，面试的时候说低了无法体现自己的技能，说太高了也有些心虚，毕竟所有知识点不可能都即时的装在高速记忆区可以做到随问随答。
+后来想了想，从低到高，我把技能大概分为这几个等级。
+1.不知道这个概念，完全没听说过，您就甭接着问这个话题了。（很多）
+2.知道这个概念，但仅仅是听说个大概。（例如人工智能，大数据算法等）
+3.知道该概念，读过相关介绍性文章，心里大概有数。（例如web assembly等）
+4.学习过该概念，并且花时间读过文档做过demo，相对深入的学习过，但没有实战经验。（例如golang，python，webgl等）
+5.不仅深入学习过该概念，而且在实际项目中有实战应用，但距今已经有一段时间了，可能很多细节需要重新学习才能再上手，上手应该很快（php、mysql、rails、一些运维工具）
+6.深入学习过该概念，且在实际项目中应用至今，开箱即用，是我目前最可以拿出手的王牌技能（es、ts、css、nodejs、linux等）
+    </div>
+  </div>
+</div>
+</div>
+      
+        <div class="relative w-100 w-30-l mb4 bg-white"><div class="relative w-100 mb4 bg-white nested-copy-line-height">
+  <div class="bg-white mb3 pa4 gray overflow-hidden">
+    <span class="f6 db">Posts</span>
+    <h1 class="f3 near-black">
+      <a href="http://superwf.github.io/p1494/" class="link black dim">
+        前端的各种路径别名
+      </a>
+    </h1>
+    <div class="nested-links f5 lh-copy nested-copy-line-height">
+      在进入es module时代后，import使用已经是日常标配。
+但在引入模块时，经常需要 import ‘../../../xxxx’ 这种跨多级相对路径的引用。于是在各种工具环节，都可以找到前人已经开发好的path alias配置或工具，让coders可以使用各种简化的路径来引入模块。
+我用过的一些比如webpack配置alias，babel插件babel-plugin-module-resolver，tsconfig中的paths
+在单应用开发时，使用这些之一的配置可以很方便的简化模块引入行为。
+但在最近的lerna开发几个mono repo时遇到了问题。在packages中的平行应用互相引用时，遇到各种路径问题，最终结论是，在跨package调用时尽量使用相对路径，或者在整个mono repo的根package中设置统一的别名配置。
+    </div>
+  </div>
+</div>
+</div>
+      
+        <div class="relative w-100 w-30-l mb4 bg-white"><div class="relative w-100 mb4 bg-white nested-copy-line-height">
+  <div class="bg-white mb3 pa4 gray overflow-hidden">
+    <span class="f6 db">Posts</span>
+    <h1 class="f3 near-black">
+      <a href="http://superwf.github.io/p1455/" class="link black dim">
+        webgl学习
+      </a>
+    </h1>
+    <div class="nested-links f5 lh-copy nested-copy-line-height">
+      Varyings 用于在vertex与fragment中共享数据
+attribute限定为逐顶点变量。
+Uniforms用于记录一些非逐顶点的，全局、且在每帧之间不变的数据，如光照位置与亮度，全局位移与透视信息等。
+生成阴影，需要在帧缓冲中离屏绘制然后将阴影的坐标存到该帧所在的一个材质中，然后在实际绘图时从该材质获取阴影数据之后通过颜色合成计算出阴影。当小数点精度不够时会产生斑马纹，还需要手动调节数据精度。
+webgl是左手还是右手坐标系？原生是左手，但一旦设置了视点，应用了视点矩阵，从z轴的反方向看就变成了右手坐标系。而大多数程序的视点都是这样的做的。所以绝大多数场景应以右手坐标系考虑。
+    </div>
+  </div>
+</div>
+</div>
+      
+    </section>
+
+<ul class="pagination">
+    
+    <li class="page-item">
+        <a href="/posts/" class="page-link" aria-label="First"><span aria-hidden="true">&laquo;&laquo;</span></a>
+    </li>
+    
+    <li class="page-item disabled">
+    <a  class="page-link" aria-label="Previous"><span aria-hidden="true">&laquo;</span></a>
+    </li>
+    
+    
+    
+    
+    
+    
+    
+        
+        
+    
+    
+    <li class="page-item active"><a class="page-link" href="/posts/">1</a></li>
+    
+    
+    
+    
+    
+    
+        
+        
+    
+    
+    <li class="page-item"><a class="page-link" href="/posts/page/2/">2</a></li>
+    
+    
+    
+    
+    
+    
+        
+        
+    
+    
+    <li class="page-item"><a class="page-link" href="/posts/page/3/">3</a></li>
+    
+    
+    
+    
+    
+    
+        
+        
+    
+    
+    <li class="page-item disabled"><span aria-hidden="true">&nbsp;&hellip;&nbsp;</span></li>
+    
+    
+    
+    
+    
+    
+        
+        
+    
+    
+    
+    
+    
+    
+    
+        
+        
+    
+    
+    
+    
+    
+    
+    
+        
+        
+    
+    
+    
+    
+    
+    
+    
+        
+        
+    
+    
+    
+    
+    
+    
+    
+        
+        
+    
+    
+    
+    
+    
+    
+    
+        
+        
+    
+    
+    
+    
+    
+    
+    
+        
+        
+    
+    
+    
+    
+    
+    
+    
+        
+        
+    
+    
+    
+    
+    
+    
+    
+        
+        
+    
+    
+    
+    
+    
+    
+    
+        
+        
+    
+    
+    
+    
+    
+    
+    
+        
+        
+    
+    
+    
+    
+    
+    
+    
+        
+        
+    
+    
+    
+    
+    
+    
+    
+        
+        
+    
+    
+    
+    
+    
+    
+    
+        
+        
+    
+    
+    
+    
+    
+    
+    
+        
+        
+    
+    
+    
+    
+    
+    
+    
+        
+        
+    
+    
+    
+    
+    
+    
+    
+        
+        
+    
+    
+    
+    
+    
+    
+    
+        
+        
+    
+    
+    
+    
+    
+    
+    
+        
+        
+    
+    
+    
+    
+    
+    
+    
+        
+        
+    
+    
+    
+    
+    
+    
+    
+        
+        
+    
+    
+    
+    
+    
+    
+    
+        
+        
+    
+    
+    
+    
+    
+    
+    
+        
+        
+    
+    
+    
+    
+    
+    
+    
+        
+        
+    
+    
+    <li class="page-item"><a class="page-link" href="/posts/page/28/">28</a></li>
+    
+    
+    <li class="page-item">
+    <a href="/posts/page/2/" class="page-link" aria-label="Next"><span aria-hidden="true">&raquo;</span></a>
+    </li>
+    
+    <li class="page-item">
+        <a href="/posts/page/28/" class="page-link" aria-label="Last"><span aria-hidden="true">&raquo;&raquo;</span></a>
+    </li>
+    
+</ul>
+
+</article>
+
+    </main>
+    <footer class="bg-black bottom-0 w-100 pa3" role="contentinfo">
+  <div class="flex justify-between">
+  <a class="f4 fw4 hover-white no-underline white-70 dn dib-ns pv2 ph3" href="http://superwf.github.io/" >
+    &copy;  老王的日志 2020 
+  </a>
+    <div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+</div>
+  </div>
+</footer>
+
+    
+
+  <script src="/dist/js/app.3fc0f988d21662902933.js"></script>
+
+
+  </body>
+</html>

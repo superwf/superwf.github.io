@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>linux 大量 海量 文件 on 老王的日志</title>
+    <link>http://superwf.github.io/tags/linux-%E5%A4%A7%E9%87%8F-%E6%B5%B7%E9%87%8F-%E6%96%87%E4%BB%B6/</link>
+    <description>Recent content in linux 大量 海量 文件 on 老王的日志</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-CN</language>
+    <lastBuildDate>Fri, 15 Apr 2011 08:09:38 +0000</lastBuildDate>
+    
+	<atom:link href="http://superwf.github.io/tags/linux-%E5%A4%A7%E9%87%8F-%E6%B5%B7%E9%87%8F-%E6%96%87%E4%BB%B6/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>linux删除海量文件</title>
+      <link>http://superwf.github.io/p12/</link>
+      <pubDate>Fri, 15 Apr 2011 08:09:38 +0000</pubDate>
+      
+      <guid>http://superwf.github.io/p12/</guid>
+      <description>/var/spool/mqueue下海量文件，几百万
+rm * -f肯定不行
+list | xargs rm -f
+按说行，网上大家都说行，但是此命令执行一会就自动退出了，而且ls | wc -l
+发现啥都没删掉
+想了想用sed
+先ls &amp;gt; list 生成list文件
+写了个脚本
+每次删100个</description>
+    </item>
+    
+  </channel>
+</rss>

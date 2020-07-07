@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    
+    <title>system | 老王的日志</title>
+    <meta name="viewport" content="width=device-width,minimum-scale=1">
+    <meta name="generator" content="Hugo 0.68.3" />
+    
+    
+      <META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW">
+    
+
+    
+    
+      <link href="/dist/css/app.1cb140d8ba31d5b2f1114537dd04802a.css" rel="stylesheet">
+    
+
+    
+
+    
+      
+    
+
+    
+    
+      <link href="/categories/system/index.xml" rel="alternate" type="application/rss+xml" title="老王的日志" />
+      <link href="/categories/system/index.xml" rel="feed" type="application/rss+xml" title="老王的日志" />
+      
+    
+    
+    <meta property="og:title" content="system" />
+<meta property="og:description" content="" />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="http://superwf.github.io/categories/system/" />
+<meta property="og:updated_time" content="2014-02-28T02:40:27+00:00" />
+<meta itemprop="name" content="system">
+<meta itemprop="description" content=""><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="system"/>
+<meta name="twitter:description" content=""/>
+
+  </head>
+
+  <body class="ma0 avenir bg-near-white">
+
+    
+
+  <header>
+    <div class="pb3-m pb6-l bg-black">
+      <nav class="pv3 ph3 ph4-ns" role="navigation">
+  <div class="flex-l justify-between items-center center">
+    <a href="http://superwf.github.io/" class="f3 fw2 hover-white no-underline white-90 dib">
+      老王的日志
+    </a>
+    <div class="flex-l items-center">
+      
+
+      
+        <ul class="pl0 mr3">
+          
+          <li class="list f5 f4-ns fw4 dib pr3">
+            <a class="hover-white no-underline white-90" href="/migrate2020/" title="migrate2020 page">
+              migrate2020
+            </a>
+          </li>
+          
+          <li class="list f5 f4-ns fw4 dib pr3">
+            <a class="hover-white no-underline white-90" href="/coder-life/" title="coder-life page">
+              coder-life
+            </a>
+          </li>
+          
+        </ul>
+      
+      
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    </div>
+  </div>
+</nav>
+
+      <div class="tc-l pv3 ph3 ph4-ns">
+        <h1 class="f2 f-subheadline-l fw2 light-silver mb0 lh-title">
+          system
+        </h1>
+        
+      </div>
+    </div>
+  </header>
+
+
+    <main class="pb7" role="main">
+      
+  <article class="cf pa3 pa4-m pa4-l">
+    <div class="measure-wide-l center f4 lh-copy nested-copy-line-height nested-links nested-img mid-gray">
+      <p>Below you will find pages that utilize the taxonomy term “system”</p>
+    </div>
+  </article>
+  <div class="mw8 center">    
+    <section class="flex-ns flex-wrap justify-around mt5">
+      
+        <div class="relative w-100  mb4 bg-white">
+          <div class="relative w-100 mb4 bg-white nested-copy-line-height">
+  <div class="bg-white mb3 pa4 gray overflow-hidden">
+    <span class="f6 db">Posts</span>
+    <h1 class="f3 near-black">
+      <a href="http://superwf.github.io/p765/" class="link black dim">
+        debian upgrade to jassie
+      </a>
+    </h1>
+    <div class="nested-links f5 lh-copy nested-copy-line-height">
+      升级之后出的问题折腾了一天之后一一解决。
+1.升级后让卸载NVIDIA显卡驱动，期间死机两次，进去之后还得修复依赖关系很耗时，卸载之后直接用系统自带的包就可以装，以后也不用去nv官网下驱动了。
+2.升级后gnome3各种不爽还卡，虽然用wheezy的时候也是gnome3，但是可选classic模式还能凑合用。但这次升级之后选了flashback模式，但是菜单死活不出东西，网上说干净重装可用，且以后再说，搜了一下发现mate是gnome2演变而来，装上后发现十分舒服。
+http://mate-desktop.org/
+3.升级之后虚拟机网卡驱动竟然变了，用ghost重新装了一个kvm虚拟机，然后把驱动考出来又装回原来的虚拟机了。
+4.升级之后lvm不能自动识别，开机总是lv status not available。必须手动vgchange -a y才能进系统。最后这个解决
+http://www.linuxquestions.org/questions/linux-software-2/problems-booting-from-luks-on-top-of-lvm-4175487926/
+按这里说的在 /etc/default/grub:
+加一行
+然后运行update-grub，重启后能正常启动了。
+耽误了一天，之后服务器也升级的时候需要提前准备好这几点。
+    </div>
+  </div>
+</div>
+
+        </div>
+      
+        <div class="relative w-100  mb4 bg-white">
+          <div class="relative w-100 mb4 bg-white nested-copy-line-height">
+  <div class="bg-white mb3 pa4 gray overflow-hidden">
+    <span class="f6 db">Posts</span>
+    <h1 class="f3 near-black">
+      <a href="http://superwf.github.io/p555/" class="link black dim">
+        nagios监控磁盘空间
+      </a>
+    </h1>
+    <div class="nested-links f5 lh-copy nested-copy-line-height">
+      今天弄了一下nagios的check_snmp_storage.pl
+但是发现
+返回
+在目标主机本地执行
+返回
+按snmp的计算应该是剩余12%
+在目标主机上df
+最后发现是df的值不对，由于是ext4分区有5%的保留块，实际的用量就应该是78%，但是由于最后5%是不能用的，78 + 5 = 83
+虽然df的计算数据不正确，但是报警值应该加上5%来算。文件系统 1K-块 已用 可用 已用% 挂载点
+check_snmp_storage 就应该改成
+check_snmp_storage.pl -H aaa.client.com -w 85 -c 90 -T pu -m /home
+    </div>
+  </div>
+</div>
+
+        </div>
+      
+        <div class="relative w-100  mb4 bg-white">
+          <div class="relative w-100 mb4 bg-white nested-copy-line-height">
+  <div class="bg-white mb3 pa4 gray overflow-hidden">
+    <span class="f6 db">Posts</span>
+    <h1 class="f3 near-black">
+      <a href="http://superwf.github.io/p432/" class="link black dim">
+        cacti
+      </a>
+    </h1>
+    <div class="nested-links f5 lh-copy nested-copy-line-height">
+      cacti又折腾了两天，主要是之前snmp的一些东西都忘了，又重新看了一下。
+弄明白了点觉得挺简单的，不过要是不明白，全都跟天书一样。
+软件全都aptitude安装，让系统默认配置。
+需要被监控的机器都要装snmpd
+看说明，要是想禁用snmpd v1 和 v2，在snmpd.conf里注释掉带community的行就行了，v3的认证不需要community
+在snmpd.conf里更改要监听的ip地址
+然后net-snmp-config –create-snmpv3-user -ro -a xxxxxxxx -x yyyyyyyy -X DES -A MD5 snmpuser
+man一下看看更好
+-a是验证密码，-x是是privpass，理解是snmp进行set时的写入密码，不过我感觉cacti都是读操作，应该用不到这个密码。
+建立snmpv3的用户与验证密码
+密码强制至少8位
+顺带一说cacti没法放到网站的根域名下，由于程序本身的设计必须被放在/cacti的虚拟目录下，不然总是redirect错误。
+在cacti里建立device
+填的和刚才建立的用户名和密码一致就行。
+template选择 ucd/net SNMP Host，这个模板基本想要的图都包括了。
+其他模板也行，就是带的图不一样而已。
+如果没出图，在graph management里找这个主机的随便一个图，开debug模式调试。
+图没问题了，在grahp trees 里添加新主机
+Tree Item Type选Host
+然后选中新主机添加
+后来看图里显示的硬盘和内存，都比实际的要小大概五分之一，难道是本机和snmp的算法不一样？回头问问老于。
+nagios里的nagios-snmp-plugin要用snmp v3的话，需要装以下东西
+libnet-snmp-perl libcrypt-hcesha-perl libcrypt-des-perl libdigest-hmac-perl
+    </div>
+  </div>
+</div>
+
+        </div>
+      
+        <div class="relative w-100  mb4 bg-white">
+          <div class="relative w-100 mb4 bg-white nested-copy-line-height">
+  <div class="bg-white mb3 pa4 gray overflow-hidden">
+    <span class="f6 db">Posts</span>
+    <h1 class="f3 near-black">
+      <a href="http://superwf.github.io/p395/" class="link black dim">
+        全lvm分区安装不能安装grub到硬盘
+      </a>
+    </h1>
+    <div class="nested-links f5 lh-copy nested-copy-line-height">
+      昨天弄了一天服务器，有一个服务器重新分区后，全lvm分区，到最后总是错误，不能将grub安装到硬盘。
+没辙了只好先分了一个ext4分区出来，将其他空间规划成lvm，最后才装上了。
+看来是必须有一个非lvm分区负责启动。
+之前明明记得装过，全lvm分区，也能安装系统的。
+    </div>
+  </div>
+</div>
+
+        </div>
+      
+        <div class="relative w-100  mb4 bg-white">
+          <div class="relative w-100 mb4 bg-white nested-copy-line-height">
+  <div class="bg-white mb3 pa4 gray overflow-hidden">
+    <span class="f6 db">Posts</span>
+    <h1 class="f3 near-black">
+      <a href="http://superwf.github.io/p384/" class="link black dim">
+        dpkg –remove-architecture失败
+      </a>
+    </h1>
+    <div class="nested-links f5 lh-copy nested-copy-line-height">
+      为了装skype，dpkg –add-architecture i386还装了一堆的依赖包，用不了想取消mutiarch就报错了，
+得先用一下这个命令把已经安装的i386的包都卸载先
+aptitude remove `dpkg –get-selections | grep i386 | awk ‘{print $1}’`
+    </div>
+  </div>
+</div>
+
+        </div>
+      
+        <div class="relative w-100  mb4 bg-white">
+          <div class="relative w-100 mb4 bg-white nested-copy-line-height">
+  <div class="bg-white mb3 pa4 gray overflow-hidden">
+    <span class="f6 db">Posts</span>
+    <h1 class="f3 near-black">
+      <a href="http://superwf.github.io/p371/" class="link black dim">
+        linux can not allocate memory
+      </a>
+    </h1>
+    <div class="nested-links f5 lh-copy nested-copy-line-height">
+      前几天做信息的同事的主机出现
+cannot-allocate-memory-error
+导致ssh连不上，去本机登录想重启ssh服务也出这个错误，后来想杀进程，ps top也都报错，只能重启了。
+之后想办法看到这个
+http://thedaneshproject.com/posts/cannot-allocate-memory-error/
+照着把free_memory设置大一些不知道会不会有用。
+    </div>
+  </div>
+</div>
+
+        </div>
+      
+        <div class="relative w-100  mb4 bg-white">
+          <div class="relative w-100 mb4 bg-white nested-copy-line-height">
+  <div class="bg-white mb3 pa4 gray overflow-hidden">
+    <span class="f6 db">Posts</span>
+    <h1 class="f3 near-black">
+      <a href="http://superwf.github.io/p352/" class="link black dim">
+        系统升级后又一次找不到root，进入initramfs
+      </a>
+    </h1>
+    <div class="nested-links f5 lh-copy nested-copy-line-height">
+      dist-upgrade之后又一次进入了initramfs，这回不像上次一样改一下grub里的 uuid 就好了。这次干脆丢失了uuid。
+在/dev/disk/by-uuid/里只剩下了两个内容，一个是boot的，另一个是整个lvm的（大概），没有root分区的uuid。
+下班的时候也没弄好。不过还好在initramfs下lvm进去之后看了一下，发现root的lv卷是not available。
+回家之后搜lvm not available的关键字。
+有人指出用lvchange -a y /dev/vg/root这个命令使lv变为可用状态。
+今天一早进机房，先看了看pv是not useable。
+先pvchange -a y /dev/xxxxxxx了一下。
+把两个pv的状态改为useable。
+lvchange的命令都没用上，再lvdisplay一看lv就已经都是available的状态了。
+然后ctrl+d推出initramfs，系统正常启动OK。所以当前这个blog才能又一次上线…。
+可喜可贺～ 赶紧备份数据库！
+    </div>
+  </div>
+</div>
+
+        </div>
+      
+        <div class="relative w-100  mb4 bg-white">
+          <div class="relative w-100 mb4 bg-white nested-copy-line-height">
+  <div class="bg-white mb3 pa4 gray overflow-hidden">
+    <span class="f6 db">Posts</span>
+    <h1 class="f3 near-black">
+      <a href="http://superwf.github.io/p279/" class="link black dim">
+        ibm 3650 m3 bnx2/bnx2-rv2p-09ax-5.0.0.j3.fw
+      </a>
+    </h1>
+    <div class="nested-links f5 lh-copy nested-copy-line-height">
+      这个服务器运行了半年多，忽然发现反应慢半拍。之前提到的升级的那个破dell，6、7年前的机器ssh进去之后，进入目录，命令补全什么的都很速度。
+按说ibm3650这个还是前年的新机器，竟然很慢。
+据于工说是ibm的硬盘驱动问题，系统默认可能识别驱动不对。
+于是安装了firmware-linux-nonfree
+之后报系统错误。
+update-initramfs: Generating /boot/initrd.img-2.6.32-5-amd64
+W: Possible missing firmware /lib/firmware/bnx2/bnx2-rv2p-09ax-5.0.0.j3.fw for module bnx2
+W: Possible missing firmware /lib/firmware/bnx2/bnx2-rv2p-06-5.0.0.j3.fw for module bnx2
+W: Possible missing firmware /lib/firmware/bnx2/bnx2-mips-06-5.0.0.j3.fw for module bnx2
+又说缺这个，搜了
+http://packages.debian.org/squeeze/firmware-bnx2
+说是网卡的驱动，总之装上
+之后反应就迅速起来了。
+    </div>
+  </div>
+</div>
+
+        </div>
+      
+    </section>
+  </div>
+
+    </main>
+    <footer class="bg-black bottom-0 w-100 pa3" role="contentinfo">
+  <div class="flex justify-between">
+  <a class="f4 fw4 hover-white no-underline white-70 dn dib-ns pv2 ph3" href="http://superwf.github.io/" >
+    &copy;  老王的日志 2020 
+  </a>
+    <div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+</div>
+  </div>
+</footer>
+
+    
+
+  <script src="/dist/js/app.3fc0f988d21662902933.js"></script>
+
+
+  </body>
+</html>

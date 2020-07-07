@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>golang on 老王的日志</title>
+    <link>http://superwf.github.io/categories/golang/</link>
+    <description>Recent content in golang on 老王的日志</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-CN</language>
+    <lastBuildDate>Mon, 15 Sep 2014 02:45:16 +0000</lastBuildDate>
+    
+	<atom:link href="http://superwf.github.io/categories/golang/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>golang recover from panic</title>
+      <link>http://superwf.github.io/p928/</link>
+      <pubDate>Mon, 15 Sep 2014 02:45:16 +0000</pubDate>
+      
+      <guid>http://superwf.github.io/p928/</guid>
+      <description>the golang code below
+但是当json日期格式不正确时,整个golang进程会退出
+后来发现处理 decoder的err时,必须panic(err),才能被recover获取,否则就会退出整个golang的process.</description>
+    </item>
+    
+    <item>
+      <title>golang的一些入门小特性</title>
+      <link>http://superwf.github.io/p917/</link>
+      <pubDate>Fri, 15 Aug 2014 01:49:00 +0000</pubDate>
+      
+      <guid>http://superwf.github.io/p917/</guid>
+      <description>一个是
+这种，前面的_说明引入的这个库匿名使用，只是引入的时候执行里面的init进行进行一些注册功能。
+还有一个是
+一开始没太看明白还一位是种新语法，查也没查到，后来自己想通了，(*http.ResponseWriter)(nil) 的意思是初始化了一个http.ResponseWriter类型的指针，并且初始化值为nil
+struct的tag支持多种功能，每种tag类型之间用空格分开，而不是逗号。
+  </description>
+    </item>
+    
+  </channel>
+</rss>

@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    
+    <title>react | 老王的日志</title>
+    <meta name="viewport" content="width=device-width,minimum-scale=1">
+    <meta name="generator" content="Hugo 0.68.3" />
+    
+    
+      <META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW">
+    
+
+    
+    
+      <link href="/dist/css/app.1cb140d8ba31d5b2f1114537dd04802a.css" rel="stylesheet">
+    
+
+    
+
+    
+      
+    
+
+    
+    
+      <link href="/categories/react/index.xml" rel="alternate" type="application/rss+xml" title="老王的日志" />
+      <link href="/categories/react/index.xml" rel="feed" type="application/rss+xml" title="老王的日志" />
+      
+    
+    
+    <meta property="og:title" content="react" />
+<meta property="og:description" content="" />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="http://superwf.github.io/categories/react/" />
+<meta property="og:updated_time" content="2019-11-15T06:24:40+00:00" />
+<meta itemprop="name" content="react">
+<meta itemprop="description" content=""><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="react"/>
+<meta name="twitter:description" content=""/>
+
+  </head>
+
+  <body class="ma0 avenir bg-near-white">
+
+    
+
+  <header>
+    <div class="pb3-m pb6-l bg-black">
+      <nav class="pv3 ph3 ph4-ns" role="navigation">
+  <div class="flex-l justify-between items-center center">
+    <a href="http://superwf.github.io/" class="f3 fw2 hover-white no-underline white-90 dib">
+      老王的日志
+    </a>
+    <div class="flex-l items-center">
+      
+
+      
+        <ul class="pl0 mr3">
+          
+          <li class="list f5 f4-ns fw4 dib pr3">
+            <a class="hover-white no-underline white-90" href="/migrate2020/" title="migrate2020 page">
+              migrate2020
+            </a>
+          </li>
+          
+          <li class="list f5 f4-ns fw4 dib pr3">
+            <a class="hover-white no-underline white-90" href="/coder-life/" title="coder-life page">
+              coder-life
+            </a>
+          </li>
+          
+        </ul>
+      
+      
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    </div>
+  </div>
+</nav>
+
+      <div class="tc-l pv3 ph3 ph4-ns">
+        <h1 class="f2 f-subheadline-l fw2 light-silver mb0 lh-title">
+          react
+        </h1>
+        
+      </div>
+    </div>
+  </header>
+
+
+    <main class="pb7" role="main">
+      
+  <article class="cf pa3 pa4-m pa4-l">
+    <div class="measure-wide-l center f4 lh-copy nested-copy-line-height nested-links nested-img mid-gray">
+      <p>Below you will find pages that utilize the taxonomy term “react”</p>
+    </div>
+  </article>
+  <div class="mw8 center">    
+    <section class="flex-ns flex-wrap justify-around mt5">
+      
+        <div class="relative w-100  mb4 bg-white">
+          <div class="relative w-100 mb4 bg-white nested-copy-line-height">
+  <div class="bg-white mb3 pa4 gray overflow-hidden">
+    <span class="f6 db">Posts</span>
+    <h1 class="f3 near-black">
+      <a href="http://superwf.github.io/p1525/" class="link black dim">
+        热替换
+      </a>
+    </h1>
+    <div class="nested-links f5 lh-copy nested-copy-line-height">
+      一次hmr热替换失效问题 {#%E4%B8%80%E6%AC%A1hmr%E7%83%AD%E6%9B%BF%E6%8D%A2%E5%A4%B1%E6%95%88%E9%97%AE%E9%A2%98}  webpack配置 {#webpack%E9%85%8D%E7%BD%AE} 在devServer中添加hot项
+ 代码配合 {#%E4%BB%A3%E7%A0%81%E9%85%8D%E5%90%88} 在webpack的entry中制定的源码中需要
+这种由webpack提供的hmr方案是不需要react-hot-loader的
+ 以下是我遇到的一次热替换失效问题 {#%E4%BB%A5%E4%B8%8B%E6%98%AF%E6%88%91%E9%81%87%E5%88%B0%E7%9A%84%E4%B8%80%E6%AC%A1%E7%83%AD%E6%9B%BF%E6%8D%A2%E5%A4%B1%E6%95%88%E9%97%AE%E9%A2%98} 在一次进行代码优化之后，发现热替换失效，最开始没在意，认为升级webpack或loader即可修正。
+经过两些天的开发工作之后按F5倍感疲惫，决定彻底解决该问题。
+尝试各种依赖升级，之后与另一个项目对比发现在所有依赖与工程配置都一样的情况下，另一个项目的hmr正常工作，问题项目就是工作。
+在问题项目中，非React.lazy加载的组件都可正常hmr。
+问题集中在了路由加载，最终发现，routes的路由数组，由于代码优化，被放到了其中一个数据store的属性中，导致hmr失效。将routes数组全部经过react的props层层传递，即可使hmr正常工作。
+    </div>
+  </div>
+</div>
+
+        </div>
+      
+        <div class="relative w-100  mb4 bg-white">
+          <div class="relative w-100 mb4 bg-white nested-copy-line-height">
+  <div class="bg-white mb3 pa4 gray overflow-hidden">
+    <span class="f6 db">Posts</span>
+    <h1 class="f3 near-black">
+      <a href="http://superwf.github.io/p1395/" class="link black dim">
+        react16.5.2 component api笔记
+      </a>
+    </h1>
+    <div class="nested-links f5 lh-copy nested-copy-line-height">
+      &lt;li&gt; constructor(props) &lt;ul&gt; &lt;li&gt; 不能在这里setState。 &lt;/li&gt; &lt;li&gt; 只有这里可以直接给this.state赋值。 &lt;/li&gt; &lt;li&gt; 不能在这里调用有side-effects作用的函数，如果有需要，在componentDidMount里调用。 &lt;/li&gt; &lt;li&gt; 不要在这里用props的值生成state内容。 &lt;/li&gt; &lt;/ul&gt; &lt;/li&gt; &lt;li&gt; componentDidMount &lt;ul&gt; &lt;li&gt; 此时组件已经载入，发起request请求，进行setState操作。 &lt;/li&gt; &lt;li&gt; 可以在此进行一些事件订阅。 &lt;/li&gt; &lt;/ul&gt; &lt;/li&gt; &lt;li&gt; componentDidUpdate(prevProps, prevState, snapshot) &lt;ul&gt; &lt;li&gt; 在每次更新state或props之后调用，在第一次render时&lt;strong&gt;不&lt;/strong&gt;调用。 &lt;/li&gt; &lt;li&gt; 此处禁用setState（文档上说尽量避免，但我认为应该禁用，如果有逻辑必须在此处调用setState，那么有必要重新梳理逻辑，一定是哪里想错了）。 &lt;/li&gt; &lt;li&gt; 如果shouldComponentUpdate返回false，则不会被调用。 &lt;/li&gt; &lt;li&gt; 如果有getSnapshotBeforeUpdate，则getSnapshotBeforeUpdate的返回值会作为第三个参数传入。 &lt;/li&gt; &lt;/ul&gt; &lt;/li&gt; &lt;li&gt; componentWillUnmount &lt;ul&gt; &lt;li&gt; 在此进行一些取消订阅或其他的清扫操作。 &lt;/li&gt; &lt;li&gt; 此处禁用setState。 &lt;/li&gt; &lt;/ul&gt; &lt;/li&gt; &lt;li&gt; shouldComponentUpdate(nextProps, nextState) &lt;ul&gt; &lt;li&gt; return false则不会重新渲染，可在此处改善渲染性能避免重复渲染。 &lt;/li&gt; &lt;li&gt; return false会阻止UNSAFE_componentWillUpdate(), render(), and componentDidUpdate() 这三个生命周期函数的运行。 &lt;/li&gt; &lt;li&gt; 在绝大多数情况下，不应手动实现该函数，应依赖react本身的默认更新行为。 &lt;/li&gt; &lt;/ul&gt; &lt;/li&gt;  &lt;li&gt; getSnapshotBeforeUpdate &lt;ul&gt; &lt;li&gt; 在每次组件重渲染前调用，可获取当前dom内容。 &lt;/li&gt; &lt;li&gt; 应有返回值。 &lt;/li&gt; &lt;/ul&gt; &lt;/li&gt; &lt;li&gt; componentDidCatch(error, info) &lt;ul&gt; &lt;li&gt; 捕获前端组件错误，通常只在最外层组件实现一次即可。 &lt;/li&gt; &lt;li&gt; 以下错误不在该函数捕获范围内： &lt;/li&gt; &lt;li&gt; dom事件错误。 &lt;/li&gt; &lt;li&gt; 异步错误。 &lt;/li&gt; &lt;li&gt; 服务端渲染。 &lt;/li&gt; &lt;li&gt; 该函数本身又抛出的错误。 &lt;/li&gt; &lt;/ul&gt; &lt;/li&gt; &lt;li&gt; 即将废弃 &lt;ul&gt; &lt;li&gt; UNSAFE_componentWillMount &lt;/li&gt; &lt;li&gt; UNSAFE_componentWillReceiveProps &lt;/li&gt; &lt;li&gt; UNSAFE_componentWillUpdate &lt;/li&gt; &lt;li&gt; 都是去掉UNSAFE的同名函数的别名，即将废弃，无论是有没有UNSAFE前缀，别用就对了。 &lt;/li&gt; &lt;/ul&gt; &lt;/li&gt; &lt;li&gt; 非生命周期的实例方法 &lt;ul&gt; &lt;li&gt; setState(updater[, callback]) &lt;/li&gt; &lt;li&gt; setState可能同步或异步执行，因此不保证调用后的state为最新状态。 &lt;/li&gt; &lt;li&gt; updater除了对象，还可以是函数，例如：&lt;br /&gt; &lt;code&gt;&amp;lt;br /&gt;  this.
+    </div>
+  </div>
+</div>
+
+        </div>
+      
+        <div class="relative w-100  mb4 bg-white">
+          <div class="relative w-100 mb4 bg-white nested-copy-line-height">
+  <div class="bg-white mb3 pa4 gray overflow-hidden">
+    <span class="f6 db">Posts</span>
+    <h1 class="f3 near-black">
+      <a href="http://superwf.github.io/p1341/" class="link black dim">
+        react-router没有自动更新组件的问题
+      </a>
+    </h1>
+    <div class="nested-links f5 lh-copy nested-copy-line-height">
+      
+    </div>
+  </div>
+</div>
+
+        </div>
+      
+        <div class="relative w-100  mb4 bg-white">
+          <div class="relative w-100 mb4 bg-white nested-copy-line-height">
+  <div class="bg-white mb3 pa4 gray overflow-hidden">
+    <span class="f6 db">Posts</span>
+    <h1 class="f3 near-black">
+      <a href="http://superwf.github.io/p1251/" class="link black dim">
+        redux-saga
+      </a>
+    </h1>
+    <div class="nested-links f5 lh-copy nested-copy-line-height">
+      自从了解generator开始，就对这个语法很反感。一个英文教程上有个形容词是mind-bending，╮（╯＿╰）╭看来不光我一个人这么认为。
+一定要运行的时候还总需要while(true) 或for来搭配，使其带来的那点同步的好处被抵消殆尽。
+saga让人用generator语法，可看了一下源码发现里面一个generator语法也没用，一个this没有，全程函数编程，真是高了！
+能明显感觉出的好处是当有多个并发，其中一个成功或失败的情况下其余不需要的可以自动cancel。
+看到一篇文章对redux-saga源码的分析，最后一张图神解释
+
+同样的还有菊叔漫画里的，如何画小米，哈哈。
+于是拿来教育年轻小伙，网上的零碎视频，散教程，大概也就能带你到第四步。要真正掌握什么，还是得老老实实看官方文档。
+下面将一下我对saga的源码的理解。
+最开始先run，执行saga生成iterator，在proc中执行第一轮的next。
+通过middleware监听所有redux的action，每当有action通过的时候multicastChannel查看所有taker，如果有匹配则执行该taker，taker中包含对下一轮next的回调。
+由saga put的action会带SAGA_ACTION的标识立即执行，其他action会缓存执行。
+在generator中通过take实现对事件的按需监听，是saga相对其他库实现事件机制的一大优势。举个例子，通常来说，在登录之前页面只需要监听LOGIN事件，肯定不会有LOGOUT发生，当LOGIN事件发生并成功后，LOGIN不再需要监听，这时再开始监听LOGOUT事件。在传统的页面编程中，LOGIN和LOGOUT通常都是页面载入后就都开始监听的，稍微有点不效率。
+    </div>
+  </div>
+</div>
+
+        </div>
+      
+        <div class="relative w-100  mb4 bg-white">
+          <div class="relative w-100 mb4 bg-white nested-copy-line-height">
+  <div class="bg-white mb3 pa4 gray overflow-hidden">
+    <span class="f6 db">Posts</span>
+    <h1 class="f3 near-black">
+      <a href="http://superwf.github.io/p1241/" class="link black dim">
+        react server render的坑
+      </a>
+    </h1>
+    <div class="nested-links f5 lh-copy nested-copy-line-height">
+      首先是各种在node_modules中的外部依赖，需要用webpack-node-externals放到externals中
+如果是使用了nodejs内置的工具，需要在externals中添加额外配置，比如 {http: ‘commonjs http’, fs: ‘commonjs fs’ }
+然后是禁止使用各种window全局变量，使用各种挂在window下的全局方法之前需要先判断一下方法是否存在。
+在webpack编译过的server环境中__dirname和__filename都取不到值，需要用definePlugin预先在webpack的配置中取值。
+各种import进来的sass，less，css还有base64的图片一定要用extract-text-webpack-plugin去除。
+react-router的各个组件经过代码分割之后是异步加载，在服务端这里要变成同步是个问题。在react-router文档说明如下，所以目前能用的解决方法就是为服务端另写一份路由，只是要在这个问题解决之前要暂时维护两份本应该统一的路由文件。
+ &lt;p class=&quot;cye-lm-tag&quot;&gt; We’ve tried and failed a couple of times. What we learned: &lt;/p&gt; &lt;ol&gt; &lt;li&gt; You need synchronous module resolution on the server so you can get those bundles in the initial render. &lt;/li&gt; &lt;li&gt; You need to load all the bundles in the client that were involved in the server render before rendering so that the client render is the same as the server render.
+    </div>
+  </div>
+</div>
+
+        </div>
+      
+    </section>
+  </div>
+
+    </main>
+    <footer class="bg-black bottom-0 w-100 pa3" role="contentinfo">
+  <div class="flex justify-between">
+  <a class="f4 fw4 hover-white no-underline white-70 dn dib-ns pv2 ph3" href="http://superwf.github.io/" >
+    &copy;  老王的日志 2020 
+  </a>
+    <div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+</div>
+  </div>
+</footer>
+
+    
+
+  <script src="/dist/js/app.3fc0f988d21662902933.js"></script>
+
+
+  </body>
+</html>

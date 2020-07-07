@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>vim on 老王的日志</title>
+    <link>http://superwf.github.io/categories/vim/</link>
+    <description>Recent content in vim on 老王的日志</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-CN</language>
+    <lastBuildDate>Wed, 17 Oct 2018 02:22:14 +0000</lastBuildDate>
+    
+	<atom:link href="http://superwf.github.io/categories/vim/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>vim的ale调用eslint引起webpack与jest多次重新编译问题</title>
+      <link>http://superwf.github.io/p1398/</link>
+      <pubDate>Wed, 17 Oct 2018 02:22:14 +0000</pubDate>
+      
+      <guid>http://superwf.github.io/p1398/</guid>
+      <description>在前端项目中，有大量的import，webpack的resolve.alias为此提供了很大的方便。为项目的一些常用路径定义别名，可以极大的简化代码并提高代码可读性。
+eslint有一个plugin– eslint-plugin-import，能检测import的package是否合规，为了与webpack的alias一起工作，于是又有了一个新工具— eslint-import-resolver-webpack，使eslint可以识别webpack中定义的别名引用路径。
+https://www.npmjs.com/package/eslint-import-resolver-webpack
+我最初使用的是文档中省事的写法，直接在.eslintrc.js中使用了webpack的文件名
+config:‘webpack.config.js‘vim通过ale插件，支持eslint语法检查，是随输入随检查。
+从此开始了编译的噩梦。
+只要vim修改了文件内容，文件还没保存，但jest –watch 或 webpack-dev-server进程就会认为文件有改动，疯狂的重新编译，或重新运行测试。
+一开始没意识到问题，还以为正常就这样，后来发现用其他编辑器在文件还没有保存的时候，修改文件内容是不会出发文件监听更新事件的。
+首先定位错误到vim，经过挨个插件排查发现问题出在ale上，只要每次ale调用eslint，就会触发文件更新。实际用ls -l –full-time检查了一下发现eslint并没有更新文件的任何属性。
+于是定位到eslint，对比了一下tslint，发现tslint不会触发文件更新事件。以为是eslint的bug或默认行为？于是开始排除eslint的插件，发现只要加载了webpack的配置，就会触发文件更新。终于定位到错误。
+最后，将webpack中的alias部分提取到独立的文件，分别由.eslintrc.js与webpack.config引入使用，解决该问题。</description>
+    </item>
+    
+    <item>
+      <title>modern vim</title>
+      <link>http://superwf.github.io/p1375/</link>
+      <pubDate>Mon, 13 Aug 2018 05:51:25 +0000</pubDate>
+      
+      <guid>http://superwf.github.io/p1375/</guid>
+      <description>vim进阶的又一本宝典，用了这么多年vim之后，仍然会感觉有很多东西需要掌握，有更多的插件等待挖掘
+以下是一些读书笔记。</description>
+    </item>
+    
+    <item>
+      <title>windows的vim对python的支持</title>
+      <link>http://superwf.github.io/p1330/</link>
+      <pubDate>Thu, 15 Mar 2018 15:04:13 +0000</pubDate>
+      
+      <guid>http://superwf.github.io/p1330/</guid>
+      <description>在win上用vim，执行:version，看到有python和python3的支持，但装上python3.6却仍然不支持，令人十分困惑。
+后来发现在vim中执行:py xxx，会有报错提示缺少python3.5.dll，原来是在编译的时候就和python的版本搭配固定了。赶紧装个python3.5就成了。
+后记：win上各种不适应，就算折腾也得换回linux，下次再找活的时候先问清楚了，必须用windows的就pass掉。</description>
+    </item>
+    
+    <item>
+      <title>prettier/eslint/stylelint与编辑器的整合</title>
+      <link>http://superwf.github.io/p1234/</link>
+      <pubDate>Tue, 24 Oct 2017 01:26:07 +0000</pubDate>
+      
+      <guid>http://superwf.github.io/p1234/</guid>
+      <description>一直用eslint，也在命令行用过prettier，最近突然大发现prettier可以和编辑器整合。
+于是赶紧用上了心爱的vim插件vim-prettier，开启文件保存时自动整理代码，顿时世界就和谐了。
+奈何团队其他小伙伴没有用vim的心，搜了一下，让他们把prettier整合到sublime里。
+团队使用，至少能解决7成以上的代码风格问题。还得靠自动化工具，靠自觉和审查也不是不行，就是损耗太大。
+既然js可以美化，css/less/scss等自然也就可以。顺带就找到了另一个神器stylelint，配合stylelint-scss，stylelint-order，stylelint-config-starndard等可以自动美化代码并提示css错误。
+推荐所有前端都用上，只要你常用的ide都支持整合，再顺带推广下vim，各种插件只有想不到，等我想到了都已经有人做出来了。</description>
+    </item>
+    
+    <item>
+      <title>git autocrlf</title>
+      <link>http://superwf.github.io/p1113/</link>
+      <pubDate>Thu, 31 Mar 2016 02:08:28 +0000</pubDate>
+      
+      <guid>http://superwf.github.io/p1113/</guid>
+      <description>昨天在家改了点vim配置，今天在单位用git pull了一下发现全是^M的语法错误
+一开始不明所以还用dos2unix转了半天，
+find . -type f -exec dos2unix {} ;
+后来一提交发现自动变成crlf了，原来是git的autocrlf = true的问题，赶紧设置成false，并且设置eol = lf</description>
+    </item>
+    
+    <item>
+      <title>vim搜索选中块</title>
+      <link>http://superwf.github.io/p66/</link>
+      <pubDate>Wed, 25 May 2011 13:08:30 +0000</pubDate>
+      
+      <guid>http://superwf.github.io/p66/</guid>
+      <description>一直以为vim应该内置这么个自动搜索选中部分的功能，就是不知道那个快捷键而已，原来还真的不支持，得用个插件。
+http://vim.wikia.com/wiki/VimTip171
+vsearch.vim</description>
+    </item>
+    
+  </channel>
+</rss>

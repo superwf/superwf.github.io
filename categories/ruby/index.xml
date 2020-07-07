@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>ruby on 老王的日志</title>
+    <link>http://superwf.github.io/categories/ruby/</link>
+    <description>Recent content in ruby on 老王的日志</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-CN</language>
+    <lastBuildDate>Wed, 16 Apr 2014 02:56:45 +0000</lastBuildDate>
+    
+	<atom:link href="http://superwf.github.io/categories/ruby/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>rvm crontab custom_require.rb:36:in `require’: cannot load such file — bundler/setup</title>
+      <link>http://superwf.github.io/p815/</link>
+      <pubDate>Wed, 16 Apr 2014 02:56:45 +0000</pubDate>
+      
+      <guid>http://superwf.github.io/p815/</guid>
+      <description>用rvm环境时，用crontab运行ruby脚本今天报错。之前也运行过倒是没出过什么问题。
+查了一下，让用ruby的绝对路径。
+还是报错，看来cron时还是需要加入rvm的初始化环境。
+于是为了运行a.rb，需要额外弄一个a.sh
+  </description>
+    </item>
+    
+    <item>
+      <title>ruboto捣鼓失败</title>
+      <link>http://superwf.github.io/p675/</link>
+      <pubDate>Tue, 19 Nov 2013 09:16:13 +0000</pubDate>
+      
+      <guid>http://superwf.github.io/p675/</guid>
+      <description>ruboto捣鼓失败
+最后是安卓的环境弄不了
+platforms-toos/adb是32位二进制文件，目前还没有64位版
+解决办法是安装ia32-lib
+不过我这个dpkg加上32位的源一安装就好多冲突，要把我桌面都卸载了，拉倒了
+http://blog.csdn.net/softwareandy/article/details/17421027
+之前好久因为系统升级之后没有了ia32-lib这个包，后来在这里发现了这么一个兼容32位的包，效果一样，装上之后好像能用32位的程序 lib32stdc++6</description>
+    </item>
+    
+  </channel>
+</rss>

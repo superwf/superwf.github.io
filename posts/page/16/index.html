@@ -1,0 +1,642 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    
+    <title>老王的日志</title>
+    <meta name="viewport" content="width=device-width,minimum-scale=1">
+    <meta name="generator" content="Hugo 0.68.3" />
+    
+    
+      <META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW">
+    
+
+    
+    
+      <link href="/dist/css/app.1cb140d8ba31d5b2f1114537dd04802a.css" rel="stylesheet">
+    
+
+    
+
+    
+      
+    
+
+    
+    
+      <link href="/posts/index.xml" rel="alternate" type="application/rss+xml" title="老王的日志" />
+      <link href="/posts/index.xml" rel="feed" type="application/rss+xml" title="老王的日志" />
+      
+    
+    
+    <meta property="og:title" content="Posts" />
+<meta property="og:description" content="" />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="http://superwf.github.io/posts/" />
+<meta property="og:updated_time" content="2020-04-29T01:53:50+00:00" />
+<meta itemprop="name" content="Posts">
+<meta itemprop="description" content=""><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Posts"/>
+<meta name="twitter:description" content=""/>
+
+  </head>
+
+  <body class="ma0 avenir bg-near-white">
+
+    
+
+  <header>
+    <div class="pb3-m pb6-l bg-black">
+      <nav class="pv3 ph3 ph4-ns" role="navigation">
+  <div class="flex-l justify-between items-center center">
+    <a href="http://superwf.github.io/" class="f3 fw2 hover-white no-underline white-90 dib">
+      老王的日志
+    </a>
+    <div class="flex-l items-center">
+      
+
+      
+        <ul class="pl0 mr3">
+          
+          <li class="list f5 f4-ns fw4 dib pr3">
+            <a class="hover-white no-underline white-90" href="/migrate2020/" title="migrate2020 page">
+              migrate2020
+            </a>
+          </li>
+          
+          <li class="list f5 f4-ns fw4 dib pr3">
+            <a class="hover-white no-underline white-90" href="/coder-life/" title="coder-life page">
+              coder-life
+            </a>
+          </li>
+          
+        </ul>
+      
+      
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    </div>
+  </div>
+</nav>
+
+      <div class="tc-l pv3 ph3 ph4-ns">
+        <h1 class="f2 f-subheadline-l fw2 light-silver mb0 lh-title">
+          Posts
+        </h1>
+        
+      </div>
+    </div>
+  </header>
+
+
+    <main class="pb7" role="main">
+      
+  <article class="pa3 pa4-ns nested-copy-line-height nested-img">
+    <section class="cf ph3 ph5-l pv3 pv4-l f4 tc-l center measure-wide lh-copy mid-gray"></section>
+    <section class="flex-ns flex-wrap justify-around mt5">
+      
+        <div class="relative w-100 w-30-l mb4 bg-white"><div class="relative w-100 mb4 bg-white nested-copy-line-height">
+  <div class="bg-white mb3 pa4 gray overflow-hidden">
+    <span class="f6 db">Posts</span>
+    <h1 class="f3 near-black">
+      <a href="http://superwf.github.io/p659/" class="link black dim">
+        form_builder与render partial block
+      </a>
+    </h1>
+    <div class="nested-links f5 lh-copy nested-copy-line-height">
+      最近想从bootstrap2升级到3，发现类名的变化很多。
+之前的很多class都写在模板里了，看来还得搞统一方法调用，或者统一模板调用。
+先想到用form_builder，但后来发现form_builder不支持form_tag，而且只能影响from里的input的生成，不能在form本身加一些属性什么的。
+然后看action_view里的render，以前知道render后面是可以接一个block的。
+但实际用上才知道，render后面带的block对与partial来说没作用，只有在render layout: ‘xxxx’时才有用。
+本来还打算用一个partial的模板，render ‘xxx’ do |f|这样把一个block传进去，然后在里面用simple_form_for xxxx do |f|里面处理这个block
+但是别说带参数的模板了，反正是传不进去。
+最后不得已用一个helper写了一个，里面还得写字符串变量相加这种不太好看的东西。
+    </div>
+  </div>
+</div>
+</div>
+      
+        <div class="relative w-100 w-30-l mb4 bg-white"><div class="relative w-100 mb4 bg-white nested-copy-line-height">
+  <div class="bg-white mb3 pa4 gray overflow-hidden">
+    <span class="f6 db">Posts</span>
+    <h1 class="f3 near-black">
+      <a href="http://superwf.github.io/p657/" class="link black dim">
+        end of file reached
+      </a>
+    </h1>
+    <div class="nested-links f5 lh-copy nested-copy-line-height">
+      今天修改一个页面，一刷新就出错说 end of file reached
+这个错误莫名其妙，出在一个 = include_javascript_tag :priemrs的行
+把这样注释掉就好了，但是js就没了。
+于是去这个coffee文件里看了半天也没debug出什么错误。
+后来把tmp/cache/assets里的缓存清空搞定。
+    </div>
+  </div>
+</div>
+</div>
+      
+        <div class="relative w-100 w-30-l mb4 bg-white"><div class="relative w-100 mb4 bg-white nested-copy-line-height">
+  <div class="bg-white mb3 pa4 gray overflow-hidden">
+    <span class="f6 db">Posts</span>
+    <h1 class="f3 near-black">
+      <a href="http://superwf.github.io/p654/" class="link black dim">
+        php included from debug_backtrace
+      </a>
+    </h1>
+    <div class="nested-links f5 lh-copy nested-copy-line-height">
+      今天改个php的模板，不知道文件是从哪里调用的。找到了这么个函数，把所有includer以数组的形式显示出来，递归查看调用信息。
+很方便
+http://stackoverflow.com/questions/5204830/can-an-included-php-file-know-where-it-was-included-from
+  
+    </div>
+  </div>
+</div>
+</div>
+      
+        <div class="relative w-100 w-30-l mb4 bg-white"><div class="relative w-100 mb4 bg-white nested-copy-line-height">
+  <div class="bg-white mb3 pa4 gray overflow-hidden">
+    <span class="f6 db">Posts</span>
+    <h1 class="f3 near-black">
+      <a href="http://superwf.github.io/p645/" class="link black dim">
+        activeresource4.0 paginate
+      </a>
+    </h1>
+    <div class="nested-links f5 lh-copy nested-copy-line-height">
+      rails4之后，把activeresource踢出去了，大概更新了里面的什么，原来的active-resource-pagination失效了，想查查新的activeresource的api，点过去跳转到rails的api，但rails的api里又没有…
+http://yetimedia.tumblr.com/post/35233051627/activeresource-is-dead-long-live-activeresource
+现在最新的说明也就是这个了。弄了半天，照着这个自己弄了个分页，collection_parser这个很管用。
+自己弄了类 WillPaginateTotalPages，名字随便起就行。
+这样就可以将current_page和total_page传递过来
+服务端的api需要写成
+WillPaginate::Collection里的initialize接收的参数和collection_parser需求的不一致，要不就能直接用
+activeresource的has_many和belongs_to关系已经大概有了，但是都是针对activeresource的，如果一个远程的activeresource的模型，关联了一些本地的activerecord的数据，这种对应关系看来还是得手动写。比如一个远程客户库的客户，会关联当前程序中的订单。希望将来activeresource的has_many这种能加后面的key参数指定关联对象是activeresource还是activerecord或者是别的mongoid什么的。但是这种关联的话joins什么的就不要想了。
+    </div>
+  </div>
+</div>
+</div>
+      
+        <div class="relative w-100 w-30-l mb4 bg-white"><div class="relative w-100 mb4 bg-white nested-copy-line-height">
+  <div class="bg-white mb3 pa4 gray overflow-hidden">
+    <span class="f6 db">Posts</span>
+    <h1 class="f3 near-black">
+      <a href="http://superwf.github.io/p638/" class="link black dim">
+        mina rvmsudo
+      </a>
+    </h1>
+    <div class="nested-links f5 lh-copy nested-copy-line-height">
+      最近面试了一位同行，听说用mina代替capistrona。
+用了一下，mina的用法也差不多。
+不过后来卡在了需要远程执行一些sudo的命令上。服务器上的ruby使用rvm装的，rake，ruby这些的路径都是从/usr/bin/env 执行的。visudo里面不好制定这些程序的路径。
+后来发现用rvmsudo这个东西，写rvm的人还真是体贴，这种配套的东西都也出来了~~~
+本地rvmsudo还行，但是远程就报错了
+sudo: no tty present and no askpass program specified
+http://blog.csdn.net/buptxx/article/details/8241997
+搜到这个，visudo加上Defaults visiblepw
+    </div>
+  </div>
+</div>
+</div>
+      
+        <div class="relative w-100 w-30-l mb4 bg-white"><div class="relative w-100 mb4 bg-white nested-copy-line-height">
+  <div class="bg-white mb3 pa4 gray overflow-hidden">
+    <span class="f6 db">Posts</span>
+    <h1 class="f3 near-black">
+      <a href="http://superwf.github.io/p631/" class="link black dim">
+        最近改了很多模型
+      </a>
+    </h1>
+    <div class="nested-links f5 lh-copy nested-copy-line-height">
+      之前因为受重构前程序的错误思维导向，弄了很多多余的模型出来，导致有一些has_one关系的表现在看来完全没有必要独立出来。
+如果某个模型的has_one 子表数据，可能存在也可能不会存在，则这个has_one就可以独立设置model，否则就直接作为当前模型的属性存在。否则这种has_one关系过多，导致关系复杂，更麻烦的是查询的复杂和效率的降低。
+而且还有些模型完全可以用一个polymorhpic的单一模型代替。
+    </div>
+  </div>
+</div>
+</div>
+      
+        <div class="relative w-100 w-30-l mb4 bg-white"><div class="relative w-100 mb4 bg-white nested-copy-line-height">
+  <div class="bg-white mb3 pa4 gray overflow-hidden">
+    <span class="f6 db">Posts</span>
+    <h1 class="f3 near-black">
+      <a href="http://superwf.github.io/p628/" class="link black dim">
+        rspec request redirect_back
+      </a>
+    </h1>
+    <div class="nested-links f5 lh-copy nested-copy-line-height">
+      (ActionController::RedirectBackError) “No HTTP_REFERER was set in the request to this action, so redirect_to :back could not be called successfully. If this is a test, make sure to specify
+之前一直没写request的测试，最近升级rails4.0出错的地方挺多，决定还是把这方面的测试弄上好踏实点。
+当测试请求一个页面redirect_to :back时，可以用referer参数模拟，要放在模拟表单参数的后面。如果没有表单的参数也需要用一个{}来占位。
+put “/post/1”, post: {title: ‘abc’}, {referer: ‘/posts’}
+    </div>
+  </div>
+</div>
+</div>
+      
+        <div class="relative w-100 w-30-l mb4 bg-white"><div class="relative w-100 mb4 bg-white nested-copy-line-height">
+  <div class="bg-white mb3 pa4 gray overflow-hidden">
+    <span class="f6 db">Posts</span>
+    <h1 class="f3 near-black">
+      <a href="http://superwf.github.io/p576/" class="link black dim">
+        今天第一次写gem的系统命令
+      </a>
+    </h1>
+    <div class="nested-links f5 lh-copy nested-copy-line-height">
+      看我的gem的gemspec文件里有spec.executables 的字样，就放了一个/bin文件夹在里面，把自己常用的几个脚本放进去了。
+rake install 之后倒是在系统搜索路径里有这个命令了，但是执行后报错说语法错误。
+看了一下安装进去的文件发现，是按ruby语法执行的，原来的bash脚本肯定会报错。
+也好，用ruby语法写比bash舒服多了。
+    </div>
+  </div>
+</div>
+</div>
+      
+        <div class="relative w-100 w-30-l mb4 bg-white"><div class="relative w-100 mb4 bg-white nested-copy-line-height">
+  <div class="bg-white mb3 pa4 gray overflow-hidden">
+    <span class="f6 db">Posts</span>
+    <h1 class="f3 near-black">
+      <a href="http://superwf.github.io/p568/" class="link black dim">
+        记录软raid1转换为mfs chunkserver
+      </a>
+    </h1>
+    <div class="nested-links f5 lh-copy nested-copy-line-height">
+      之前的一个备份用的raid1，当时做的软raid1。
+看了一下raid的mdadm，/etc/mdadm/mdadm.conf里的配置基本上不起作用。
+先卸载了所有raild1的挂载，注释掉/etc/fstab里的所有相关分区。
+这样就算已经删除了，想了想，没做raid0，一块坏数据全完蛋的话很让人胆颤，还是做了跨硬盘的lvm，怕万一坏一块的时候另一块的数据还能找回来点，其他的数据可靠性就靠mfs了。
+又先格式化成lvm分区。
+然后vgcreate /dev/sdb1 /dev/sdc1 raidvg
+然后lvcreate -l 99999 -n chunk raidvg
+再格式化，再挂载，再把挂载点写到fstab里
+再把挂载点加到/etc/mfshdd.cfg里。
+mfschunckserver start之
+    </div>
+  </div>
+</div>
+</div>
+      
+        <div class="relative w-100 w-30-l mb4 bg-white"><div class="relative w-100 mb4 bg-white nested-copy-line-height">
+  <div class="bg-white mb3 pa4 gray overflow-hidden">
+    <span class="f6 db">Posts</span>
+    <h1 class="f3 near-black">
+      <a href="http://superwf.github.io/p555/" class="link black dim">
+        nagios监控磁盘空间
+      </a>
+    </h1>
+    <div class="nested-links f5 lh-copy nested-copy-line-height">
+      今天弄了一下nagios的check_snmp_storage.pl
+但是发现
+返回
+在目标主机本地执行
+返回
+按snmp的计算应该是剩余12%
+在目标主机上df
+最后发现是df的值不对，由于是ext4分区有5%的保留块，实际的用量就应该是78%，但是由于最后5%是不能用的，78 + 5 = 83
+虽然df的计算数据不正确，但是报警值应该加上5%来算。文件系统 1K-块 已用 可用 已用% 挂载点
+check_snmp_storage 就应该改成
+check_snmp_storage.pl -H aaa.client.com -w 85 -c 90 -T pu -m /home
+    </div>
+  </div>
+</div>
+</div>
+      
+    </section>
+
+<ul class="pagination">
+    
+    <li class="page-item">
+        <a href="/posts/" class="page-link" aria-label="First"><span aria-hidden="true">&laquo;&laquo;</span></a>
+    </li>
+    
+    <li class="page-item">
+    <a href="/posts/page/15/" class="page-link" aria-label="Previous"><span aria-hidden="true">&laquo;</span></a>
+    </li>
+    
+    
+    
+    
+    
+    
+    
+        
+        
+    
+    
+    <li class="page-item"><a class="page-link" href="/posts/">1</a></li>
+    
+    
+    
+    
+    
+    
+        
+        
+    
+    
+    <li class="page-item"><a class="page-link" href="/posts/page/2/">2</a></li>
+    
+    
+    
+    
+    
+    
+        
+        
+    
+    
+    <li class="page-item"><a class="page-link" href="/posts/page/3/">3</a></li>
+    
+    
+    
+    
+    
+    
+        
+        
+    
+    
+    <li class="page-item disabled"><span aria-hidden="true">&nbsp;&hellip;&nbsp;</span></li>
+    
+    
+    
+    
+    
+    
+        
+        
+    
+    
+    
+    
+    
+    
+    
+        
+        
+    
+    
+    
+    
+    
+    
+    
+        
+        
+    
+    
+    
+    
+    
+    
+    
+        
+        
+    
+    
+    
+    
+    
+    
+    
+        
+        
+    
+    
+    
+    
+    
+    
+    
+        
+        
+    
+    
+    
+    
+    
+    
+    
+        
+        
+    
+    
+    
+    
+    
+    
+    
+        
+        
+    
+    
+    
+    
+    
+    
+    
+        
+        
+    
+    
+    
+    
+    
+    
+    
+        
+        
+    
+    
+    
+    
+    
+    
+    
+        
+        
+    
+    
+    <li class="page-item"><a class="page-link" href="/posts/page/15/">15</a></li>
+    
+    
+    
+    
+    
+    
+        
+        
+    
+    
+    <li class="page-item active"><a class="page-link" href="/posts/page/16/">16</a></li>
+    
+    
+    
+    
+    
+    
+        
+        
+    
+    
+    <li class="page-item"><a class="page-link" href="/posts/page/17/">17</a></li>
+    
+    
+    
+    
+    
+    
+        
+        
+    
+    
+    <li class="page-item disabled"><span aria-hidden="true">&nbsp;&hellip;&nbsp;</span></li>
+    
+    
+    
+    
+    
+    
+        
+        
+    
+    
+    
+    
+    
+    
+    
+        
+        
+    
+    
+    
+    
+    
+    
+    
+        
+        
+    
+    
+    
+    
+    
+    
+    
+        
+        
+    
+    
+    
+    
+    
+    
+    
+        
+        
+    
+    
+    
+    
+    
+    
+    
+        
+        
+    
+    
+    
+    
+    
+    
+    
+        
+        
+    
+    
+    
+    
+    
+    
+    
+        
+        
+    
+    
+    
+    
+    
+    
+    
+        
+        
+    
+    
+    
+    
+    
+    
+    
+        
+        
+    
+    
+    <li class="page-item"><a class="page-link" href="/posts/page/28/">28</a></li>
+    
+    
+    <li class="page-item">
+    <a href="/posts/page/17/" class="page-link" aria-label="Next"><span aria-hidden="true">&raquo;</span></a>
+    </li>
+    
+    <li class="page-item">
+        <a href="/posts/page/28/" class="page-link" aria-label="Last"><span aria-hidden="true">&raquo;&raquo;</span></a>
+    </li>
+    
+</ul>
+
+</article>
+
+    </main>
+    <footer class="bg-black bottom-0 w-100 pa3" role="contentinfo">
+  <div class="flex justify-between">
+  <a class="f4 fw4 hover-white no-underline white-70 dn dib-ns pv2 ph3" href="http://superwf.github.io/" >
+    &copy;  老王的日志 2020 
+  </a>
+    <div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+</div>
+  </div>
+</footer>
+
+    
+
+  <script src="/dist/js/app.3fc0f988d21662902933.js"></script>
+
+
+  </body>
+</html>

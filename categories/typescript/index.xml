@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>typescript on 老王的日志</title>
+    <link>http://superwf.github.io/categories/typescript/</link>
+    <description>Recent content in typescript on 老王的日志</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-CN</language>
+    <lastBuildDate>Thu, 30 May 2019 08:31:05 +0000</lastBuildDate>
+    
+	<atom:link href="http://superwf.github.io/categories/typescript/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>关于配置文件格式</title>
+      <link>http://superwf.github.io/p1476/</link>
+      <pubDate>Thu, 30 May 2019 08:31:05 +0000</pubDate>
+      
+      <guid>http://superwf.github.io/p1476/</guid>
+      <description>最近从阮一峰的分享中看到了一篇文章
+请不要用 JSON 作为配置文件
+其中的一些观点
+  json的设计目标只是轻量级数据交换语言。  json的通用解析不能解析注释。
+  到底应该用哪种格式作为配置文件？没有确定的答案，这依赖与项目的应用场景，语言，工程等多方因素。
+命令行flag是一个相对通用的选择。
+  我在一些工具类项目中也深有体会，其中最令人不快的大概要算是tsconfig.json文件了。
+在我开发过得一些前端工具项目中，基本使用js文件作为配置文件。原因如下
+  本身就是前端项目，可以直接require配置文件。  js配置文件中可以添加任何需要的逻辑，例如根据不同的环境变量输出不同的配置。例如eslint与babel都支持js格式的配置文件。
+  如果考虑到该配置文件需要跨语言支持，可以考虑yaml。
+  虽然typescript只支持tsconfig.json，但其验证功能却很有用。
+假设用deno识别ts文件作为配置文件，在ts文件中引入对应项目的配置文件类型可自动校验配置。
+如果需要识别多种格式的配置文件，不要自己挨个写类型识别。
+推荐一下通用配置文件识别工具。
+cosmiconfig</description>
+    </item>
+    
+    <item>
+      <title>typescript问题笔记</title>
+      <link>http://superwf.github.io/p1425/</link>
+      <pubDate>Tue, 26 Feb 2019 02:28:24 +0000</pubDate>
+      
+      <guid>http://superwf.github.io/p1425/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>learning typescript</title>
+      <link>http://superwf.github.io/p1377/</link>
+      <pubDate>Mon, 13 Aug 2018 05:56:34 +0000</pubDate>
+      
+      <guid>http://superwf.github.io/p1377/</guid>
+      <description></description>
+    </item>
+    
+  </channel>
+</rss>

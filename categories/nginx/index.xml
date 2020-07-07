@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>nginx on 老王的日志</title>
+    <link>http://superwf.github.io/categories/nginx/</link>
+    <description>Recent content in nginx on 老王的日志</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-CN</language>
+    <lastBuildDate>Wed, 06 Mar 2019 11:07:52 +0000</lastBuildDate>
+    
+	<atom:link href="http://superwf.github.io/categories/nginx/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Packt.Nginx.HTTP.Server.3rd.Edition</title>
+      <link>http://superwf.github.io/p1429/</link>
+      <pubDate>Wed, 06 Mar 2019 11:07:52 +0000</pubDate>
+      
+      <guid>http://superwf.github.io/p1429/</guid>
+      <description>nginx location匹配优先级   location blocks with the = modifier: If the specified string exactly matches
+the requested URI, Nginx retains the location block.
+匹配使用=的严格相等的路径  location blocks with no modifier: If the specified string exactly matches the
+requested URI, Nginx retains the location block.
+匹配严格相等的无匹配符号的路径，例如 location /abc {…}，请求正好为/abc
+  location blocks with the ^~ modifier: If the specified string matches the
+beginning of the requested URI, Nginx retains the location block.</description>
+    </item>
+    
+  </channel>
+</rss>

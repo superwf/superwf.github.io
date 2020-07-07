@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>note on 老王的日志</title>
+    <link>http://superwf.github.io/categories/note/</link>
+    <description>Recent content in note on 老王的日志</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-CN</language>
+    <lastBuildDate>Mon, 06 Apr 2015 14:47:02 +0000</lastBuildDate>
+    
+	<atom:link href="http://superwf.github.io/categories/note/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>swagger-ui与grape-swagger</title>
+      <link>http://superwf.github.io/p953/</link>
+      <pubDate>Mon, 06 Apr 2015 14:47:02 +0000</pubDate>
+      
+      <guid>http://superwf.github.io/p953/</guid>
+      <description>今天进一步熟悉了一下swagger-ui与swagger-spec。
+之前面试时听说过grape，今天实验了一下感觉非常好，ruby的东西就是上手快。
+想偷懒点用grape-swagger生成，搞了半天发现grape-swagger生成的swagger1.2规范与swagger2不兼容。
+只好还是自己写json文件。
+swagger配合grape很和谐，希望grape-swagger什么时候能升级兼容swagger2</description>
+    </item>
+    
+  </channel>
+</rss>

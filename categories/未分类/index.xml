@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>未分类 on 老王的日志</title>
+    <link>http://superwf.github.io/categories/%E6%9C%AA%E5%88%86%E7%B1%BB/</link>
+    <description>Recent content in 未分类 on 老王的日志</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-CN</language>
+    <lastBuildDate>Thu, 12 Sep 2019 06:30:49 +0000</lastBuildDate>
+    
+	<atom:link href="http://superwf.github.io/categories/%E6%9C%AA%E5%88%86%E7%B1%BB/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>requestAnimationFrame</title>
+      <link>http://superwf.github.io/p1503/</link>
+      <pubDate>Thu, 12 Sep 2019 06:30:49 +0000</pubDate>
+      
+      <guid>http://superwf.github.io/p1503/</guid>
+      <description>requestAnimationFrame的特点是在每帧渲染时调用，可以根据当前运行硬件大幅优化动画流畅度。还有一个隐形的特性就是只在当前窗口激活状态才会运行，这也是它可以节省计算资源的一大优势。
+有些优化场景会有监听当前页面激活状态的需求，只有在当前页面激活时才定时请求后端数据来达到数据半即时更新的效果。
+通常的解决方案都是监听“visibilitychange”事件，通过该事件的切换状态开启或关闭监听。例如如下代码
+在原生支持requestAnimationFrame的浏览器上，可以通过该函数达到同样的效果，不用手动去监听 visibilitychange。
+例如如下代码</description>
+    </item>
+    
+    <item>
+      <title>面试技能分级</title>
+      <link>http://superwf.github.io/p1498/</link>
+      <pubDate>Sat, 24 Aug 2019 01:53:07 +0000</pubDate>
+      
+      <guid>http://superwf.github.io/p1498/</guid>
+      <description>最近面试很多新人，对于很多技能等级的描述是非常模糊的。
+这个问题其实对每个人来说都是一样的，面试的时候说低了无法体现自己的技能，说太高了也有些心虚，毕竟所有知识点不可能都即时的装在高速记忆区可以做到随问随答。
+后来想了想，从低到高，我把技能大概分为这几个等级。
+1.不知道这个概念，完全没听说过，您就甭接着问这个话题了。（很多）
+2.知道这个概念，但仅仅是听说个大概。（例如人工智能，大数据算法等）
+3.知道该概念，读过相关介绍性文章，心里大概有数。（例如web assembly等）
+4.学习过该概念，并且花时间读过文档做过demo，相对深入的学习过，但没有实战经验。（例如golang，python，webgl等）
+5.不仅深入学习过该概念，而且在实际项目中有实战应用，但距今已经有一段时间了，可能很多细节需要重新学习才能再上手，上手应该很快（php、mysql、rails、一些运维工具）
+6.深入学习过该概念，且在实际项目中应用至今，开箱即用，是我目前最可以拿出手的王牌技能（es、ts、css、nodejs、linux等）</description>
+    </item>
+    
+    <item>
+      <title>关于面试</title>
+      <link>http://superwf.github.io/p1482/</link>
+      <pubDate>Mon, 03 Jun 2019 09:44:33 +0000</pubDate>
+      
+      <guid>http://superwf.github.io/p1482/</guid>
+      <description>以下是我部门的面试指导，我觉得很好
+也作为我以后评价别人对我面试的一个判断标准
+面试的目的不是考倒对方！而是让候选人展示他的知识，能力，和性格。
+判定标准：你希望这个人以后和你一起工作吗？
+把候选人当成你的同事
+向候选人学习
+除了技术角度，需要从以下几点考察：
+理解力： 你说的新事情需要候选人理解
+沟通：能主动回问问题
+独立思考：遇到一件事情能知道怎么办
+执行力：工作是如何快速推进的
+再加上我的一些补充
+问一问最近在学习什么，列举一些对自己提升很大的书籍。
+读过哪些开源的代码及理解。
+每年或每个项目过后，自身的成长。</description>
+    </item>
+    
+    <item>
+      <title>刻意练习</title>
+      <link>http://superwf.github.io/p1419/</link>
+      <pubDate>Tue, 08 Jan 2019 02:55:59 +0000</pubDate>
+      
+      <guid>http://superwf.github.io/p1419/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>DDD领域驱动设计总结</title>
+      <link>http://superwf.github.io/p1415/</link>
+      <pubDate>Wed, 02 Jan 2019 07:12:36 +0000</pubDate>
+      
+      <guid>http://superwf.github.io/p1415/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>编程与游戏</title>
+      <link>http://superwf.github.io/p1198/</link>
+      <pubDate>Thu, 25 May 2017 05:49:00 +0000</pubDate>
+      
+      <guid>http://superwf.github.io/p1198/</guid>
+      <description>小时候打过不少电子游戏，工作后总会回想起当年荒废了的那些时光，但当年也确实得到了很多欢乐。
+最近有个新同事入职，很爱学习但是从来不玩游戏。一般来说程序员不太可能有从来没玩过游戏吧，他大概属于那种特别听话的好孩子吧，于是我经常在指导程序之余用程序和游戏举个例子，顺带吐他个槽—-让你不玩游戏哈～。
+自从干上了程序员，那种对游戏的执着有一部分确实的转移到了代码上。比如当年玩的各种rpg，都会想打个完美存档，该收的宝物一定要收到，该走的情节一定要走全。这种执着转移到代码上之后，就变成了什么地方都会想做到最优。但什么是最优呢，在不同的编成阶段，也会有不同的理解。就像《黑客与画家》里描述的，这种优化（绝大多情况下指的不是运行效率，而是指架构和谐，命名合理，模块复用等等）没有尽头，只有程序员最后不想做了的结果。
+很多游戏有二周目，在一周目打不了的情节，或者一些单选的分支只有在多周目中才能凑全。体现到项目中，恩其实你可能已经想到了，那就是重构。重构由什么人来进行呢？必须是做过该项目的同一批人马，如果说换了一波人重构，那和第一次做也差不了太多，该趟的雷还是得趟，躲不过的。就像即使玩二周目的游戏，如果换了个玩家，一周末的存档有哪些分支走过了，有哪些窍门统统不知道，除了继承了点金钱和装备（项目第一版的代码），和第一次玩也没啥区别。真的想能有同一批人的第三或之后更多次的重构，那真是开局即可自带穿越优势。
+我时常教导年轻同事，当你接触到一个新框架，新类库时，一定要先把整个api文档看一遍，不指望记住，事实也记不住，为的是大概有个印象。当你需要用的时候不用自己造轮子，还没人家现成的造的好用。这条经验对应到小时候玩的街霸、拳皇，就是你可以直接玩，但是不会发招，总是被打。api文档就相当与出招表，过一遍，选个合适的人物，投入实战开练，在与其他角色的碰撞中逐步熟悉，知道什么情况下用什么招数，尤其是在合适的机会用终结技取胜，满足感爆棚。
+ </description>
+    </item>
+    
+    <item>
+      <title>三体观后感</title>
+      <link>http://superwf.github.io/p1092/</link>
+      <pubDate>Mon, 11 Jan 2016 12:56:59 +0000</pubDate>
+      
+      <guid>http://superwf.github.io/p1092/</guid>
+      <description>说是观后感，其实刚看了一半多。其中看到关于智子的空间展开想到了我们这个空间的结构是三维，加上时间是四维，五维大概是平行宇宙的概念。再高的维度就很难理解了。不过对于学程序的人倒是有个现成的概念，多维数组，正好针对了从一维到多维空间的概念。在高维的数组中每个元素虽然还是多维，但已经相当于一个点了，想要对低维空间产生影响，还是得使用下标，相当于智子的三维展开，哈哈。
+看到后来发现书中的高维度一直只是扩展了空间上的维度，没有涉及到跨越时间维度的概念，在这个体系设定中时间应该是不可跨越的．
+书中提到一点，原话大概是这么说的：不要轻视简单，简单意味着牢固．书的序言中写的作者还写过三体运行的程序，看来也是业内人士啊．
+不过智子既然能展开到十一维，感觉就应该在时间这个维度可以跨越了，即使不能改变当前世界也应该能传递过去和未来的信息，但书中的智子没有时间穿越能力。相不出来就还是干脆就接受书中的设定好了，故事还是很精彩的。</description>
+    </item>
+    
+    <item>
+      <title>单页Web应用 JavaScript从前端到后端</title>
+      <link>http://superwf.github.io/p1079/</link>
+      <pubDate>Tue, 15 Dec 2015 02:43:27 +0000</pubDate>
+      
+      <guid>http://superwf.github.io/p1079/</guid>
+      <description>这本书对用nodejs构建前后端都做了个一些大概的介绍，从引用的工具来看书也是前两三年写的了．
+里面不管前端还是后端都不是很深入，也不可能在一本书内很深入，但其中两个概念和我特别有共鸣．一个是分形，一个是软件工程的阻抗．
+分形是指一个事物从宏观的形状与微观形状对应相似，一个系统分为mvc，具体到前端的v层又会分为mvc三层，不绝对但会相似．
+现在的体系基本都跳不出mvc的结构，只有事件订阅发布机制我感觉是个可以打破这种结构的例外的调用．
+软件的阻抗在web领域尤其多，前端用js，后端用java，php，rails等，到数据库mysql等关系行数据库，由于语言的不匹配数据至少要转换两次，从json到后端语言的数据结构，到sql存储．
+但在nodejs构建的系统上，数据从前端到后端一直在传递json，极大的削减了阻抗，做web系统用nodejs，我看行～</description>
+    </item>
+    
+    <item>
+      <title>ecmascript测试mocha与jasmine</title>
+      <link>http://superwf.github.io/p1069/</link>
+      <pubDate>Thu, 10 Dec 2015 02:30:08 +0000</pubDate>
+      
+      <guid>http://superwf.github.io/p1069/</guid>
+      <description>npm的包里最常用的两种框架是mocha和jasmine，我最早接触jasmine，但是mocha的使用量好像更普遍．
+jasmine是一个运行测试的框架，并自带了一系列的断言方法，用expect(…).to…来实行验证，而且自带了一系列spy方法用来伪造数据，还带了ajax伪造，是一站式解决方案，基本不需要其他测试库补充．
+mocha只是一个测试运行框架，并没有带断言方法，需要额外的assert或者推荐的几个chai　expect.js　should.js来共同运行，而且也没有伪造数据的功能，推荐用sinon．
+mocha的it.skip和it.only很有用．jasmine好像只有xit和mocha的skip对应
+用了两天决定还是用jasmine了，各种小库都要再看api，不如一揽子都有的jasmine．
+jasmine和mocha的运行函数都是describe和it，在这点上是一致的
+在node环境下需要测试浏览器，用jsdom或phantomjs来模拟浏览器，或者用karma来加载真实浏览器如chrome或firefox，就不是那么好配置的了．
+ mocha写的测试，转到jasmine就改改断言就行了，今天遇到个问题原来mocha下运行没错，jasmine下报Uncaught InvalidStateError: Failed to execute ‘dispatchEvent’ on ‘EventTarget’: The event is already being dispatched
+最后发现是jasmine下运行事件回调后，回调函数后面的同步代码没有执行完就立即开始第二个测试，所以上一个的document.removeEventListener还没执行清除，导致下一个测试中的mousemove事件被绑定了两次，但之前mocha中就没有发生问题，也许是mocha的执行机制会等待清理代码执行完吧？
+ </description>
+    </item>
+    
+    <item>
+      <title>iis7 win2008R2 64</title>
+      <link>http://superwf.github.io/p246/</link>
+      <pubDate>Tue, 06 Mar 2012 05:50:00 +0000</pubDate>
+      
+      <guid>http://superwf.github.io/p246/</guid>
+      <description>折腾两天没弄出来，原来是32位兼容问题，我连盗版不稳定性都考虑了，看了下面这个解决的。
+http://blog.verypod.com/windows7-64-php-mysql-issue/</description>
+    </item>
+    
+    <item>
+      <title>Hello world！</title>
+      <link>http://superwf.github.io/p1/</link>
+      <pubDate>Sat, 02 Apr 2011 01:38:46 +0000</pubDate>
+      
+      <guid>http://superwf.github.io/p1/</guid>
+      <description>用我自己的blog，不知道是不是会被和谐
+反正原来baidu的那个被和谐过，就打算转成自己的了</description>
+    </item>
+    
+  </channel>
+</rss>

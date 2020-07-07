@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>browser on 老王的日志</title>
+    <link>http://superwf.github.io/categories/browser/</link>
+    <description>Recent content in browser on 老王的日志</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-CN</language>
+    <lastBuildDate>Mon, 05 Feb 2018 01:02:59 +0000</lastBuildDate>
+    
+	<atom:link href="http://superwf.github.io/categories/browser/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>service worker的fetch事件和cache的match</title>
+      <link>http://superwf.github.io/p1308/</link>
+      <pubDate>Mon, 05 Feb 2018 01:02:59 +0000</pubDate>
+      
+      <guid>http://superwf.github.io/p1308/</guid>
+      <description>早些时候看到在work service中可以拦截fetch从而起到缓存的作用。
+这两天自己试了试，发现这个fetch不是狭义的原生fetch函数，浏览器发起的http请求，普通ajax都在被拦截之列。亏的我原来为了用service worker缓存还打算把原来qwest的请求换成fetch，看来是不用的。
+cache和caches都有match方法，但cache的match经我试验是跨caches的key的，不是当前open的key的cache都能匹配到，只不过在then的回调中response是undefined。从api的定义上，感觉不应该是这样，如果match不到，应该reject才多啊。
+caches的match也是跨key的，这个好理解。
+参考</description>
+    </item>
+    
+    <item>
+      <title>chrome移动端调试</title>
+      <link>http://superwf.github.io/p1239/</link>
+      <pubDate>Mon, 13 Nov 2017 11:29:48 +0000</pubDate>
+      
+      <guid>http://superwf.github.io/p1239/</guid>
+      <description>之前搞过chrome的移动端调试一直没成功，教程如下
+https://developers.google.com/web/tools/chrome-devtools/remote-debugging/?utm_source=dcc&amp;amp;utm_medium=redirect&amp;amp;utm_campaign=2016q3
+教程并没有问题，但最后一步inspect手机端页面时一直是白屏，原来问题出在
+*.chrome-devtools-frontend.appspot.com这个网站必须能访问的情况下才能调试。</description>
+    </item>
+    
+    <item>
+      <title>火狐下form不能嵌套？</title>
+      <link>http://superwf.github.io/p71/</link>
+      <pubDate>Wed, 25 May 2011 13:11:16 +0000</pubDate>
+      
+      <guid>http://superwf.github.io/p71/</guid>
+      <description>今天发现firefox下，form不能随便嵌套在table，tr或td里，其他元素不清楚是不是也这样。
+firebug里查看，form自动被排挤到了外面，不能正确包裹input导致提交不到内容
+在其他浏览器里form随便嵌套，又不占显示。</description>
+    </item>
+    
+  </channel>
+</rss>

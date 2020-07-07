@@ -1,0 +1,508 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    
+    <title>css | 老王的日志</title>
+    <meta name="viewport" content="width=device-width,minimum-scale=1">
+    <meta name="generator" content="Hugo 0.68.3" />
+    
+    
+      <META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW">
+    
+
+    
+    
+      <link href="/dist/css/app.1cb140d8ba31d5b2f1114537dd04802a.css" rel="stylesheet">
+    
+
+    
+
+    
+      
+    
+
+    
+    
+      <link href="/categories/css/index.xml" rel="alternate" type="application/rss+xml" title="老王的日志" />
+      <link href="/categories/css/index.xml" rel="feed" type="application/rss+xml" title="老王的日志" />
+      
+    
+    
+    <meta property="og:title" content="css" />
+<meta property="og:description" content="" />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="http://superwf.github.io/categories/css/" />
+<meta property="og:updated_time" content="2019-03-21T08:54:41+00:00" />
+<meta itemprop="name" content="css">
+<meta itemprop="description" content=""><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="css"/>
+<meta name="twitter:description" content=""/>
+
+  </head>
+
+  <body class="ma0 avenir bg-near-white">
+
+    
+
+  <header>
+    <div class="pb3-m pb6-l bg-black">
+      <nav class="pv3 ph3 ph4-ns" role="navigation">
+  <div class="flex-l justify-between items-center center">
+    <a href="http://superwf.github.io/" class="f3 fw2 hover-white no-underline white-90 dib">
+      老王的日志
+    </a>
+    <div class="flex-l items-center">
+      
+
+      
+        <ul class="pl0 mr3">
+          
+          <li class="list f5 f4-ns fw4 dib pr3">
+            <a class="hover-white no-underline white-90" href="/migrate2020/" title="migrate2020 page">
+              migrate2020
+            </a>
+          </li>
+          
+          <li class="list f5 f4-ns fw4 dib pr3">
+            <a class="hover-white no-underline white-90" href="/coder-life/" title="coder-life page">
+              coder-life
+            </a>
+          </li>
+          
+        </ul>
+      
+      
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    </div>
+  </div>
+</nav>
+
+      <div class="tc-l pv3 ph3 ph4-ns">
+        <h1 class="f2 f-subheadline-l fw2 light-silver mb0 lh-title">
+          css
+        </h1>
+        
+      </div>
+    </div>
+  </header>
+
+
+    <main class="pb7" role="main">
+      
+  <article class="cf pa3 pa4-m pa4-l">
+    <div class="measure-wide-l center f4 lh-copy nested-copy-line-height nested-links nested-img mid-gray">
+      <p>Below you will find pages that utilize the taxonomy term “css”</p>
+    </div>
+  </article>
+  <div class="mw8 center">    
+    <section class="flex-ns flex-wrap justify-around mt5">
+      
+        <div class="relative w-100  mb4 bg-white">
+          <div class="relative w-100 mb4 bg-white nested-copy-line-height">
+  <div class="bg-white mb3 pa4 gray overflow-hidden">
+    <span class="f6 db">Posts</span>
+    <h1 class="f3 near-black">
+      <a href="http://superwf.github.io/p1452/" class="link black dim">
+        flex布局，元素左右排列
+      </a>
+    </h1>
+    <div class="nested-links f5 lh-copy nested-copy-line-height">
+      当flex布局时，可以在父元素用justify-content调整子元素主轴位置。
+有一种情况，需要大部分元素左对齐，只有最后一个右对齐。
+子元素只有align-self可以调整辅轴的自身位置，主轴位置只能靠父元素设置。
+float没用，可以用position: absolute调整但效果不理想。
+https://www.w3.org/TR/css-flexbox-1/#auto-margins
+利用margin的auto竟然可以达到这种效果。
+    </div>
+  </div>
+</div>
+
+        </div>
+      
+        <div class="relative w-100  mb4 bg-white">
+          <div class="relative w-100 mb4 bg-white nested-copy-line-height">
+  <div class="bg-white mb3 pa4 gray overflow-hidden">
+    <span class="f6 db">Posts</span>
+    <h1 class="f3 near-black">
+      <a href="http://superwf.github.io/p1373/" class="link black dim">
+        smacss
+      </a>
+    </h1>
+    <div class="nested-links f5 lh-copy nested-copy-line-height">
+      
+    </div>
+  </div>
+</div>
+
+        </div>
+      
+        <div class="relative w-100  mb4 bg-white">
+          <div class="relative w-100 mb4 bg-white nested-copy-line-height">
+  <div class="bg-white mb3 pa4 gray overflow-hidden">
+    <span class="f6 db">Posts</span>
+    <h1 class="f3 near-black">
+      <a href="http://superwf.github.io/p1367/" class="link black dim">
+        css font字体文件过大问题
+      </a>
+    </h1>
+    <div class="nested-links f5 lh-copy nested-copy-line-height">
+      今天在console里看到了这么一行提示
+Intervention: WebFonts use adaptive timeouts to take fallback fonts 查了一下，是因为字体文件体积过大时，可能会造成使用该字体的元素在字体下载前后出现闪烁的问题。有学到了一个新属性font-display。按需要，指定block比较合适，因为字体图标一时也找不到什么合适的占位字体。
+https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display
+    </div>
+  </div>
+</div>
+
+        </div>
+      
+        <div class="relative w-100  mb4 bg-white">
+          <div class="relative w-100 mb4 bg-white nested-copy-line-height">
+  <div class="bg-white mb3 pa4 gray overflow-hidden">
+    <span class="f6 db">Posts</span>
+    <h1 class="f3 near-black">
+      <a href="http://superwf.github.io/p1350/" class="link black dim">
+        position: fixed与transform
+      </a>
+    </h1>
+    <div class="nested-links f5 lh-copy nested-copy-line-height">
+      最近使用antd的Affix组件，总是定位错乱，后来查到上级元素有使用动画效果的，用了transform属性，影响了position: fixed。可是去掉之后仍然会影响。最后找到上级元素还有个will-change: transform。
+不光是transform会影响position: fixed，will-change指定的属性只要可能影响到fixed，也都会起作用。
+    </div>
+  </div>
+</div>
+
+        </div>
+      
+        <div class="relative w-100  mb4 bg-white">
+          <div class="relative w-100 mb4 bg-white nested-copy-line-height">
+  <div class="bg-white mb3 pa4 gray overflow-hidden">
+    <span class="f6 db">Posts</span>
+    <h1 class="f3 near-black">
+      <a href="http://superwf.github.io/p1256/" class="link black dim">
+        在position: fixed元素内取不到offsetParent
+      </a>
+    </h1>
+    <div class="nested-links f5 lh-copy nested-copy-line-height">
+      在调试一个拖拽组件时需要获取定位，发现在modal中，外层元素是position: fixed时，获取不到offsetParent，无法计算offsetLeft和offsetTop。
+google发现确实是positino:fixed的原因。
+https://stackoverflow.com/questions/306305/what-would-make-offsetparent-null
+https://stackoverflow.com/questions/306305/what-would-make-offsetparent-null
+    </div>
+  </div>
+</div>
+
+        </div>
+      
+        <div class="relative w-100  mb4 bg-white">
+          <div class="relative w-100 mb4 bg-white nested-copy-line-height">
+  <div class="bg-white mb3 pa4 gray overflow-hidden">
+    <span class="f6 db">Posts</span>
+    <h1 class="f3 near-black">
+      <a href="http://superwf.github.io/p1158/" class="link black dim">
+        less的bem mixin
+      </a>
+    </h1>
+    <div class="nested-links f5 lh-copy nested-copy-line-height">
+      首先是参考了一下sass中的写法
+http://www.w3cplus.com/preprocessor/pushing-bem-to-the-next-level-with-sass-3-4.html作者在这篇文章中用mixins生成类似函数的东西来嵌套bem层次．
+虽然用过sass，但最近团队用less用惯了，能不换还是最好，于是琢磨如何在less中推行bem或suit的标准．结果less中不支持自定义函数，这个我也是刚知道，通过一个less-plugin-functions可以．试了一下该插件，发现这个的函数只能放在css属性的值的部位，不能当作sass中的@content用．
+后来多看了看文档，琢磨出一个less的写法．
+生成的结果
+  
+    </div>
+  </div>
+</div>
+
+        </div>
+      
+        <div class="relative w-100  mb4 bg-white">
+          <div class="relative w-100 mb4 bg-white nested-copy-line-height">
+  <div class="bg-white mb3 pa4 gray overflow-hidden">
+    <span class="f6 db">Posts</span>
+    <h1 class="f3 near-black">
+      <a href="http://superwf.github.io/p1154/" class="link black dim">
+        内部元素高度影响float元素换行
+      </a>
+    </h1>
+    <div class="nested-links f5 lh-copy nested-copy-line-height">
+      图中每个元素都是float: left，width: 32%;
+偏偏最后一个元素就不排到右边，而且还单起了一行
+debug了半天发现是里面的图的高度稍有一点点的不同，导致每个元素的高度差了一点
+将每个元素的高度统一之后，就能按设计的排成两行了．
+    </div>
+  </div>
+</div>
+
+        </div>
+      
+        <div class="relative w-100  mb4 bg-white">
+          <div class="relative w-100 mb4 bg-white nested-copy-line-height">
+  <div class="bg-white mb3 pa4 gray overflow-hidden">
+    <span class="f6 db">Posts</span>
+    <h1 class="f3 near-black">
+      <a href="http://superwf.github.io/p1128/" class="link black dim">
+        font-size与width
+      </a>
+    </h1>
+    <div class="nested-links f5 lh-copy nested-copy-line-height">
+      今天发现一个奇怪的问题
+在移动端的时候，一个页面元素的font-size莫名其妙的比定义的大很多
+用chrome查看生效的font-size: 16px;　但computed里的是30多px，怎么查也查不到是哪里导致的字体变化，而且该问题只发生在小屏幕中．
+后来发现该元素需要定义width，可影响字体大小，但不能靠width来配置出指定大小的字体，而且也会影响实际宽度的显示．
+http://stackoverflow.com/questions/15261315/calculated-font-size-on-nexus-7-chrome-is-different-from-css-font-size
+后来按该解决方法，为该元素添加max-height: 1000px; 该元素的计算属性与定义属性总算相等．
+之后看到http://stackoverflow.com/questions/11289166/chrome-on-android-resizes-font
+这个问题叫font boosting，目前就是通过设置max-height或者meta viewport来解决．
+    </div>
+  </div>
+</div>
+
+        </div>
+      
+        <div class="relative w-100  mb4 bg-white">
+          <div class="relative w-100 mb4 bg-white nested-copy-line-height">
+  <div class="bg-white mb3 pa4 gray overflow-hidden">
+    <span class="f6 db">Posts</span>
+    <h1 class="f3 near-black">
+      <a href="http://superwf.github.io/p1120/" class="link black dim">
+        有效阻止火狐自动填充密码
+      </a>
+    </h1>
+    <div class="nested-links f5 lh-copy nested-copy-line-height">
+      火狐会自动向type=password的input中填充当前域名已经记录的密码，
+input的autocomplete=’off’，不灵
+http://stackoverflow.com/questions/6487970/disable-firefoxs-auto-fill
+说autocomplete=’off’要加到form上，也不灵
+最后找了个方法，在需要阻止自动填充的input前面再加一个&lt;input type=’password’ style=’display: none;’ /&gt;让火狐的自动填充填到这里好了．
+    </div>
+  </div>
+</div>
+
+        </div>
+      
+        <div class="relative w-100  mb4 bg-white">
+          <div class="relative w-100 mb4 bg-white nested-copy-line-height">
+  <div class="bg-white mb3 pa4 gray overflow-hidden">
+    <span class="f6 db">Posts</span>
+    <h1 class="f3 near-black">
+      <a href="http://superwf.github.io/p1116/" class="link black dim">
+        非a或input元素的focus与blur
+      </a>
+    </h1>
+    <div class="nested-links f5 lh-copy nested-copy-line-height">
+      最近有用到改变元素状态的情况以前都用classList.toggle，要是能用focus和blur实现就好了，可是普通元素都不支持这两个事件．今天发现了tabindex这个属性，可以为普通元素添加这两个事件，tabindex设置为-1，即可使该元素通过程序或者点击获取焦点．在react中为tabIndex=’-1′
+    </div>
+  </div>
+</div>
+
+        </div>
+      
+        <div class="relative w-100  mb4 bg-white">
+          <div class="relative w-100 mb4 bg-white nested-copy-line-height">
+  <div class="bg-white mb3 pa4 gray overflow-hidden">
+    <span class="f6 db">Posts</span>
+    <h1 class="f3 near-black">
+      <a href="http://superwf.github.io/p1111/" class="link black dim">
+        transition与属性值为auto
+      </a>
+    </h1>
+    <div class="nested-links f5 lh-copy nested-copy-line-height">
+      当需要动画过度一些元素，而元素的内容为动态在如，因此不能事先确定元素的宽高，但需要动画效果来过度宽高的情况下．
+改用max-width和max-height，只要将这两个值设置的很大即可．
+例如
+&lt;br /&gt; p {&lt;br /&gt; max-height: 0;&lt;br /&gt; transition: max-height 1s;&lt;br /&gt; }&lt;br /&gt; p.active {&lt;br /&gt; transition: max-height 1s;&lt;br /&gt; max-height: 10000px;&lt;br /&gt; }&lt;br /&gt;
+    </div>
+  </div>
+</div>
+
+        </div>
+      
+        <div class="relative w-100  mb4 bg-white">
+          <div class="relative w-100 mb4 bg-white nested-copy-line-height">
+  <div class="bg-white mb3 pa4 gray overflow-hidden">
+    <span class="f6 db">Posts</span>
+    <h1 class="f3 near-black">
+      <a href="http://superwf.github.io/p1109/" class="link black dim">
+        inline-block width:50%变成两行
+      </a>
+    </h1>
+    <div class="nested-links f5 lh-copy nested-copy-line-height">
+      当两个相邻元素的样式为　width: 50%，display: inline-block;
+仍然不能排列成一行，原因是因为一般编辑html时，都会缩进换行来编辑使人便于阅读
+但这样的话两个元素中间的换行就会产生宽度．
+推荐用jade，开发时转html时加上pretty: false的参数，反正发布时也要压缩，和发布格式越接近越好．
+    </div>
+  </div>
+</div>
+
+        </div>
+      
+        <div class="relative w-100  mb4 bg-white">
+          <div class="relative w-100 mb4 bg-white nested-copy-line-height">
+  <div class="bg-white mb3 pa4 gray overflow-hidden">
+    <span class="f6 db">Posts</span>
+    <h1 class="f3 near-black">
+      <a href="http://superwf.github.io/p1106/" class="link black dim">
+        user-select: none;
+      </a>
+    </h1>
+    <div class="nested-links f5 lh-copy nested-copy-line-height">
+      user-select: none;
+会禁止用户选中内容，但在safari中也会同时组织输入．所以需要把input等排除出去．
+*:not(input) {
+user-select: none;
+}
+    </div>
+  </div>
+</div>
+
+        </div>
+      
+        <div class="relative w-100  mb4 bg-white">
+          <div class="relative w-100 mb4 bg-white nested-copy-line-height">
+  <div class="bg-white mb3 pa4 gray overflow-hidden">
+    <span class="f6 db">Posts</span>
+    <h1 class="f3 near-black">
+      <a href="http://superwf.github.io/p1098/" class="link black dim">
+        设置body height 100%
+      </a>
+    </h1>
+    <div class="nested-links f5 lh-copy nested-copy-line-height">
+      有一个footer需要设置始终在页面最下，一开始的时候总是会根据页面内容的高度自动上升．设置body height: 100%也没起作用．
+后来确定了css方法如下
+   
+    </div>
+  </div>
+</div>
+
+        </div>
+      
+        <div class="relative w-100  mb4 bg-white">
+          <div class="relative w-100 mb4 bg-white nested-copy-line-height">
+  <div class="bg-white mb3 pa4 gray overflow-hidden">
+    <span class="f6 db">Posts</span>
+    <h1 class="f3 near-black">
+      <a href="http://superwf.github.io/p1019/" class="link black dim">
+        在float left与float right之间的内容居中
+      </a>
+    </h1>
+    <div class="nested-links f5 lh-copy nested-copy-line-height">
+      答案如下，竟然是将居中的内容放到最右边，令我印象深刻。
+http://stackoverflow.com/questions/15724700/how-make-middle-div-to-fill-space-between-floating-elements
+HTML
+`left CSS
+#left {width: 200px;float: left;}#middle {overflow: hidden;}#right {width: 200px;float: right;}   
+    </div>
+  </div>
+</div>
+
+        </div>
+      
+        <div class="relative w-100  mb4 bg-white">
+          <div class="relative w-100 mb4 bg-white nested-copy-line-height">
+  <div class="bg-white mb3 pa4 gray overflow-hidden">
+    <span class="f6 db">Posts</span>
+    <h1 class="f3 near-black">
+      <a href="http://superwf.github.io/p1002/" class="link black dim">
+        safari与myth
+      </a>
+    </h1>
+    <div class="nested-links f5 lh-copy nested-copy-line-height">
+      公司没让用less，于是用的myth至少能少些一些浏览器前缀，昨天发现一个
+background-image: radial-gradient(farthest-corner, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.95));
+只有safari中不起作用，必须写成
+background-image: -webkit-radial-gradient(farthest-corner, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.95));
+myth只在css的属性上加浏览器前缀，并没有在值上加，不知算不算bug
+在github上提了一下不知道会不会在值上也加上前缀。
+    </div>
+  </div>
+</div>
+
+        </div>
+      
+        <div class="relative w-100  mb4 bg-white">
+          <div class="relative w-100 mb4 bg-white nested-copy-line-height">
+  <div class="bg-white mb3 pa4 gray overflow-hidden">
+    <span class="f6 db">Posts</span>
+    <h1 class="f3 near-black">
+      <a href="http://superwf.github.io/p999/" class="link black dim">
+        z-index与transform中的translateZ
+      </a>
+    </h1>
+    <div class="nested-links f5 lh-copy nested-copy-line-height">
+      今天遇到一个浏览器兼容问题，只在sogou浏览器里会有
+比如　http://learnsemantic.com/
+在sogou里动画背景前面的按钮是点不动的，但同为webkit的chrome就没问题．而且无论如何修改z-index，也不能使按钮在背景的前端．
+后来排查发现问题出在背景层的translateZ(330px)，改成translateZ(0px)，即可在sogou中正常使用．
+    </div>
+  </div>
+</div>
+
+        </div>
+      
+        <div class="relative w-100  mb4 bg-white">
+          <div class="relative w-100 mb4 bg-white nested-copy-line-height">
+  <div class="bg-white mb3 pa4 gray overflow-hidden">
+    <span class="f6 db">Posts</span>
+    <h1 class="f3 near-black">
+      <a href="http://superwf.github.io/p82/" class="link black dim">
+        去掉a连接鼠标点击时出现的边框
+      </a>
+    </h1>
+    <div class="nested-links f5 lh-copy nested-copy-line-height">
+        
+    </div>
+  </div>
+</div>
+
+        </div>
+      
+    </section>
+  </div>
+
+    </main>
+    <footer class="bg-black bottom-0 w-100 pa3" role="contentinfo">
+  <div class="flex justify-between">
+  <a class="f4 fw4 hover-white no-underline white-70 dn dib-ns pv2 ph3" href="http://superwf.github.io/" >
+    &copy;  老王的日志 2020 
+  </a>
+    <div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+</div>
+  </div>
+</footer>
+
+    
+
+  <script src="/dist/js/app.3fc0f988d21662902933.js"></script>
+
+
+  </body>
+</html>

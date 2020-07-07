@@ -1,0 +1,857 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>debian on 老王的日志</title>
+    <link>http://superwf.github.io/categories/debian/</link>
+    <description>Recent content in debian on 老王的日志</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-CN</language>
+    <lastBuildDate>Mon, 27 Jan 2020 15:49:38 +0000</lastBuildDate>
+    
+	<atom:link href="http://superwf.github.io/categories/debian/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>ubuntu下录屏</title>
+      <link>http://superwf.github.io/p1539/</link>
+      <pubDate>Mon, 27 Jan 2020 15:49:38 +0000</pubDate>
+      
+      <guid>http://superwf.github.io/p1539/</guid>
+      <description>今天为了写个教程，需要录制屏幕来辅助讲解
+之前一直用recordmydesktop生成ogv文件，突然发现上传到github之后ogv是不能播放的
+没关系，反正也不需要声音，转成gif吧，后来查了一下，ubuntu有ffmpeg工具可以直接完成这项工作。
+网上的教程比较老，还得自己添加ppa源，马上ubuntu20都要出了，官方源就带，直接装ffmpeg就行不需要外部源。
+但还是麻烦，需要先录制屏幕，再手动转图，中间步骤还没法自动化
+再找吧，找到了peek，真是好东东，直接录屏到gif呢。需要添加安装源。
+sudo add-apt-repository ppa:peek-developers/stable
+等等，peek的选项里好像有其他几个图片支持，apng和webm都是个什么，赶紧查一下。
+apng是png的一种扩展，既有png的优势，又能动。
+webp用过，chrome支持，有技术优势，也能动，如果可以直接生成的话，是最佳选择，但peek的生成选项里没有这个。
+webm是视频格式，对标的是mp4，属于视频和音频流。
+试了一下推送github，webm不能显示，apng没问题。
+最终选定apng。</description>
+    </item>
+    
+    <item>
+      <title>使用letsencrypt免费证书</title>
+      <link>http://superwf.github.io/p1165/</link>
+      <pubDate>Tue, 10 Jan 2017 05:40:02 +0000</pubDate>
+      
+      <guid>http://superwf.github.io/p1165/</guid>
+      <description>权威参考如下
+https://certbot.eff.org
+按照教程操作，选择自己对应的操作系统即可了．
+网上的中文教程有些老了，其实是不用去github先clone下来的，还慢．
+在这里想说两句的是
+一开始参照http://www.laozuo.org/7676.html来操作，是在自己的本机执行的，自己还先用openssl生成了密钥，没有在服务器上操作，总说不能到达服务器ip的443端口．
+就很奇怪，自己本地生成的密钥是怎么被人家服务器签名认证的．文章里没说太清楚．
+中午睡了一觉，半睡办醒之间想通了．
+其实是必须在需要被签发的域名所在的服务器上运行签名程序，运行的时候关闭自己的apache或nginx什么的，要把443端口空出来，
+这样签名程序会自己启一个服务，将生成的密钥传输给签名服务器然后在返回给服务器．
+签名完毕的证书放在/etc/letsencrypt中，按照教程放入nginx配置文件即可．</description>
+    </item>
+    
+    <item>
+      <title>define tmux prefix c-s</title>
+      <link>http://superwf.github.io/p1150/</link>
+      <pubDate>Tue, 15 Nov 2016 08:24:04 +0000</pubDate>
+      
+      <guid>http://superwf.github.io/p1150/</guid>
+      <description>vim默认的c-b和bash的热键冲突，好多人都用的c-x
+但是这个在vim里也是有用的，于是自己搞了个c-q，觉得挺好
+一次在tmux的vim中误按了c-s，导致c-q不能解锁…
+发现将tmux的prefix直接定义成c-s挺好！直接屏蔽了锁屏功能。
+真的需要shell的c-s锁屏的时候，先挂起tmux再锁。</description>
+    </item>
+    
+    <item>
+      <title>samba启动</title>
+      <link>http://superwf.github.io/p949/</link>
+      <pubDate>Wed, 01 Apr 2015 04:14:28 +0000</pubDate>
+      
+      <guid>http://superwf.github.io/p949/</guid>
+      <description>今弄一个共享文件夹，装个samba，弄完之后忘了两个步骤，记录一下．
+先是service samba restart
+Failed to restart samba.service: Unit samba.service is masked.
+samba分成smbd和nmbd
+更改smb.conf之后只service smbd reload
+然后是用户密码，更改了系统用户密码后始终不能登录，忘了smbpasswd这条了
+smbpasswd -a user设置密码</description>
+    </item>
+    
+    <item>
+      <title>jessie的升级与ati显卡</title>
+      <link>http://superwf.github.io/p898/</link>
+      <pubDate>Tue, 22 Jul 2014 03:09:32 +0000</pubDate>
+      
+      <guid>http://superwf.github.io/p898/</guid>
+      <description>升级多了各种软件总能保持新鲜，升级太多了太折腾。
+这次升级是完了，jessie里删除了fglrx-driver的包。只能用amd网站的包来装，虽然打了补丁之后可以安装但是一进桌面就黑屏，而且鼠标键盘统统没反应。
+重启后删除/etc/X11/xorg.conf倒是能进桌面，但分辨率低，一看就是没显卡驱动。
+之前这种问题都能通过发行包里的fglrx驱动和amd官网驱动配合调试解决，这次是玩不转了。
+实在不行，最后硬件解决，从另一个机器上弄了个nvidia的显卡插上用了，不玩ati了。</description>
+    </item>
+    
+    <item>
+      <title>linux kernel 3.14下的ati driver</title>
+      <link>http://superwf.github.io/p846/</link>
+      <pubDate>Thu, 12 Jun 2014 05:47:54 +0000</pubDate>
+      
+      <guid>http://superwf.github.io/p846/</guid>
+      <description>一个多月前升级系统之后，就不能进入桌面了，当时捣鼓了半天发现新的3.14内核不能正确安装ati的显卡驱动，导致一直使用3.13内核。我用的是amd的apu
+又加上当前google被全时间段墙，该问题一直没解决。
+后来找到了以下解决方法，看来确实是我判断的新的3.14内核和ati显卡驱动不兼容的问题，打上这个补丁后，也能正常用3.14内核使用桌面了。
+http://bluehatrecord.wordpress.com/2014/05/10/installing-the-proprietary-amd-catalyst-14-4-fglrx-driver-on-fedora-20-with-kernel-3-14/</description>
+    </item>
+    
+    <item>
+      <title>jessie的一次系统升级</title>
+      <link>http://superwf.github.io/p830/</link>
+      <pubDate>Fri, 16 May 2014 07:22:17 +0000</pubDate>
+      
+      <guid>http://superwf.github.io/p830/</guid>
+      <description>今天运行了一下 dist-upgrade
+升级之后现实显卡驱动，年纪大了记性不好，忘了最近换的amd的apu的机器了，又装了nvidia的驱动。结果黑屏司机。
+后来想起来了之后又装回去，去amd网站下驱动，装上之后死的更彻底，连键盘都不灵了。
+后来用另一个电脑google一下，卸载了官方驱动，用apt装 fglrx-xxxx的一系列都装上。
+然后还是黑屏，但是硬件没死，还能切换到其他控制台，查看Xorg.0.log发现说没有发现Screen，改/etc/X11/xorg.conf把里面的nvidia换成radeon。
+然后进桌面，开干活。
+vim开始报错vimim语法错误，这玩意好久没更新，估计也不会更新了，自己改了改还凑合能用。
+然后php页面不出东西了，看日志是php5-fpm.sock权限错误，之前是 0666，升级之后的默认权限变成 0660了，而且还是root文件，所以www-data的nginx不能读写。
+一开始还以为是/etc/init.d/php5-fpm里的设置，后来发现可以在/etc/php5/fpm/pool.d/www.conf里改，把listen.mode改成0666或者吧listen.owner和group都改成www-data。
+不知道这个算不算个bug，不过既然是能通过配置文件修改，大概也就算个整合问题。</description>
+    </item>
+    
+    <item>
+      <title>apt-mirrors的i18n问题</title>
+      <link>http://superwf.github.io/p790/</link>
+      <pubDate>Wed, 26 Mar 2014 02:36:18 +0000</pubDate>
+      
+      <guid>http://superwf.github.io/p790/</guid>
+      <description>用于解决一直以来apt-mirrors不能自动同步i18n文件的问题，今天突然灵光一现，想到proxy_pass到外网的方法。</description>
+    </item>
+    
+    <item>
+      <title>今天把android模拟器运行了</title>
+      <link>http://superwf.github.io/p783/</link>
+      <pubDate>Sat, 22 Mar 2014 07:55:21 +0000</pubDate>
+      
+      <guid>http://superwf.github.io/p783/</guid>
+      <description>升级jessie之后，apt可直接安装几个android的64位基本命令
+先准备好饭强
+apt 安装 openjdk-7-jdk
+http://android-studio.org/
+把android-studio下载了，解压后运行bin/studio.sh
+按向导自动配置好环境，会默认放到~/Android/Sdk中
+然后在.bashrc中添加
+ANDROID_HOME=”~/Android/Sdk”
+PATH=”$PATH:$ANDROID_HOME/platform-tools:$ANDROID_HOME/tools”
+然后直接运行android命令，安装需要的包，react-native需要android sdk build-tools 23.0.1和 android 6.0里的sdk-platform, arm eabi v7a system image, sources for android sdk
+再通过tools菜单创建一个虚拟手机．
+再在react-native创建的项目中的android文件夹中添加文件local.property，内容为sdk.dir=~/Android/Sdk
+然后缺的一些32位包可以用下面这几个包来补充。
+lib32stdc++6
+lib32z1-dev
+进入react-native创建的项目运行react-native run-android</description>
+    </item>
+    
+    <item>
+      <title>各个分区格式的比较</title>
+      <link>http://superwf.github.io/p718/</link>
+      <pubDate>Tue, 21 Jan 2014 06:08:42 +0000</pubDate>
+      
+      <guid>http://superwf.github.io/p718/</guid>
+      <description>各个分区格式的比较
+每个分区都是1G，用的命令是
+lvcreate -L 1G -n c[1-4] vg
+然后用mkfs格式化
+c1-&amp;gt;ext4, c2-&amp;gt;reiserfs, c3-&amp;gt;btrfs, c4-&amp;gt;ntfs
+文件系统 容量 已用 可用 已用% 挂载点
+/dev/mapper/vg-c1 1008M 34M 924M 4% /mnt/c1
+/dev/mapper/vg-c2 1.0G 33M 992M 4% /mnt/c2
+/dev/mapper/vg-c3 1.0G 56K 894M 1% /mnt/c3
+/dev/mapper/vg-c4 1.0G 5.6M 1019M 1% /mnt/c4
+看来还是ntfs装东西最多</description>
+    </item>
+    
+    <item>
+      <title>显卡驱动造成的死机</title>
+      <link>http://superwf.github.io/p689/</link>
+      <pubDate>Fri, 03 Jan 2014 03:37:20 +0000</pubDate>
+      
+      <guid>http://superwf.github.io/p689/</guid>
+      <description>死机问题闹了两天，而且是最麻烦的不定时死机，一开机总能用一阵子
+找了个旁边的一样配置的电脑把我的硬盘换上，还是一样，刚才发现是显卡驱动问题
+一开始总觉得linux不会死机死的这么彻底，总觉得是内存或者是集成显卡出了问题
+最后降级了显卡驱动
+把NVIDIA-Linux-x86_64-331.20
+降级成NVIDIA-Linux-x86_64-319.76
+就好了
+http://grantkot.com/sine.html
+这个页面测试一下，也稳定了
+之前是，一看这个特效，就肯定死机</description>
+    </item>
+    
+    <item>
+      <title>邮箱上传附件nginx问题</title>
+      <link>http://superwf.github.io/p525/</link>
+      <pubDate>Mon, 24 Jun 2013 05:54:08 +0000</pubDate>
+      
+      <guid>http://superwf.github.io/p525/</guid>
+      <description>今天有人反映公司邮箱大于1m的附件无法发送。一看是万网的邮箱。万网邮箱上传用的是个flash插件，一添加附件总会停留在上传的地方，给万网客服发了邮件人家回复说没问题。但是我这怎么也发不了邮件。
+后来想到可能是nginx透明proxy的问题，但是上传附件用的是post，不会被缓存。后来在chrome里的调试工具发现上传大文件时返回的是
+413 Request Entity Too Large 赶紧在nginx里加上 client_max_body_size = 100m;
+问题的难点在调试上。</description>
+    </item>
+    
+    <item>
+      <title>wheezy升级iceweasel</title>
+      <link>http://superwf.github.io/p523/</link>
+      <pubDate>Fri, 21 Jun 2013 09:35:54 +0000</pubDate>
+      
+      <guid>http://superwf.github.io/p523/</guid>
+      <description>今天调试websocket的东西，原本的iceweasel不支持websocket。
+win下的火狐都支持了。
+http://tech71.com/install-firefox-21-in-debian-wheezy/
+参照这个加源升级版本。</description>
+    </item>
+    
+    <item>
+      <title>dpkg –remove-architecture失败</title>
+      <link>http://superwf.github.io/p384/</link>
+      <pubDate>Mon, 18 Mar 2013 06:11:23 +0000</pubDate>
+      
+      <guid>http://superwf.github.io/p384/</guid>
+      <description>为了装skype，dpkg –add-architecture i386还装了一堆的依赖包，用不了想取消mutiarch就报错了，
+得先用一下这个命令把已经安装的i386的包都卸载先
+aptitude remove `dpkg –get-selections | grep i386 | awk ‘{print $1}’`</description>
+    </item>
+    
+    <item>
+      <title>64位系统下无法使用libpam-mysql的md5</title>
+      <link>http://superwf.github.io/p331/</link>
+      <pubDate>Thu, 23 Aug 2012 04:40:04 +0000</pubDate>
+      
+      <guid>http://superwf.github.io/p331/</guid>
+      <description>Aug 23 09:05:57 wfoffice saslauthd[7235]: pam_mysql – non-crypt()ish MD5 hash is not supported in this build.
+首先声明在32位系统上没这问题，只有64位系统出这个。
+花了大半天的时间
+也没弄好。
+http://bbs.chinaunix.net/forum.php?mod=viewthread&amp;amp;tid=1321601
+也按这个重新编译过了
+显示编译结果都OK，但还是出第一行的那个错误，不能通过验证。
+看pam-mysql这个模块最后更新是2006年，这么多年就没再更新过，估计是没戏了，那时候64位系统还没普及。
+https://bugs.launchpad.net/ubuntu/+source/pam-mysql/+bug/1006005
+显示bug一直没修复。</description>
+    </item>
+    
+    <item>
+      <title>dia无法输入中文问题</title>
+      <link>http://superwf.github.io/p293/</link>
+      <pubDate>Tue, 05 Jun 2012 03:07:16 +0000</pubDate>
+      
+      <guid>http://superwf.github.io/p293/</guid>
+      <description>http://www.ubuntu-tw.org/modules/newbb/viewtopic.php?topic_id=48402&amp;amp;post_id=222438
+参考了这个，又折腾了半天gcin，scim，全都不灵
+后来在第二页看到了一个提示，把菜单里的dia命令换成dia-gnome
+用dia-gnome启动后一切OK</description>
+    </item>
+    
+    <item>
+      <title>网络启动安装linux</title>
+      <link>http://superwf.github.io/p276/</link>
+      <pubDate>Mon, 23 Apr 2012 09:40:04 +0000</pubDate>
+      
+      <guid>http://superwf.github.io/p276/</guid>
+      <description>之前配置过网络启动安装系统。当时还有于工一起鼓捣，他弄了个网络pxe安装win2003，这个我一直都不会，不过因为是win的东西…
+最近又要装个老服务器，光驱接口不通用，有usb但不支持usb启动，还好支持pxe。
+今天又配置了一下，参考这个
+http://www.ixpub.net/thread-1127829-1-1.html
+最后我的dhcpd.conf内容如下
+class “pxeclients” {
+match if substring (option vendor-class-identifier, 0, 9) = “PXEClient”;
+option vendor-class-identifier “PXEClient”;
+vendor-option-space PXE;
+option PXE.mtftp-ip 0.0.0.0;
+filename “pxelinux.0”;
+next-server 10.0.0.70;
+}
+allow booting;
+allow bootp;
+subnet 10.0.0.0 netmask 255.255.255.0 {
+range 10.0.0.101 10.0.0.200;
+option routers 10.0.0.1;
+option domain-name-servers 10.0.0.70;
+}
+group {
+next-server 10.0.0.70;
+#host tftpclient {
+# filename “pxelinux.0”;
+#}
+filename “pxelinux.0”;
+}
+一开始在163上下了个debian的网络启动文件。有些教程上说要下载pxelinux.0 mini.iso
+其实都不用，就下载netboot.tar.gz一个文件，然后解压就都有了。
+解压后会有pxelinux.0这个文件。
+中间发生了点问题，目标服务器是dell poweredge 1750。</description>
+    </item>
+    
+    <item>
+      <title>libreadline.so.5 undefined symbol problem导致reiserfs分区加载不了</title>
+      <link>http://superwf.github.io/p263/</link>
+      <pubDate>Fri, 30 Mar 2012 05:06:30 +0000</pubDate>
+      
+      <guid>http://superwf.github.io/p263/</guid>
+      <description>昨天由于rails c命令报错，说缺少readline这个库，调试了一些什么，具体的也想不起来了。
+今天一开机，报readline错误，而且几个lvm里的reiserfs分区也找不到了！
+一开始还以为是分区损坏，数据完蛋了。
+vgdisplay就报错
+symbol lookup error: /usr/local/lib/libreadline.so.5: undefined symbol
+后来google一下说是readline的问题
+按这个帖子说的
+http://ubuntuforums.org/showthread.php?t=269022
+把几个readline的文件都删了，然后ldconfig更新一下。
+竟然就好了。
+加密分区也回来了，可喜可贺！</description>
+    </item>
+    
+    <item>
+      <title>debian gpg</title>
+      <link>http://superwf.github.io/p258/</link>
+      <pubDate>Wed, 28 Mar 2012 09:15:26 +0000</pubDate>
+      
+      <guid>http://superwf.github.io/p258/</guid>
+      <description>升级wheezy之后需要装smplayer
+在sources.list里加入了
+deb http://www.debian-multimedia.org wheezy main non-free
+aptitude update之后
+由于没有公钥，下列签名无法进行验证： NO_PUBKEY 07DC563D1F41B907
+按http://www.debian-multimedia.org/上写的
+先装上debian-multimedia-keyring
+装上这个的意义应该就在于导入公钥
+顺便了解了一下gpg命令
+gpg –keyserver keyserver.ubuntu.com –search-keys 07DC563D1F41B907
+如果在公钥服务器上找到，导入之
+gpg –keyserver keyserver.ubuntu.com –recv 07DC563D1F41B907
+gpg –export –a 07DC563D1F41B907 | sudo apt-key add –
+后来知道apt-key这个命令的adv参数直接将后面的参数传递给gpg
+apt-key adv –keyserver keyserver.ubuntu.com –recv-keys D1F41B907
+D1F41B907就是刚才key的后8位。
+前面的那几个命令就用这一个就可以替代了。
+有些key在keyserver.ubuntu.com找不到，可以换wwwkeys.pgp.net试试。
+先gpg –list-keys看了一下，我这个系统里还存着去年的过是的key，是squeeze安装iceweasel用的
+用gpg –delete-keys xxxxxxx删除之</description>
+    </item>
+    
+    <item>
+      <title>bash.bashrc与profile</title>
+      <link>http://superwf.github.io/p253/</link>
+      <pubDate>Tue, 20 Mar 2012 01:26:03 +0000</pubDate>
+      
+      <guid>http://superwf.github.io/p253/</guid>
+      <description>之前装bash-completion时就发现不能自动加载，后来在~/bashrc里加了启动。
+后来用rvm也没有自动加载，每次都是启动之后再
+source /etc/profile.d/rvm.sh
+才装载上
+观察/etc/profile里有自动加载/etc/profile.d/这个目录里的sh文件
+还发现，就是在gnome登录后，打开窗口下的终端时，不能加载/etc/profile和~/bash_profile的内容。
+ctrl + alt + F1的控制台中是自动加载的。
+应该是profile等文件的内容只在交互式登录环境中其作用。
+为了在gnome中的终端中也其作用，于是把/etc/profile里加载/etc/profile.d的内容复制一份到/etc/bash.bashrc中。
+再在gnome中的终端中，这些配置就加载了。</description>
+    </item>
+    
+    <item>
+      <title>bind9默认不能查询，反解</title>
+      <link>http://superwf.github.io/p248/</link>
+      <pubDate>Mon, 19 Mar 2012 09:33:07 +0000</pubDate>
+      
+      <guid>http://superwf.github.io/p248/</guid>
+      <description>全aptitude安装
+之前的域控服务器挂了导致dns也完了。
+终于有有机会不得不弄个dns服务。
+发现bind9默认会不允许其他主机进行dns查询
+原来需要在其named.conf.options中添加
+acl allowed {10.0.0.0/24;};
+options {
+allow-query {allowed};
+}
+允许某个ip段访问才可。
+很久以后，之前用git都没事，后来用capistrano自动部署的时候被fail2ban ban
+发现auth.log里有
+POSSIBLE BREAK-IN ATTEMPT
+说是ip没有做反解。
+在named.conf.default-zones里加上
+zone “0.168.192.in-addr.arpa” {
+type master;
+file “/etc/bind/db.domain”;
+};
+这里ip要反写.
+然后在db.domain里加上
+3 IN PTR www.domain.com.
+域名最后要有一个.
+bind reload之后 nsloopup 一下应该就能反解了。了</description>
+    </item>
+    
+    <item>
+      <title>nagios fcgiwrap</title>
+      <link>http://superwf.github.io/p240/</link>
+      <pubDate>Mon, 27 Feb 2012 06:08:40 +0000</pubDate>
+      
+      <guid>http://superwf.github.io/p240/</guid>
+      <description>网上N多到处copy的文章，统统都用一个perl的nginx-fcgi脚本来启动。
+找了很多还都失效了，或者报错说语法错误。
+后来也找了个有效的
+不过最终找了个有用的文
+http://vladgh.com/blog/nagios-nginx-ubuntu
+用fcgiwrap管理cgi，方便。
+apt 安装 nagios3之后，没有 /var/lib/nagios3/rw/nagios.cmd文件
+需要修改/etc/nagios3/nagios.cfg
+check_external_commands=1
+之后service nagios3 restart 就会生成这个文件了，在npc中用到。
+nagios的网站根目录在/usr/share/nagios3/htdocs
+设置好之后会访问会有一些css和js文件丢失的情况，需要自己建立软链接，其中images应该在 /etc/nagios3/images
+以下是我的nginx的配置，因为debian版本的升级，nagios的路径改了一些所以这个网站也要相应的改一些。
+cgi那里根据配置已经不用redirect了。
+本次更改，debian wheezy已经升级为稳定版了。
+server {
+listen 80;
+server_name monitor.com;
+access_log /var/log/nginx/monitor.log;
+location / {
+location ~ .cgi$ {
+root /usr/lib;
+include fastcgi_params;
+fastcgi_param SCRIPT_FILENAME $document_root$fastcgi_script_name;
+fastcgi_pass unix:/var/run/fcgiwrap.socket;
+}
+location ~ ^nagios3 {
+root /usr/share/nagios3/htdocs;
+}
+root /usr/share/nagios3/htdocs;
+index index.php;
+autoindex on;
+autoindex_exact_size off;
+autoindex_localtime on;
+client_max_body_size 100m;
+location ~ .php$ {</description>
+    </item>
+    
+    <item>
+      <title>debian cacti snmpdiskio</title>
+      <link>http://superwf.github.io/p235/</link>
+      <pubDate>Thu, 23 Feb 2012 09:28:02 +0000</pubDate>
+      
+      <guid>http://superwf.github.io/p235/</guid>
+      <description>下载了snmpdiskio这个插件，按里面README走
+最新版可能是0.9.6，但是到处都找不到了，其实用不到0.9.6也一样用。当前的服务器已经是3.2.0.4版本的内核，debian wheezy已经成stable了的时候了。
+在被监控机器上的 /etc/snmp/snmpd.conf里加上了
+extend .1.3.6.1.4.1.2021.54 hdNum /usr/local/bin/snmpdiskio hdNum
+extend .1.3.6.1.4.1.2021.55 hdIndex /usr/local/bin/snmpdiskio hdIndex
+extend .1.3.6.1.4.1.2021.56 hdDescr /usr/local/bin/snmpdiskio hdDescr
+extend .1.3.6.1.4.1.2021.57 hdInBlocks /usr/local/bin/snmpdiskio hdInBlocks
+extend .1.3.6.1.4.1.2021.58 hdOutBlocks /usr/local/bin/snmpdiskio hdOutBlocks
+在
+http://public.itmatrix.eu/Cacti_templates/Disk_IO
+wget http://public.itmatrix.eu/Cacti_templates/Disk_IO/partition.xml
+然后更改文件
+将&amp;lt;index_order&amp;gt;hdDescr:hdName:hdIndex&amp;lt;/index_order&amp;gt;
+这行 hdName: 去掉
+wget http://public.itmatrix.eu/Cacti_templates/Disk_IO/snmpdiskio
+install -m 0755 -o root -g root -p -v snmpdiskio /usr/local/bin/
+在监控端用
+snmpwalk -v2c -c public 192.168.0.10 .1.3.6.1.4.1.2021.54
+如果配置的是v3的验证
+snmpwalk -v3 -u uuu -l auth -a MD5 -A pppppppp 1.</description>
+    </item>
+    
+    <item>
+      <title>lvm加密分区</title>
+      <link>http://superwf.github.io/p228/</link>
+      <pubDate>Wed, 22 Feb 2012 05:03:02 +0000</pubDate>
+      
+      <guid>http://superwf.github.io/p228/</guid>
+      <description>装好cryptsetup
+以装好lvm为前提进行以下操作。
+若分区不存在则
+cryptsetup create home /dev/vg/home
+若已经建立lvm分区则
+cryptsetup luksFormat /dev/vg/home
+让输入密码就输
+完成之后的这个新盘的数据会被清空，加密分区就做好了。
+打消了我之前以为可以把普通分区无损转成加密分区的幻想…
+需要挂载时
+cryptsetup luksOpen /dev/vg/home home
+就会建立/dev/mapper/home的映射，或者自己起的其他名字的什么映射，必须通过映射名称来格式化和挂载。
+完成之后
+mkfs.ext4 /dev/mapper/home
+或者用其他需要的分区命令格式化
+然后mount这个映射就可以了，例如
+mount /dev/mapper/home /home
+若需要开机自动挂载
+则还需要一个key文件
+比如在 vim /root/home
+内容是11111111或者其他什么字符串就成
+然后
+cryptsetup luksAddKey /dev/vg/home /root/home
+添加了密钥
+需要修改/etc/crypttab文件
+home /dev/vg/home /root/home luks
+这样应该就可以自动启动挂载了
+不过我这启动时有个报错，启动之后用着也没影响
+FATAL: Error inserting padlock_sha (/lib/modules/2.6.32-5-amd64/kernel/drivers/crypto/padlock-sha.ko): No such device
+google说是内核bug，之后的升级应该能修正
+后来我把 padlock-sha加到 /etc/modprob.d/blacklis.conf里
+还有warning 报错，说那个key文件是明文，不过总算舒服点，也妨碍使用。
+如果不使用密钥加载则修改 /etc/crypttab文件的第三列为 none ，如下
+home /dev/vg/home none luks
+就会在开机加载该分区时提示让输入密码，还是这样好些，我最后就是这么设置的。</description>
+    </item>
+    
+    <item>
+      <title>startssl https</title>
+      <link>http://superwf.github.io/p215/</link>
+      <pubDate>Wed, 01 Feb 2012 01:31:24 +0000</pubDate>
+      
+      <guid>http://superwf.github.io/p215/</guid>
+      <description>想从startssl申请个公网的证书，注册了也提出了申请，在选择域名的时候发现没有dyndns.info这个域名。
+写信过去要求申请添加这个域名，果然过了小半天如网上所说的那样，人家服务态度很好，把不能添加的原因给我发过来了，这个域名不支持whois服务，所以无法添加…
+免费的东西就泵抱怨了，残念…</description>
+    </item>
+    
+    <item>
+      <title>debian 系统迁移</title>
+      <link>http://superwf.github.io/p204/</link>
+      <pubDate>Thu, 19 Jan 2012 03:22:18 +0000</pubDate>
+      
+      <guid>http://superwf.github.io/p204/</guid>
+      <description>将一个老系统上的aptitude安装的软件导出列表，然后在新系统上完整的复制过去这个配置。
+参考如下
+http://serverfault.com/questions/737/ubuntu-how-to-setup-a-new-machine-like-an-existing-one
+debconf-get-selections
+debconf-set-selections
+~
+aptitude-create-state-bundle
+aptitude-run-state-bundle –unpack
+~
+dpkg –get-selections “*” &amp;gt;myselections
+“*” makes myselections include package entries for “purge” too.
+试了一下，加＊与不加好像没区别
+on a new machine
+# apt-get update
+# dpkg –set-selections &amp;lt;myselections # apt-get -u dselect-upgrade 有以上三套方案可选 我倾向与用 aptitude-create-state-bundle aptitude-run-state-bundle &amp;ndash;unpack 这个 先aptitude-create-state-bundle my_bundle 然后把my_bundle 考到新机器上 aptitude-run-state-bundle my_bundle</description>
+    </item>
+    
+    <item>
+      <title>debian apt-mirror</title>
+      <link>http://superwf.github.io/p200/</link>
+      <pubDate>Thu, 19 Jan 2012 02:56:57 +0000</pubDate>
+      
+      <guid>http://superwf.github.io/p200/</guid>
+      <description>很早之前配的apt-mirror
+最近有些修改，做一下记录
+比如 一台机器为 mirror.dna.com
+先装 apt-mirror
+编辑 /etc/apt/mirror.list
+set base_path /srv/apt-mirror # 我这里给单分了一个区，否则默认用/var里，得用个百十来G
+deb http://mirrors.163.com/debian stable main contrib non-free
+deb-src http://mirrors.163.com/debian stable main contrib non-free
+deb http://mirrors.163.com/debian squeeze-updates main contrib non-free # 这个是安装更新列表里的，否则如果用这个源安装新系统会说找不到安装源
+deb http://mirrors.163.com/debian squeeze main/debian-installer # 这个很重要，否则这个源只能更新，不能安装新系统
+然后配置nginx 添加一个新站点 mirrors.dna.com
+location / {
+root /srv/apt-mirror/mirror/mirrors.163.com;
+index index.html index.htm;
+autoindex on;
+}
+配置完毕
+然后装新系统时，选择安装源时，手动输入 mirrors.dna.com（先配置好dns将这个域名指向正确的ip）
+然后路径选择 debian 即可</description>
+    </item>
+    
+    <item>
+      <title>google拼音输入法scim</title>
+      <link>http://superwf.github.io/p195/</link>
+      <pubDate>Wed, 18 Jan 2012 01:53:05 +0000</pubDate>
+      
+      <guid>http://superwf.github.io/p195/</guid>
+      <description>scim-googlepinyin
+下载这个包，解包
+或者git clone git://github.com/tchaikov/scim-googlepinyin.git
+进去之后运行autogen.sh
+要是提示找不到scim, 装 scim-dev
+还需要 autoconf 包的支持，这个包里带几个需要的依赖
+装完之后 ./configure; make; make install
+之后 pkill scim
+scim -d
+我这不管用，scim 不能启动。
+重启之后好了，总之能用。</description>
+    </item>
+    
+    <item>
+      <title>debian 升级后启动不能 进入initramfs</title>
+      <link>http://superwf.github.io/p167/</link>
+      <pubDate>Thu, 01 Sep 2011 08:03:08 +0000</pubDate>
+      
+      <guid>http://superwf.github.io/p167/</guid>
+      <description>一个作git server 用处的服务器，没什么其他的东西，尝试了一下unstable 的源，升级后重启悲剧了，进入initramfs的系统。
+系统还是lvm的分区，老scsi硬盘，挂不到其他机器上。
+后来在initramfs里mount 了一大圈总算找回了以前的数据。
+进入了/boot/grub/grub.cfg 里面有个root=UUID=xxxxxxx的玩意
+启动是报错就是因为说找不到这个UUID的硬件。尝试把UUID去掉，直接改成root=/dev/mapper/xxxx 我的lvm 的分区文件名，竟然起来了。
+这玩意肯定算grub升级的bug，大概。</description>
+    </item>
+    
+    <item>
+      <title>vsftp支持ssl与mysql支持</title>
+      <link>http://superwf.github.io/p106/</link>
+      <pubDate>Sun, 19 Jun 2011 09:04:55 +0000</pubDate>
+      
+      <guid>http://superwf.github.io/p106/</guid>
+      <description>在/etc/vsftpd
+ssl_enable=YES
+参考http://hi.baidu.com/sega_konami/blog/item/a99366c6246904039c163d7f.html
+让vsftp支持mysql的虚拟用户
+首先aptitidu install vsftpd 之后，系统中应该就自动创建了ftp这个用户。
+mkdir /srv/ftp; chown ftp:ftp /srv/ftp -R
+在/etc/vsftpd.conf中添加
+更改/etc/pam.d/vsftpd
+将原先没有注释的带auth字样的都注释掉，因为要用mysql验证方式
+再添加
+在mysql中建立库vsftp，建立用户vsftp并授权能访问vsftp库，在vsftp库中建立表users，字段login 和 password
+插入数据 admin / admin
+重启vsftpd 再用admin / admin的帐户密码登录</description>
+    </item>
+    
+    <item>
+      <title>debian lvm</title>
+      <link>http://superwf.github.io/p102/</link>
+      <pubDate>Fri, 17 Jun 2011 03:45:23 +0000</pubDate>
+      
+      <guid>http://superwf.github.io/p102/</guid>
+      <description>扩展磁盘分区
+先卸载 umount /home
+—e2fsck好像可以不用
+最后再mount /dev/debian/home /home
+硬盘分区应该有变化了
+创建逻辑卷
+然后mount之
+ 若是reiserfs分区，lvextend之后
+resize_reiserfs 该分区，可不卸载直接在线操作
+若是ext3、ext4，都支持不umount直接扩展
+之前是我的记忆可能有点混乱，记得不支持？最近试了确实是支持的
+lvextend之后，resize2fs /dev/mapper/xxxxx
+就行了，会提示online resize 成功之类的，不知道在io繁忙的系统上如何。
+试了一下，xfs和jfs都不支持在线扩充，必须先umount。
+减少分区有丢失数据的危险
+见http://wiki.portaboom.com/pmwiki.php?n=HowTos.LVMMini</description>
+    </item>
+    
+    <item>
+      <title>IBM X3650 M3 debian安装</title>
+      <link>http://superwf.github.io/p92/</link>
+      <pubDate>Wed, 15 Jun 2011 06:41:08 +0000</pubDate>
+      
+      <guid>http://superwf.github.io/p92/</guid>
+      <description>装了不下5回，装的时候没有任何问题，重启后不能引导系统。一开始还以为是raid没设置好，搜了一篇说是用lilo能引导，结果试了也不行。给客服电话，回复说这玩意不支持debian，只支持redhat和suse
+结果换了suse也不能引导。但是很奇怪的是，重启之后用光盘启动了，之后没管，光盘自动进入了从硬盘启动的选项，系统竟然能启动。之后又装了一下debian，然后用suse的那个安装光盘启动，再选从硬盘启动也能行！
+后来在一个台湾老哥的站上找到了。
+http://www.weithenn.org/cgi-bin/wiki.pl?IBM_xServer_%E7%AD%86%E8%A8%98#Heading20
+改成legacy only 添加到启动项里。OK</description>
+    </item>
+    
+    <item>
+      <title>内外网双网卡设置</title>
+      <link>http://superwf.github.io/p89/</link>
+      <pubDate>Fri, 03 Jun 2011 04:40:20 +0000</pubDate>
+      
+      <guid>http://superwf.github.io/p89/</guid>
+      <description>公司分了内外网两段，一台服务器eth0接公网ip，内网为10.0.0.50
+都设置完后能访问外网，公网不能访问，tracerout 一个外网ip发现走内网网段的路由
+查了一下，route命令
+  </description>
+    </item>
+    
+    <item>
+      <title>php-fcgi无法启动</title>
+      <link>http://superwf.github.io/p86/</link>
+      <pubDate>Thu, 02 Jun 2011 11:34:11 +0000</pubDate>
+      
+      <guid>http://superwf.github.io/p86/</guid>
+      <description>之前都用start-stop-daemon 来启动php-fcgi
+今天上了个老机器，莫名其妙不能启动，也没有任何报错
+后来搜了个新东西
+spawn-fcgi
+用这个启动了。
+  </description>
+    </item>
+    
+    <item>
+      <title>debian装机档</title>
+      <link>http://superwf.github.io/p80/</link>
+      <pubDate>Wed, 25 May 2011 13:16:50 +0000</pubDate>
+      
+      <guid>http://superwf.github.io/p80/</guid>
+      <description>  </description>
+    </item>
+    
+    <item>
+      <title>linux备份系统</title>
+      <link>http://superwf.github.io/p75/</link>
+      <pubDate>Wed, 25 May 2011 13:13:12 +0000</pubDate>
+      
+      <guid>http://superwf.github.io/p75/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>lenny装ati驱动</title>
+      <link>http://superwf.github.io/p69/</link>
+      <pubDate>Wed, 25 May 2011 13:10:26 +0000</pubDate>
+      
+      <guid>http://superwf.github.io/p69/</guid>
+      <description>好多帖子都说在linux上的ati驱动非常整人。不弄不信，一弄果然是。
+我的配置是4290显卡。装的lennyd的amd64系统。
+先去amd主页下载了官方驱动，看后缀名是run，加上执行权限后直接运行，重启后干活像幻灯,，fglrxinfo错误，不认显卡。
+./usr/share/fglrx-uninstall.sh卸载了。
+然后用网上说的 ./ati-driver-installer-10-12-x86.x86_64.run –extract fglrx
+然后进fglrx文件夹用./ati-install.sh 10.12 –buildpkg Debian/lenny 声称deb，又报错，然后按照
+http://wiki.debian.org/Ati%20Installer%20in%20Lenny
+这个的改文件，把710改成640，明明没有710文件夹了，连个脚本都没修正，看来amd的测试也不怎么敬业。
+弄了半天，好不容易生成了一堆deb，还装不上，报好多错误，很让人崩溃！
+不得已投向ubuntu10.10 ，果然这个装驱动顺！直接运行run文件就OK，然后fgl_glxgears 测速度也没问题。
+不过更崩溃的时候是之后看了个片，可能是1080p的吧，画面停顿现象严重！没辙了！这个肯定还是驱动的问题，因为在同一个硬件系统下win7就一点问题都没有。
+吃回头草吧，好歹弄了一天多驱动，还算比较熟了。
+又 装回deiban，用m-a来装。修改了non free源，用aptitude安装几了fglrx-driver fglrx-source等几个fglrx开头的东西，先把fglrx-driver装好，然后m-a a-i fglrx，很fuck的又报错。搜后按
+http://blog.chinaunix.net/u/7493/showart.php?id=2336964
+终于不报错生成了fglrx的module
+然后modprob fglrx，然后悲剧
+Unable to load module fglrx: cannot allocate memory
+我都怀疑是集成显卡的问题，是不是内存被什么锁定了，所以集成显卡不能动态分到现存！
+经过了n次周折，重装了n次系统。折腾了3天，后来用了unstable源的驱动
+非常曲折，特此标记，怕之后如果重新装机的时候又忘了！</description>
+    </item>
+    
+    <item>
+      <title>putty用ssh密钥自动登录</title>
+      <link>http://superwf.github.io/p62/</link>
+      <pubDate>Wed, 25 May 2011 13:07:09 +0000</pubDate>
+      
+      <guid>http://superwf.github.io/p62/</guid>
+      <description>网上有一些关于用putty利用公钥私钥自动登录的教程，我记得至少试了三回，原来少写了一些关键的地方。
+这次总算成了。
+看了半天openssl的东西，了解了一下加密原理，对称加密和非对称加密。
+没用puttygen.exe生成密钥
+用linux里的ssh-keygen -b 1024 -t rsa生成密钥
+根据提示，起个名字，叫rsa-key好了，提示passphase，不输入，本来就为了方便，还要再输入密码就没意义了。
+成功后生成rsa-key和rsa-key.pub的私钥与公钥两只。
+把rsa-key下载到本地，改名叫rsa-key.ppk给puttygen.exe用。
+用puttygen.exe打开rsa-key.ppk文件，另存一下，这点很重要，其他教程上都没写！
+在服务器上，mv rsa-key.pub ~/.ssh/authorized_keys
+然后vim /etc/ssh/sshd_config
+将
+#PubkeyAuthentication yes
+#AuthorizedKeysFile %h/.ssh/authorized_keys
+这两行的注释去掉（这个教程上也基本都没提）
+然后/etc/init.d/ssh restart重启之
+服务端配置完毕
+客户端打开putty填入ip，选择左边的Connection -&amp;gt; SSH -&amp;gt; Auth
+把第一个勾掉，那个是ssh2用的，第二三个选项都要，其他都不要，然后在最下面选择刚才另存的那个rsa-key.ppk 文件
+再去 Connection -&amp;gt; Data 第一项填入默认的用户名
+再回到最上面的session，Save一下
+完毕
+之后就能靠鼠标双击一下ssh上服务器了
+再加点安全考虑，最后别忘了chmod 700 ~/.ssh -R</description>
+    </item>
+    
+    <item>
+      <title>linux驱动查询</title>
+      <link>http://superwf.github.io/p59/</link>
+      <pubDate>Wed, 25 May 2011 13:05:40 +0000</pubDate>
+      
+      <guid>http://superwf.github.io/p59/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>keychain使用</title>
+      <link>http://superwf.github.io/p55/</link>
+      <pubDate>Wed, 25 May 2011 13:04:26 +0000</pubDate>
+      
+      <guid>http://superwf.github.io/p55/</guid>
+      <description>先keychain ~/.ssh/id_rsa
+然后在.bashrc中加上
+  </description>
+    </item>
+    
+    <item>
+      <title>gitosis</title>
+      <link>http://superwf.github.io/p53/</link>
+      <pubDate>Wed, 25 May 2011 13:03:15 +0000</pubDate>
+      
+      <guid>http://superwf.github.io/p53/</guid>
+      <description>gitosis安装完之后，产生公钥和私钥
+用
+网上都写的直接产生的无法通过验证。可能ssh默认都要求密钥必须达到一定的位数，大概至少是1024位，否则就算正确也不认。</description>
+    </item>
+    
+    <item>
+      <title>lftp默认不能断点续传</title>
+      <link>http://superwf.github.io/p50/</link>
+      <pubDate>Thu, 12 May 2011 12:14:02 +0000</pubDate>
+      
+      <guid>http://superwf.github.io/p50/</guid>
+      <description>下了个大文件，中途可能因为连接超时什么的断了
+之前看过man lftp
+知道 -c可以续传，执行一下总说文件已存在，很shit
+查了一下发现得set xfer:clobber on
+把这个加到/etc/lftp.conf里，让它默认支持续传吧</description>
+    </item>
+    
+    <item>
+      <title>nuhup 命令</title>
+      <link>http://superwf.github.io/p48/</link>
+      <pubDate>Thu, 12 May 2011 02:00:49 +0000</pubDate>
+      
+      <guid>http://superwf.github.io/p48/</guid>
+      <description>之前总有类似操作
+mlnet &amp;amp;
+mysqld &amp;amp;
+之后程序就在后台运行了，原来不是所有程序都这样，有的程序是必须当前登录的时候运行，当前启动这个程序的用户一logout就自动关了。此时nohup 命令就有用了
+比如
+此时用户退出，进程也会继续运行，但是一定要正常退出，不能非正常一下子把ssh登录窗口关了了事</description>
+    </item>
+    
+    <item>
+      <title>如何使su不需要密码</title>
+      <link>http://superwf.github.io/p27/</link>
+      <pubDate>Wed, 27 Apr 2011 01:21:47 +0000</pubDate>
+      
+      <guid>http://superwf.github.io/p27/</guid>
+      <description>将信任的用户取消每次su的时候需要密码的限制
+在 /etc/pam.d/su
+添加此行
+然后将你的信任用户添加至 wheel组，没有的话先建立一个
+然后
+  </description>
+    </item>
+    
+    <item>
+      <title>linux删除海量文件</title>
+      <link>http://superwf.github.io/p12/</link>
+      <pubDate>Fri, 15 Apr 2011 08:09:38 +0000</pubDate>
+      
+      <guid>http://superwf.github.io/p12/</guid>
+      <description>/var/spool/mqueue下海量文件，几百万
+rm * -f肯定不行
+list | xargs rm -f
+按说行，网上大家都说行，但是此命令执行一会就自动退出了，而且ls | wc -l
+发现啥都没删掉
+想了想用sed
+先ls &amp;gt; list 生成list文件
+写了个脚本
+每次删100个</description>
+    </item>
+    
+  </channel>
+</rss>

@@ -1,0 +1,179 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>books on 老王的日志</title>
+    <link>http://superwf.github.io/categories/books/</link>
+    <description>Recent content in books on 老王的日志</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-CN</language>
+    <lastBuildDate>Mon, 10 Jun 2019 14:43:44 +0000</lastBuildDate>
+    
+	<atom:link href="http://superwf.github.io/categories/books/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Packt Learning Dart 2nd Edition</title>
+      <link>http://superwf.github.io/p1485/</link>
+      <pubDate>Mon, 10 Jun 2019 14:43:44 +0000</pubDate>
+      
+      <guid>http://superwf.github.io/p1485/</guid>
+      <description>最近flutter很火。抽空看了一下dart的语法。
+dart是一个既支持jit又支持aot编译的语言。
+但书里也没写如何aot编译为二进制文件。
+dart大部分语法对于typescript使用者来说无门槛。只要import就全部变量直接可用这点，对于es的显式import有些不习惯，不过有language sever的ide支持，补全功能与ts一样好用。
+async/await与前端开发一摸一样，promise换成了future。</description>
+    </item>
+    
+    <item>
+      <title>SVG动画 用复杂交互动画改善用户体验</title>
+      <link>http://superwf.github.io/p1423/</link>
+      <pubDate>Wed, 13 Feb 2019 01:46:00 +0000</pubDate>
+      
+      <guid>http://superwf.github.io/p1423/</guid>
+      <description>书中注重介绍了greensock这个工具，什么时候应该用css，什么时候应该用js库
+以及greensock强大的动画补间功能
+书中理论偏多，代码不是很完整，不如直接看最新文档。
+https://greensock.com/</description>
+    </item>
+    
+    <item>
+      <title>manning progressive web apps</title>
+      <link>http://superwf.github.io/p1392/</link>
+      <pubDate>Tue, 16 Oct 2018 09:51:26 +0000</pubDate>
+      
+      <guid>http://superwf.github.io/p1392/</guid>
+      <description>学习笔记
+service worker仅能运行在https或localhost本地模式下的http环境中。
+利用pwa的caches可以为web程序添加一层shell，或拦截并替换或加工请求。比如根据浏览器兼容，替换webp格式图片。
+利用web数据库缓存提交请求，待连线时再与服务器同步。
+讲解stream概念。结合caches自建流式渲染。
+最后的trouble shooting很有用，有问题时应该先从在这里找找答案。
+最后还有个展望web未来，说了一些es的蓝牙api，社交分享功能。通用支付功能，图像识别功能，二维码识别的例子。</description>
+    </item>
+    
+    <item>
+      <title>manning rxjs in action</title>
+      <link>http://superwf.github.io/p1388/</link>
+      <pubDate>Fri, 07 Sep 2018 23:15:31 +0000</pubDate>
+      
+      <guid>http://superwf.github.io/p1388/</guid>
+      <description>RxJS + React + Redux (what we call the 3R) architecture
+3R这个概念还行，在这本书里头一次见。
+Learning to use a new tool is as important as learning when not to use it.
+与学习如何使用一项工具一样重要的是，知道什么时候该用它。
+看到consumer pull和iterator push模式
+对generator又加深了一些理解其应该存在的使用场景
+rx生成的订阅模型，比事件模型的更容易清理，unsubscribe，对内存释放友好
+hot与cold的observable对象的区别，push与pull。
+There is no onesize-fits-all solution to every problem
+一句话说，没有银弹。
+看完之后，对rxjs总算有了个靠谱的了解。可惜看到一半左右再上的官网看，发现已经升级版本6了，书里讲的都是5。
+好在5和6除了函数式风格api的变化，其他相差不多。</description>
+    </item>
+    
+    <item>
+      <title>learning typescript</title>
+      <link>http://superwf.github.io/p1377/</link>
+      <pubDate>Mon, 13 Aug 2018 05:56:34 +0000</pubDate>
+      
+      <guid>http://superwf.github.io/p1377/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>modern vim</title>
+      <link>http://superwf.github.io/p1375/</link>
+      <pubDate>Mon, 13 Aug 2018 05:51:25 +0000</pubDate>
+      
+      <guid>http://superwf.github.io/p1375/</guid>
+      <description>vim进阶的又一本宝典，用了这么多年vim之后，仍然会感觉有很多东西需要掌握，有更多的插件等待挖掘
+以下是一些读书笔记。</description>
+    </item>
+    
+    <item>
+      <title>smacss</title>
+      <link>http://superwf.github.io/p1373/</link>
+      <pubDate>Mon, 13 Aug 2018 05:47:28 +0000</pubDate>
+      
+      <guid>http://superwf.github.io/p1373/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>You Don’t Know JS 下卷</title>
+      <link>http://superwf.github.io/p1369/</link>
+      <pubDate>Mon, 13 Aug 2018 05:43:13 +0000</pubDate>
+      
+      <guid>http://superwf.github.io/p1369/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>OReilly.JavaScript.with.Promises</title>
+      <link>http://superwf.github.io/p1302/</link>
+      <pubDate>Wed, 24 Jan 2018 01:29:49 +0000</pubDate>
+      
+      <guid>http://superwf.github.io/p1302/</guid>
+      <description>如果你对promise概念还有什么疑问，推荐看看这本，不到100页，很快就能看完。
+两年前看过这本书之后，在处理js异步上我几乎没再有什么疑问，推荐给同事看过之后也被他们一致认为对自己的提升很大。</description>
+    </item>
+    
+    <item>
+      <title>设计心理学</title>
+      <link>http://superwf.github.io/p1295/</link>
+      <pubDate>Mon, 22 Jan 2018 02:23:20 +0000</pubDate>
+      
+      <guid>http://superwf.github.io/p1295/</guid>
+      <description>大概一年前看过，最近看了ant design推荐的书籍目录，又快速看了一遍。
+大概归纳为以下一些关键概念：
+符合用户心理模型
+引导用户操作
+不要打断用户心流
+限制操作
+及时反馈
+可视性
+正确的概念模型
+正确的匹配
+反馈
+利用外部环境因素提示
+使控制与被控制设备形成自然的关联，例如位置。
+看到“形成自然关联”这个点的时候，想到vim，绝对是个反面教材，vim的操作何止逆自然，简直逆天。但vim在“不打断操作者心流”这点上做到了极致。
+书中最后总结了七条原则
+应用储存于外部世界和头脑中的知识
+简化任务结构
+注重可视性，消除执行阶段和评估阶段的鸿沟。
+建立正确的匹配关系。
+利用自然和认为的限制性因素。
+考虑可能踹下那认为差错。
+若无法做到以上个点，就采用标准化。
+第三部《情感化设计》最近看的
+本能 行为 反思，其实反思这个词近些年有个更贴切的翻译—情怀！
+开头的主题思想 漂亮的设计，可以抵消一部分设计上的不便，颜值即正义。
+回想我的樱桃青轴，买之前是反思层占很大比例，买之后是行为层和本能层占主导，经过了多年的使用已经老的发黄，其中有融入和很多反思层的感情。
+原来我一直很喜欢的五号电池的设计是很差的，因为没有考虑反向安装的限制。
+禅宗讲究的瞬间的风景。而人们普遍无法抵制能持续获得最佳风景的诱惑，但能持续获得的最佳会随时间的流逝而降级。
+最后作者还扯到人工智能科幻片上了，机器人与人和现实世界交互的设计逻辑。</description>
+    </item>
+    
+    <item>
+      <title>读书React&#43;d3.js</title>
+      <link>http://superwf.github.io/p1290/</link>
+      <pubDate>Mon, 22 Jan 2018 01:50:28 +0000</pubDate>
+      
+      <guid>http://superwf.github.io/p1290/</guid>
+      <description>很短的一本书，讲的是react和d3如何搭配。
+大概思路就是d3管计算，react管画图，即生成html与svg的dom，外部css管样式或者react的内联样式，需要配合svg知识。
+d3的enter和exit基本就用不上了，这本书大体上就是这个思路。</description>
+    </item>
+    
+    <item>
+      <title>这几年看过的书</title>
+      <link>http://superwf.github.io/p717/</link>
+      <pubDate>Thu, 26 Jun 2014 08:26:21 +0000</pubDate>
+      
+      <guid>http://superwf.github.io/p717/</guid>
+      <description>以后边看边添加，有些生产中用上了，有些没用上过一阵子也就遗忘了。</description>
+    </item>
+    
+  </channel>
+</rss>

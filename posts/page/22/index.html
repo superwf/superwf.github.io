@@ -1,0 +1,758 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    
+    <title>老王的日志</title>
+    <meta name="viewport" content="width=device-width,minimum-scale=1">
+    <meta name="generator" content="Hugo 0.68.3" />
+    
+    
+      <META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW">
+    
+
+    
+    
+      <link href="/dist/css/app.1cb140d8ba31d5b2f1114537dd04802a.css" rel="stylesheet">
+    
+
+    
+
+    
+      
+    
+
+    
+    
+      <link href="/posts/index.xml" rel="alternate" type="application/rss+xml" title="老王的日志" />
+      <link href="/posts/index.xml" rel="feed" type="application/rss+xml" title="老王的日志" />
+      
+    
+    
+    <meta property="og:title" content="Posts" />
+<meta property="og:description" content="" />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="http://superwf.github.io/posts/" />
+<meta property="og:updated_time" content="2020-04-29T01:53:50+00:00" />
+<meta itemprop="name" content="Posts">
+<meta itemprop="description" content=""><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Posts"/>
+<meta name="twitter:description" content=""/>
+
+  </head>
+
+  <body class="ma0 avenir bg-near-white">
+
+    
+
+  <header>
+    <div class="pb3-m pb6-l bg-black">
+      <nav class="pv3 ph3 ph4-ns" role="navigation">
+  <div class="flex-l justify-between items-center center">
+    <a href="http://superwf.github.io/" class="f3 fw2 hover-white no-underline white-90 dib">
+      老王的日志
+    </a>
+    <div class="flex-l items-center">
+      
+
+      
+        <ul class="pl0 mr3">
+          
+          <li class="list f5 f4-ns fw4 dib pr3">
+            <a class="hover-white no-underline white-90" href="/migrate2020/" title="migrate2020 page">
+              migrate2020
+            </a>
+          </li>
+          
+          <li class="list f5 f4-ns fw4 dib pr3">
+            <a class="hover-white no-underline white-90" href="/coder-life/" title="coder-life page">
+              coder-life
+            </a>
+          </li>
+          
+        </ul>
+      
+      
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    </div>
+  </div>
+</nav>
+
+      <div class="tc-l pv3 ph3 ph4-ns">
+        <h1 class="f2 f-subheadline-l fw2 light-silver mb0 lh-title">
+          Posts
+        </h1>
+        
+      </div>
+    </div>
+  </header>
+
+
+    <main class="pb7" role="main">
+      
+  <article class="pa3 pa4-ns nested-copy-line-height nested-img">
+    <section class="cf ph3 ph5-l pv3 pv4-l f4 tc-l center measure-wide lh-copy mid-gray"></section>
+    <section class="flex-ns flex-wrap justify-around mt5">
+      
+        <div class="relative w-100 w-30-l mb4 bg-white"><div class="relative w-100 mb4 bg-white nested-copy-line-height">
+  <div class="bg-white mb3 pa4 gray overflow-hidden">
+    <span class="f6 db">Posts</span>
+    <h1 class="f3 near-black">
+      <a href="http://superwf.github.io/p253/" class="link black dim">
+        bash.bashrc与profile
+      </a>
+    </h1>
+    <div class="nested-links f5 lh-copy nested-copy-line-height">
+      之前装bash-completion时就发现不能自动加载，后来在~/bashrc里加了启动。
+后来用rvm也没有自动加载，每次都是启动之后再
+source /etc/profile.d/rvm.sh
+才装载上
+观察/etc/profile里有自动加载/etc/profile.d/这个目录里的sh文件
+还发现，就是在gnome登录后，打开窗口下的终端时，不能加载/etc/profile和~/bash_profile的内容。
+ctrl + alt + F1的控制台中是自动加载的。
+应该是profile等文件的内容只在交互式登录环境中其作用。
+为了在gnome中的终端中也其作用，于是把/etc/profile里加载/etc/profile.d的内容复制一份到/etc/bash.bashrc中。
+再在gnome中的终端中，这些配置就加载了。
+    </div>
+  </div>
+</div>
+</div>
+      
+        <div class="relative w-100 w-30-l mb4 bg-white"><div class="relative w-100 mb4 bg-white nested-copy-line-height">
+  <div class="bg-white mb3 pa4 gray overflow-hidden">
+    <span class="f6 db">Posts</span>
+    <h1 class="f3 near-black">
+      <a href="http://superwf.github.io/p248/" class="link black dim">
+        bind9默认不能查询，反解
+      </a>
+    </h1>
+    <div class="nested-links f5 lh-copy nested-copy-line-height">
+      全aptitude安装
+之前的域控服务器挂了导致dns也完了。
+终于有有机会不得不弄个dns服务。
+发现bind9默认会不允许其他主机进行dns查询
+原来需要在其named.conf.options中添加
+acl allowed {10.0.0.0/24;};
+options {
+allow-query {allowed};
+}
+允许某个ip段访问才可。
+很久以后，之前用git都没事，后来用capistrano自动部署的时候被fail2ban ban
+发现auth.log里有
+POSSIBLE BREAK-IN ATTEMPT
+说是ip没有做反解。
+在named.conf.default-zones里加上
+zone “0.168.192.in-addr.arpa” {
+type master;
+file “/etc/bind/db.domain”;
+};
+这里ip要反写.
+然后在db.domain里加上
+3 IN PTR www.domain.com.
+域名最后要有一个.
+bind reload之后 nsloopup 一下应该就能反解了。了
+    </div>
+  </div>
+</div>
+</div>
+      
+        <div class="relative w-100 w-30-l mb4 bg-white"><div class="relative w-100 mb4 bg-white nested-copy-line-height">
+  <div class="bg-white mb3 pa4 gray overflow-hidden">
+    <span class="f6 db">Posts</span>
+    <h1 class="f3 near-black">
+      <a href="http://superwf.github.io/p246/" class="link black dim">
+        iis7 win2008R2 64
+      </a>
+    </h1>
+    <div class="nested-links f5 lh-copy nested-copy-line-height">
+      折腾两天没弄出来，原来是32位兼容问题，我连盗版不稳定性都考虑了，看了下面这个解决的。
+http://blog.verypod.com/windows7-64-php-mysql-issue/
+    </div>
+  </div>
+</div>
+</div>
+      
+        <div class="relative w-100 w-30-l mb4 bg-white"><div class="relative w-100 mb4 bg-white nested-copy-line-height">
+  <div class="bg-white mb3 pa4 gray overflow-hidden">
+    <span class="f6 db">Posts</span>
+    <h1 class="f3 near-black">
+      <a href="http://superwf.github.io/p240/" class="link black dim">
+        nagios fcgiwrap
+      </a>
+    </h1>
+    <div class="nested-links f5 lh-copy nested-copy-line-height">
+      网上N多到处copy的文章，统统都用一个perl的nginx-fcgi脚本来启动。
+找了很多还都失效了，或者报错说语法错误。
+后来也找了个有效的
+不过最终找了个有用的文
+http://vladgh.com/blog/nagios-nginx-ubuntu
+用fcgiwrap管理cgi，方便。
+apt 安装 nagios3之后，没有 /var/lib/nagios3/rw/nagios.cmd文件
+需要修改/etc/nagios3/nagios.cfg
+check_external_commands=1
+之后service nagios3 restart 就会生成这个文件了，在npc中用到。
+nagios的网站根目录在/usr/share/nagios3/htdocs
+设置好之后会访问会有一些css和js文件丢失的情况，需要自己建立软链接，其中images应该在 /etc/nagios3/images
+以下是我的nginx的配置，因为debian版本的升级，nagios的路径改了一些所以这个网站也要相应的改一些。
+cgi那里根据配置已经不用redirect了。
+本次更改，debian wheezy已经升级为稳定版了。
+server {
+listen 80;
+server_name monitor.com;
+access_log /var/log/nginx/monitor.log;
+location / {
+location ~ .cgi$ {
+root /usr/lib;
+include fastcgi_params;
+fastcgi_param SCRIPT_FILENAME $document_root$fastcgi_script_name;
+fastcgi_pass unix:/var/run/fcgiwrap.socket;
+}
+location ~ ^nagios3 {
+root /usr/share/nagios3/htdocs;
+}
+root /usr/share/nagios3/htdocs;
+index index.php;
+autoindex on;
+autoindex_exact_size off;
+autoindex_localtime on;
+client_max_body_size 100m;
+location ~ .php$ {
+    </div>
+  </div>
+</div>
+</div>
+      
+        <div class="relative w-100 w-30-l mb4 bg-white"><div class="relative w-100 mb4 bg-white nested-copy-line-height">
+  <div class="bg-white mb3 pa4 gray overflow-hidden">
+    <span class="f6 db">Posts</span>
+    <h1 class="f3 near-black">
+      <a href="http://superwf.github.io/p235/" class="link black dim">
+        debian cacti snmpdiskio
+      </a>
+    </h1>
+    <div class="nested-links f5 lh-copy nested-copy-line-height">
+      下载了snmpdiskio这个插件，按里面README走
+最新版可能是0.9.6，但是到处都找不到了，其实用不到0.9.6也一样用。当前的服务器已经是3.2.0.4版本的内核，debian wheezy已经成stable了的时候了。
+在被监控机器上的 /etc/snmp/snmpd.conf里加上了
+extend .1.3.6.1.4.1.2021.54 hdNum /usr/local/bin/snmpdiskio hdNum
+extend .1.3.6.1.4.1.2021.55 hdIndex /usr/local/bin/snmpdiskio hdIndex
+extend .1.3.6.1.4.1.2021.56 hdDescr /usr/local/bin/snmpdiskio hdDescr
+extend .1.3.6.1.4.1.2021.57 hdInBlocks /usr/local/bin/snmpdiskio hdInBlocks
+extend .1.3.6.1.4.1.2021.58 hdOutBlocks /usr/local/bin/snmpdiskio hdOutBlocks
+在
+http://public.itmatrix.eu/Cacti_templates/Disk_IO
+wget http://public.itmatrix.eu/Cacti_templates/Disk_IO/partition.xml
+然后更改文件
+将&lt;index_order&gt;hdDescr:hdName:hdIndex&lt;/index_order&gt;
+这行 hdName: 去掉
+wget http://public.itmatrix.eu/Cacti_templates/Disk_IO/snmpdiskio
+install -m 0755 -o root -g root -p -v snmpdiskio /usr/local/bin/
+在监控端用
+snmpwalk -v2c -c public 192.168.0.10 .1.3.6.1.4.1.2021.54
+如果配置的是v3的验证
+snmpwalk -v3 -u uuu -l auth -a MD5 -A pppppppp 1.
+    </div>
+  </div>
+</div>
+</div>
+      
+        <div class="relative w-100 w-30-l mb4 bg-white"><div class="relative w-100 mb4 bg-white nested-copy-line-height">
+  <div class="bg-white mb3 pa4 gray overflow-hidden">
+    <span class="f6 db">Posts</span>
+    <h1 class="f3 near-black">
+      <a href="http://superwf.github.io/p228/" class="link black dim">
+        lvm加密分区
+      </a>
+    </h1>
+    <div class="nested-links f5 lh-copy nested-copy-line-height">
+      装好cryptsetup
+以装好lvm为前提进行以下操作。
+若分区不存在则
+cryptsetup create home /dev/vg/home
+若已经建立lvm分区则
+cryptsetup luksFormat /dev/vg/home
+让输入密码就输
+完成之后的这个新盘的数据会被清空，加密分区就做好了。
+打消了我之前以为可以把普通分区无损转成加密分区的幻想…
+需要挂载时
+cryptsetup luksOpen /dev/vg/home home
+就会建立/dev/mapper/home的映射，或者自己起的其他名字的什么映射，必须通过映射名称来格式化和挂载。
+完成之后
+mkfs.ext4 /dev/mapper/home
+或者用其他需要的分区命令格式化
+然后mount这个映射就可以了，例如
+mount /dev/mapper/home /home
+若需要开机自动挂载
+则还需要一个key文件
+比如在 vim /root/home
+内容是11111111或者其他什么字符串就成
+然后
+cryptsetup luksAddKey /dev/vg/home /root/home
+添加了密钥
+需要修改/etc/crypttab文件
+home /dev/vg/home /root/home luks
+这样应该就可以自动启动挂载了
+不过我这启动时有个报错，启动之后用着也没影响
+FATAL: Error inserting padlock_sha (/lib/modules/2.6.32-5-amd64/kernel/drivers/crypto/padlock-sha.ko): No such device
+google说是内核bug，之后的升级应该能修正
+后来我把 padlock-sha加到 /etc/modprob.d/blacklis.conf里
+还有warning 报错，说那个key文件是明文，不过总算舒服点，也妨碍使用。
+如果不使用密钥加载则修改 /etc/crypttab文件的第三列为 none ，如下
+home /dev/vg/home none luks
+就会在开机加载该分区时提示让输入密码，还是这样好些，我最后就是这么设置的。
+    </div>
+  </div>
+</div>
+</div>
+      
+        <div class="relative w-100 w-30-l mb4 bg-white"><div class="relative w-100 mb4 bg-white nested-copy-line-height">
+  <div class="bg-white mb3 pa4 gray overflow-hidden">
+    <span class="f6 db">Posts</span>
+    <h1 class="f3 near-black">
+      <a href="http://superwf.github.io/p219/" class="link black dim">
+        nginx passenger rails
+      </a>
+    </h1>
+    <div class="nested-links f5 lh-copy nested-copy-line-height">
+      前几天去面试，有个题目是关于passenger的
+我写没用过，用的是unicorn + nginx
+回来之后觉得passenger实在是有必要研究一下
+先gem install passenger
+然后装nginx的模块
+默认编译和我原来的apt装的差了好多参数
+选2自己加参数，用nginx -V看看原来的参数，把合适的都加进去，默认路径就/opt/nginx好了
+参数如下
+–conf-path=/etc/nginx/nginx.conf –error-log-path=/var/log/nginx/error.log –http-client-body-temp-path=/var/lib/nginx/body –http-fastcgi-temp-path=/var/lib/nginx/fastcgi –http-log-path=/var/log/nginx/access.log –http-proxy-temp-path=/var/lib/nginx/proxy –lock-path=/var/lock/nginx.lock –pid-path=/var/run/nginx.pid –with-http_geoip_module –with-http_gzip_static_module –with-http_realip_module –with-http_stub_status_module –with-http_sub_module –with-mail –with-mail_ssl_module
+按编译完的提示在nginx.conf里加上
+passenger_root /usr/lib/ruby/gems/1.9.1/gems/passenger-3.0.11;
+passenger_ruby /usr/bin/ruby1.9.1;
+编译好之后把 cp /opt/nginx/sbin/nginx /usr/sbin/nginx里，就直接用了，配置文件什么的都原来的位置
+在网站的配置里把我原来的unicorn的配置注释掉
+加上 passenger_enabled on;
+编译完了之后启动说少了libpcre.so.0
+aptitude install libpcre++0
+启动之后说
+git://github.com/galetahub/simple-captcha.git (at master) is not checked out. Please run `bundle install` (Bundler::GitError)
+bundle install 还不管用
+搜了搜
+用 bundle install –path vendor/
+把所有环境都集成到程序里
+    </div>
+  </div>
+</div>
+</div>
+      
+        <div class="relative w-100 w-30-l mb4 bg-white"><div class="relative w-100 mb4 bg-white nested-copy-line-height">
+  <div class="bg-white mb3 pa4 gray overflow-hidden">
+    <span class="f6 db">Posts</span>
+    <h1 class="f3 near-black">
+      <a href="http://superwf.github.io/p217/" class="link black dim">
+        rails postgresql
+      </a>
+    </h1>
+    <div class="nested-links f5 lh-copy nested-copy-line-height">
+      往heroku上推项目，需要支持postgresql
+装完之后需要gem install pg
+需要libpq-dev的支持
+    </div>
+  </div>
+</div>
+</div>
+      
+        <div class="relative w-100 w-30-l mb4 bg-white"><div class="relative w-100 mb4 bg-white nested-copy-line-height">
+  <div class="bg-white mb3 pa4 gray overflow-hidden">
+    <span class="f6 db">Posts</span>
+    <h1 class="f3 near-black">
+      <a href="http://superwf.github.io/p215/" class="link black dim">
+        startssl https
+      </a>
+    </h1>
+    <div class="nested-links f5 lh-copy nested-copy-line-height">
+      想从startssl申请个公网的证书，注册了也提出了申请，在选择域名的时候发现没有dyndns.info这个域名。
+写信过去要求申请添加这个域名，果然过了小半天如网上所说的那样，人家服务态度很好，把不能添加的原因给我发过来了，这个域名不支持whois服务，所以无法添加…
+免费的东西就泵抱怨了，残念…
+    </div>
+  </div>
+</div>
+</div>
+      
+        <div class="relative w-100 w-30-l mb4 bg-white"><div class="relative w-100 mb4 bg-white nested-copy-line-height">
+  <div class="bg-white mb3 pa4 gray overflow-hidden">
+    <span class="f6 db">Posts</span>
+    <h1 class="f3 near-black">
+      <a href="http://superwf.github.io/p209/" class="link black dim">
+        rails3 ssl https
+      </a>
+    </h1>
+    <div class="nested-links f5 lh-copy nested-copy-line-height">
+      给项目的登录页面做个https认证，登录后还跳转回http的页面。
+先让nginx支持ssl
+在网站的配置文件中的server {…} 之前加入
+map $scheme $fastcgi_https { ## Detect when HTTPS is used
+default off;
+https on;
+}
+server {} 内加入
+fastcgi_param HTTPS $fastcgi_https;
+参考http://www.quany.info/web-design/nginx-400-bad-request-the-plain-http-request-was-sent-to-https-port.html
+其他ssl 的配置参考
+http://www.linuxidc.com/Linux/2011-09/44187.htm
+后来出现了400错误
+The page isn’t redirecting properly
+试了几回，把 server {} 里的
+ssl on;
+去掉就好了
+只要同时 listen 80;
+listen 443; 就行了
+然后在程序里的验证身份中
+redirect_to url_for(…., :protocol =&gt; ‘https’)
+这样写，验证完的跳回80端口 :protocol =&gt; ‘http’
+看rails的配置里，需要在confit/application.rb中加入
+config.force_ssl = true
+我加了之后出现页面循环重定向错误，后来把这个去掉了也没什么问题，觉得不用加这个。
+    </div>
+  </div>
+</div>
+</div>
+      
+    </section>
+
+<ul class="pagination">
+    
+    <li class="page-item">
+        <a href="/posts/" class="page-link" aria-label="First"><span aria-hidden="true">&laquo;&laquo;</span></a>
+    </li>
+    
+    <li class="page-item">
+    <a href="/posts/page/21/" class="page-link" aria-label="Previous"><span aria-hidden="true">&laquo;</span></a>
+    </li>
+    
+    
+    
+    
+    
+    
+    
+        
+        
+    
+    
+    <li class="page-item"><a class="page-link" href="/posts/">1</a></li>
+    
+    
+    
+    
+    
+    
+        
+        
+    
+    
+    <li class="page-item"><a class="page-link" href="/posts/page/2/">2</a></li>
+    
+    
+    
+    
+    
+    
+        
+        
+    
+    
+    <li class="page-item"><a class="page-link" href="/posts/page/3/">3</a></li>
+    
+    
+    
+    
+    
+    
+        
+        
+    
+    
+    <li class="page-item disabled"><span aria-hidden="true">&nbsp;&hellip;&nbsp;</span></li>
+    
+    
+    
+    
+    
+    
+        
+        
+    
+    
+    
+    
+    
+    
+    
+        
+        
+    
+    
+    
+    
+    
+    
+    
+        
+        
+    
+    
+    
+    
+    
+    
+    
+        
+        
+    
+    
+    
+    
+    
+    
+    
+        
+        
+    
+    
+    
+    
+    
+    
+    
+        
+        
+    
+    
+    
+    
+    
+    
+    
+        
+        
+    
+    
+    
+    
+    
+    
+    
+        
+        
+    
+    
+    
+    
+    
+    
+    
+        
+        
+    
+    
+    
+    
+    
+    
+    
+        
+        
+    
+    
+    
+    
+    
+    
+    
+        
+        
+    
+    
+    
+    
+    
+    
+    
+        
+        
+    
+    
+    
+    
+    
+    
+    
+        
+        
+    
+    
+    
+    
+    
+    
+    
+        
+        
+    
+    
+    
+    
+    
+    
+    
+        
+        
+    
+    
+    
+    
+    
+    
+    
+        
+        
+    
+    
+    
+    
+    
+    
+    
+        
+        
+    
+    
+    <li class="page-item"><a class="page-link" href="/posts/page/21/">21</a></li>
+    
+    
+    
+    
+    
+    
+        
+        
+    
+    
+    <li class="page-item active"><a class="page-link" href="/posts/page/22/">22</a></li>
+    
+    
+    
+    
+    
+    
+        
+        
+    
+    
+    <li class="page-item"><a class="page-link" href="/posts/page/23/">23</a></li>
+    
+    
+    
+    
+    
+    
+        
+        
+    
+    
+    <li class="page-item disabled"><span aria-hidden="true">&nbsp;&hellip;&nbsp;</span></li>
+    
+    
+    
+    
+    
+    
+        
+        
+    
+    
+    
+    
+    
+    
+    
+        
+        
+    
+    
+    
+    
+    
+    
+    
+        
+        
+    
+    
+    
+    
+    
+    
+    
+        
+        
+    
+    
+    <li class="page-item"><a class="page-link" href="/posts/page/28/">28</a></li>
+    
+    
+    <li class="page-item">
+    <a href="/posts/page/23/" class="page-link" aria-label="Next"><span aria-hidden="true">&raquo;</span></a>
+    </li>
+    
+    <li class="page-item">
+        <a href="/posts/page/28/" class="page-link" aria-label="Last"><span aria-hidden="true">&raquo;&raquo;</span></a>
+    </li>
+    
+</ul>
+
+</article>
+
+    </main>
+    <footer class="bg-black bottom-0 w-100 pa3" role="contentinfo">
+  <div class="flex justify-between">
+  <a class="f4 fw4 hover-white no-underline white-70 dn dib-ns pv2 ph3" href="http://superwf.github.io/" >
+    &copy;  老王的日志 2020 
+  </a>
+    <div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+</div>
+  </div>
+</footer>
+
+    
+
+  <script src="/dist/js/app.3fc0f988d21662902933.js"></script>
+
+
+  </body>
+</html>

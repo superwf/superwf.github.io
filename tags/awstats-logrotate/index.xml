@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>awstats logrotate on 老王的日志</title>
+    <link>http://superwf.github.io/tags/awstats-logrotate/</link>
+    <description>Recent content in awstats logrotate on 老王的日志</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-CN</language>
+    <lastBuildDate>Fri, 17 May 2013 09:10:03 +0000</lastBuildDate>
+    
+	<atom:link href="http://superwf.github.io/tags/awstats-logrotate/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>awstats logrotate prerotate</title>
+      <link>http://superwf.github.io/p442/</link>
+      <pubDate>Fri, 17 May 2013 09:10:03 +0000</pubDate>
+      
+      <guid>http://superwf.github.io/p442/</guid>
+      <description>首先感谢这页资料
+http://kamisama.me/2013/03/20/install-configure-and-protect-awstats-for-multiple-nginx-vhost-on-debian/
+开始用splunk看的很好，不过终归是试用的，还是得找个合适的免费软件代替。
+看上了awstats，本来以为是个cgi程序，看了半天原来是个生成静态文件的工具。
+别人写的动态用php生成的弄出来，不过这东西要是动态的，太耗系统。
+好多资料里还需要手动日志切割，大概是年代太久了，当前系统里基本都会有自动的日志切割工具，debian里就会预装logrotate
+看资料写的在/etc/logrotate.d/nginx里
+prerotate 里加东西，省去了再加crontab的麻烦
+就看了看当前系统的
+发现这里有个run-parts httpd-prerotate
+于是就建立了一个httpd-prerotate的文件夹
+把需要执行的脚本放里面加上x权限。
+脚本为
+#!/bin/bash为
+if [ -x /usr/share/awstats/tools/awstats_buildstaticpages.pl]; then
+/usr/share/awstats/tools/awstats_buildstaticpages.pl -update -config=proxy -lang=cn -dir=/var/www/awstats -awstatsprog=/usr/lib/cgi-bin/awstats.pl
+fi
+然后配置好nginx的一个虚拟目录给 /var/www/awstats
+后来有一次看mysql的二进制日志，发现全都是非常小，而且看时间都是每天早上6.45生成的。
+明明my.cnf里配置了max_binlog_size = 1000M，但没起作用。
+原来就是/etc/logrotate.d/mysql-server里更新为daily，虽然这里的配置没有指定binlog，但是每次分割日志后都会通过postrotate重启mysql，也就生成了新的二进制日志。
+果断改成monthly</description>
+    </item>
+    
+  </channel>
+</rss>

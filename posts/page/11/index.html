@@ -1,0 +1,633 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    
+    <title>老王的日志</title>
+    <meta name="viewport" content="width=device-width,minimum-scale=1">
+    <meta name="generator" content="Hugo 0.68.3" />
+    
+    
+      <META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW">
+    
+
+    
+    
+      <link href="/dist/css/app.1cb140d8ba31d5b2f1114537dd04802a.css" rel="stylesheet">
+    
+
+    
+
+    
+      
+    
+
+    
+    
+      <link href="/posts/index.xml" rel="alternate" type="application/rss+xml" title="老王的日志" />
+      <link href="/posts/index.xml" rel="feed" type="application/rss+xml" title="老王的日志" />
+      
+    
+    
+    <meta property="og:title" content="Posts" />
+<meta property="og:description" content="" />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="http://superwf.github.io/posts/" />
+<meta property="og:updated_time" content="2020-04-29T01:53:50+00:00" />
+<meta itemprop="name" content="Posts">
+<meta itemprop="description" content=""><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Posts"/>
+<meta name="twitter:description" content=""/>
+
+  </head>
+
+  <body class="ma0 avenir bg-near-white">
+
+    
+
+  <header>
+    <div class="pb3-m pb6-l bg-black">
+      <nav class="pv3 ph3 ph4-ns" role="navigation">
+  <div class="flex-l justify-between items-center center">
+    <a href="http://superwf.github.io/" class="f3 fw2 hover-white no-underline white-90 dib">
+      老王的日志
+    </a>
+    <div class="flex-l items-center">
+      
+
+      
+        <ul class="pl0 mr3">
+          
+          <li class="list f5 f4-ns fw4 dib pr3">
+            <a class="hover-white no-underline white-90" href="/migrate2020/" title="migrate2020 page">
+              migrate2020
+            </a>
+          </li>
+          
+          <li class="list f5 f4-ns fw4 dib pr3">
+            <a class="hover-white no-underline white-90" href="/coder-life/" title="coder-life page">
+              coder-life
+            </a>
+          </li>
+          
+        </ul>
+      
+      
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    </div>
+  </div>
+</nav>
+
+      <div class="tc-l pv3 ph3 ph4-ns">
+        <h1 class="f2 f-subheadline-l fw2 light-silver mb0 lh-title">
+          Posts
+        </h1>
+        
+      </div>
+    </div>
+  </header>
+
+
+    <main class="pb7" role="main">
+      
+  <article class="pa3 pa4-ns nested-copy-line-height nested-img">
+    <section class="cf ph3 ph5-l pv3 pv4-l f4 tc-l center measure-wide lh-copy mid-gray"></section>
+    <section class="flex-ns flex-wrap justify-around mt5">
+      
+        <div class="relative w-100 w-30-l mb4 bg-white"><div class="relative w-100 mb4 bg-white nested-copy-line-height">
+  <div class="bg-white mb3 pa4 gray overflow-hidden">
+    <span class="f6 db">Posts</span>
+    <h1 class="f3 near-black">
+      <a href="http://superwf.github.io/p983/" class="link black dim">
+        bootstrap3的富文本编辑器
+      </a>
+    </h1>
+    <div class="nested-links f5 lh-copy nested-copy-line-height">
+      官网上的例子是bootstrap-wysiwyg，但仅针对bs2
+后来找了个能用的http://summernote.org/#/deep-dive#api-summernote
+名为summernote
+    </div>
+  </div>
+</div>
+</div>
+      
+        <div class="relative w-100 w-30-l mb4 bg-white"><div class="relative w-100 mb4 bg-white nested-copy-line-height">
+  <div class="bg-white mb3 pa4 gray overflow-hidden">
+    <span class="f6 db">Posts</span>
+    <h1 class="f3 near-black">
+      <a href="http://superwf.github.io/p974/" class="link black dim">
+        ie模式设置与ajax跨域的问题
+      </a>
+    </h1>
+    <div class="nested-links f5 lh-copy nested-copy-line-height">
+      在ie中默认没有以下标签很可能会按兼容模式渲染页面，如果ie版本大于10的时候加上这个就会有用．
+关于ajax跨域，之前总以为加上access-controll-allow-origin就可以，最近发现即使加上了这些access-controll-allow的header，ajax跨域是可以请求了，但是cookie是肯定带不过去的，想在ajax请求前加上cookie或者自定义的一些头信息，会被浏览器安全策略阻止．看来安全跨域只有用jsonp．通过jsonp带来子域的cookie，并且服务端需要设置该cookie可以在一级域名中的作用域．这样页面端域名的js也可以取到jsonp带来的cookie了，然后通过url或其他方法在每个请求上将cookie传递过去即可让服务端获取session．
+    </div>
+  </div>
+</div>
+</div>
+      
+        <div class="relative w-100 w-30-l mb4 bg-white"><div class="relative w-100 mb4 bg-white nested-copy-line-height">
+  <div class="bg-white mb3 pa4 gray overflow-hidden">
+    <span class="f6 db">Posts</span>
+    <h1 class="f3 near-black">
+      <a href="http://superwf.github.io/p972/" class="link black dim">
+        js数字的限制位数
+      </a>
+    </h1>
+    <div class="nested-links f5 lh-copy nested-copy-line-height">
+      当后端传来的id过大时，js取得的精度最多有17位，比如当传入19位数字时，最后两位会自动置0，虽然支持的数字很大，但精度也就17位。
+解决的方法要不将id改小，要不就将id按字符串传递。
+    </div>
+  </div>
+</div>
+</div>
+      
+        <div class="relative w-100 w-30-l mb4 bg-white"><div class="relative w-100 mb4 bg-white nested-copy-line-height">
+  <div class="bg-white mb3 pa4 gray overflow-hidden">
+    <span class="f6 db">Posts</span>
+    <h1 class="f3 near-black">
+      <a href="http://superwf.github.io/p959/" class="link black dim">
+        前端的包管理器
+      </a>
+    </h1>
+    <div class="nested-links f5 lh-copy nested-copy-line-height">
+      今天从
+https://github.com/componentjs/component/blob/master/disambiguation.md
+看到
+https://github.com/wilmoore/frontend-packagers
+看了一些前端库管理工具
+bower已经用的很熟了，和wiredep和gulp-useref配合熟练开发和发布．
+不过也很看好npm + browserify
+component看上去也不错，不过维护组分成了normalize.io和duojs，未来不太可知也．
+看来是组内的开发思路分道扬镳了．
+amd规则的requirejs一直没用，一开始看觉得挺新颖，但后来觉得这个规则强制改变了很多js原生库的写法，有些库不支持amd规则还需要手工修补．
+最重要的是nodejs工具会把所有依赖库都打包，之后就都是同步加载了，最大的减少了amd规则的依赖性．只有用cdn加载各种依赖库的情况下例外．
+browserify将commonjs规则引入前端这个才是趋势，不过也可能是我常年的服务端思想惯性使然吧．
+    </div>
+  </div>
+</div>
+</div>
+      
+        <div class="relative w-100 w-30-l mb4 bg-white"><div class="relative w-100 mb4 bg-white nested-copy-line-height">
+  <div class="bg-white mb3 pa4 gray overflow-hidden">
+    <span class="f6 db">Posts</span>
+    <h1 class="f3 near-black">
+      <a href="http://superwf.github.io/p957/" class="link black dim">
+        postfix 垃圾邮件问题
+      </a>
+    </h1>
+    <div class="nested-links f5 lh-copy nested-copy-line-height">
+      邮件服务器又出问题，上去一看根目录满了，清空了邮件日志，并查看了一下最新的日志发现大量发送垃圾邮件
+以前出过一次这种错误，从日志上能看出是哪个帐号有问题，禁用这个帐号或者改个新密码就可以了
+这次是大量邮件匿名发送，from=&lt;&gt;，也没有记录客户端ip
+晚上弄了一会，先停了postfix，再清空队列。
+在再/etc/postfix/main.cf加了一行
+  
+    </div>
+  </div>
+</div>
+</div>
+      
+        <div class="relative w-100 w-30-l mb4 bg-white"><div class="relative w-100 mb4 bg-white nested-copy-line-height">
+  <div class="bg-white mb3 pa4 gray overflow-hidden">
+    <span class="f6 db">Posts</span>
+    <h1 class="f3 near-black">
+      <a href="http://superwf.github.io/p953/" class="link black dim">
+        swagger-ui与grape-swagger
+      </a>
+    </h1>
+    <div class="nested-links f5 lh-copy nested-copy-line-height">
+      今天进一步熟悉了一下swagger-ui与swagger-spec。
+之前面试时听说过grape，今天实验了一下感觉非常好，ruby的东西就是上手快。
+想偷懒点用grape-swagger生成，搞了半天发现grape-swagger生成的swagger1.2规范与swagger2不兼容。
+只好还是自己写json文件。
+swagger配合grape很和谐，希望grape-swagger什么时候能升级兼容swagger2
+    </div>
+  </div>
+</div>
+</div>
+      
+        <div class="relative w-100 w-30-l mb4 bg-white"><div class="relative w-100 mb4 bg-white nested-copy-line-height">
+  <div class="bg-white mb3 pa4 gray overflow-hidden">
+    <span class="f6 db">Posts</span>
+    <h1 class="f3 near-black">
+      <a href="http://superwf.github.io/p951/" class="link black dim">
+        推荐semantic-ui
+      </a>
+    </h1>
+    <div class="nested-links f5 lh-copy nested-copy-line-height">
+      最近看上了semantic-ui
+在ui方面可以替代bootstrap，效果方面比bootstrap-material-design还要出色，再加上meterial-design还没有完成。
+semantic的api接口module方面做的挺不错，让一个ui框架还能干一些路由层的活，对于不用大框架的项目来说方便极了。
+项目上最后没用semantic作ui，还是用的bootstrap．不过api用的不错，十多k也不大．
+项目伪ajax请求用sinon很方便．
+顺带还发现了jquery-form，也不用再到处找支持ajax文件上传的插件了。
+    </div>
+  </div>
+</div>
+</div>
+      
+        <div class="relative w-100 w-30-l mb4 bg-white"><div class="relative w-100 mb4 bg-white nested-copy-line-height">
+  <div class="bg-white mb3 pa4 gray overflow-hidden">
+    <span class="f6 db">Posts</span>
+    <h1 class="f3 near-black">
+      <a href="http://superwf.github.io/p949/" class="link black dim">
+        samba启动
+      </a>
+    </h1>
+    <div class="nested-links f5 lh-copy nested-copy-line-height">
+      今弄一个共享文件夹，装个samba，弄完之后忘了两个步骤，记录一下．
+先是service samba restart
+Failed to restart samba.service: Unit samba.service is masked.
+samba分成smbd和nmbd
+更改smb.conf之后只service smbd reload
+然后是用户密码，更改了系统用户密码后始终不能登录，忘了smbpasswd这条了
+smbpasswd -a user设置密码
+    </div>
+  </div>
+</div>
+</div>
+      
+        <div class="relative w-100 w-30-l mb4 bg-white"><div class="relative w-100 mb4 bg-white nested-copy-line-height">
+  <div class="bg-white mb3 pa4 gray overflow-hidden">
+    <span class="f6 db">Posts</span>
+    <h1 class="f3 near-black">
+      <a href="http://superwf.github.io/p945/" class="link black dim">
+        关于karma的base路径
+      </a>
+    </h1>
+    <div class="nested-links f5 lh-copy nested-copy-line-height">
+      karma的karma.conf.js中的basePath是关于本地路径的设置，如果不设置就是karma.conf.js所在的路径．
+files里的路径都是基于karma.conf.js里来匹配的．都属于后端路径．这个概念我一开始没搞清楚前后端路径，调试了不少时间．
+在files里比如有”public/img/*.png”，则 karma start之后会在chrome里（假设使用chrome-launcher）,在浏览器中访问 /base/public/img/[img name].png
+即可访问到后端提供的文件．前端路径中的base是固定的．
+最开始的时候我还以为前端的这个base和配置文件里的那个basePath有什么关联呢，还在本地建立了个base文件夹试了试也访问不到．
+为了在karma打开的浏览器中能访问到该fixtures，还需要在karma的配置文件中添加该fixtures的路径为serverd： true
+{pattern: ‘test/fixtures/*.html’, served: true}
+    </div>
+  </div>
+</div>
+</div>
+      
+        <div class="relative w-100 w-30-l mb4 bg-white"><div class="relative w-100 mb4 bg-white nested-copy-line-height">
+  <div class="bg-white mb3 pa4 gray overflow-hidden">
+    <span class="f6 db">Posts</span>
+    <h1 class="f3 near-black">
+      <a href="http://superwf.github.io/p937/" class="link black dim">
+        ERROR 1615 (HY000): Prepared statement needs to be re-prepared
+      </a>
+    </h1>
+    <div class="nested-links f5 lh-copy nested-copy-line-height">
+      今天部署到服务器,运行之后报错,一开始还以为是golang的mysql库的问题.
+生成的sql语句在服务器上手动执行也没问题.
+最可气的是执行的sql语句经过过滤报错,若直接将客户端变量与sql语句相加生成的sql语句不报错.简直是把人往sql注入的坑里带.
+后来查到
+https://www.linuxwind.org/page/2
+改了mysql的俩量之后,总算通过了.
+    </div>
+  </div>
+</div>
+</div>
+      
+    </section>
+
+<ul class="pagination">
+    
+    <li class="page-item">
+        <a href="/posts/" class="page-link" aria-label="First"><span aria-hidden="true">&laquo;&laquo;</span></a>
+    </li>
+    
+    <li class="page-item">
+    <a href="/posts/page/10/" class="page-link" aria-label="Previous"><span aria-hidden="true">&laquo;</span></a>
+    </li>
+    
+    
+    
+    
+    
+    
+    
+        
+        
+    
+    
+    <li class="page-item"><a class="page-link" href="/posts/">1</a></li>
+    
+    
+    
+    
+    
+    
+        
+        
+    
+    
+    <li class="page-item"><a class="page-link" href="/posts/page/2/">2</a></li>
+    
+    
+    
+    
+    
+    
+        
+        
+    
+    
+    <li class="page-item"><a class="page-link" href="/posts/page/3/">3</a></li>
+    
+    
+    
+    
+    
+    
+        
+        
+    
+    
+    <li class="page-item disabled"><span aria-hidden="true">&nbsp;&hellip;&nbsp;</span></li>
+    
+    
+    
+    
+    
+    
+        
+        
+    
+    
+    
+    
+    
+    
+    
+        
+        
+    
+    
+    
+    
+    
+    
+    
+        
+        
+    
+    
+    
+    
+    
+    
+    
+        
+        
+    
+    
+    
+    
+    
+    
+    
+        
+        
+    
+    
+    
+    
+    
+    
+    
+        
+        
+    
+    
+    <li class="page-item"><a class="page-link" href="/posts/page/10/">10</a></li>
+    
+    
+    
+    
+    
+    
+        
+        
+    
+    
+    <li class="page-item active"><a class="page-link" href="/posts/page/11/">11</a></li>
+    
+    
+    
+    
+    
+    
+        
+        
+    
+    
+    <li class="page-item"><a class="page-link" href="/posts/page/12/">12</a></li>
+    
+    
+    
+    
+    
+    
+        
+        
+    
+    
+    <li class="page-item disabled"><span aria-hidden="true">&nbsp;&hellip;&nbsp;</span></li>
+    
+    
+    
+    
+    
+    
+        
+        
+    
+    
+    
+    
+    
+    
+    
+        
+        
+    
+    
+    
+    
+    
+    
+    
+        
+        
+    
+    
+    
+    
+    
+    
+    
+        
+        
+    
+    
+    
+    
+    
+    
+    
+        
+        
+    
+    
+    
+    
+    
+    
+    
+        
+        
+    
+    
+    
+    
+    
+    
+    
+        
+        
+    
+    
+    
+    
+    
+    
+    
+        
+        
+    
+    
+    
+    
+    
+    
+    
+        
+        
+    
+    
+    
+    
+    
+    
+    
+        
+        
+    
+    
+    
+    
+    
+    
+    
+        
+        
+    
+    
+    
+    
+    
+    
+    
+        
+        
+    
+    
+    
+    
+    
+    
+    
+        
+        
+    
+    
+    
+    
+    
+    
+    
+        
+        
+    
+    
+    
+    
+    
+    
+    
+        
+        
+    
+    
+    <li class="page-item"><a class="page-link" href="/posts/page/28/">28</a></li>
+    
+    
+    <li class="page-item">
+    <a href="/posts/page/12/" class="page-link" aria-label="Next"><span aria-hidden="true">&raquo;</span></a>
+    </li>
+    
+    <li class="page-item">
+        <a href="/posts/page/28/" class="page-link" aria-label="Last"><span aria-hidden="true">&raquo;&raquo;</span></a>
+    </li>
+    
+</ul>
+
+</article>
+
+    </main>
+    <footer class="bg-black bottom-0 w-100 pa3" role="contentinfo">
+  <div class="flex justify-between">
+  <a class="f4 fw4 hover-white no-underline white-70 dn dib-ns pv2 ph3" href="http://superwf.github.io/" >
+    &copy;  老王的日志 2020 
+  </a>
+    <div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+</div>
+  </div>
+</footer>
+
+    
+
+  <script src="/dist/js/app.3fc0f988d21662902933.js"></script>
+
+
+  </body>
+</html>

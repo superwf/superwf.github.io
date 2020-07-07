@@ -1,0 +1,4347 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>老王的日志</title>
+    <link>http://superwf.github.io/</link>
+    <description>Recent content on 老王的日志</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-CN</language>
+    <lastBuildDate>Mon, 11 May 2020 05:32:10 +0000</lastBuildDate>
+    
+	<atom:link href="http://superwf.github.io/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>原域名wangfan.bj.cn</title>
+      <link>http://superwf.github.io/migrate2020/</link>
+      <pubDate>Mon, 11 May 2020 05:32:10 +0000</pubDate>
+      
+      <guid>http://superwf.github.io/migrate2020/</guid>
+      <description>多年前在在万网做了域名备案，最近联通又开始要域名备案。
+树挪死人挪活，不和这些大爷们折腾了，原域名不要了，之后该域名与本人无任何关系。
+从wordperss将所有内容通过hugo插件导出，内容有些乱，以后有空再整理。</description>
+    </item>
+    
+    <item>
+      <title>Rust vs C/C&#43;&#43;</title>
+      <link>http://superwf.github.io/p1560/</link>
+      <pubDate>Wed, 29 Apr 2020 01:53:50 +0000</pubDate>
+      
+      <guid>http://superwf.github.io/p1560/</guid>
+      <description>一个现代化语言所应具备的特性大体如下
+首要条件，图灵完备
+有统一安装源的第三方包管理平台与集成工具，可以自动解决各种依赖与版本管理，ruby、js、python等都有现成的案例，linux的apt与yum也都属于这种工具。
+友好的单元测试编写与运行环境。
+代码风格自动格式化工具
+与ide集成的静态类型检查（language server）
+方便快速的编译命令
+良好设计的模块分隔规则
+异步/多线程处理
+良好设计的错误处理模式
+方便的注释与代码文档化提取工具
+方便的内存管理，自动GC或其他更好的方式，手动内存管理对于业务开发太耗费人工并且引入更多bug。
+跨平台运行、编译表现的一致性。
+rust安装与版本升级都用rustup
+cargo默认添加依赖得手动添加，想达到’npm insall’这种自动安装依赖，需要安装cargo-edit
+安装的过程中报了个错误X86_64_UNKNOWN_LINUX_GNU_OPENSSL_LIB_DIR，需要先安装libssl-dev</description>
+    </item>
+    
+    <item>
+      <title>Manning.Electron.in.Action</title>
+      <link>http://superwf.github.io/p1536/</link>
+      <pubDate>Wed, 15 Apr 2020 01:53:50 +0000</pubDate>
+      
+      <guid>http://superwf.github.io/p1536/</guid>
+      <description>《manning electron in action》
+electorn的优势
+集成最新的chromium，不用被浏览器兼容性托后腿
+可同时访问浏览器与本地api，没有任何浏览器开发程序的限制
+主要特性
+分为主进程与0个或多个renderer进程
+学的时候正赶上electron7的安装bug，由于配置了内网远程安装路径上少了个v，总是安装失败
+后来自己在node_modules/@electron/get中自己改了一下代码去掉路径中的v，然后再手动执行node node_modules/electron/install.js。
+这个bug在cnpm的issues中已经有人提了，之后不久应该会有修正。
+前几章用存储并展示markdown文件与操作clipboard的小例子讲解了main与renderer之间如何通信。
+但目前版本中在renderer进程中目前已经默认关闭了nodeIntegretion。
+比较好的方式是在创建BrowserWindow的时候使用参数，使用
+{
+webPreferences: {
+preload: __dirname + ‘./preload.js’,
+}
+}
+在指定的preload.js中将ipc模块负值到全局window上。
+前面的例子都是比较原始的开发流程，开发，编译，看看效果
+直到第11章，引入了其他类型脚本编译，开发环境livereload，开始精彩起来，示例工程为Jetsetter，一个管理收拾履行物品打包的小应用。
+13章，测试，使用spectron，底层仍然调用selenium，selenium用过当时感觉api不太友好没太深入。
+不过spectron里面可以使用async await，和puppeteer非常像，比较友好，而且更好的是可以直接访问ui层，这个比puppeteer好像还强点
+不知道在当今是否可以与puppeteer结合
+说到底spectron仍然是黑盒测试，而非单元测试。
+14章 打包
+electron-packager 与 electron-forge
+15章
+错误收集，使用 minidump读取错误二进制文件
+程序内更新升级，这个功能封装的很方便。
+16章 发布苹果的app store，呃，没苹果产品，跳过
+appendix
+之前的所有例子详解</description>
+    </item>
+    
+    <item>
+      <title>简历</title>
+      <link>http://superwf.github.io/resume/</link>
+      <pubDate>Tue, 11 Feb 2020 06:57:09 +0000</pubDate>
+      
+      <guid>http://superwf.github.io/resume/</guid>
+      <description>背景  户籍: 北京/1980 学历: 北京科技大学/本科/环境工程/1999-2003 联系: superwf@126.com/13141439707  介绍 强自学与执行力，业余时间学习过多种编程语言，在实际项目中用过php、ruby、sql、typescript，目前主要使用typescript。
+熟练使用linux环境开发。
+10年以上编程经验，2015年转专职前端。
+对工作认真负责，对团队引导提升。在保障实现业务功能的同时，也同时管理团队编码风格、结构、重构、模块化、单元测试、CI/CD等多方面建设。
+除了前端团队管理外，我当前与未来都没有丢下编码技能的打算，我的个人编码量一直占整个团队的一半以上。
+当前技术栈  react + mobx + antd webpack + typescript + less + jest + yarn + eslint + prettier  个人项目与技术blog  blog 记录平时的一些技术问题。     分享文档 记录平时的一些技术问题。
+  ts-gear swagger接口转typescript数据结构定义。
+  vuex-cache vuex的缓存插件。
+  vue-impressvue impress插件vuex-cache vuex插件。
+  slider-puzzle-captcha 包含服务端的前端滑动验证码。
+  工作经历   2018.03至今，京东供应链定价开发部，前端
+期间负责部门业务定价服务与周边的几个内部管理服务的前端项目。</description>
+    </item>
+    
+    <item>
+      <title>ubuntu下录屏</title>
+      <link>http://superwf.github.io/p1539/</link>
+      <pubDate>Mon, 27 Jan 2020 15:49:38 +0000</pubDate>
+      
+      <guid>http://superwf.github.io/p1539/</guid>
+      <description>今天为了写个教程，需要录制屏幕来辅助讲解
+之前一直用recordmydesktop生成ogv文件，突然发现上传到github之后ogv是不能播放的
+没关系，反正也不需要声音，转成gif吧，后来查了一下，ubuntu有ffmpeg工具可以直接完成这项工作。
+网上的教程比较老，还得自己添加ppa源，马上ubuntu20都要出了，官方源就带，直接装ffmpeg就行不需要外部源。
+但还是麻烦，需要先录制屏幕，再手动转图，中间步骤还没法自动化
+再找吧，找到了peek，真是好东东，直接录屏到gif呢。需要添加安装源。
+sudo add-apt-repository ppa:peek-developers/stable
+等等，peek的选项里好像有其他几个图片支持，apng和webm都是个什么，赶紧查一下。
+apng是png的一种扩展，既有png的优势，又能动。
+webp用过，chrome支持，有技术优势，也能动，如果可以直接生成的话，是最佳选择，但peek的生成选项里没有这个。
+webm是视频格式，对标的是mp4，属于视频和音频流。
+试了一下推送github，webm不能显示，apng没问题。
+最终选定apng。</description>
+    </item>
+    
+    <item>
+      <title>webpack proxy的changeOrigin</title>
+      <link>http://superwf.github.io/p1534/</link>
+      <pubDate>Mon, 30 Dec 2019 02:40:07 +0000</pubDate>
+      
+      <guid>http://superwf.github.io/p1534/</guid>
+      <description>开发环境中经常要用到webpack的proxy
+在后端有域名校验的情况下，需要经常修改代理的请求http header中的host来模拟验证过程，其中的changeOrigin是关键字段。
+在http-proxy-middleware的文档中可以看到
+changeOrigin 的注释是 needed for virtual hosted sites
+其含义还是很模糊，通过wireshark抓包最终确认
+changeOrigin: true
+实际请求host与target中配置的一致
+changeOrigin: false (默认值)
+实际请求host与浏览器url中的一致</description>
+    </item>
+    
+    <item>
+      <title>使用unpkg站点可使用的umd发布格式发布npm包</title>
+      <link>http://superwf.github.io/p1530/</link>
+      <pubDate>Thu, 19 Dec 2019 18:12:43 +0000</pubDate>
+      
+      <guid>http://superwf.github.io/p1530/</guid>
+      <description> 如果发布的npm包需要在unpkg这种cdn中应用，需要在package.json中添加unpkg或browser字段，如果都没有，会使用main字段，main也没有则会直接使用文件夹下的index.js，指向打包编译为umd格式的文件。 该优先级识别顺序在express-unpkg包的源码中可查询。  </description>
+    </item>
+    
+    <item>
+      <title>热替换</title>
+      <link>http://superwf.github.io/p1525/</link>
+      <pubDate>Fri, 15 Nov 2019 06:24:40 +0000</pubDate>
+      
+      <guid>http://superwf.github.io/p1525/</guid>
+      <description>一次hmr热替换失效问题 {#%E4%B8%80%E6%AC%A1hmr%E7%83%AD%E6%9B%BF%E6%8D%A2%E5%A4%B1%E6%95%88%E9%97%AE%E9%A2%98}  webpack配置 {#webpack%E9%85%8D%E7%BD%AE} 在devServer中添加hot项
+ 代码配合 {#%E4%BB%A3%E7%A0%81%E9%85%8D%E5%90%88} 在webpack的entry中制定的源码中需要
+这种由webpack提供的hmr方案是不需要react-hot-loader的
+ 以下是我遇到的一次热替换失效问题 {#%E4%BB%A5%E4%B8%8B%E6%98%AF%E6%88%91%E9%81%87%E5%88%B0%E7%9A%84%E4%B8%80%E6%AC%A1%E7%83%AD%E6%9B%BF%E6%8D%A2%E5%A4%B1%E6%95%88%E9%97%AE%E9%A2%98} 在一次进行代码优化之后，发现热替换失效，最开始没在意，认为升级webpack或loader即可修正。
+经过两些天的开发工作之后按F5倍感疲惫，决定彻底解决该问题。
+尝试各种依赖升级，之后与另一个项目对比发现在所有依赖与工程配置都一样的情况下，另一个项目的hmr正常工作，问题项目就是工作。
+在问题项目中，非React.lazy加载的组件都可正常hmr。
+问题集中在了路由加载，最终发现，routes的路由数组，由于代码优化，被放到了其中一个数据store的属性中，导致hmr失效。将routes数组全部经过react的props层层传递，即可使hmr正常工作。</description>
+    </item>
+    
+    <item>
+      <title>requestAnimationFrame</title>
+      <link>http://superwf.github.io/p1503/</link>
+      <pubDate>Thu, 12 Sep 2019 06:30:49 +0000</pubDate>
+      
+      <guid>http://superwf.github.io/p1503/</guid>
+      <description>requestAnimationFrame的特点是在每帧渲染时调用，可以根据当前运行硬件大幅优化动画流畅度。还有一个隐形的特性就是只在当前窗口激活状态才会运行，这也是它可以节省计算资源的一大优势。
+有些优化场景会有监听当前页面激活状态的需求，只有在当前页面激活时才定时请求后端数据来达到数据半即时更新的效果。
+通常的解决方案都是监听“visibilitychange”事件，通过该事件的切换状态开启或关闭监听。例如如下代码
+在原生支持requestAnimationFrame的浏览器上，可以通过该函数达到同样的效果，不用手动去监听 visibilitychange。
+例如如下代码</description>
+    </item>
+    
+    <item>
+      <title>面试技能分级</title>
+      <link>http://superwf.github.io/p1498/</link>
+      <pubDate>Sat, 24 Aug 2019 01:53:07 +0000</pubDate>
+      
+      <guid>http://superwf.github.io/p1498/</guid>
+      <description>最近面试很多新人，对于很多技能等级的描述是非常模糊的。
+这个问题其实对每个人来说都是一样的，面试的时候说低了无法体现自己的技能，说太高了也有些心虚，毕竟所有知识点不可能都即时的装在高速记忆区可以做到随问随答。
+后来想了想，从低到高，我把技能大概分为这几个等级。
+1.不知道这个概念，完全没听说过，您就甭接着问这个话题了。（很多）
+2.知道这个概念，但仅仅是听说个大概。（例如人工智能，大数据算法等）
+3.知道该概念，读过相关介绍性文章，心里大概有数。（例如web assembly等）
+4.学习过该概念，并且花时间读过文档做过demo，相对深入的学习过，但没有实战经验。（例如golang，python，webgl等）
+5.不仅深入学习过该概念，而且在实际项目中有实战应用，但距今已经有一段时间了，可能很多细节需要重新学习才能再上手，上手应该很快（php、mysql、rails、一些运维工具）
+6.深入学习过该概念，且在实际项目中应用至今，开箱即用，是我目前最可以拿出手的王牌技能（es、ts、css、nodejs、linux等）</description>
+    </item>
+    
+    <item>
+      <title>前端的各种路径别名</title>
+      <link>http://superwf.github.io/p1494/</link>
+      <pubDate>Mon, 12 Aug 2019 01:12:09 +0000</pubDate>
+      
+      <guid>http://superwf.github.io/p1494/</guid>
+      <description>在进入es module时代后，import使用已经是日常标配。
+但在引入模块时，经常需要 import ‘../../../xxxx’ 这种跨多级相对路径的引用。于是在各种工具环节，都可以找到前人已经开发好的path alias配置或工具，让coders可以使用各种简化的路径来引入模块。
+我用过的一些比如webpack配置alias，babel插件babel-plugin-module-resolver，tsconfig中的paths
+在单应用开发时，使用这些之一的配置可以很方便的简化模块引入行为。
+但在最近的lerna开发几个mono repo时遇到了问题。在packages中的平行应用互相引用时，遇到各种路径问题，最终结论是，在跨package调用时尽量使用相对路径，或者在整个mono repo的根package中设置统一的别名配置。</description>
+    </item>
+    
+    <item>
+      <title>webgl学习</title>
+      <link>http://superwf.github.io/p1455/</link>
+      <pubDate>Mon, 10 Jun 2019 15:23:04 +0000</pubDate>
+      
+      <guid>http://superwf.github.io/p1455/</guid>
+      <description>Varyings 用于在vertex与fragment中共享数据
+attribute限定为逐顶点变量。
+Uniforms用于记录一些非逐顶点的，全局、且在每帧之间不变的数据，如光照位置与亮度，全局位移与透视信息等。
+生成阴影，需要在帧缓冲中离屏绘制然后将阴影的坐标存到该帧所在的一个材质中，然后在实际绘图时从该材质获取阴影数据之后通过颜色合成计算出阴影。当小数点精度不够时会产生斑马纹，还需要手动调节数据精度。
+webgl是左手还是右手坐标系？原生是左手，但一旦设置了视点，应用了视点矩阵，从z轴的反方向看就变成了右手坐标系。而大多数程序的视点都是这样的做的。所以绝大多数场景应以右手坐标系考虑。</description>
+    </item>
+    
+    <item>
+      <title>Packt Learning Dart 2nd Edition</title>
+      <link>http://superwf.github.io/p1485/</link>
+      <pubDate>Mon, 10 Jun 2019 14:43:44 +0000</pubDate>
+      
+      <guid>http://superwf.github.io/p1485/</guid>
+      <description>最近flutter很火。抽空看了一下dart的语法。
+dart是一个既支持jit又支持aot编译的语言。
+但书里也没写如何aot编译为二进制文件。
+dart大部分语法对于typescript使用者来说无门槛。只要import就全部变量直接可用这点，对于es的显式import有些不习惯，不过有language sever的ide支持，补全功能与ts一样好用。
+async/await与前端开发一摸一样，promise换成了future。</description>
+    </item>
+    
+    <item>
+      <title>关于面试</title>
+      <link>http://superwf.github.io/p1482/</link>
+      <pubDate>Mon, 03 Jun 2019 09:44:33 +0000</pubDate>
+      
+      <guid>http://superwf.github.io/p1482/</guid>
+      <description>以下是我部门的面试指导，我觉得很好
+也作为我以后评价别人对我面试的一个判断标准
+面试的目的不是考倒对方！而是让候选人展示他的知识，能力，和性格。
+判定标准：你希望这个人以后和你一起工作吗？
+把候选人当成你的同事
+向候选人学习
+除了技术角度，需要从以下几点考察：
+理解力： 你说的新事情需要候选人理解
+沟通：能主动回问问题
+独立思考：遇到一件事情能知道怎么办
+执行力：工作是如何快速推进的
+再加上我的一些补充
+问一问最近在学习什么，列举一些对自己提升很大的书籍。
+读过哪些开源的代码及理解。
+每年或每个项目过后，自身的成长。</description>
+    </item>
+    
+    <item>
+      <title>coder life</title>
+      <link>http://superwf.github.io/coder-life/</link>
+      <pubDate>Fri, 31 May 2019 05:32:10 +0000</pubDate>
+      
+      <guid>http://superwf.github.io/coder-life/</guid>
+      <description>我喜欢编码，编码带给我成就感。
+人际关系非我所长，但技术是。
+专注技术层面，转行管理什么的？不需要的。
+我的家训——艺不压身。小时候常听奶奶说这句话，上班之后才深有体会。
+ 所有重要的进步，都来源于失败和挫折的经历。
+ </description>
+    </item>
+    
+    <item>
+      <title>关于配置文件格式</title>
+      <link>http://superwf.github.io/p1476/</link>
+      <pubDate>Thu, 30 May 2019 08:31:05 +0000</pubDate>
+      
+      <guid>http://superwf.github.io/p1476/</guid>
+      <description>最近从阮一峰的分享中看到了一篇文章
+请不要用 JSON 作为配置文件
+其中的一些观点
+  json的设计目标只是轻量级数据交换语言。  json的通用解析不能解析注释。
+  到底应该用哪种格式作为配置文件？没有确定的答案，这依赖与项目的应用场景，语言，工程等多方因素。
+命令行flag是一个相对通用的选择。
+  我在一些工具类项目中也深有体会，其中最令人不快的大概要算是tsconfig.json文件了。
+在我开发过得一些前端工具项目中，基本使用js文件作为配置文件。原因如下
+  本身就是前端项目，可以直接require配置文件。  js配置文件中可以添加任何需要的逻辑，例如根据不同的环境变量输出不同的配置。例如eslint与babel都支持js格式的配置文件。
+  如果考虑到该配置文件需要跨语言支持，可以考虑yaml。
+  虽然typescript只支持tsconfig.json，但其验证功能却很有用。
+假设用deno识别ts文件作为配置文件，在ts文件中引入对应项目的配置文件类型可自动校验配置。
+如果需要识别多种格式的配置文件，不要自己挨个写类型识别。
+推荐一下通用配置文件识别工具。
+cosmiconfig</description>
+    </item>
+    
+    <item>
+      <title>Error.captureStackTrace</title>
+      <link>http://superwf.github.io/p1465/</link>
+      <pubDate>Tue, 30 Apr 2019 01:49:27 +0000</pubDate>
+      
+      <guid>http://superwf.github.io/p1465/</guid>
+      <description>一直用各种测试库都会遇到一种问题，当一些抽象的功能函数throw error的时候，
+错误会提示到该函数内，而不是调用函数的地方。
+但各种测试库的断言函数就不会有这种问题，会直接提示到调用行。
+最近想起了这个问题，查了一下发现了Error.captureStackTrace这个方法。
+是v8引擎自带，并不是es标准语法，见文档。
+例子看了看，半明白，自己实验一下才知道具体使用场景。
+应该是配合自定义的Error类来用的。
+Error.captureStackTrace的第二个参数就应该放需要被忽略的断言函数或想要被忽略的自定义函数。
+assert库里的fail方法，就是该功能的一个兼容封装，可以直接使用。</description>
+    </item>
+    
+    <item>
+      <title>前端页面截图功能</title>
+      <link>http://superwf.github.io/p1444/</link>
+      <pubDate>Sat, 30 Mar 2019 08:58:33 +0000</pubDate>
+      
+      <guid>http://superwf.github.io/p1444/</guid>
+      <description>原生方法 navigator.mediaDevices.getDisplayMedia()，chrome版本要求高，刚出一个月左右，大概72版本才可用。
+缺点：截图的时候会一定会出提示，选择需要截图的屏幕、应用、或chrome的tab。用户体验不太好。
+chrome extension，方法 需要开发一个额外的扩展，截图api调用chrome.tabs.captureVisibleTab，
+缺点：只能截图当前页面的可见部分。额外安装扩展。
+html2canvas第三方库 调研了一下该库的基础截图原理，希望找到可用的底层api，但发现该库用的是最艰难的方法，将dom在绘制时获取computed style一层层绘制。
+缺点：会出现截图和实际页面不太一致的情况。
+优点：兼容性好，不需要客户额外安装。</description>
+    </item>
+    
+    <item>
+      <title>flex布局，元素左右排列</title>
+      <link>http://superwf.github.io/p1452/</link>
+      <pubDate>Thu, 21 Mar 2019 08:54:41 +0000</pubDate>
+      
+      <guid>http://superwf.github.io/p1452/</guid>
+      <description>当flex布局时，可以在父元素用justify-content调整子元素主轴位置。
+有一种情况，需要大部分元素左对齐，只有最后一个右对齐。
+子元素只有align-self可以调整辅轴的自身位置，主轴位置只能靠父元素设置。
+float没用，可以用position: absolute调整但效果不理想。
+https://www.w3.org/TR/css-flexbox-1/#auto-margins
+利用margin的auto竟然可以达到这种效果。</description>
+    </item>
+    
+    <item>
+      <title>2018总结</title>
+      <link>http://superwf.github.io/p1446/</link>
+      <pubDate>Wed, 13 Mar 2019 08:29:00 +0000</pubDate>
+      
+      <guid>http://superwf.github.io/p1446/</guid>
+      <description>2018前端总结 新技能  chrome extension puppeteer/puppeteer-core mobx/mobx-utils typescript/tslint koa2 mobx commitlint changelog git-cz fetch-mock markdownlint ant-design service worker/pwa  老技能强化  jest webpack react babel vim/nvim tslint/prettier git hooks domain driver development nginx  </description>
+    </item>
+    
+    <item>
+      <title>chrome扩展</title>
+      <link>http://superwf.github.io/p1436/</link>
+      <pubDate>Wed, 06 Mar 2019 11:36:10 +0000</pubDate>
+      
+      <guid>http://superwf.github.io/p1436/</guid>
+      <description>一个chrome扩展通常的执行顺序
+其中的api繁多而且大多没有例子。
+开发期间发现了这个
+https://github.com/xpl/crx-hotreload
+介绍文章
+https://60devs.com/hot-reloading-for-chrome-extensions.html
+对于扩展开发十分有用，有时候产生的错误比较多的时候扩展不能刷新，还是需要关闭浏览器重开才能生效。</description>
+    </item>
+    
+    <item>
+      <title>Packt.Nginx.HTTP.Server.3rd.Edition</title>
+      <link>http://superwf.github.io/p1429/</link>
+      <pubDate>Wed, 06 Mar 2019 11:07:52 +0000</pubDate>
+      
+      <guid>http://superwf.github.io/p1429/</guid>
+      <description>nginx location匹配优先级   location blocks with the = modifier: If the specified string exactly matches
+the requested URI, Nginx retains the location block.
+匹配使用=的严格相等的路径  location blocks with no modifier: If the specified string exactly matches the
+requested URI, Nginx retains the location block.
+匹配严格相等的无匹配符号的路径，例如 location /abc {…}，请求正好为/abc
+  location blocks with the ^~ modifier: If the specified string matches the
+beginning of the requested URI, Nginx retains the location block.</description>
+    </item>
+    
+    <item>
+      <title>typescript问题笔记</title>
+      <link>http://superwf.github.io/p1425/</link>
+      <pubDate>Tue, 26 Feb 2019 02:28:24 +0000</pubDate>
+      
+      <guid>http://superwf.github.io/p1425/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>SVG动画 用复杂交互动画改善用户体验</title>
+      <link>http://superwf.github.io/p1423/</link>
+      <pubDate>Wed, 13 Feb 2019 01:46:00 +0000</pubDate>
+      
+      <guid>http://superwf.github.io/p1423/</guid>
+      <description>书中注重介绍了greensock这个工具，什么时候应该用css，什么时候应该用js库
+以及greensock强大的动画补间功能
+书中理论偏多，代码不是很完整，不如直接看最新文档。
+https://greensock.com/</description>
+    </item>
+    
+    <item>
+      <title>刻意练习</title>
+      <link>http://superwf.github.io/p1419/</link>
+      <pubDate>Tue, 08 Jan 2019 02:55:59 +0000</pubDate>
+      
+      <guid>http://superwf.github.io/p1419/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>DDD领域驱动设计总结</title>
+      <link>http://superwf.github.io/p1415/</link>
+      <pubDate>Wed, 02 Jan 2019 07:12:36 +0000</pubDate>
+      
+      <guid>http://superwf.github.io/p1415/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>use puppeteer-core to replace puppeteer</title>
+      <link>http://superwf.github.io/p1411/</link>
+      <pubDate>Mon, 12 Nov 2018 10:09:17 +0000</pubDate>
+      
+      <guid>http://superwf.github.io/p1411/</guid>
+      <description>有亮点不同 不会下载Chromium. 不会识别一堆以PUPPETEER_开头的环境变量。  其他的地方都一样，按说只要把所有require(puppeteer)的地方都换成require(&#39;puppeteer-core&#39;)即可。
+针对绝大多数用户，其实都已经安装了chrome，每次安装为了puppeteer都要下载一个巨大的Chromium，在国内的网络环境下十分耗时。
+可问题是一些依赖的第三方package里面用的是require(puppeteer)。
+这种情况推荐使用modules-alias工具登场。
+用别名的方式将系统中的puppeteer
+都置换为puppeteer-core
+运行例子: jest-with-puppeteer-core</description>
+    </item>
+    
+    <item>
+      <title>conventional-changelog不能生成最新日志的情况</title>
+      <link>http://superwf.github.io/p1408/</link>
+      <pubDate>Tue, 30 Oct 2018 02:55:48 +0000</pubDate>
+      
+      <guid>http://superwf.github.io/p1408/</guid>
+      <description>最近遇到conventional-changelog不能生成最新变更日志的问题。
+经过排查发现，是因为gitflow和conventional-changelog一起使用时，应先升级package.json中的version，生成changelog之后再进行gitflow的release操作，否则最新的git标签与package.json中的version相同，则不会生成changelog。</description>
+    </item>
+    
+    <item>
+      <title>eslint与prettier的集成的错误认识</title>
+      <link>http://superwf.github.io/p1402/</link>
+      <pubDate>Fri, 26 Oct 2018 09:48:03 +0000</pubDate>
+      
+      <guid>http://superwf.github.io/p1402/</guid>
+      <description>我的编辑器里，既装了eslint的插件，也装了prettier的插件，然后，这两个工具都其作用并能自动修正文件了，还有什么问题呢？
+我之前的eslint配置是这样的
+&amp;lt;br /&amp;gt; extends: [&amp;lt;br /&amp;gt; &#39;airbnb&#39;,&amp;lt;br /&amp;gt; &#39;prettier&#39;,&amp;lt;br /&amp;gt; ],&amp;lt;br /&amp;gt;
+prettier有其自己的配置文件，在eslint中通过eslint-config-prettier一起生效，使这两个规则不会冲突。
+问题在于，每次文件保存，eslint和prettier会先后两次修正文件，引起两次写操作，结果可坑会导致开发环境webpack或jest运行多次。
+之前没有在意这个细节，最近有空打算彻底解决一些之前觉得不对劲的地方。
+正确的配置应该是，添加eslint-plugin-prettier，并且在编辑器中禁用prettier插件，使文件保存是，仅eslint修正即可，eslint通过这个plugin识别prettier.config.js配置来集成规则。
+新的配置如下
+&amp;lt;br /&amp;gt; extends: [&amp;lt;br /&amp;gt; &#39;airbnb&#39;,&amp;lt;br /&amp;gt; &#39;prettier&#39;,&amp;lt;br /&amp;gt; ],&amp;lt;br /&amp;gt; plugins: [&#39;prettier&#39;],&amp;lt;br /&amp;gt; rules: {&amp;lt;br /&amp;gt; &#39;prettier/prettier&#39;: &#39;error&#39;&amp;lt;br /&amp;gt; }</description>
+    </item>
+    
+    <item>
+      <title>vim的ale调用eslint引起webpack与jest多次重新编译问题</title>
+      <link>http://superwf.github.io/p1398/</link>
+      <pubDate>Wed, 17 Oct 2018 02:22:14 +0000</pubDate>
+      
+      <guid>http://superwf.github.io/p1398/</guid>
+      <description>在前端项目中，有大量的import，webpack的resolve.alias为此提供了很大的方便。为项目的一些常用路径定义别名，可以极大的简化代码并提高代码可读性。
+eslint有一个plugin– eslint-plugin-import，能检测import的package是否合规，为了与webpack的alias一起工作，于是又有了一个新工具— eslint-import-resolver-webpack，使eslint可以识别webpack中定义的别名引用路径。
+https://www.npmjs.com/package/eslint-import-resolver-webpack
+我最初使用的是文档中省事的写法，直接在.eslintrc.js中使用了webpack的文件名
+config:‘webpack.config.js‘vim通过ale插件，支持eslint语法检查，是随输入随检查。
+从此开始了编译的噩梦。
+只要vim修改了文件内容，文件还没保存，但jest –watch 或 webpack-dev-server进程就会认为文件有改动，疯狂的重新编译，或重新运行测试。
+一开始没意识到问题，还以为正常就这样，后来发现用其他编辑器在文件还没有保存的时候，修改文件内容是不会出发文件监听更新事件的。
+首先定位错误到vim，经过挨个插件排查发现问题出在ale上，只要每次ale调用eslint，就会触发文件更新。实际用ls -l –full-time检查了一下发现eslint并没有更新文件的任何属性。
+于是定位到eslint，对比了一下tslint，发现tslint不会触发文件更新事件。以为是eslint的bug或默认行为？于是开始排除eslint的插件，发现只要加载了webpack的配置，就会触发文件更新。终于定位到错误。
+最后，将webpack中的alias部分提取到独立的文件，分别由.eslintrc.js与webpack.config引入使用，解决该问题。</description>
+    </item>
+    
+    <item>
+      <title>react16.5.2 component api笔记</title>
+      <link>http://superwf.github.io/p1395/</link>
+      <pubDate>Tue, 16 Oct 2018 09:56:43 +0000</pubDate>
+      
+      <guid>http://superwf.github.io/p1395/</guid>
+      <description>&amp;lt;li&amp;gt; constructor(props) &amp;lt;ul&amp;gt; &amp;lt;li&amp;gt; 不能在这里setState。 &amp;lt;/li&amp;gt; &amp;lt;li&amp;gt; 只有这里可以直接给this.state赋值。 &amp;lt;/li&amp;gt; &amp;lt;li&amp;gt; 不能在这里调用有side-effects作用的函数，如果有需要，在componentDidMount里调用。 &amp;lt;/li&amp;gt; &amp;lt;li&amp;gt; 不要在这里用props的值生成state内容。 &amp;lt;/li&amp;gt; &amp;lt;/ul&amp;gt; &amp;lt;/li&amp;gt; &amp;lt;li&amp;gt; componentDidMount &amp;lt;ul&amp;gt; &amp;lt;li&amp;gt; 此时组件已经载入，发起request请求，进行setState操作。 &amp;lt;/li&amp;gt; &amp;lt;li&amp;gt; 可以在此进行一些事件订阅。 &amp;lt;/li&amp;gt; &amp;lt;/ul&amp;gt; &amp;lt;/li&amp;gt; &amp;lt;li&amp;gt; componentDidUpdate(prevProps, prevState, snapshot) &amp;lt;ul&amp;gt; &amp;lt;li&amp;gt; 在每次更新state或props之后调用，在第一次render时&amp;lt;strong&amp;gt;不&amp;lt;/strong&amp;gt;调用。 &amp;lt;/li&amp;gt; &amp;lt;li&amp;gt; 此处禁用setState（文档上说尽量避免，但我认为应该禁用，如果有逻辑必须在此处调用setState，那么有必要重新梳理逻辑，一定是哪里想错了）。 &amp;lt;/li&amp;gt; &amp;lt;li&amp;gt; 如果shouldComponentUpdate返回false，则不会被调用。 &amp;lt;/li&amp;gt; &amp;lt;li&amp;gt; 如果有getSnapshotBeforeUpdate，则getSnapshotBeforeUpdate的返回值会作为第三个参数传入。 &amp;lt;/li&amp;gt; &amp;lt;/ul&amp;gt; &amp;lt;/li&amp;gt; &amp;lt;li&amp;gt; componentWillUnmount &amp;lt;ul&amp;gt; &amp;lt;li&amp;gt; 在此进行一些取消订阅或其他的清扫操作。 &amp;lt;/li&amp;gt; &amp;lt;li&amp;gt; 此处禁用setState。 &amp;lt;/li&amp;gt; &amp;lt;/ul&amp;gt; &amp;lt;/li&amp;gt; &amp;lt;li&amp;gt; shouldComponentUpdate(nextProps, nextState) &amp;lt;ul&amp;gt; &amp;lt;li&amp;gt; return false则不会重新渲染，可在此处改善渲染性能避免重复渲染。 &amp;lt;/li&amp;gt; &amp;lt;li&amp;gt; return false会阻止UNSAFE_componentWillUpdate(), render(), and componentDidUpdate() 这三个生命周期函数的运行。 &amp;lt;/li&amp;gt; &amp;lt;li&amp;gt; 在绝大多数情况下，不应手动实现该函数，应依赖react本身的默认更新行为。 &amp;lt;/li&amp;gt; &amp;lt;/ul&amp;gt; &amp;lt;/li&amp;gt;  &amp;lt;li&amp;gt; getSnapshotBeforeUpdate &amp;lt;ul&amp;gt; &amp;lt;li&amp;gt; 在每次组件重渲染前调用，可获取当前dom内容。 &amp;lt;/li&amp;gt; &amp;lt;li&amp;gt; 应有返回值。 &amp;lt;/li&amp;gt; &amp;lt;/ul&amp;gt; &amp;lt;/li&amp;gt; &amp;lt;li&amp;gt; componentDidCatch(error, info) &amp;lt;ul&amp;gt; &amp;lt;li&amp;gt; 捕获前端组件错误，通常只在最外层组件实现一次即可。 &amp;lt;/li&amp;gt; &amp;lt;li&amp;gt; 以下错误不在该函数捕获范围内： &amp;lt;/li&amp;gt; &amp;lt;li&amp;gt; dom事件错误。 &amp;lt;/li&amp;gt; &amp;lt;li&amp;gt; 异步错误。 &amp;lt;/li&amp;gt; &amp;lt;li&amp;gt; 服务端渲染。 &amp;lt;/li&amp;gt; &amp;lt;li&amp;gt; 该函数本身又抛出的错误。 &amp;lt;/li&amp;gt; &amp;lt;/ul&amp;gt; &amp;lt;/li&amp;gt; &amp;lt;li&amp;gt; 即将废弃 &amp;lt;ul&amp;gt; &amp;lt;li&amp;gt; UNSAFE_componentWillMount &amp;lt;/li&amp;gt; &amp;lt;li&amp;gt; UNSAFE_componentWillReceiveProps &amp;lt;/li&amp;gt; &amp;lt;li&amp;gt; UNSAFE_componentWillUpdate &amp;lt;/li&amp;gt; &amp;lt;li&amp;gt; 都是去掉UNSAFE的同名函数的别名，即将废弃，无论是有没有UNSAFE前缀，别用就对了。 &amp;lt;/li&amp;gt; &amp;lt;/ul&amp;gt; &amp;lt;/li&amp;gt; &amp;lt;li&amp;gt; 非生命周期的实例方法 &amp;lt;ul&amp;gt; &amp;lt;li&amp;gt; setState(updater[, callback]) &amp;lt;/li&amp;gt; &amp;lt;li&amp;gt; setState可能同步或异步执行，因此不保证调用后的state为最新状态。 &amp;lt;/li&amp;gt; &amp;lt;li&amp;gt; updater除了对象，还可以是函数，例如：&amp;lt;br /&amp;gt; &amp;lt;code&amp;gt;&amp;amp;lt;br /&amp;gt;  this.</description>
+    </item>
+    
+    <item>
+      <title>manning progressive web apps</title>
+      <link>http://superwf.github.io/p1392/</link>
+      <pubDate>Tue, 16 Oct 2018 09:51:26 +0000</pubDate>
+      
+      <guid>http://superwf.github.io/p1392/</guid>
+      <description>学习笔记
+service worker仅能运行在https或localhost本地模式下的http环境中。
+利用pwa的caches可以为web程序添加一层shell，或拦截并替换或加工请求。比如根据浏览器兼容，替换webp格式图片。
+利用web数据库缓存提交请求，待连线时再与服务器同步。
+讲解stream概念。结合caches自建流式渲染。
+最后的trouble shooting很有用，有问题时应该先从在这里找找答案。
+最后还有个展望web未来，说了一些es的蓝牙api，社交分享功能。通用支付功能，图像识别功能，二维码识别的例子。</description>
+    </item>
+    
+    <item>
+      <title>manning rxjs in action</title>
+      <link>http://superwf.github.io/p1388/</link>
+      <pubDate>Fri, 07 Sep 2018 23:15:31 +0000</pubDate>
+      
+      <guid>http://superwf.github.io/p1388/</guid>
+      <description>RxJS + React + Redux (what we call the 3R) architecture
+3R这个概念还行，在这本书里头一次见。
+Learning to use a new tool is as important as learning when not to use it.
+与学习如何使用一项工具一样重要的是，知道什么时候该用它。
+看到consumer pull和iterator push模式
+对generator又加深了一些理解其应该存在的使用场景
+rx生成的订阅模型，比事件模型的更容易清理，unsubscribe，对内存释放友好
+hot与cold的observable对象的区别，push与pull。
+There is no onesize-fits-all solution to every problem
+一句话说，没有银弹。
+看完之后，对rxjs总算有了个靠谱的了解。可惜看到一半左右再上的官网看，发现已经升级版本6了，书里讲的都是5。
+好在5和6除了函数式风格api的变化，其他相差不多。</description>
+    </item>
+    
+    <item>
+      <title>jest的一次失败的mock</title>
+      <link>http://superwf.github.io/p1385/</link>
+      <pubDate>Wed, 22 Aug 2018 09:00:36 +0000</pubDate>
+      
+      <guid>http://superwf.github.io/p1385/</guid>
+      <description>今天添加了一个新测试用例，在需要mock的文件模块旁边添加了__mocks__然后里面添加了同名文件，之后在test文件里指定
+jest.mock(‘moduleA’)
+但无论如何都会加载实际模块而不是__mocks__文件夹里的内容。经过了一大轮的拼写检查、jest.doMock、为jest.mock添加第二个参数临时实现，还试了一下automock，全都不行。
+最后发现该模块为了调整测试环境，在jestSetup文件里被使用了……
+难怪无法mock，自己的坑啊。</description>
+    </item>
+    
+    <item>
+      <title>webpack/uglifyjs的remove  dead_code功能</title>
+      <link>http://superwf.github.io/p1380/</link>
+      <pubDate>Fri, 17 Aug 2018 02:11:52 +0000</pubDate>
+      
+      <guid>http://superwf.github.io/p1380/</guid>
+      <description>昨天在项目里加上了mobx-react-devtools开发环境调试用。但是生产环境不希望有，于是加上了
+&amp;lt;br /&amp;gt; import MobxDevTools from &#39;mobx-react-devtools&#39;&amp;lt;br /&amp;gt; ...&amp;lt;br /&amp;gt; render () {&amp;lt;br /&amp;gt; return ...&amp;lt;br /&amp;gt; {process.env.NODE_ENV !== &#39;production&#39; &amp;amp;&amp;amp; &amp;lt;MobxDevTools /&amp;gt;
+}&amp;lt;br /&amp;gt; }&amp;lt;br /&amp;gt;
+打包后发现代码体积明显增大，即使加了webpack生产环境打包的UglifyJsPlugin({
+uglifyOptions: { compress: { dead_code: true } }
+})
+也去不掉。应该是因为import是静态引入的特点造成的。
+最后自己想了个法子解决了一下，写一个空组件
+export default null
+在webpack的alias里判断生产环境，则添加alias[‘mobx-react-devtools’] = ‘./app/component/Null.jsx’
+在生产环境中吧这个空组件替换进去，如果还有其他希望生产环境中排除的都可以如此解决。</description>
+    </item>
+    
+    <item>
+      <title>learning typescript</title>
+      <link>http://superwf.github.io/p1377/</link>
+      <pubDate>Mon, 13 Aug 2018 05:56:34 +0000</pubDate>
+      
+      <guid>http://superwf.github.io/p1377/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>modern vim</title>
+      <link>http://superwf.github.io/p1375/</link>
+      <pubDate>Mon, 13 Aug 2018 05:51:25 +0000</pubDate>
+      
+      <guid>http://superwf.github.io/p1375/</guid>
+      <description>vim进阶的又一本宝典，用了这么多年vim之后，仍然会感觉有很多东西需要掌握，有更多的插件等待挖掘
+以下是一些读书笔记。</description>
+    </item>
+    
+    <item>
+      <title>smacss</title>
+      <link>http://superwf.github.io/p1373/</link>
+      <pubDate>Mon, 13 Aug 2018 05:47:28 +0000</pubDate>
+      
+      <guid>http://superwf.github.io/p1373/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>You Don’t Know JS 下卷</title>
+      <link>http://superwf.github.io/p1369/</link>
+      <pubDate>Mon, 13 Aug 2018 05:43:13 +0000</pubDate>
+      
+      <guid>http://superwf.github.io/p1369/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>css font字体文件过大问题</title>
+      <link>http://superwf.github.io/p1367/</link>
+      <pubDate>Mon, 06 Aug 2018 08:34:38 +0000</pubDate>
+      
+      <guid>http://superwf.github.io/p1367/</guid>
+      <description>今天在console里看到了这么一行提示
+Intervention: WebFonts use adaptive timeouts to take fallback fonts 查了一下，是因为字体文件体积过大时，可能会造成使用该字体的元素在字体下载前后出现闪烁的问题。有学到了一个新属性font-display。按需要，指定block比较合适，因为字体图标一时也找不到什么合适的占位字体。
+https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display</description>
+    </item>
+    
+    <item>
+      <title>fetch与promise.finally</title>
+      <link>http://superwf.github.io/p1362/</link>
+      <pubDate>Fri, 20 Jul 2018 09:16:59 +0000</pubDate>
+      
+      <guid>http://superwf.github.io/p1362/</guid>
+      <description>es7里面的Promise.prototype.finally，可以通过core-js的polyfill来补全。
+本以为加上了core-js就可以了，但真的遇到不支持的浏览器仍然会报没有finally方法的错误。
+打开控制台调试，发现Promise.prototype.finally已经打上补丁是存在的。
+最后发现，在chrome中
+在火狐的低版本浏览器中
+ fetch返回的是个伪Promise对象，并不是全局Promise的实例，怪不得没有finally方法。
+干脆通过自己加上一段代码polyfill上去得了
+  </description>
+    </item>
+    
+    <item>
+      <title>后端对于restful接口返回状态码的理解</title>
+      <link>http://superwf.github.io/p1355/</link>
+      <pubDate>Fri, 20 Jul 2018 01:21:29 +0000</pubDate>
+      
+      <guid>http://superwf.github.io/p1355/</guid>
+      <description>今天在上班路上突然理解了一件长久以来困扰我的事情。
+做前端这几年，遇到做后端的接口，全都声称是restful接口，但使用http状态码作为判定条件的一个都没有，统统返回200然后在消息体里自定义状态码。
+原因大概因为jquery或axios等接口请求库，默认配置下，接口若返回非200响应，里面的消息体就拿不到啦。在大部分人的前端知识体系中，非200意味着抛出错误，消息体什么的当然拿不到，所以当应用出错时希望拿到错误提示等信息，必须还是返回200的状态。
+其实，非200的状态返回的消息，前端一样拿得到，只是需要一些额外配置一下。但后端人员对于前端jquery ajax请求应用的示例作为标准，或者理所当然认为前端人员的水平也只能获取到200返回的消息。于是就出现了各种各样的自定义消息体…
+推荐一下fetch，返回的是Response对象，只要是服务端相应了，里面都可以拿到各种接口返回数据，只有在网络出问题比如请求不可达的情况下会抛出错误。
+最后为自己的库做个广告 fxios</description>
+    </item>
+    
+    <item>
+      <title>deno与typescript</title>
+      <link>http://superwf.github.io/p1352/</link>
+      <pubDate>Mon, 09 Jul 2018 07:21:51 +0000</pubDate>
+      
+      <guid>http://superwf.github.io/p1352/</guid>
+      <description>多年前用过coffeescript，后来换工作之后因为团队里没人用，被强制放弃了。也幸亏放弃了coffeescript，才能紧跟ecmascript语法的发展，之后就一直用babel走标准es语法路线，在选择编译型前端(类似coffee需要编译成js才能运行)语言的时候都非常谨慎。
+之前我在flowtype与typescript之间一直倾向flowtype，一点是因为是facebook出品和react是一家，另一点是因为flowtype允许渐进式引入项目。typescript则是一旦使用则必须全部使用，至于是微软出品倒是不太介意。
+最近node的作者新开了个deno，默认直接运行typescript，node一下成了没爹的娃，可持续性堪忧。最重要的一点是：typescript赢了，各位准备深入学习吧。已经提早入ts坑的同学们，恭喜路子走对了。</description>
+    </item>
+    
+    <item>
+      <title>position: fixed与transform</title>
+      <link>http://superwf.github.io/p1350/</link>
+      <pubDate>Wed, 04 Jul 2018 03:47:40 +0000</pubDate>
+      
+      <guid>http://superwf.github.io/p1350/</guid>
+      <description>最近使用antd的Affix组件，总是定位错乱，后来查到上级元素有使用动画效果的，用了transform属性，影响了position: fixed。可是去掉之后仍然会影响。最后找到上级元素还有个will-change: transform。
+不光是transform会影响position: fixed，will-change指定的属性只要可能影响到fixed，也都会起作用。</description>
+    </item>
+    
+    <item>
+      <title>fetch meet 302 redirect</title>
+      <link>http://superwf.github.io/p1347/</link>
+      <pubDate>Tue, 01 May 2018 12:26:53 +0000</pubDate>
+      
+      <guid>http://superwf.github.io/p1347/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>react-router没有自动更新组件的问题</title>
+      <link>http://superwf.github.io/p1341/</link>
+      <pubDate>Wed, 18 Apr 2018 14:36:34 +0000</pubDate>
+      
+      <guid>http://superwf.github.io/p1341/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>fetch自动先发起option请求的问题</title>
+      <link>http://superwf.github.io/p1338/</link>
+      <pubDate>Wed, 18 Apr 2018 14:22:33 +0000</pubDate>
+      
+      <guid>http://superwf.github.io/p1338/</guid>
+      <description>以前有些fetch在发起post请求之前总会先发一个option，等服务器返回头allow-methods里有post才会再发真正的post请求。没仔细研究还以为是post的特殊行为。最近遇到了get请求竟然也会先发option请求，但服务器没有正确返回头信息，导致请求中断。
+仔细研究了一下以前不会先发起option请求区别发现在于只要有自定义的header放到fetch的option里，就一定会先试探发起一个option请求，不管是get还是post或其他什么请求方法。</description>
+    </item>
+    
+    <item>
+      <title>数据到底应该前端还是后端处理</title>
+      <link>http://superwf.github.io/p1333/</link>
+      <pubDate>Sat, 24 Mar 2018 09:43:20 +0000</pubDate>
+      
+      <guid>http://superwf.github.io/p1333/</guid>
+      <description>上家公司的后端同学，几乎是不会将数据做任何处理，大多数接口都是直接就是把数据库中的数据以数组形式输出，前端需要的、不需要的属性全有。以后端人员的思维就是，反正数据是给你了，你想怎么处理都行。前端处理业务逻辑多不说，还导致大量接口数据浪费和冗余。
+现在公司的后端能力强，也容易沟通，常常是前端需要什么数据结构，就可以直接输出什么数据结构。
+但个人认为数据要前端还是后端处理，得看具体情况。
+例如树状菜单的输出。前端需要树状数据结构，如果要后端输出，可能这个接口需要多次数据库命中，或者后端一次性将数据拿出然后进行递归操作整理成树形结构。这种情况下，我认为后端接口还是直接输出数组方式较好。将计算任务前端化可以极大的减轻后端服务器内存与运算压力，等于是将运算分布到每个客户端上执行。如果是一些仅仅需要个总数计算的情况，就最好后端计算后直接输出数字比较好了，否则输出一大堆复杂结构的数组，前端也仅仅是计算一下数组的长度，太浪费带宽。</description>
+    </item>
+    
+    <item>
+      <title>windows的vim对python的支持</title>
+      <link>http://superwf.github.io/p1330/</link>
+      <pubDate>Thu, 15 Mar 2018 15:04:13 +0000</pubDate>
+      
+      <guid>http://superwf.github.io/p1330/</guid>
+      <description>在win上用vim，执行:version，看到有python和python3的支持，但装上python3.6却仍然不支持，令人十分困惑。
+后来发现在vim中执行:py xxx，会有报错提示缺少python3.5.dll，原来是在编译的时候就和python的版本搭配固定了。赶紧装个python3.5就成了。
+后记：win上各种不适应，就算折腾也得换回linux，下次再找活的时候先问清楚了，必须用windows的就pass掉。</description>
+    </item>
+    
+    <item>
+      <title>package.json中的sideEffects: false</title>
+      <link>http://superwf.github.io/p1327/</link>
+      <pubDate>Mon, 26 Feb 2018 08:33:27 +0000</pubDate>
+      
+      <guid>http://superwf.github.io/p1327/</guid>
+      <description>https://medium.com/webpack/webpack-4-beta-try-it-today-6b1d27d7d7e2最近webpack升级到了4，看了一下变更日志，支持package.json中的sideEffects: false。一开始没理解。
+后来看了一下lodash-es就明白了，这个选项不是在项目本身的package.json中添加的，是在其他npm依赖包中需要的配置。
+当npm包为纯函数时，加上这个可以让webpack在production模式打包时极大的减少文件体积。
+在npmjs上查了一下package.json配置说明，目前还没有这项的说明，应该是个非标准配置。</description>
+    </item>
+    
+    <item>
+      <title>setTimeout参数</title>
+      <link>http://superwf.github.io/p1325/</link>
+      <pubDate>Mon, 26 Feb 2018 05:34:36 +0000</pubDate>
+      
+      <guid>http://superwf.github.io/p1325/</guid>
+      <description>今天看到一段代码setTimeout还有第三个参数，之前没见过。
+看了一下mdn，是除了回调函数和延迟时间之后的参数都会被传入回调函数中。
+顺带看了setInterval和setImmediate也是一样，可以通过更多的参数向回调函数中传入参数。</description>
+    </item>
+    
+    <item>
+      <title>jquery与学习曲线</title>
+      <link>http://superwf.github.io/p1316/</link>
+      <pubDate>Mon, 05 Feb 2018 08:03:07 +0000</pubDate>
+      
+      <guid>http://superwf.github.io/p1316/</guid>
+      <description>前两天公司年会，听了一句话：不谈价钱的比性能就是耍流氓。之前听过，是描述手机的价格和性能对比的，这次听到之后想到了一些工作上的事情。
+头两年刚接触browserify的时候，当时刚将我的前端工程融入npm的海洋，感觉之前一直用jquery的自己太low了。
+现在再结合上面那句话，在库与框架的选型上，价钱可比做学习时间成本，性能是该库可控的项目规模，周边第三方环境的支持与掌握之后coder可达到的开发效率。在轻松学习成本条件下，jquery还是挺不错的选择。</description>
+    </item>
+    
+    <item>
+      <title>service worker的fetch事件和cache的match</title>
+      <link>http://superwf.github.io/p1308/</link>
+      <pubDate>Mon, 05 Feb 2018 01:02:59 +0000</pubDate>
+      
+      <guid>http://superwf.github.io/p1308/</guid>
+      <description>早些时候看到在work service中可以拦截fetch从而起到缓存的作用。
+这两天自己试了试，发现这个fetch不是狭义的原生fetch函数，浏览器发起的http请求，普通ajax都在被拦截之列。亏的我原来为了用service worker缓存还打算把原来qwest的请求换成fetch，看来是不用的。
+cache和caches都有match方法，但cache的match经我试验是跨caches的key的，不是当前open的key的cache都能匹配到，只不过在then的回调中response是undefined。从api的定义上，感觉不应该是这样，如果match不到，应该reject才多啊。
+caches的match也是跨key的，这个好理解。
+参考</description>
+    </item>
+    
+    <item>
+      <title>OReilly.JavaScript.with.Promises</title>
+      <link>http://superwf.github.io/p1302/</link>
+      <pubDate>Wed, 24 Jan 2018 01:29:49 +0000</pubDate>
+      
+      <guid>http://superwf.github.io/p1302/</guid>
+      <description>如果你对promise概念还有什么疑问，推荐看看这本，不到100页，很快就能看完。
+两年前看过这本书之后，在处理js异步上我几乎没再有什么疑问，推荐给同事看过之后也被他们一致认为对自己的提升很大。</description>
+    </item>
+    
+    <item>
+      <title>设计心理学</title>
+      <link>http://superwf.github.io/p1295/</link>
+      <pubDate>Mon, 22 Jan 2018 02:23:20 +0000</pubDate>
+      
+      <guid>http://superwf.github.io/p1295/</guid>
+      <description>大概一年前看过，最近看了ant design推荐的书籍目录，又快速看了一遍。
+大概归纳为以下一些关键概念：
+符合用户心理模型
+引导用户操作
+不要打断用户心流
+限制操作
+及时反馈
+可视性
+正确的概念模型
+正确的匹配
+反馈
+利用外部环境因素提示
+使控制与被控制设备形成自然的关联，例如位置。
+看到“形成自然关联”这个点的时候，想到vim，绝对是个反面教材，vim的操作何止逆自然，简直逆天。但vim在“不打断操作者心流”这点上做到了极致。
+书中最后总结了七条原则
+应用储存于外部世界和头脑中的知识
+简化任务结构
+注重可视性，消除执行阶段和评估阶段的鸿沟。
+建立正确的匹配关系。
+利用自然和认为的限制性因素。
+考虑可能踹下那认为差错。
+若无法做到以上个点，就采用标准化。
+第三部《情感化设计》最近看的
+本能 行为 反思，其实反思这个词近些年有个更贴切的翻译—情怀！
+开头的主题思想 漂亮的设计，可以抵消一部分设计上的不便，颜值即正义。
+回想我的樱桃青轴，买之前是反思层占很大比例，买之后是行为层和本能层占主导，经过了多年的使用已经老的发黄，其中有融入和很多反思层的感情。
+原来我一直很喜欢的五号电池的设计是很差的，因为没有考虑反向安装的限制。
+禅宗讲究的瞬间的风景。而人们普遍无法抵制能持续获得最佳风景的诱惑，但能持续获得的最佳会随时间的流逝而降级。
+最后作者还扯到人工智能科幻片上了，机器人与人和现实世界交互的设计逻辑。</description>
+    </item>
+    
+    <item>
+      <title>读书React&#43;d3.js</title>
+      <link>http://superwf.github.io/p1290/</link>
+      <pubDate>Mon, 22 Jan 2018 01:50:28 +0000</pubDate>
+      
+      <guid>http://superwf.github.io/p1290/</guid>
+      <description>很短的一本书，讲的是react和d3如何搭配。
+大概思路就是d3管计算，react管画图，即生成html与svg的dom，外部css管样式或者react的内联样式，需要配合svg知识。
+d3的enter和exit基本就用不上了，这本书大体上就是这个思路。</description>
+    </item>
+    
+    <item>
+      <title>react与redux优化部分总结</title>
+      <link>http://superwf.github.io/p1282/</link>
+      <pubDate>Wed, 17 Jan 2018 05:45:18 +0000</pubDate>
+      
+      <guid>http://superwf.github.io/p1282/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>es快速排序算法</title>
+      <link>http://superwf.github.io/p1268/</link>
+      <pubDate>Fri, 05 Jan 2018 02:36:42 +0000</pubDate>
+      
+      <guid>http://superwf.github.io/p1268/</guid>
+      <description>基于网上的代码参考，以下是一个自己改了点的递归版本
+  </description>
+    </item>
+    
+    <item>
+      <title>redux-saga</title>
+      <link>http://superwf.github.io/p1251/</link>
+      <pubDate>Tue, 26 Dec 2017 06:15:51 +0000</pubDate>
+      
+      <guid>http://superwf.github.io/p1251/</guid>
+      <description>自从了解generator开始，就对这个语法很反感。一个英文教程上有个形容词是mind-bending，╮（╯＿╰）╭看来不光我一个人这么认为。
+一定要运行的时候还总需要while(true) 或for来搭配，使其带来的那点同步的好处被抵消殆尽。
+saga让人用generator语法，可看了一下源码发现里面一个generator语法也没用，一个this没有，全程函数编程，真是高了！
+能明显感觉出的好处是当有多个并发，其中一个成功或失败的情况下其余不需要的可以自动cancel。
+看到一篇文章对redux-saga源码的分析，最后一张图神解释
+
+同样的还有菊叔漫画里的，如何画小米，哈哈。
+于是拿来教育年轻小伙，网上的零碎视频，散教程，大概也就能带你到第四步。要真正掌握什么，还是得老老实实看官方文档。
+下面将一下我对saga的源码的理解。
+最开始先run，执行saga生成iterator，在proc中执行第一轮的next。
+通过middleware监听所有redux的action，每当有action通过的时候multicastChannel查看所有taker，如果有匹配则执行该taker，taker中包含对下一轮next的回调。
+由saga put的action会带SAGA_ACTION的标识立即执行，其他action会缓存执行。
+在generator中通过take实现对事件的按需监听，是saga相对其他库实现事件机制的一大优势。举个例子，通常来说，在登录之前页面只需要监听LOGIN事件，肯定不会有LOGOUT发生，当LOGIN事件发生并成功后，LOGIN不再需要监听，这时再开始监听LOGOUT事件。在传统的页面编程中，LOGIN和LOGOUT通常都是页面载入后就都开始监听的，稍微有点不效率。</description>
+    </item>
+    
+    <item>
+      <title>在position: fixed元素内取不到offsetParent</title>
+      <link>http://superwf.github.io/p1256/</link>
+      <pubDate>Tue, 28 Nov 2017 02:55:57 +0000</pubDate>
+      
+      <guid>http://superwf.github.io/p1256/</guid>
+      <description>在调试一个拖拽组件时需要获取定位，发现在modal中，外层元素是position: fixed时，获取不到offsetParent，无法计算offsetLeft和offsetTop。
+google发现确实是positino:fixed的原因。
+https://stackoverflow.com/questions/306305/what-would-make-offsetparent-null
+https://stackoverflow.com/questions/306305/what-would-make-offsetparent-null</description>
+    </item>
+    
+    <item>
+      <title>react server render的坑</title>
+      <link>http://superwf.github.io/p1241/</link>
+      <pubDate>Thu, 16 Nov 2017 03:16:39 +0000</pubDate>
+      
+      <guid>http://superwf.github.io/p1241/</guid>
+      <description>首先是各种在node_modules中的外部依赖，需要用webpack-node-externals放到externals中
+如果是使用了nodejs内置的工具，需要在externals中添加额外配置，比如 {http: ‘commonjs http’, fs: ‘commonjs fs’ }
+然后是禁止使用各种window全局变量，使用各种挂在window下的全局方法之前需要先判断一下方法是否存在。
+在webpack编译过的server环境中__dirname和__filename都取不到值，需要用definePlugin预先在webpack的配置中取值。
+各种import进来的sass，less，css还有base64的图片一定要用extract-text-webpack-plugin去除。
+react-router的各个组件经过代码分割之后是异步加载，在服务端这里要变成同步是个问题。在react-router文档说明如下，所以目前能用的解决方法就是为服务端另写一份路由，只是要在这个问题解决之前要暂时维护两份本应该统一的路由文件。
+ &amp;lt;p class=&amp;quot;cye-lm-tag&amp;quot;&amp;gt; We’ve tried and failed a couple of times. What we learned: &amp;lt;/p&amp;gt; &amp;lt;ol&amp;gt; &amp;lt;li&amp;gt; You need synchronous module resolution on the server so you can get those bundles in the initial render. &amp;lt;/li&amp;gt; &amp;lt;li&amp;gt; You need to load all the bundles in the client that were involved in the server render before rendering so that the client render is the same as the server render.</description>
+    </item>
+    
+    <item>
+      <title>chrome移动端调试</title>
+      <link>http://superwf.github.io/p1239/</link>
+      <pubDate>Mon, 13 Nov 2017 11:29:48 +0000</pubDate>
+      
+      <guid>http://superwf.github.io/p1239/</guid>
+      <description>之前搞过chrome的移动端调试一直没成功，教程如下
+https://developers.google.com/web/tools/chrome-devtools/remote-debugging/?utm_source=dcc&amp;amp;utm_medium=redirect&amp;amp;utm_campaign=2016q3
+教程并没有问题，但最后一步inspect手机端页面时一直是白屏，原来问题出在
+*.chrome-devtools-frontend.appspot.com这个网站必须能访问的情况下才能调试。</description>
+    </item>
+    
+    <item>
+      <title>prettier/eslint/stylelint与编辑器的整合</title>
+      <link>http://superwf.github.io/p1234/</link>
+      <pubDate>Tue, 24 Oct 2017 01:26:07 +0000</pubDate>
+      
+      <guid>http://superwf.github.io/p1234/</guid>
+      <description>一直用eslint，也在命令行用过prettier，最近突然大发现prettier可以和编辑器整合。
+于是赶紧用上了心爱的vim插件vim-prettier，开启文件保存时自动整理代码，顿时世界就和谐了。
+奈何团队其他小伙伴没有用vim的心，搜了一下，让他们把prettier整合到sublime里。
+团队使用，至少能解决7成以上的代码风格问题。还得靠自动化工具，靠自觉和审查也不是不行，就是损耗太大。
+既然js可以美化，css/less/scss等自然也就可以。顺带就找到了另一个神器stylelint，配合stylelint-scss，stylelint-order，stylelint-config-starndard等可以自动美化代码并提示css错误。
+推荐所有前端都用上，只要你常用的ide都支持整合，再顺带推广下vim，各种插件只有想不到，等我想到了都已经有人做出来了。</description>
+    </item>
+    
+    <item>
+      <title>vue与mobx</title>
+      <link>http://superwf.github.io/p1231/</link>
+      <pubDate>Thu, 22 Jun 2017 02:27:41 +0000</pubDate>
+      
+      <guid>http://superwf.github.io/p1231/</guid>
+      <description>最近接触到MobX，读了读api，发现其结合了vue，meteor的一些写法，为了源码看得更明白些还特意看了看typescript。
+其autorun的api很早之前在meteor上看过，当时觉得特别神奇。哇，这就能自动监听数据更新并运行了，当时还以为meteor是靠厉害的词法分析来推倒出数据依赖关系呢。
+后来看了vue，发现这种依赖是通过get来收集依赖，然后在set的时候再触发依赖运行。但由于一直以为autorun会在收集依赖之前就可以运行，仍然觉得autorun很神奇。
+后来运行了一下mobx例子才发现其autorun和vue一样，其监听函数也必须初始全运行一次收集好依赖关系，才能在数据更新时正确运行。那种我以为的只有在数据更新时，autorun才会开始正确执行的想法是错误的。meteor的autorun也不是靠什么厉害的词法分析来实现的。底层大概也是靠Object.defineProperty来实现的，虽然还没看过meteor的源码。</description>
+    </item>
+    
+    <item>
+      <title>编程与游戏</title>
+      <link>http://superwf.github.io/p1198/</link>
+      <pubDate>Thu, 25 May 2017 05:49:00 +0000</pubDate>
+      
+      <guid>http://superwf.github.io/p1198/</guid>
+      <description>小时候打过不少电子游戏，工作后总会回想起当年荒废了的那些时光，但当年也确实得到了很多欢乐。
+最近有个新同事入职，很爱学习但是从来不玩游戏。一般来说程序员不太可能有从来没玩过游戏吧，他大概属于那种特别听话的好孩子吧，于是我经常在指导程序之余用程序和游戏举个例子，顺带吐他个槽—-让你不玩游戏哈～。
+自从干上了程序员，那种对游戏的执着有一部分确实的转移到了代码上。比如当年玩的各种rpg，都会想打个完美存档，该收的宝物一定要收到，该走的情节一定要走全。这种执着转移到代码上之后，就变成了什么地方都会想做到最优。但什么是最优呢，在不同的编成阶段，也会有不同的理解。就像《黑客与画家》里描述的，这种优化（绝大多情况下指的不是运行效率，而是指架构和谐，命名合理，模块复用等等）没有尽头，只有程序员最后不想做了的结果。
+很多游戏有二周目，在一周目打不了的情节，或者一些单选的分支只有在多周目中才能凑全。体现到项目中，恩其实你可能已经想到了，那就是重构。重构由什么人来进行呢？必须是做过该项目的同一批人马，如果说换了一波人重构，那和第一次做也差不了太多，该趟的雷还是得趟，躲不过的。就像即使玩二周目的游戏，如果换了个玩家，一周末的存档有哪些分支走过了，有哪些窍门统统不知道，除了继承了点金钱和装备（项目第一版的代码），和第一次玩也没啥区别。真的想能有同一批人的第三或之后更多次的重构，那真是开局即可自带穿越优势。
+我时常教导年轻同事，当你接触到一个新框架，新类库时，一定要先把整个api文档看一遍，不指望记住，事实也记不住，为的是大概有个印象。当你需要用的时候不用自己造轮子，还没人家现成的造的好用。这条经验对应到小时候玩的街霸、拳皇，就是你可以直接玩，但是不会发招，总是被打。api文档就相当与出招表，过一遍，选个合适的人物，投入实战开练，在与其他角色的碰撞中逐步熟悉，知道什么情况下用什么招数，尤其是在合适的机会用终结技取胜，满足感爆棚。
+ </description>
+    </item>
+    
+    <item>
+      <title>react或vue的数据应该在什么时候开始请求</title>
+      <link>http://superwf.github.io/p1190/</link>
+      <pubDate>Fri, 19 May 2017 05:36:52 +0000</pubDate>
+      
+      <guid>http://superwf.github.io/p1190/</guid>
+      <description>之前在做react的时候，一开始都照着例子，在componentWillMount里进行数据加载请求。
+后来在新项目中使用vue，也在beforeMount中开始数据加载请求。
+面试的时候被人提问过，也是这么回答的，人家也没就这个话题说太多。
+最近在项目中发现这种方法实在是有问题，当当前组件开始载入时，进行数据请求，在请求回调中设置当前组件的数据（react与vue的生命周期比较类似，可以当作同一种来说明）。但如果数据返回较慢，此时用户切换到其他路由，组件已经卸载，一则组件的this在请求数据的回调中存在是内存泄漏，二则组件已经卸载，再更新自身的数据肯定有问题。
+我想出来的解决方法有两种
+一，是在组件生命周期外部请求数据，在数据确实拿到后再挂载组件。
+二，终极解决方法，其实已经用了有一阵子了，但一直没有发现这个好处，即react + redux，vue + vuex。将数据放到外部，其实也相当于将数据请求放到组件的生命周期外部。
+有些小项目本以为数据没多复杂，可以不用redux/vuex这种外部数据管理，但如果自己管理数据的话往往又麻烦又容易出各种问题。这样看来，全家桶还是必要的。</description>
+    </item>
+    
+    <item>
+      <title>内网搭建gitlab-ce gitlab-runner cnpmjs.org管理私有nodejs</title>
+      <link>http://superwf.github.io/p1163/</link>
+      <pubDate>Thu, 12 Jan 2017 09:11:16 +0000</pubDate>
+      
+      <guid>http://superwf.github.io/p1163/</guid>
+      <description>    </description>
+    </item>
+    
+    <item>
+      <title>使用letsencrypt免费证书</title>
+      <link>http://superwf.github.io/p1165/</link>
+      <pubDate>Tue, 10 Jan 2017 05:40:02 +0000</pubDate>
+      
+      <guid>http://superwf.github.io/p1165/</guid>
+      <description>权威参考如下
+https://certbot.eff.org
+按照教程操作，选择自己对应的操作系统即可了．
+网上的中文教程有些老了，其实是不用去github先clone下来的，还慢．
+在这里想说两句的是
+一开始参照http://www.laozuo.org/7676.html来操作，是在自己的本机执行的，自己还先用openssl生成了密钥，没有在服务器上操作，总说不能到达服务器ip的443端口．
+就很奇怪，自己本地生成的密钥是怎么被人家服务器签名认证的．文章里没说太清楚．
+中午睡了一觉，半睡办醒之间想通了．
+其实是必须在需要被签发的域名所在的服务器上运行签名程序，运行的时候关闭自己的apache或nginx什么的，要把443端口空出来，
+这样签名程序会自己启一个服务，将生成的密钥传输给签名服务器然后在返回给服务器．
+签名完毕的证书放在/etc/letsencrypt中，按照教程放入nginx配置文件即可．</description>
+    </item>
+    
+    <item>
+      <title>less的bem mixin</title>
+      <link>http://superwf.github.io/p1158/</link>
+      <pubDate>Mon, 19 Dec 2016 09:14:40 +0000</pubDate>
+      
+      <guid>http://superwf.github.io/p1158/</guid>
+      <description>首先是参考了一下sass中的写法
+http://www.w3cplus.com/preprocessor/pushing-bem-to-the-next-level-with-sass-3-4.html作者在这篇文章中用mixins生成类似函数的东西来嵌套bem层次．
+虽然用过sass，但最近团队用less用惯了，能不换还是最好，于是琢磨如何在less中推行bem或suit的标准．结果less中不支持自定义函数，这个我也是刚知道，通过一个less-plugin-functions可以．试了一下该插件，发现这个的函数只能放在css属性的值的部位，不能当作sass中的@content用．
+后来多看了看文档，琢磨出一个less的写法．
+生成的结果
+  </description>
+    </item>
+    
+    <item>
+      <title>内部元素高度影响float元素换行</title>
+      <link>http://superwf.github.io/p1154/</link>
+      <pubDate>Mon, 12 Dec 2016 08:12:02 +0000</pubDate>
+      
+      <guid>http://superwf.github.io/p1154/</guid>
+      <description>图中每个元素都是float: left，width: 32%;
+偏偏最后一个元素就不排到右边，而且还单起了一行
+debug了半天发现是里面的图的高度稍有一点点的不同，导致每个元素的高度差了一点
+将每个元素的高度统一之后，就能按设计的排成两行了．</description>
+    </item>
+    
+    <item>
+      <title>define tmux prefix c-s</title>
+      <link>http://superwf.github.io/p1150/</link>
+      <pubDate>Tue, 15 Nov 2016 08:24:04 +0000</pubDate>
+      
+      <guid>http://superwf.github.io/p1150/</guid>
+      <description>vim默认的c-b和bash的热键冲突，好多人都用的c-x
+但是这个在vim里也是有用的，于是自己搞了个c-q，觉得挺好
+一次在tmux的vim中误按了c-s，导致c-q不能解锁…
+发现将tmux的prefix直接定义成c-s挺好！直接屏蔽了锁屏功能。
+真的需要shell的c-s锁屏的时候，先挂起tmux再锁。</description>
+    </item>
+    
+    <item>
+      <title>最近又重新学习了一下js的基础</title>
+      <link>http://superwf.github.io/p1148/</link>
+      <pubDate>Wed, 09 Nov 2016 01:28:58 +0000</pubDate>
+      
+      <guid>http://superwf.github.io/p1148/</guid>
+      <description>有几个js本身的逻辑错误问题
+var a = ?
+a == !a
+答案是 []，问题出在隐式类型转换
+if (a == 2 &amp;amp;&amp;amp; a == 3) {
+…
+}
+答案是重写Number.prototype.valueOf
+最后一个问题最奇葩，浏览器环境里的元素会自动生成全局变量foo，只想该元素…．本以为这个是最开始js作为玩乐脚本的情况下来取悦程序员的快捷方式，在chrome里试了一下，发现到现在还保留着这个特性．</description>
+    </item>
+    
+    <item>
+      <title>git merge –no-ff</title>
+      <link>http://superwf.github.io/p1143/</link>
+      <pubDate>Mon, 31 Oct 2016 06:04:24 +0000</pubDate>
+      
+      <guid>http://superwf.github.io/p1143/</guid>
+      <description>到处都写的是merge的时候是默认fast-forward，但是最近经过我反复尝试，好像merge时都会生成新的commit，可能git哪个版本更新之后就变成了–no-ff是默认设置了吧
+后来经过实验才明白，只有rebase之后的merge才会默认快进，也就是说–no-ff只有在rebase之后的merge中才会起作用．
+普通的merge是都会生成新的提交记录的．</description>
+    </item>
+    
+    <item>
+      <title>font-size与width</title>
+      <link>http://superwf.github.io/p1128/</link>
+      <pubDate>Wed, 15 Jun 2016 04:57:08 +0000</pubDate>
+      
+      <guid>http://superwf.github.io/p1128/</guid>
+      <description>今天发现一个奇怪的问题
+在移动端的时候，一个页面元素的font-size莫名其妙的比定义的大很多
+用chrome查看生效的font-size: 16px;　但computed里的是30多px，怎么查也查不到是哪里导致的字体变化，而且该问题只发生在小屏幕中．
+后来发现该元素需要定义width，可影响字体大小，但不能靠width来配置出指定大小的字体，而且也会影响实际宽度的显示．
+http://stackoverflow.com/questions/15261315/calculated-font-size-on-nexus-7-chrome-is-different-from-css-font-size
+后来按该解决方法，为该元素添加max-height: 1000px; 该元素的计算属性与定义属性总算相等．
+之后看到http://stackoverflow.com/questions/11289166/chrome-on-android-resizes-font
+这个问题叫font boosting，目前就是通过设置max-height或者meta viewport来解决．</description>
+    </item>
+    
+    <item>
+      <title>window.open被浏览器拦截问题</title>
+      <link>http://superwf.github.io/p1124/</link>
+      <pubDate>Tue, 14 Jun 2016 02:03:12 +0000</pubDate>
+      
+      <guid>http://superwf.github.io/p1124/</guid>
+      <description>在一个表单的提交事件中调用了window.open(”, ‘_blank’)，被浏览器拦截．
+几经调试发现，window.open放在ajax回调函数中就会被拦截，放在ajax之前就不会．
+后来实验证实，只要不在当前的事件循环中执行，只要进入下一个事件循环都会被拦截．解决方法就是
+先window.open，再在之后的回调中更改新打开的window的location来实现传递参数即可</description>
+    </item>
+    
+    <item>
+      <title>有效阻止火狐自动填充密码</title>
+      <link>http://superwf.github.io/p1120/</link>
+      <pubDate>Tue, 31 May 2016 03:13:30 +0000</pubDate>
+      
+      <guid>http://superwf.github.io/p1120/</guid>
+      <description>火狐会自动向type=password的input中填充当前域名已经记录的密码，
+input的autocomplete=’off’，不灵
+http://stackoverflow.com/questions/6487970/disable-firefoxs-auto-fill
+说autocomplete=’off’要加到form上，也不灵
+最后找了个方法，在需要阻止自动填充的input前面再加一个&amp;lt;input type=’password’ style=’display: none;’ /&amp;gt;让火狐的自动填充填到这里好了．</description>
+    </item>
+    
+    <item>
+      <title>非a或input元素的focus与blur</title>
+      <link>http://superwf.github.io/p1116/</link>
+      <pubDate>Wed, 04 May 2016 09:25:56 +0000</pubDate>
+      
+      <guid>http://superwf.github.io/p1116/</guid>
+      <description>最近有用到改变元素状态的情况以前都用classList.toggle，要是能用focus和blur实现就好了，可是普通元素都不支持这两个事件．今天发现了tabindex这个属性，可以为普通元素添加这两个事件，tabindex设置为-1，即可使该元素通过程序或者点击获取焦点．在react中为tabIndex=’-1′</description>
+    </item>
+    
+    <item>
+      <title>git autocrlf</title>
+      <link>http://superwf.github.io/p1113/</link>
+      <pubDate>Thu, 31 Mar 2016 02:08:28 +0000</pubDate>
+      
+      <guid>http://superwf.github.io/p1113/</guid>
+      <description>昨天在家改了点vim配置，今天在单位用git pull了一下发现全是^M的语法错误
+一开始不明所以还用dos2unix转了半天，
+find . -type f -exec dos2unix {} ;
+后来一提交发现自动变成crlf了，原来是git的autocrlf = true的问题，赶紧设置成false，并且设置eol = lf</description>
+    </item>
+    
+    <item>
+      <title>transition与属性值为auto</title>
+      <link>http://superwf.github.io/p1111/</link>
+      <pubDate>Tue, 29 Mar 2016 03:14:40 +0000</pubDate>
+      
+      <guid>http://superwf.github.io/p1111/</guid>
+      <description>当需要动画过度一些元素，而元素的内容为动态在如，因此不能事先确定元素的宽高，但需要动画效果来过度宽高的情况下．
+改用max-width和max-height，只要将这两个值设置的很大即可．
+例如
+&amp;lt;br /&amp;gt; p {&amp;lt;br /&amp;gt; max-height: 0;&amp;lt;br /&amp;gt; transition: max-height 1s;&amp;lt;br /&amp;gt; }&amp;lt;br /&amp;gt; p.active {&amp;lt;br /&amp;gt; transition: max-height 1s;&amp;lt;br /&amp;gt; max-height: 10000px;&amp;lt;br /&amp;gt; }&amp;lt;br /&amp;gt;</description>
+    </item>
+    
+    <item>
+      <title>inline-block width:50%变成两行</title>
+      <link>http://superwf.github.io/p1109/</link>
+      <pubDate>Mon, 28 Mar 2016 06:45:50 +0000</pubDate>
+      
+      <guid>http://superwf.github.io/p1109/</guid>
+      <description>当两个相邻元素的样式为　width: 50%，display: inline-block;
+仍然不能排列成一行，原因是因为一般编辑html时，都会缩进换行来编辑使人便于阅读
+但这样的话两个元素中间的换行就会产生宽度．
+推荐用jade，开发时转html时加上pretty: false的参数，反正发布时也要压缩，和发布格式越接近越好．</description>
+    </item>
+    
+    <item>
+      <title>user-select: none;</title>
+      <link>http://superwf.github.io/p1106/</link>
+      <pubDate>Mon, 14 Mar 2016 02:31:41 +0000</pubDate>
+      
+      <guid>http://superwf.github.io/p1106/</guid>
+      <description>user-select: none;
+会禁止用户选中内容，但在safari中也会同时组织输入．所以需要把input等排除出去．
+*:not(input) {
+user-select: none;
+}</description>
+    </item>
+    
+    <item>
+      <title>getBoundingClientRect的误差</title>
+      <link>http://superwf.github.io/p1101/</link>
+      <pubDate>Mon, 25 Jan 2016 08:56:14 +0000</pubDate>
+      
+      <guid>http://superwf.github.io/p1101/</guid>
+      <description>今天调试一个元素，用getBoundingClientRect得到的left，始终比实际的left多一块．
+后来发现是该元素的上级元素为了居中，使margin的左右都为auto，元素本身getBoundingClientRect得到的left即为正确的left加上了自动多出来的margin．
+本来这个功能是配合一个position:fixed的样式用的，但是position:fixed出现混乱的错误，滚动后内容被莫名其妙的白色区域覆盖，好象是显卡错误那种像素滞留的问题，最后还是换position:absolute配合现计算的定位来做靠谱．</description>
+    </item>
+    
+    <item>
+      <title>设置body height 100%</title>
+      <link>http://superwf.github.io/p1098/</link>
+      <pubDate>Fri, 15 Jan 2016 08:45:56 +0000</pubDate>
+      
+      <guid>http://superwf.github.io/p1098/</guid>
+      <description>有一个footer需要设置始终在页面最下，一开始的时候总是会根据页面内容的高度自动上升．设置body height: 100%也没起作用．
+后来确定了css方法如下
+   </description>
+    </item>
+    
+    <item>
+      <title>三体观后感</title>
+      <link>http://superwf.github.io/p1092/</link>
+      <pubDate>Mon, 11 Jan 2016 12:56:59 +0000</pubDate>
+      
+      <guid>http://superwf.github.io/p1092/</guid>
+      <description>说是观后感，其实刚看了一半多。其中看到关于智子的空间展开想到了我们这个空间的结构是三维，加上时间是四维，五维大概是平行宇宙的概念。再高的维度就很难理解了。不过对于学程序的人倒是有个现成的概念，多维数组，正好针对了从一维到多维空间的概念。在高维的数组中每个元素虽然还是多维，但已经相当于一个点了，想要对低维空间产生影响，还是得使用下标，相当于智子的三维展开，哈哈。
+看到后来发现书中的高维度一直只是扩展了空间上的维度，没有涉及到跨越时间维度的概念，在这个体系设定中时间应该是不可跨越的．
+书中提到一点，原话大概是这么说的：不要轻视简单，简单意味着牢固．书的序言中写的作者还写过三体运行的程序，看来也是业内人士啊．
+不过智子既然能展开到十一维，感觉就应该在时间这个维度可以跨越了，即使不能改变当前世界也应该能传递过去和未来的信息，但书中的智子没有时间穿越能力。相不出来就还是干脆就接受书中的设定好了，故事还是很精彩的。</description>
+    </item>
+    
+    <item>
+      <title>nodejs child_process的exec spawn 和fork</title>
+      <link>http://superwf.github.io/p1086/</link>
+      <pubDate>Thu, 24 Dec 2015 09:32:57 +0000</pubDate>
+      
+      <guid>http://superwf.github.io/p1086/</guid>
+      <description>今天终于感觉好像是彻底明白这三个东西了，这三个方法的命名其实就已经揭示了其用途．
+exec，执行，也仅仅是执行一下，然后返回点东西，然后这个进程就应该完结了，适用与ls，whoami等命令行进程，特点就是基本都是瞬间执行完的．
+spawn，生成一个持续运行的服务进程，该进程和主进程同死，但肯定是生的晚点．
+fork，和spawn很相似，区别在于这个是特别针对nodejs本身脚本的对于v8引擎的实例有优化，我是这样理解的．
+fork可以和主进程之间通过process的send和on进行通信，和前端的web workder非常像．</description>
+    </item>
+    
+    <item>
+      <title>单页Web应用 JavaScript从前端到后端</title>
+      <link>http://superwf.github.io/p1079/</link>
+      <pubDate>Tue, 15 Dec 2015 02:43:27 +0000</pubDate>
+      
+      <guid>http://superwf.github.io/p1079/</guid>
+      <description>这本书对用nodejs构建前后端都做了个一些大概的介绍，从引用的工具来看书也是前两三年写的了．
+里面不管前端还是后端都不是很深入，也不可能在一本书内很深入，但其中两个概念和我特别有共鸣．一个是分形，一个是软件工程的阻抗．
+分形是指一个事物从宏观的形状与微观形状对应相似，一个系统分为mvc，具体到前端的v层又会分为mvc三层，不绝对但会相似．
+现在的体系基本都跳不出mvc的结构，只有事件订阅发布机制我感觉是个可以打破这种结构的例外的调用．
+软件的阻抗在web领域尤其多，前端用js，后端用java，php，rails等，到数据库mysql等关系行数据库，由于语言的不匹配数据至少要转换两次，从json到后端语言的数据结构，到sql存储．
+但在nodejs构建的系统上，数据从前端到后端一直在传递json，极大的削减了阻抗，做web系统用nodejs，我看行～</description>
+    </item>
+    
+    <item>
+      <title>ecmascript测试mocha与jasmine</title>
+      <link>http://superwf.github.io/p1069/</link>
+      <pubDate>Thu, 10 Dec 2015 02:30:08 +0000</pubDate>
+      
+      <guid>http://superwf.github.io/p1069/</guid>
+      <description>npm的包里最常用的两种框架是mocha和jasmine，我最早接触jasmine，但是mocha的使用量好像更普遍．
+jasmine是一个运行测试的框架，并自带了一系列的断言方法，用expect(…).to…来实行验证，而且自带了一系列spy方法用来伪造数据，还带了ajax伪造，是一站式解决方案，基本不需要其他测试库补充．
+mocha只是一个测试运行框架，并没有带断言方法，需要额外的assert或者推荐的几个chai　expect.js　should.js来共同运行，而且也没有伪造数据的功能，推荐用sinon．
+mocha的it.skip和it.only很有用．jasmine好像只有xit和mocha的skip对应
+用了两天决定还是用jasmine了，各种小库都要再看api，不如一揽子都有的jasmine．
+jasmine和mocha的运行函数都是describe和it，在这点上是一致的
+在node环境下需要测试浏览器，用jsdom或phantomjs来模拟浏览器，或者用karma来加载真实浏览器如chrome或firefox，就不是那么好配置的了．
+ mocha写的测试，转到jasmine就改改断言就行了，今天遇到个问题原来mocha下运行没错，jasmine下报Uncaught InvalidStateError: Failed to execute ‘dispatchEvent’ on ‘EventTarget’: The event is already being dispatched
+最后发现是jasmine下运行事件回调后，回调函数后面的同步代码没有执行完就立即开始第二个测试，所以上一个的document.removeEventListener还没执行清除，导致下一个测试中的mousemove事件被绑定了两次，但之前mocha中就没有发生问题，也许是mocha的执行机制会等待清理代码执行完吧？
+ </description>
+    </item>
+    
+    <item>
+      <title>png压缩工具</title>
+      <link>http://superwf.github.io/p1067/</link>
+      <pubDate>Tue, 08 Dec 2015 07:06:39 +0000</pubDate>
+      
+      <guid>http://superwf.github.io/p1067/</guid>
+      <description>看书看到pngcrush，在npm上搜相关工具最后找到了gulp-pngmin，依赖pngquant系统包，压缩率平均能到60%以上</description>
+    </item>
+    
+    <item>
+      <title>js前端代码检查工具</title>
+      <link>http://superwf.github.io/p1062/</link>
+      <pubDate>Tue, 03 Nov 2015 05:49:26 +0000</pubDate>
+      
+      <guid>http://superwf.github.io/p1062/</guid>
+      <description>在试过了jslint jshint eslint之后，最近发现了jscs，推荐前端代码风格统一用．
+可以直接用一些preset设置风格，我比较倾向与node风格的
+https://github.com/felixge/node-style-guide
+我的.jscsrc配置
+  </description>
+    </item>
+    
+    <item>
+      <title>推荐前端书籍</title>
+      <link>http://superwf.github.io/p1028/</link>
+      <pubDate>Mon, 14 Sep 2015 03:10:36 +0000</pubDate>
+      
+      <guid>http://superwf.github.io/p1028/</guid>
+      <description>最近看一些深入的js的书籍．
+jquery基础教程第四版，刚入职的时候看的书，之前从来都是现查在线jquery api文档，但作为一个专职前端的话，从头过一遍还是很有必要，之前大概知道promise是怎么回事，通过这本书才理解了．
+精通CSS高级Web标准解决方案，现在css3的书很多说的有些模糊，因为具体标准是否已经实现或者废弃了还都未确定．看了之后用上了很多．
+testable javascript，测试驱动的javascript开发．bdd一直是我的理想，有时会想是不是先找个测试的职位锻炼一下养成测试的习惯比较好．作为一个开发者同时写开发和测试真的有些难，测试环境的搭建，以可测试为前提写代码等都是相当难以跨越的墙．
+eloquent javascript第二版，还没有中文的，看的在线的，推荐看．
+javascript 函数式编程，颠覆了我之前对js的看法，发现了很多之前代码中很多模糊的地方，看了这本书之后不敢说都懂了吧，但确实明白了很多．极大的弱化了我对面向对象的习惯与态度，现在已经不太倾向与写类实例什么的了．尾递归什么的之前在erlang里见过也还算凑合理解了．多学几门语言真的很有用，即使不会在生产中应用，也很扩展人的思路．
+javascript模式，看了一遍感觉挺深，需要多看几遍的书．
+MVC的JavaScript Web富应用开发，作者也是很迷恋ruby方式的人，特意实现了一个spine框架，用include和extend来修改类．
+数据结构与算法JavaScript描述，将了很多基本算法的道理，看的时候明白，就是忘的快．
+javascript权威指南第六版，编写可读代码的艺术，如何阅读一本书，编写可维护的javascript，javascript精粹，这几本是我推荐我现在团队里小伙伴看的基础书，希望他们真的看了，不过从他们写的代码上看好像效果不大…人真的没有那么容易改变．
+阮一峰的ecmascript6，在线看的，希望ec6加速实现．
+Packt.Jasmine.JavaScript.Testing.2nd.Edition，看了好几本测试的书，只有这本里提到了karma．也提到了react，看来最近有必要学一下react，总觉得现在用的handlebars不太方便（不时尚，大概就是这种感觉～）．最后提到了webpack，让我接触到了一个新的开发工具，体验了一下，感觉就像是js的黑科技，一切都能require进来．
+svg经典入门，看完大概明白了svg是怎么回事，以后工作应该用不上，真的用也应该有ui设计，用还不太会用．
+Socket.io Real-time Web Application Development，排名第一的基于websocket的应用库，未来web向实时性发展，必须以来它，可惜我目前还没有实际应用．
+html5 canvas，canvas才应该是未来的发展趋势，要不然svg一直存在这么多年也没有太多的发展，目前基于canvas的动画应该是网页未来的趋势．
+React – Up and Running，受上一本书的影响觉得应该学学这个，正在看．
+webgl编程指南，WebGL Up and Running，计划要看．
+ 建议大家少看什么21天精通xxx，或者48小时掌握xxx之类的，学习没有捷径，这种标题就是抓住人愿意速成的心理．
+个人推荐oreilly 和 图灵这两个系列，另外再推荐一下模仿游戏这部电影，讲的是图灵的生平，图灵可以算是所有计算机行业祖师爷等级的人物，从事计算机相关行业的都应该看看．</description>
+    </item>
+    
+    <item>
+      <title>jasmine-jquery loadFixtures and sinon</title>
+      <link>http://superwf.github.io/p1033/</link>
+      <pubDate>Wed, 02 Sep 2015 02:31:57 +0000</pubDate>
+      
+      <guid>http://superwf.github.io/p1033/</guid>
+      <description>karma中的loadFixtures突然不管用了，用浏览器探测发现都没有请求 loadFixtures的文件，然后就是各种搜索，升级jasmine-jquery
+最后发现是前面的一个测试文件用了sinon的fakeServer，忘了最后restore，导致之后的fixtures的请求都被拦截了
+在用sinon的文件最后一定要加上
+  </description>
+    </item>
+    
+    <item>
+      <title>(intermediate value)(…) is not a function</title>
+      <link>http://superwf.github.io/p1023/</link>
+      <pubDate>Wed, 12 Aug 2015 05:03:57 +0000</pubDate>
+      
+      <guid>http://superwf.github.io/p1023/</guid>
+      <description>http://stackoverflow.com/questions/20307462/js-cant-combine-lib-files
+打包发布后的这种问题几乎一定是某个库后面没有加分号导致。
+我这里这次是由typeahead这个库引起的。
+一般需要优先检查上次成功发布之后新加入的库。</description>
+    </item>
+    
+    <item>
+      <title>在float left与float right之间的内容居中</title>
+      <link>http://superwf.github.io/p1019/</link>
+      <pubDate>Thu, 06 Aug 2015 03:24:15 +0000</pubDate>
+      
+      <guid>http://superwf.github.io/p1019/</guid>
+      <description>答案如下，竟然是将居中的内容放到最右边，令我印象深刻。
+http://stackoverflow.com/questions/15724700/how-make-middle-div-to-fill-space-between-floating-elements
+HTML
+`left CSS
+#left {width: 200px;float: left;}#middle {overflow: hidden;}#right {width: 200px;float: right;}   </description>
+    </item>
+    
+    <item>
+      <title>安装photomjs参数</title>
+      <link>http://superwf.github.io/p1016/</link>
+      <pubDate>Wed, 29 Jul 2015 02:58:05 +0000</pubDate>
+      
+      <guid>http://superwf.github.io/p1016/</guid>
+      <description>今天安装uncss用到photomjs依赖，装不上找vpn什么的。
+后来无意在
+https://github.com/Medium/phantomjs
+看到
+npm install phantomjs –phantomjs_cdnurl=http://cnpmjs.org/downloads
+Or add property into your .npmrc file (https://www.npmjs.org/doc/files/npmrc.html)
+phantomjs_cdnurl=http://cnpmjs.org/downloads
+这回省事了也不用到处找代理了</description>
+    </item>
+    
+    <item>
+      <title>javascript不支持正则分组</title>
+      <link>http://superwf.github.io/p1014/</link>
+      <pubDate>Tue, 28 Jul 2015 03:26:31 +0000</pubDate>
+      
+      <guid>http://superwf.github.io/p1014/</guid>
+      <description>今天本来想在打包上线的时候去掉所有的console.log内容。
+写了半天平衡组的正则总是运行不了，最后想到可能是js不支持。之前用ruby的时候好像也不支持复杂的正则。
+标记一下以后也不用费劲写了…
+http://stackoverflow.com/questions/5886386/how-can-this-regex-be-made-javascript-compatible</description>
+    </item>
+    
+    <item>
+      <title>gulp顺序执行</title>
+      <link>http://superwf.github.io/p1011/</link>
+      <pubDate>Thu, 23 Jul 2015 07:46:15 +0000</pubDate>
+      
+      <guid>http://superwf.github.io/p1011/</guid>
+      <description>一般来说，依赖的任务不会顺序执行。
+为每个任务加上回调参数，可以确保顺序执行，但只能是依赖单个任务。
+若要多任务依赖，还得promise。
+若每个任务里，return的是gulp.src()…..的任务，其实和promise是一样的，也可以按顺序回调。</description>
+    </item>
+    
+    <item>
+      <title>gulp-useref</title>
+      <link>http://superwf.github.io/p1006/</link>
+      <pubDate>Wed, 22 Jul 2015 07:55:14 +0000</pubDate>
+      
+      <guid>http://superwf.github.io/p1006/</guid>
+      <description>最近发布后发现gulp-useref，执行后仅仅打包压缩了js语css文件，但并没有删除原始的文件列表，并且build:remove endbuild之间的内容也没有删除。
+搞得我紧急修补了一批的正则，用gulp-replace替换掉不应出现的部分，不过好在打包合并什么的功能还在，要不就不好办了。
+后来经过来回折腾发现是由于windows中的换行\n\r导致gulp-useref的替换功能失效，在assets之前将所有的\r都替换掉就可以了。领导发了命令必须在win下开发……</description>
+    </item>
+    
+    <item>
+      <title>safari与myth</title>
+      <link>http://superwf.github.io/p1002/</link>
+      <pubDate>Sun, 05 Jul 2015 11:25:00 +0000</pubDate>
+      
+      <guid>http://superwf.github.io/p1002/</guid>
+      <description>公司没让用less，于是用的myth至少能少些一些浏览器前缀，昨天发现一个
+background-image: radial-gradient(farthest-corner, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.95));
+只有safari中不起作用，必须写成
+background-image: -webkit-radial-gradient(farthest-corner, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.95));
+myth只在css的属性上加浏览器前缀，并没有在值上加，不知算不算bug
+在github上提了一下不知道会不会在值上也加上前缀。</description>
+    </item>
+    
+    <item>
+      <title>z-index与transform中的translateZ</title>
+      <link>http://superwf.github.io/p999/</link>
+      <pubDate>Tue, 30 Jun 2015 05:12:19 +0000</pubDate>
+      
+      <guid>http://superwf.github.io/p999/</guid>
+      <description>今天遇到一个浏览器兼容问题，只在sogou浏览器里会有
+比如　http://learnsemantic.com/
+在sogou里动画背景前面的按钮是点不动的，但同为webkit的chrome就没问题．而且无论如何修改z-index，也不能使按钮在背景的前端．
+后来排查发现问题出在背景层的translateZ(330px)，改成translateZ(0px)，即可在sogou中正常使用．</description>
+    </item>
+    
+    <item>
+      <title>safari中checked伪类失灵</title>
+      <link>http://superwf.github.io/p997/</link>
+      <pubDate>Tue, 23 Jun 2015 07:21:24 +0000</pubDate>
+      
+      <guid>http://superwf.github.io/p997/</guid>
+      <description>今天调了大半天bootstrap-material-design中的checkbox在safari中的效果失灵问题．
+最终原因是因为safari中对checkbox的checked伪类不起作用，无奈只好通过js在check的时候给input旁边的span加类，然后用加上的类来写css样式．</description>
+    </item>
+    
+    <item>
+      <title>还是不用bootstrap-material-design的好</title>
+      <link>http://superwf.github.io/p994/</link>
+      <pubDate>Mon, 15 Jun 2015 05:20:55 +0000</pubDate>
+      
+      <guid>http://superwf.github.io/p994/</guid>
+      <description>项目经历了两个多月开发，直到用ladda-botton样式之后，bootstrap-material-design在整个样式中所占的比例已经很小了．bootstrap-material-design虽然增加了一些特效，但也破坏了很多bootstrap原有好的东西，总之如果新起一个项目的话，还是不用bootstrap-material-design的好．</description>
+    </item>
+    
+    <item>
+      <title>gulp-size的bug,jquery-cookie</title>
+      <link>http://superwf.github.io/p991/</link>
+      <pubDate>Thu, 11 Jun 2015 08:54:13 +0000</pubDate>
+      
+      <guid>http://superwf.github.io/p991/</guid>
+      <description>我的gulp里有这么一段
+ 莫名奇妙的html文件就会少一些．上下左右排查了一番，发现去掉gulp-size即可恢复正常．
+jquery-cookie会缓存cookie，当后端更新cookie后不会立即跟着更新．</description>
+    </item>
+    
+    <item>
+      <title>推荐spinejs和＜基于MVC的JavaScript Web富应用开发＞</title>
+      <link>http://superwf.github.io/p986/</link>
+      <pubDate>Sun, 24 May 2015 08:18:57 +0000</pubDate>
+      
+      <guid>http://superwf.github.io/p986/</guid>
+      <description>最近又读了一次＜基于MVC的JavaScript Web富应用开发＞，之前读的时候没太留意书的作者也是spinejs的作者．这次读由于自己开始专职的前端工作，体会更深了一些．
+这本书里前面几章讲的基本就是如何将js打造成一个ruby类似结构的模式．extend和include让ruby程序员用起来倍感亲切．
+其中模块触发事件更新视图的功能我感觉就和reactjs的逻辑差不多．
+希望在实际工作中能用到．当前项目领导不让用任何框架，只好自己写了一个功能简陋类mvc，附加功能仍在不断添加中．</description>
+    </item>
+    
+    <item>
+      <title>bootstrap3的富文本编辑器</title>
+      <link>http://superwf.github.io/p983/</link>
+      <pubDate>Mon, 11 May 2015 06:50:17 +0000</pubDate>
+      
+      <guid>http://superwf.github.io/p983/</guid>
+      <description>官网上的例子是bootstrap-wysiwyg，但仅针对bs2
+后来找了个能用的http://summernote.org/#/deep-dive#api-summernote
+名为summernote</description>
+    </item>
+    
+    <item>
+      <title>ie模式设置与ajax跨域的问题</title>
+      <link>http://superwf.github.io/p974/</link>
+      <pubDate>Fri, 08 May 2015 01:52:23 +0000</pubDate>
+      
+      <guid>http://superwf.github.io/p974/</guid>
+      <description>在ie中默认没有以下标签很可能会按兼容模式渲染页面，如果ie版本大于10的时候加上这个就会有用．
+关于ajax跨域，之前总以为加上access-controll-allow-origin就可以，最近发现即使加上了这些access-controll-allow的header，ajax跨域是可以请求了，但是cookie是肯定带不过去的，想在ajax请求前加上cookie或者自定义的一些头信息，会被浏览器安全策略阻止．看来安全跨域只有用jsonp．通过jsonp带来子域的cookie，并且服务端需要设置该cookie可以在一级域名中的作用域．这样页面端域名的js也可以取到jsonp带来的cookie了，然后通过url或其他方法在每个请求上将cookie传递过去即可让服务端获取session．</description>
+    </item>
+    
+    <item>
+      <title>js数字的限制位数</title>
+      <link>http://superwf.github.io/p972/</link>
+      <pubDate>Thu, 30 Apr 2015 23:13:54 +0000</pubDate>
+      
+      <guid>http://superwf.github.io/p972/</guid>
+      <description>当后端传来的id过大时，js取得的精度最多有17位，比如当传入19位数字时，最后两位会自动置0，虽然支持的数字很大，但精度也就17位。
+解决的方法要不将id改小，要不就将id按字符串传递。</description>
+    </item>
+    
+    <item>
+      <title>前端的包管理器</title>
+      <link>http://superwf.github.io/p959/</link>
+      <pubDate>Wed, 08 Apr 2015 05:35:01 +0000</pubDate>
+      
+      <guid>http://superwf.github.io/p959/</guid>
+      <description>今天从
+https://github.com/componentjs/component/blob/master/disambiguation.md
+看到
+https://github.com/wilmoore/frontend-packagers
+看了一些前端库管理工具
+bower已经用的很熟了，和wiredep和gulp-useref配合熟练开发和发布．
+不过也很看好npm + browserify
+component看上去也不错，不过维护组分成了normalize.io和duojs，未来不太可知也．
+看来是组内的开发思路分道扬镳了．
+amd规则的requirejs一直没用，一开始看觉得挺新颖，但后来觉得这个规则强制改变了很多js原生库的写法，有些库不支持amd规则还需要手工修补．
+最重要的是nodejs工具会把所有依赖库都打包，之后就都是同步加载了，最大的减少了amd规则的依赖性．只有用cdn加载各种依赖库的情况下例外．
+browserify将commonjs规则引入前端这个才是趋势，不过也可能是我常年的服务端思想惯性使然吧．</description>
+    </item>
+    
+    <item>
+      <title>postfix 垃圾邮件问题</title>
+      <link>http://superwf.github.io/p957/</link>
+      <pubDate>Tue, 07 Apr 2015 13:45:04 +0000</pubDate>
+      
+      <guid>http://superwf.github.io/p957/</guid>
+      <description>邮件服务器又出问题，上去一看根目录满了，清空了邮件日志，并查看了一下最新的日志发现大量发送垃圾邮件
+以前出过一次这种错误，从日志上能看出是哪个帐号有问题，禁用这个帐号或者改个新密码就可以了
+这次是大量邮件匿名发送，from=&amp;lt;&amp;gt;，也没有记录客户端ip
+晚上弄了一会，先停了postfix，再清空队列。
+在再/etc/postfix/main.cf加了一行
+  </description>
+    </item>
+    
+    <item>
+      <title>swagger-ui与grape-swagger</title>
+      <link>http://superwf.github.io/p953/</link>
+      <pubDate>Mon, 06 Apr 2015 14:47:02 +0000</pubDate>
+      
+      <guid>http://superwf.github.io/p953/</guid>
+      <description>今天进一步熟悉了一下swagger-ui与swagger-spec。
+之前面试时听说过grape，今天实验了一下感觉非常好，ruby的东西就是上手快。
+想偷懒点用grape-swagger生成，搞了半天发现grape-swagger生成的swagger1.2规范与swagger2不兼容。
+只好还是自己写json文件。
+swagger配合grape很和谐，希望grape-swagger什么时候能升级兼容swagger2</description>
+    </item>
+    
+    <item>
+      <title>推荐semantic-ui</title>
+      <link>http://superwf.github.io/p951/</link>
+      <pubDate>Wed, 01 Apr 2015 11:49:18 +0000</pubDate>
+      
+      <guid>http://superwf.github.io/p951/</guid>
+      <description>最近看上了semantic-ui
+在ui方面可以替代bootstrap，效果方面比bootstrap-material-design还要出色，再加上meterial-design还没有完成。
+semantic的api接口module方面做的挺不错，让一个ui框架还能干一些路由层的活，对于不用大框架的项目来说方便极了。
+项目上最后没用semantic作ui，还是用的bootstrap．不过api用的不错，十多k也不大．
+项目伪ajax请求用sinon很方便．
+顺带还发现了jquery-form，也不用再到处找支持ajax文件上传的插件了。</description>
+    </item>
+    
+    <item>
+      <title>samba启动</title>
+      <link>http://superwf.github.io/p949/</link>
+      <pubDate>Wed, 01 Apr 2015 04:14:28 +0000</pubDate>
+      
+      <guid>http://superwf.github.io/p949/</guid>
+      <description>今弄一个共享文件夹，装个samba，弄完之后忘了两个步骤，记录一下．
+先是service samba restart
+Failed to restart samba.service: Unit samba.service is masked.
+samba分成smbd和nmbd
+更改smb.conf之后只service smbd reload
+然后是用户密码，更改了系统用户密码后始终不能登录，忘了smbpasswd这条了
+smbpasswd -a user设置密码</description>
+    </item>
+    
+    <item>
+      <title>关于karma的base路径</title>
+      <link>http://superwf.github.io/p945/</link>
+      <pubDate>Wed, 18 Mar 2015 01:16:49 +0000</pubDate>
+      
+      <guid>http://superwf.github.io/p945/</guid>
+      <description>karma的karma.conf.js中的basePath是关于本地路径的设置，如果不设置就是karma.conf.js所在的路径．
+files里的路径都是基于karma.conf.js里来匹配的．都属于后端路径．这个概念我一开始没搞清楚前后端路径，调试了不少时间．
+在files里比如有”public/img/*.png”，则 karma start之后会在chrome里（假设使用chrome-launcher）,在浏览器中访问 /base/public/img/[img name].png
+即可访问到后端提供的文件．前端路径中的base是固定的．
+最开始的时候我还以为前端的这个base和配置文件里的那个basePath有什么关联呢，还在本地建立了个base文件夹试了试也访问不到．
+为了在karma打开的浏览器中能访问到该fixtures，还需要在karma的配置文件中添加该fixtures的路径为serverd： true
+{pattern: ‘test/fixtures/*.html’, served: true}</description>
+    </item>
+    
+    <item>
+      <title>ERROR 1615 (HY000): Prepared statement needs to be re-prepared</title>
+      <link>http://superwf.github.io/p937/</link>
+      <pubDate>Thu, 27 Nov 2014 07:51:58 +0000</pubDate>
+      
+      <guid>http://superwf.github.io/p937/</guid>
+      <description>今天部署到服务器,运行之后报错,一开始还以为是golang的mysql库的问题.
+生成的sql语句在服务器上手动执行也没问题.
+最可气的是执行的sql语句经过过滤报错,若直接将客户端变量与sql语句相加生成的sql语句不报错.简直是把人往sql注入的坑里带.
+后来查到
+https://www.linuxwind.org/page/2
+改了mysql的俩量之后,总算通过了.</description>
+    </item>
+    
+    <item>
+      <title>angularjs-ui-date concat之后不能运行</title>
+      <link>http://superwf.github.io/p935/</link>
+      <pubDate>Tue, 25 Nov 2014 08:50:48 +0000</pubDate>
+      
+      <guid>http://superwf.github.io/p935/</guid>
+      <description>最近弄部署,用gulp-concat和uglify将js文件合并之后,出现
+n.datepicker is undefined错误
+发现overstack说是有的js文件里有的行没加;所以合并之后会出现这种问题.从现象上分析很合理,但是我没能找到jquery-ui或angular-ui-date那几万行里的错误.
+http://stackoverflow.com/questions/10429838/uncaught-typeerror-undefined-is-not-a-function-on-loading-jquery-min-js
+于是后来改用angular-bootstrap里的datepicker,还挺好用.但一开始出现一个问题
+ng-include里的datepicker不好用,只在第一次点击的时候可以,再就不灵了,好像ng-include里用了一个独立的scope
+后来通过将include里的文件放到一个文件取消include修复.</description>
+    </item>
+    
+    <item>
+      <title>用blueimp的jquery-file-uploader上传文件</title>
+      <link>http://superwf.github.io/p932/</link>
+      <pubDate>Fri, 07 Nov 2014 07:08:03 +0000</pubDate>
+      
+      <guid>http://superwf.github.io/p932/</guid>
+      <description>一直对是否能用ajax上传文件很含糊,今天又重新弄了一下jquery-file-uploader,确定是可以的.
+顺带做了一次golang后台的文件上传接收,还挺容易的,不过仅限于小文件,大文件的服务端肯定应该是另一种写法.
+不过用bower安装之后有些麻烦.这玩意不能写道bower.json里.否则会在index.html中加入一些额外的东西.必须手动添加到index.html中</description>
+    </item>
+    
+    <item>
+      <title>golang recover from panic</title>
+      <link>http://superwf.github.io/p928/</link>
+      <pubDate>Mon, 15 Sep 2014 02:45:16 +0000</pubDate>
+      
+      <guid>http://superwf.github.io/p928/</guid>
+      <description>the golang code below
+但是当json日期格式不正确时,整个golang进程会退出
+后来发现处理 decoder的err时,必须panic(err),才能被recover获取,否则就会退出整个golang的process.</description>
+    </item>
+    
+    <item>
+      <title>golang的一些入门小特性</title>
+      <link>http://superwf.github.io/p917/</link>
+      <pubDate>Fri, 15 Aug 2014 01:49:00 +0000</pubDate>
+      
+      <guid>http://superwf.github.io/p917/</guid>
+      <description>一个是
+这种，前面的_说明引入的这个库匿名使用，只是引入的时候执行里面的init进行进行一些注册功能。
+还有一个是
+一开始没太看明白还一位是种新语法，查也没查到，后来自己想通了，(*http.ResponseWriter)(nil) 的意思是初始化了一个http.ResponseWriter类型的指针，并且初始化值为nil
+struct的tag支持多种功能，每种tag类型之间用空格分开，而不是逗号。
+  </description>
+    </item>
+    
+    <item>
+      <title>最近又看了看php,做了几个ab的测试</title>
+      <link>http://superwf.github.io/p906/</link>
+      <pubDate>Wed, 30 Jul 2014 08:35:58 +0000</pubDate>
+      
+      <guid>http://superwf.github.io/p906/</guid>
+      <description>最近折腾服务器部署，感觉rails占内存多有时候需要重启服务才能缓解一下卡的情况。
+考虑之后的程序用什么来做，于是又搜了一下php，发现几年真是大发展php的明明空间大量应用，匿名函数和闭包竟然都支持了，laravel的几个命令行工具，简明语义的语法写法，composer这个类似bundle的好东西，使php本身的混乱程度大幅减少。
+命名空间之前还听说的时候没见哪实际用过，现在看看一些新库的代码都已经用在生产上了，php还是很有搞头。
+发现了phalcom这个php框架，竟然是用c写的来大幅提升系统性能，实在是令人意外。
+于是用phalcom网站的测试方法测试了一下各个框架
+ab和程序都是运行在同一主机，6g内存apu4核
+测试了一下各个框架的ab -n 2000 -c 10 http://xxxx
+rails用的是rails4.1，新建的一个临时程序，nginx + unicorn，就简单的能跑出hello world，在production模式下
+Concurrency Level: 10
+Time taken for tests: 1.461 seconds
+Complete requests: 2000
+Failed requests: 0
+Total transferred: 888000 bytes
+HTML transferred: 22000 bytes
+Requests per second: 1369.20 [#/sec] (mean)
+Time per request: 7.304 [ms] (mean)
+Time per request: 0.730 [ms] (mean, across all concurrent requests)
+Transfer rate: 593.68 [Kbytes/sec] received
+beego的helloworld
+Concurrency Level: 10</description>
+    </item>
+    
+    <item>
+      <title>mfs的metalogger服务器备份频率</title>
+      <link>http://superwf.github.io/p902/</link>
+      <pubDate>Fri, 25 Jul 2014 05:12:19 +0000</pubDate>
+      
+      <guid>http://superwf.github.io/p902/</guid>
+      <description>mfsmaster上的 metadata.mfs是每小时备份一次，如果出现问题，只要这个文件还在，会损失一小时之内的数据，这个在不少地方都提到过。
+本以为mfsmetalogger上也是这样，但经过这一两天的观察发现mfsmetalogger上是每天备份一次，如果手动启动metalogger则会在刚连接master的时候备份一次。
+所以如果是mfsmaster主机突然彻底完蛋的话，凭借mfsmetalogger的备份可能会丢一天之内的数据。至少setgoal为2的情况下。
+还算可接受吧，只要心里有这个谱。</description>
+    </item>
+    
+    <item>
+      <title>mysql的innodb</title>
+      <link>http://superwf.github.io/p900/</link>
+      <pubDate>Fri, 25 Jul 2014 01:34:15 +0000</pubDate>
+      
+      <guid>http://superwf.github.io/p900/</guid>
+      <description>其实可能应该叫mariadb了，最近听了老于的建议，换成了mariadb。
+迁移之后因为新服务器内存大了很多，加大了缓存解决了很多之前锁表的问题。
+设置binlog之后，在从机上同步时发现master上设置的binlog-ignore-db = mysql,information_schema没起作用，从机还是照常同步
+后来在从机上设置replicate-ignore-db = mysql,information_schema也没起作用
+可能是mysql从5.5还是什么版本之后，需要多行设置，或者就是之前网上那些示例全写错了
+应该写成
+binlog-ignore-db = mysql
+binlog-ignore-db = information_schema
+replicate-ignore-db = mysql
+replicate-ignore-db = information_schema</description>
+    </item>
+    
+    <item>
+      <title>jessie的升级与ati显卡</title>
+      <link>http://superwf.github.io/p898/</link>
+      <pubDate>Tue, 22 Jul 2014 03:09:32 +0000</pubDate>
+      
+      <guid>http://superwf.github.io/p898/</guid>
+      <description>升级多了各种软件总能保持新鲜，升级太多了太折腾。
+这次升级是完了，jessie里删除了fglrx-driver的包。只能用amd网站的包来装，虽然打了补丁之后可以安装但是一进桌面就黑屏，而且鼠标键盘统统没反应。
+重启后删除/etc/X11/xorg.conf倒是能进桌面，但分辨率低，一看就是没显卡驱动。
+之前这种问题都能通过发行包里的fglrx驱动和amd官网驱动配合调试解决，这次是玩不转了。
+实在不行，最后硬件解决，从另一个机器上弄了个nvidia的显卡插上用了，不玩ati了。</description>
+    </item>
+    
+    <item>
+      <title>puppet gpg</title>
+      <link>http://superwf.github.io/p895/</link>
+      <pubDate>Fri, 11 Jul 2014 08:10:17 +0000</pubDate>
+      
+      <guid>http://superwf.github.io/p895/</guid>
+      <description>用puppet部署mysql
+有puppetlabs-mysql这个现成的包，但用过之后觉得不好，因为自定义配置文件太麻烦，想不让它接管配置文件还不行。
+后来在自己的包里部署，需要用到预先确认安装密码的问题
+http://stackoverflow.com/questions/1202347/how-can-i-pass-a-password-from-a-bash-script-to-aptitude-for-installing-mysql
+jessie可以直接用mariadb代替mysql，据于工说性能还好一些
+需要看mariadb预安装的参数，用
+debconf-show mariadb-server-5.5
+http://www.bdqn.cn/news/201309/11151.shtml
+由于puppet的exec默认用的是sh，不太清楚怎么让变成bash执行，所以只能是echo … | sudo debconf-set-selections 这样来写
+配置文件用hiera的file存储，为每个机器单独存储。
+由于之前一直用kvm的虚拟机，公司工作必须要用ie，qq什么的。vagrant的virtualbox和kvm不能同时开，网上找了能同开的方法，但是修改后会死机，总之还是不能同开。
+后来找了vagrant的插件vagrant-kvm和vagrant-libvirt，但是在已经打包成box格式之后都不能兼容自己做的kvm虚拟机。
+遂直接不用vagrant。
+直接自装一个qcow2格式的kvm，copy该镜像文件作为备份，装乱之后再copy覆盖回去，省大了事了，托我大中国防火墙的仙气，也再不用翻山越岭的去下载vagrant那些镜像。
+hiera的gpg加密有问题，一是私钥必须是无密码的，如果有密码，在命令行模式还有机会输入密码，在服务端运行的时候就不能解密了
+一旦启用gpg后端的文件，就会莫名其妙的多出好多需要hiera赋值的参数，这些参数本来都是有默认值的，但一旦启用gpg，不知道为什么就会报没有赋值的错误。
+另想了个办法把需要加密的东西都写到file里，在.gitignore里忽略hiera的file文件。
+mcollective，尝试了之后觉得还是有些用，只是没有刚开始看得时候的惊喜，可能是手下管理的机器不太多吧。
+需要提一下的是一开始mco命令总是没有任何自带的插件，什么inventory、facts都没有，是因为debian源里的mcollective-client是2.0的版本，必须用外带的puppetlabs的apt源，升级成2.5,就一切都ok了，剩下的交给puppetlabs-mcollective来配置就能傻瓜式完成。</description>
+    </item>
+    
+    <item>
+      <title>puppet自动安装中的untrusted packages</title>
+      <link>http://superwf.github.io/p889/</link>
+      <pubDate>Fri, 27 Jun 2014 06:00:43 +0000</pubDate>
+      
+      <guid>http://superwf.github.io/p889/</guid>
+      <description>当用到第三方源的时候，安装包会提示untrusted packages
+让进一步确认Yes或者汉语的Shi，手动是没事但自动安装脚本就被破坏了。
+http://anothersysadmin.wordpress.com/2008/12/30/tip-installing-untrusted-packages-without-confirmation-on-debian/
+http://debiananwenderhandbuch.de/apt.conf.html
+通过设置apt.conf的参数
+puppet用apt-get而不是aptitude所以配置apt
+可以用puppet的file增加个文件在/etc/apt/apt.conf.d/里</description>
+    </item>
+    
+    <item>
+      <title>这几年看过的书</title>
+      <link>http://superwf.github.io/p717/</link>
+      <pubDate>Thu, 26 Jun 2014 08:26:21 +0000</pubDate>
+      
+      <guid>http://superwf.github.io/p717/</guid>
+      <description>以后边看边添加，有些生产中用上了，有些没用上过一阵子也就遗忘了。</description>
+    </item>
+    
+    <item>
+      <title>linux kernel 3.14下的ati driver</title>
+      <link>http://superwf.github.io/p846/</link>
+      <pubDate>Thu, 12 Jun 2014 05:47:54 +0000</pubDate>
+      
+      <guid>http://superwf.github.io/p846/</guid>
+      <description>一个多月前升级系统之后，就不能进入桌面了，当时捣鼓了半天发现新的3.14内核不能正确安装ati的显卡驱动，导致一直使用3.13内核。我用的是amd的apu
+又加上当前google被全时间段墙，该问题一直没解决。
+后来找到了以下解决方法，看来确实是我判断的新的3.14内核和ati显卡驱动不兼容的问题，打上这个补丁后，也能正常用3.14内核使用桌面了。
+http://bluehatrecord.wordpress.com/2014/05/10/installing-the-proprietary-amd-catalyst-14-4-fglrx-driver-on-fedora-20-with-kernel-3-14/</description>
+    </item>
+    
+    <item>
+      <title>ionic -&gt; mobile-angular</title>
+      <link>http://superwf.github.io/p843/</link>
+      <pubDate>Tue, 03 Jun 2014 06:41:34 +0000</pubDate>
+      
+      <guid>http://superwf.github.io/p843/</guid>
+      <description>弄了一周的ionic做了个小app
+https://github.com/superwf/convictconditioning
+发现ionic各种不好用。
+需要日期插件，需要额外加angular-ui-date
+需要一个照相机的图标加拍照功能，结果没有，找了一下发现bootstrap里的图标挺合适。
+加上bootstrap后又发现css有些冲突，有些小地方有些错位，早知如此最开始就该用mobile-angular做啦。
+遂果断换mobile-angular。</description>
+    </item>
+    
+    <item>
+      <title>puppet与rvm中ruby的环境变量</title>
+      <link>http://superwf.github.io/p835/</link>
+      <pubDate>Wed, 21 May 2014 08:56:46 +0000</pubDate>
+      
+      <guid>http://superwf.github.io/p835/</guid>
+      <description>看了半个多月教程，开始按部就班的操作的时候碰到不少麻烦。
+比如hiera-mysql这个。
+WARN: 2014-05-21 16:19:14 +0800: Cannot load backend mysql: cannot load such file — hiera/backend/mysql_backend
+nil
+gem install hiera-mysql挺成功的，但一用mysql后端就出这个错
+google了一大堆还真没看见别人出这个错误的。
+都想手动把这个文件加到$:路径里了。
+最后发现是之前rvm的残留问题。
+最近听了于工的建议捣鼓puppet，由于装puppet用的是deb安装，和rvm不太对付于是换回了系统ruby。
+结果导致gem里没有hiera
+再gem install hiera一下。
+后来感觉hiera-mysql好像只能存取string？，不如yaml能array和hash。
+agent第一次请求的时候需要master签名认证。
+一直只知道公钥私钥，但是不太清楚签名的具体含义。马上查了一下，发现证书也是一对公钥和私钥，就是多了签名，最重要的是还多了个有效期限制。
+我的理解是，agent(一下简称a)第一次请求master(以下简称m)的时候，把a的公钥发过去。这时候m上执行puppet cert list，看到的是agent发来的公钥。
+执行puppet sign的时候，是用m的证书私钥加密了该a的公钥，可以成为认证公钥。之后的通信都用这个认证公钥加密。每次a和m通信的数据都会用自己的私钥和对方的公钥双重加密，收到的数据再用自己的私钥和公钥两次解密，得到明文数据。
+第二个理解是，是证书这个公钥只加密另一个公钥，不加密数据内容。每次数据传输，先根据证书解密加密后的公钥，在用该公钥解密内容。
+应该是第二种比较靠谱，加密用的计算量要少的多。
+puppet里的证书都是pem的后缀，说实在的这些密钥的证书后缀也很混乱。pem代表base64编码，与加密方式没啥关系。
+以后新装机器该puppet登场了，之前琢磨过的aptitude export import什么的太过时了~
+puppet和nginx整合的例子找了几个看了看，现在都不能用了，只有官方的这个能和apache2整合
+http://docs.puppetlabs.com/guides/passenger.html
+虚拟主机的配置里，关于ssl密钥的配置比其他nginx教程里的多了几行参数，我也不清楚具体起的哪些环节的认证作用。</description>
+    </item>
+    
+    <item>
+      <title>jessie的一次系统升级</title>
+      <link>http://superwf.github.io/p830/</link>
+      <pubDate>Fri, 16 May 2014 07:22:17 +0000</pubDate>
+      
+      <guid>http://superwf.github.io/p830/</guid>
+      <description>今天运行了一下 dist-upgrade
+升级之后现实显卡驱动，年纪大了记性不好，忘了最近换的amd的apu的机器了，又装了nvidia的驱动。结果黑屏司机。
+后来想起来了之后又装回去，去amd网站下驱动，装上之后死的更彻底，连键盘都不灵了。
+后来用另一个电脑google一下，卸载了官方驱动，用apt装 fglrx-xxxx的一系列都装上。
+然后还是黑屏，但是硬件没死，还能切换到其他控制台，查看Xorg.0.log发现说没有发现Screen，改/etc/X11/xorg.conf把里面的nvidia换成radeon。
+然后进桌面，开干活。
+vim开始报错vimim语法错误，这玩意好久没更新，估计也不会更新了，自己改了改还凑合能用。
+然后php页面不出东西了，看日志是php5-fpm.sock权限错误，之前是 0666，升级之后的默认权限变成 0660了，而且还是root文件，所以www-data的nginx不能读写。
+一开始还以为是/etc/init.d/php5-fpm里的设置，后来发现可以在/etc/php5/fpm/pool.d/www.conf里改，把listen.mode改成0666或者吧listen.owner和group都改成www-data。
+不知道这个算不算个bug，不过既然是能通过配置文件修改，大概也就算个整合问题。</description>
+    </item>
+    
+    <item>
+      <title>第一个相对完整的angularjs项目</title>
+      <link>http://superwf.github.io/p821/</link>
+      <pubDate>Sun, 04 May 2014 10:19:24 +0000</pubDate>
+      
+      <guid>http://superwf.github.io/p821/</guid>
+      <description>遇到的第一个相对麻烦的问题是blueimp的jquery-file-upload
+用yeoman套装习惯了，插件都习惯用bower install来安装，于是就
+然后发现缺模板，就把http://blueimp.github.io/jQuery-File-Upload/里的html copy下来当模板。还报错，后来发现是jquery-ui的问题，既然用bootstrap，在index.html里把jquery-ui那行删掉。然后又发现scope总是undefined。折腾半天感觉不应该把jquery-file-upload写在bower.json里，这样会多出一些无用的插件。
+这大概是因为blueimp的jquery-file-upload与bower兼容的不太好，太多地方不能自动化，不知道算不算个bug，反正从他的例子上直接copy就能用。
+于是在bower.json删掉jquery-file-upload，然后只把需要用的几个js文件写在下面的bower:js 块里。html模板部分还是都从例子里copy。
+ 部署的时候第一次grunt build之后页面报错说没有blueimp.fileupload这个module
+后来发现由于bower.json里没有jquery-file-upload，服务器端的jquery-file-upload没有安装
+于是
+grunt build 之后发现glyphicon的图标都变形了，问题出在 app/styles/main.sass里的
+然后还需要在copy块里的src数组里加上
+参考：http://stackoverflow.com/questions/21932451/assets-missing-in-angular-application-built-using-grunt
+弄完之后重新grunt build</description>
+    </item>
+    
+    <item>
+      <title>angularjs one controller vs multi views</title>
+      <link>http://superwf.github.io/p817/</link>
+      <pubDate>Fri, 18 Apr 2014 02:21:58 +0000</pubDate>
+      
+      <guid>http://superwf.github.io/p817/</guid>
+      <description>第一个views是页面加载时就有的，第二个view是后加载的。
+第二个view加载后，该controller的scope中的变量更新后，第一个view中的ng-bind变量不能同步显示更新的内容，好像已经断开了链接一行。
+http://stackoverflow.com/questions/16210822/angular-js-views-sharing-same-controller-model-data-resets-when-changing-view
+看来每次controller加载后重新有自己的编译过程，不能用同一controller中的变量绑定来同步。
+后来想到了用$rootScope.$broadcast 的广播方式，把这个事件发出去然后在其他controller里用$rootScope.$on接收，实现了想要的功能。</description>
+    </item>
+    
+    <item>
+      <title>rvm crontab custom_require.rb:36:in `require’: cannot load such file — bundler/setup</title>
+      <link>http://superwf.github.io/p815/</link>
+      <pubDate>Wed, 16 Apr 2014 02:56:45 +0000</pubDate>
+      
+      <guid>http://superwf.github.io/p815/</guid>
+      <description>用rvm环境时，用crontab运行ruby脚本今天报错。之前也运行过倒是没出过什么问题。
+查了一下，让用ruby的绝对路径。
+还是报错，看来cron时还是需要加入rvm的初始化环境。
+于是为了运行a.rb，需要额外弄一个a.sh
+  </description>
+    </item>
+    
+    <item>
+      <title>yeoman &amp; rails整合开发</title>
+      <link>http://superwf.github.io/p803/</link>
+      <pubDate>Mon, 14 Apr 2014 05:14:36 +0000</pubDate>
+      
+      <guid>http://superwf.github.io/p803/</guid>
+      <description>grunt serve的测试环境用的9000端口，向后台发起的默认ajax也是9000
+为了与rails整合，在app.coffee里加上
+然后在所有需要请求的url之前都加上 rails + ‘/user.json’
+这里还涉及到一个ajax跨域的事，得在rails的controller里设置
+实际部署的时候可以去掉这个，在nginx里加这个header，把*改成相对应的域名。
+后来发现加这个不灵
+http://serverfault.com/questions/418709/nginx-add-header-for-a-50-page
+401状态下无法自定义header，需要用
+http://wiki.nginx.org/HttpHeadersMoreModule
+这仅仅因为在开发环境下grunt serve和rails需要用到不同的域，至少需要不同端口，实际部署的时候应该是用不到这些。
+干了两天之后各种问题导致各种手动修改补丁，最后还是用nginx配置这些比较合适，在开发时就干脆把这两个后台都整合到一个域名里，也消除了跨域的问题。
+nginx配置
+  </description>
+    </item>
+    
+    <item>
+      <title>angular-ui angular-bootstrap</title>
+      <link>http://superwf.github.io/p801/</link>
+      <pubDate>Fri, 11 Apr 2014 07:19:23 +0000</pubDate>
+      
+      <guid>http://superwf.github.io/p801/</guid>
+      <description>名字虽然叫angular-ui，但安装的时候要
+bower install angular-bootstrap
+今天早上运行代码报错
+angular-ui was not injected in your file.
+google了一下才发现angular-ui已经过期，分崩离兮成了几个小项目了。</description>
+    </item>
+    
+    <item>
+      <title>nvm install node</title>
+      <link>http://superwf.github.io/p795/</link>
+      <pubDate>Thu, 03 Apr 2014 08:25:27 +0000</pubDate>
+      
+      <guid>http://superwf.github.io/p795/</guid>
+      <description>nvm install之后，sudo npm i -g xxx总说 command not found npm
+which npm
+echo $PATH之后发现npm是确实有的，问题就出在sudo上。
+visudo发现有
+Defaults secure_path这一行，把npm所在的路径加进去。
+补充：用nvm装的node，用不着sudo，直接npm i -g xxx也是安装在当前用户的nvm目录中，不需要写入系统目录的权限。
+一开始用www-data这个用户去编辑网站的程序，grunt serve的时候发现不能自动打开浏览器，还以为是什么东西没配置好，后来发现是因为www-data这个用户不能插入当前用户的桌面进程权限问题，必须用当前登录桌面用户来执行grunt serve才行。</description>
+    </item>
+    
+    <item>
+      <title>apt-mirrors的i18n问题</title>
+      <link>http://superwf.github.io/p790/</link>
+      <pubDate>Wed, 26 Mar 2014 02:36:18 +0000</pubDate>
+      
+      <guid>http://superwf.github.io/p790/</guid>
+      <description>用于解决一直以来apt-mirrors不能自动同步i18n文件的问题，今天突然灵光一现，想到proxy_pass到外网的方法。</description>
+    </item>
+    
+    <item>
+      <title>今天把android模拟器运行了</title>
+      <link>http://superwf.github.io/p783/</link>
+      <pubDate>Sat, 22 Mar 2014 07:55:21 +0000</pubDate>
+      
+      <guid>http://superwf.github.io/p783/</guid>
+      <description>升级jessie之后，apt可直接安装几个android的64位基本命令
+先准备好饭强
+apt 安装 openjdk-7-jdk
+http://android-studio.org/
+把android-studio下载了，解压后运行bin/studio.sh
+按向导自动配置好环境，会默认放到~/Android/Sdk中
+然后在.bashrc中添加
+ANDROID_HOME=”~/Android/Sdk”
+PATH=”$PATH:$ANDROID_HOME/platform-tools:$ANDROID_HOME/tools”
+然后直接运行android命令，安装需要的包，react-native需要android sdk build-tools 23.0.1和 android 6.0里的sdk-platform, arm eabi v7a system image, sources for android sdk
+再通过tools菜单创建一个虚拟手机．
+再在react-native创建的项目中的android文件夹中添加文件local.property，内容为sdk.dir=~/Android/Sdk
+然后缺的一些32位包可以用下面这几个包来补充。
+lib32stdc++6
+lib32z1-dev
+进入react-native创建的项目运行react-native run-android</description>
+    </item>
+    
+    <item>
+      <title>今天看到nosql的反模式</title>
+      <link>http://superwf.github.io/p770/</link>
+      <pubDate>Fri, 28 Feb 2014 05:53:58 +0000</pubDate>
+      
+      <guid>http://superwf.github.io/p770/</guid>
+      <description>http://blog.nosqlfan.com/html/4156.html
+里面的一句话突然让我明白了很多，转换了一下思路
+就是：计算和存储耦合
+我从这句话想到的是：计算应该和存储分离。
+关系型数据库片中计算，文档型数据库偏重存储，而我一直以来想做的是找一个nosql来代替mysql，比如mongodb，应该是搞错了思路，应该让会做计算的做计算，优于存储的做存储，中间用程序来做数据一致维护，这样大概不会做到数据即时完全的一致性，就和数据库的cap理论一样，应该是有取舍才行的。</description>
+    </item>
+    
+    <item>
+      <title>debian upgrade to jassie</title>
+      <link>http://superwf.github.io/p765/</link>
+      <pubDate>Fri, 28 Feb 2014 02:40:27 +0000</pubDate>
+      
+      <guid>http://superwf.github.io/p765/</guid>
+      <description>升级之后出的问题折腾了一天之后一一解决。
+1.升级后让卸载NVIDIA显卡驱动，期间死机两次，进去之后还得修复依赖关系很耗时，卸载之后直接用系统自带的包就可以装，以后也不用去nv官网下驱动了。
+2.升级后gnome3各种不爽还卡，虽然用wheezy的时候也是gnome3，但是可选classic模式还能凑合用。但这次升级之后选了flashback模式，但是菜单死活不出东西，网上说干净重装可用，且以后再说，搜了一下发现mate是gnome2演变而来，装上后发现十分舒服。
+http://mate-desktop.org/
+3.升级之后虚拟机网卡驱动竟然变了，用ghost重新装了一个kvm虚拟机，然后把驱动考出来又装回原来的虚拟机了。
+4.升级之后lvm不能自动识别，开机总是lv status not available。必须手动vgchange -a y才能进系统。最后这个解决
+http://www.linuxquestions.org/questions/linux-software-2/problems-booting-from-luks-on-top-of-lvm-4175487926/
+按这里说的在 /etc/default/grub:
+加一行
+然后运行update-grub，重启后能正常启动了。
+耽误了一天，之后服务器也升级的时候需要提前准备好这几点。</description>
+    </item>
+    
+    <item>
+      <title>erlang学习</title>
+      <link>http://superwf.github.io/p721/</link>
+      <pubDate>Fri, 28 Feb 2014 00:00:00 +0000</pubDate>
+      
+      <guid>http://superwf.github.io/p721/</guid>
+      <description>先是过了一遍Erlang程序设计中文版（完整书签）。
+之前在html5里看过js的webworker，当时觉得看明白了，但是现在才觉得是真的明白了那玩意什么用处，也是一个进程之间的消息传递机制。
+然后打算看building_web_applications_with_erlang，发现看不下去。只好又看Erlang_OTP并发编程实战，之后对OTP有了一定了解，主要是稍微熟悉了一下OTP程序的的写法和handler。
+然后再看building_web_applications_with_erlang，大概明白了，但是不太看好yaws，几年来一直依赖rails的方便，这种底层的框架要自己从头写很多东西太累，也没谱。
+最后提到了ChicagoBoss，是个类rails的framework。但是按照github上的教程，编译总是报错，最后连例子也跑不起来。
+后来又转到了n20，看了看文档，比ChicagoBoss完善，但复杂程度也多了，短时间吃不下去。先下了个例子运行了一下，发现和传统的web程序相差太多，除了最初的页面载入之外几乎完全是用websocket来处理。为了这个又过了一遍cowboy的guide。n2o的教程反复弄了N天，也没懂，看来步子跨大了扯了蛋。后来看了nitrogen的教程http://nitrogenproject.com/doc/tutorial.html，才逐渐自己开始明白了。最后感觉n2o用的bert这个js库没用json，教程里也明确写了不支持json，大概和angularjs比较难搭配吧，弃之。看了cowboy的教程之后突然感觉直接用cowboy来写好了，将erlang和rails结合一下erlang部分做api用，rails做一些页面生成，页面用rails生成的静态html模板，后台请求都用json请求到cowboy上。
+nitrogen里的wf模块令我很在意-_-，后来从源码里发现是web framework的缩写…
+rebar相当于ruby的bundle，解决依赖包问题。rebar里的ling_builder，是部署到虚拟机用的，大概看了看，还不太懂，但是感觉是部署到amazon服务上用得到，自己的服务器大概不用这个。rebar与reltool.config配套使用发布。
+经过几天的使用发现rebar bug多，编译的时候erlydtl模板总是报错。现在是2014年了已经，
+https://github.com/rebar/rebar/issues/46这个bug现在好像还是这样，说是已经fix但是我这下载最新的rebar重新编译之后还是报错，而且每次编译能生成一个view文件，然后报错退出，改rebar.config的erlydtl_opts, [retrun_errors]也没起作用，多编译两次就都生成了，模板文件少的时候还行。erlang.mk，一开始也出错，在Makefile里加上
+ERLC_OPTS =
+覆盖 -Werror的选项，关闭错误报告(隐约感觉不太对，可能导致应该报错的地方也不报了)。
+这样以来就可以编译了，但是默认编译模板为xxx_dtl.beam，可能需要增加个批量改名功能在Makefile里。
+erlang.mk 把makefile几乎全包办了，其中解决依赖的功能和rebar有些重叠。https://medium.com/p/708597c0dd08，我个人也倾向与用erlang.mk，因为相对简单，但是n2o的那些东西全都用rebar。erlang.mk与relx.config配套发布用。
+rebar的wiki，他管compile、dependency和test。rebar可以在一开始创建项目用，就像rails new一样，先创建一个骨架出来。
+erlang.mk也都管这些。
+relx在OTP那本书里有推荐，是书的作者之一开发的，发布erlang程序用，和erlang.mk有配套使用。
+以下为备忘：
+priv目录： 用于存放各种需要随应用一起发布的其他内容。包括但不限于模板文件、共享对象文件和DLL等。定位应用priv目录的方法很简单：调用code:priv_dir()，便会以字符串形式得到priv目录的完整路径。
+.app 文件里的env 和 mudules书里没写，在线手册里有http://www.erlang.org/doc/design_principles/applications.html，modules是发布时将依赖一起打包的意思，env是application:get_env(app_name, env_name)用的
+ html模板用slim写，再用slimrb转换，js用coffeescript写，在开发模式的时候用watchr来监视并自动编译修改过的文件。既然铁了心要用angularjs，那erlydtl模板也几乎是用不到了，全部用静态html模板就可！
+riak和couchdb一样，都是有restful的api的，这样的话，除了权限安全问题不算的话，前台angularjs+后台的database就可以搞定。但安全问题靠database层应该是没戏的，中间层还是需要，但erlang都可以不用解析json，直接把前后台的数据当string传递一下即可，仅仅管理安全与权限，在必要的时候解析一下json重新包装数据。
+在riak已经弄了一阵子之后，看了riak的2i和search部分，觉得riak不太适合做比较复杂的后台程序，存储基于kv，v的内容可以是任意，所以在v的内容上的搜索和索引都不会方便，导致在复杂搜索和分页方面的实现可能会有问题，不是不能实现，而是实现相对太复杂，而且可能由于程序员经验不足会导致长期不能解决的搜索效率问题，还有就是短期内不会有类似active_record那样实现模型关系的方便的封装，难道还是要用mysql，先看看couchdb吧，用基于文档的来试试。mongodb虽然更成熟一些，但在分布上面不如erlang编写的有分布优势。后来看了一下http://nosql-database.org/的分类，riak是在kv分类里，更确实了我的这个想法，我还是需要确定一个document store类型的数据库。http://labs.linkfluence.net/nosql/2011/03/07/moving_from_couchdb_to_riak.html这篇写的也是将存储转到riak上，人家也没用riak做查询用。
+然后转到couchdb上，但最后由于种种原因，还是不能符合要求。</description>
+    </item>
+    
+    <item>
+      <title>about couchdb</title>
+      <link>http://superwf.github.io/p749/</link>
+      <pubDate>Fri, 21 Feb 2014 02:27:45 +0000</pubDate>
+      
+      <guid>http://superwf.github.io/p749/</guid>
+      <description>从学习erlang一路到看上couchdb。看上它主要是因为map reduce，master-master deploy和couchapp这种方便的两层开发工具。
+nosql无模式的特点特别吸引人，但看到最后发现用couchdb很难实现复杂查询，查询条件超过3个以上的时候，需要建立大量的视图，尤其是我做过的程序里有的查询条件有近20个，排列组合起来需要巨量视图而且还需要根据复杂的查询条件匹配到不同的视图上，虽然大部分的组合可能很少被用到吧，这玩意没法弄。看来想要从mysql完整功能迁移还是得mongodb。但mongodb就做不到省略中间层程序的rest api了。看来网页程序要做到两层还需要再发展发展。
+http://www.lupaworld.com/article-215805-1.html这里的关于查询的部分差不多也是这个意思。
+couchdb支持像mysql的 LIKE “abc%”这样的语句可以用startkey=”abc”&amp;amp;endkey=”abc\ufff0″这样来弄。参考如下
+http://stackoverflow.com/questions/5285787/full-text-search-in-couchdb
+如果只是做做blog这样的相对关系简单的东西，主要是不太需要复杂查询的还好。
+CouchDB权威指南看了一半左右吧，基本操作都讲完了，已经看了部分couchapp的开发实例了就没再接着学。</description>
+    </item>
+    
+    <item>
+      <title>各个分区格式的比较</title>
+      <link>http://superwf.github.io/p718/</link>
+      <pubDate>Tue, 21 Jan 2014 06:08:42 +0000</pubDate>
+      
+      <guid>http://superwf.github.io/p718/</guid>
+      <description>各个分区格式的比较
+每个分区都是1G，用的命令是
+lvcreate -L 1G -n c[1-4] vg
+然后用mkfs格式化
+c1-&amp;gt;ext4, c2-&amp;gt;reiserfs, c3-&amp;gt;btrfs, c4-&amp;gt;ntfs
+文件系统 容量 已用 可用 已用% 挂载点
+/dev/mapper/vg-c1 1008M 34M 924M 4% /mnt/c1
+/dev/mapper/vg-c2 1.0G 33M 992M 4% /mnt/c2
+/dev/mapper/vg-c3 1.0G 56K 894M 1% /mnt/c3
+/dev/mapper/vg-c4 1.0G 5.6M 1019M 1% /mnt/c4
+看来还是ntfs装东西最多</description>
+    </item>
+    
+    <item>
+      <title>Can’t connect to MFS master (IP:127.0.0.1 ; PORT:9421)</title>
+      <link>http://superwf.github.io/p710/</link>
+      <pubDate>Mon, 13 Jan 2014 08:33:38 +0000</pubDate>
+      
+      <guid>http://superwf.github.io/p710/</guid>
+      <description>昨天公司停电，今天一上班不能上网，一看服务器都是重启过的，应该是停电时间太长，机房的ups没顶上那么久。
+折腾一天下午最后下午联通给换了个光猫总算好了，看来是停电把光猫烧坏了。
+mfs停了之后修复了一通总算是都起来了，最后就剩下mfscgiserv，启动之后页面总是显示
+Can’t connect to MFS master (IP:127.0.0.1 ; PORT:9421)
+最后发现mfs.cgi文件是个python
+里面有masterhost这么个变量，虽然没去查搜测，但是看样子是从url里取值的。
+直接把那个值改成192.168.1.100，即服务器的mfsmaster内网监听地址，或者在cgi的url里加上
+?masterhost=192.168.1.100
+OK，cgi访问正常，对于有监控欲的人来说就算都运行正常这玩意也不能没有。</description>
+    </item>
+    
+    <item>
+      <title>mfs remove chunck server</title>
+      <link>http://superwf.github.io/p706/</link>
+      <pubDate>Fri, 10 Jan 2014 07:58:56 +0000</pubDate>
+      
+      <guid>http://superwf.github.io/p706/</guid>
+      <description>最近有一个mfs chunck server不太稳定。
+打算将其上的硬盘换下来。
+于是先注释其 mfshdd.cfg
+*/mnt/chunck
+然后重启chunck server
+mfschunckserver restart
+然后就是等了
+在mfs.cgi上可以看到该硬盘的使用量在不断减少，数据被转移到其他硬盘上。
+转了好几天，该硬盘的数据总算不再减少了。
+但是endangered (691730)仍然很多，google也没找到这个数据的意思，大概是还有这么多数据只有一份copy，属于濒危状态，颜色是仅次与danger的橙色，等检查完了之后该硬盘就可以移除了。
+用mfschunckserver stop实验了一下，该数值不再减少了，start之后可以继续减少。
+看来还是得等endangered减到0为止吧。</description>
+    </item>
+    
+    <item>
+      <title>erlang程序设计8.2习题</title>
+      <link>http://superwf.github.io/p702/</link>
+      <pubDate>Fri, 10 Jan 2014 07:03:39 +0000</pubDate>
+      
+      <guid>http://superwf.github.io/p702/</guid>
+      <description>第二题的erlang代码，用escript执行ex82文件
+结果是
+to 1000 processes, send 10 messages per process, cpu time is 290000 microseconds, real time is 285000 microseconds
+另一个语言就用我熟悉的ruby了，用fiber，写一个ex82.rb
+结果是to 1000 processes, send 10 messages per process, time is 275135.993958 microseconds
+好像ruby的还快一些，不过ruby毕竟是生成的空的fiber
+而erlang每个进程之间还传送了一些东西，如果ruby的fiber之间也传输消息的话，估计会多一个数量级。
+等等，刚忘了，用escript执行效率低，因为是即时编译的（我是这样理解的）
+把ex82改一下
+另外建立一个ex82.erl
+然后先编译一下
+再执行ex82
+结果是
+这次erlang快了一个数量级了！</description>
+    </item>
+    
+    <item>
+      <title>erlang程序设计8.1习题</title>
+      <link>http://superwf.github.io/p698/</link>
+      <pubDate>Fri, 10 Jan 2014 06:17:13 +0000</pubDate>
+      
+      <guid>http://superwf.github.io/p698/</guid>
+      <description>（1）编写一个函数start(AnAtom, Fun)来把spawn(Fun)的结果注册为AnAtom。当两个并行的进程同时执行到start/2函数时，要确保代码能够正常工作。也就是说，这两个进程其中一个成功执行，而另一个必须执行失败。
+http://blog.lzhaohao.info/archive/a-solution-of-the-exercise-in-chapter-8-in-erlang-programming/
+这里有个别人写过的结果，但我觉得不太对。
+这个第一题里只是把当前进程注册成了AnAtom，并没有把Fun注册成AnAtom。
+这是我第一次做的结果，是错的。保存为ex81，+x权限，用escript执行。
+=结果是报错。
+我的理解是start的第二个参数这个fun没有执行尾递归，所以执行了一下就结束掉了，虽然还保留了Pid，但是不能被注册，一对这个Pid执行register就会报错。
+如果需要进行注册，这个函数里必须包含receive这种代码。
+又写了一个
+算是的到了习题的结果，两个进程只能执行一个。
+但是在main里的两个start，终究感觉还是有先后执行顺序。
+考虑下面这个情况
+在实际的例子里可以想象成一个网络游戏，有一个gold，谁先捡到归谁，然后两个player在两个客户端都开始send take，然后gold进程本身就会执行这么一个注册程序，由于erlang里的变量都是一次性赋值，也不用加锁，不用在第一个人触发事件的时候给gold的变量加锁，而是把gold独立成一个进程。gold被捡到后会给第一个player进程send一个消息为taken success，之后的第二个乃至更多的player进程都会send taken faild的消息。这么一想，erlang的多进程确实很适合做分布式的大量响应的程序，否则其中要加锁什么的，不知逻辑上要麻烦多少倍。不过这种逻辑的东西我现在倒是还不太能做的出来，作为这个阶段的习题也太难了点。</description>
+    </item>
+    
+    <item>
+      <title>显卡驱动造成的死机</title>
+      <link>http://superwf.github.io/p689/</link>
+      <pubDate>Fri, 03 Jan 2014 03:37:20 +0000</pubDate>
+      
+      <guid>http://superwf.github.io/p689/</guid>
+      <description>死机问题闹了两天，而且是最麻烦的不定时死机，一开机总能用一阵子
+找了个旁边的一样配置的电脑把我的硬盘换上，还是一样，刚才发现是显卡驱动问题
+一开始总觉得linux不会死机死的这么彻底，总觉得是内存或者是集成显卡出了问题
+最后降级了显卡驱动
+把NVIDIA-Linux-x86_64-331.20
+降级成NVIDIA-Linux-x86_64-319.76
+就好了
+http://grantkot.com/sine.html
+这个页面测试一下，也稳定了
+之前是，一看这个特效，就肯定死机</description>
+    </item>
+    
+    <item>
+      <title>angularjs-translate</title>
+      <link>http://superwf.github.io/p687/</link>
+      <pubDate>Fri, 27 Dec 2013 07:15:43 +0000</pubDate>
+      
+      <guid>http://superwf.github.io/p687/</guid>
+      <description>最近弄的angularjs程序，想从后台调用生成的json来填充前台的翻译
+但由于javascript async加载的特性，语言包总是会时不时出现加载晚了，页面上的 {{lang}}这种变量都无法显示的情况。
+http://www.ng-newsletter.com/posts/angular-translate.html
+https://github.com/PascalPrecht
+顺带说一下 angular-translate-loader-url，这个可能过时了，怎么都不能用
+用了这个插件之后，没办法，把翻译都写在一个静态的js里了，好在从原来的yaml到js的结构，基本没啥区别，就是加了好多引号。</description>
+    </item>
+    
+    <item>
+      <title>angular-ui bootstrap modal $watch not work</title>
+      <link>http://superwf.github.io/p683/</link>
+      <pubDate>Fri, 20 Dec 2013 07:05:10 +0000</pubDate>
+      
+      <guid>http://superwf.github.io/p683/</guid>
+      <description>直接在一个modal里
+$scope.$watch ‘current_page’, -&amp;gt; …
+想进行翻页，就翻页那块换，数据不换也没有后台请求。
+http://stackoverflow.com/questions/19572514/datepicker-inside-a-modal-not-working?newreg=465289cbf441442cb01b6e8ad8b46dce
+从这里学了一下，改成 $scope.$watch(‘pager.current_page’, -&amp;gt; …
+Working! yeah</description>
+    </item>
+    
+    <item>
+      <title>angularjs下的分页</title>
+      <link>http://superwf.github.io/p678/</link>
+      <pubDate>Wed, 18 Dec 2013 08:19:25 +0000</pubDate>
+      
+      <guid>http://superwf.github.io/p678/</guid>
+      <description>最近一阵子一直在进修js，学了angularjs，分页配合http://angular-ui.github.io/bootstrap/很好，可惜只针对bootstrapV2的css，项目的css已经都改成了v3的，没办法这个分页实在重要，引用了一段bootstrapV2的css进来。
+自从弄了angularjs，之前的得力工具simple_form、will_paginate什么的全都变的豪无用处。
+现在写模板就直接写slim文件，然后配置到服务器上让nginx缓存html文件来提升效率了。
+多年前我就想过这样一个类似的框架，将页面和数据完全分割，但是没能力做出来，现在也不成，angularjs做到了，而且还能将页面数据监控与动作绑定起来，让页面真正活了起来。</description>
+    </item>
+    
+    <item>
+      <title>ruboto捣鼓失败</title>
+      <link>http://superwf.github.io/p675/</link>
+      <pubDate>Tue, 19 Nov 2013 09:16:13 +0000</pubDate>
+      
+      <guid>http://superwf.github.io/p675/</guid>
+      <description>ruboto捣鼓失败
+最后是安卓的环境弄不了
+platforms-toos/adb是32位二进制文件，目前还没有64位版
+解决办法是安装ia32-lib
+不过我这个dpkg加上32位的源一安装就好多冲突，要把我桌面都卸载了，拉倒了
+http://blog.csdn.net/softwareandy/article/details/17421027
+之前好久因为系统升级之后没有了ia32-lib这个包，后来在这里发现了这么一个兼容32位的包，效果一样，装上之后好像能用32位的程序 lib32stdc++6</description>
+    </item>
+    
+    <item>
+      <title>mail系统发附件自动剪切体积</title>
+      <link>http://superwf.github.io/p671/</link>
+      <pubDate>Wed, 23 Oct 2013 06:15:05 +0000</pubDate>
+      
+      <guid>http://superwf.github.io/p671/</guid>
+      <description>今天有人反映邮件发附件的时候，稍微大点的附件，发出去之后体积被缩小了，在已发邮件里看体积小了好多，而且压缩文件下载之后解压错误。
+查了一下发现系统的/tmp文件夹满了…
+头一次发现这种问题，这个缓存系统不是会自动清空的么。
+清空了，重新发了一下就好了。
+本来分区的时候并没有制定/tmp分区的大小，好像是挂在/分区下的。</description>
+    </item>
+    
+    <item>
+      <title>jquery-ui与bootstrap冲突的地方</title>
+      <link>http://superwf.github.io/p669/</link>
+      <pubDate>Tue, 22 Oct 2013 00:36:25 +0000</pubDate>
+      
+      <guid>http://superwf.github.io/p669/</guid>
+      <description>好长一段时间内用jquery-ui的dialog，右上方的关闭按钮没有x，显示是空白的。还以为是jquery-ui-rails的这个gem带的样式的问题。
+后来发现是与bootstrap的js冲突了，只要去掉bootstrap的js就能显示x。
+不过为了兼容，先把这个按钮隐藏了，待以后再解决吧。
+  </description>
+    </item>
+    
+    <item>
+      <title>bootstrap modal</title>
+      <link>http://superwf.github.io/p665/</link>
+      <pubDate>Fri, 18 Oct 2013 06:44:07 +0000</pubDate>
+      
+      <guid>http://superwf.github.io/p665/</guid>
+      <description>bootstrap modal不支持层叠，看来在有些情况下还是不能取代jquery-ui dialog
+但是由于美观效果好点，还是偏向与用他。
+问题是他在css中限制了width
+手动把width改成auto之后，modal会拉伸占据整个页面。
+但jquery-ui里的dialog就没有这种情况，会根据内容的宽度自动适应。
+最后改了一下modal-dialog的css
+实现了自动适应宽度。</description>
+    </item>
+    
+    <item>
+      <title>form_builder与render partial block</title>
+      <link>http://superwf.github.io/p659/</link>
+      <pubDate>Sun, 29 Sep 2013 08:07:10 +0000</pubDate>
+      
+      <guid>http://superwf.github.io/p659/</guid>
+      <description>最近想从bootstrap2升级到3，发现类名的变化很多。
+之前的很多class都写在模板里了，看来还得搞统一方法调用，或者统一模板调用。
+先想到用form_builder，但后来发现form_builder不支持form_tag，而且只能影响from里的input的生成，不能在form本身加一些属性什么的。
+然后看action_view里的render，以前知道render后面是可以接一个block的。
+但实际用上才知道，render后面带的block对与partial来说没作用，只有在render layout: ‘xxxx’时才有用。
+本来还打算用一个partial的模板，render ‘xxx’ do |f|这样把一个block传进去，然后在里面用simple_form_for xxxx do |f|里面处理这个block
+但是别说带参数的模板了，反正是传不进去。
+最后不得已用一个helper写了一个，里面还得写字符串变量相加这种不太好看的东西。</description>
+    </item>
+    
+    <item>
+      <title>end of file reached</title>
+      <link>http://superwf.github.io/p657/</link>
+      <pubDate>Thu, 26 Sep 2013 05:58:29 +0000</pubDate>
+      
+      <guid>http://superwf.github.io/p657/</guid>
+      <description>今天修改一个页面，一刷新就出错说 end of file reached
+这个错误莫名其妙，出在一个 = include_javascript_tag :priemrs的行
+把这样注释掉就好了，但是js就没了。
+于是去这个coffee文件里看了半天也没debug出什么错误。
+后来把tmp/cache/assets里的缓存清空搞定。</description>
+    </item>
+    
+    <item>
+      <title>php included from debug_backtrace</title>
+      <link>http://superwf.github.io/p654/</link>
+      <pubDate>Wed, 25 Sep 2013 02:07:26 +0000</pubDate>
+      
+      <guid>http://superwf.github.io/p654/</guid>
+      <description>今天改个php的模板，不知道文件是从哪里调用的。找到了这么个函数，把所有includer以数组的形式显示出来，递归查看调用信息。
+很方便
+http://stackoverflow.com/questions/5204830/can-an-included-php-file-know-where-it-was-included-from
+  </description>
+    </item>
+    
+    <item>
+      <title>activeresource4.0 paginate</title>
+      <link>http://superwf.github.io/p645/</link>
+      <pubDate>Thu, 05 Sep 2013 01:58:55 +0000</pubDate>
+      
+      <guid>http://superwf.github.io/p645/</guid>
+      <description>rails4之后，把activeresource踢出去了，大概更新了里面的什么，原来的active-resource-pagination失效了，想查查新的activeresource的api，点过去跳转到rails的api，但rails的api里又没有…
+http://yetimedia.tumblr.com/post/35233051627/activeresource-is-dead-long-live-activeresource
+现在最新的说明也就是这个了。弄了半天，照着这个自己弄了个分页，collection_parser这个很管用。
+自己弄了类 WillPaginateTotalPages，名字随便起就行。
+这样就可以将current_page和total_page传递过来
+服务端的api需要写成
+WillPaginate::Collection里的initialize接收的参数和collection_parser需求的不一致，要不就能直接用
+activeresource的has_many和belongs_to关系已经大概有了，但是都是针对activeresource的，如果一个远程的activeresource的模型，关联了一些本地的activerecord的数据，这种对应关系看来还是得手动写。比如一个远程客户库的客户，会关联当前程序中的订单。希望将来activeresource的has_many这种能加后面的key参数指定关联对象是activeresource还是activerecord或者是别的mongoid什么的。但是这种关联的话joins什么的就不要想了。</description>
+    </item>
+    
+    <item>
+      <title>mina rvmsudo</title>
+      <link>http://superwf.github.io/p638/</link>
+      <pubDate>Fri, 30 Aug 2013 02:15:20 +0000</pubDate>
+      
+      <guid>http://superwf.github.io/p638/</guid>
+      <description>最近面试了一位同行，听说用mina代替capistrona。
+用了一下，mina的用法也差不多。
+不过后来卡在了需要远程执行一些sudo的命令上。服务器上的ruby使用rvm装的，rake，ruby这些的路径都是从/usr/bin/env 执行的。visudo里面不好制定这些程序的路径。
+后来发现用rvmsudo这个东西，写rvm的人还真是体贴，这种配套的东西都也出来了~~~
+本地rvmsudo还行，但是远程就报错了
+sudo: no tty present and no askpass program specified
+http://blog.csdn.net/buptxx/article/details/8241997
+搜到这个，visudo加上Defaults visiblepw</description>
+    </item>
+    
+    <item>
+      <title>最近改了很多模型</title>
+      <link>http://superwf.github.io/p631/</link>
+      <pubDate>Mon, 19 Aug 2013 03:51:45 +0000</pubDate>
+      
+      <guid>http://superwf.github.io/p631/</guid>
+      <description>之前因为受重构前程序的错误思维导向，弄了很多多余的模型出来，导致有一些has_one关系的表现在看来完全没有必要独立出来。
+如果某个模型的has_one 子表数据，可能存在也可能不会存在，则这个has_one就可以独立设置model，否则就直接作为当前模型的属性存在。否则这种has_one关系过多，导致关系复杂，更麻烦的是查询的复杂和效率的降低。
+而且还有些模型完全可以用一个polymorhpic的单一模型代替。</description>
+    </item>
+    
+    <item>
+      <title>rspec request redirect_back</title>
+      <link>http://superwf.github.io/p628/</link>
+      <pubDate>Fri, 09 Aug 2013 04:53:07 +0000</pubDate>
+      
+      <guid>http://superwf.github.io/p628/</guid>
+      <description>(ActionController::RedirectBackError) “No HTTP_REFERER was set in the request to this action, so redirect_to :back could not be called successfully. If this is a test, make sure to specify
+之前一直没写request的测试，最近升级rails4.0出错的地方挺多，决定还是把这方面的测试弄上好踏实点。
+当测试请求一个页面redirect_to :back时，可以用referer参数模拟，要放在模拟表单参数的后面。如果没有表单的参数也需要用一个{}来占位。
+put “/post/1”, post: {title: ‘abc’}, {referer: ‘/posts’}</description>
+    </item>
+    
+    <item>
+      <title>今天第一次写gem的系统命令</title>
+      <link>http://superwf.github.io/p576/</link>
+      <pubDate>Wed, 24 Jul 2013 08:24:34 +0000</pubDate>
+      
+      <guid>http://superwf.github.io/p576/</guid>
+      <description>看我的gem的gemspec文件里有spec.executables 的字样，就放了一个/bin文件夹在里面，把自己常用的几个脚本放进去了。
+rake install 之后倒是在系统搜索路径里有这个命令了，但是执行后报错说语法错误。
+看了一下安装进去的文件发现，是按ruby语法执行的，原来的bash脚本肯定会报错。
+也好，用ruby语法写比bash舒服多了。</description>
+    </item>
+    
+    <item>
+      <title>记录软raid1转换为mfs chunkserver</title>
+      <link>http://superwf.github.io/p568/</link>
+      <pubDate>Mon, 22 Jul 2013 00:56:03 +0000</pubDate>
+      
+      <guid>http://superwf.github.io/p568/</guid>
+      <description>之前的一个备份用的raid1，当时做的软raid1。
+看了一下raid的mdadm，/etc/mdadm/mdadm.conf里的配置基本上不起作用。
+先卸载了所有raild1的挂载，注释掉/etc/fstab里的所有相关分区。
+这样就算已经删除了，想了想，没做raid0，一块坏数据全完蛋的话很让人胆颤，还是做了跨硬盘的lvm，怕万一坏一块的时候另一块的数据还能找回来点，其他的数据可靠性就靠mfs了。
+又先格式化成lvm分区。
+然后vgcreate /dev/sdb1 /dev/sdc1 raidvg
+然后lvcreate -l 99999 -n chunk raidvg
+再格式化，再挂载，再把挂载点写到fstab里
+再把挂载点加到/etc/mfshdd.cfg里。
+mfschunckserver start之</description>
+    </item>
+    
+    <item>
+      <title>nagios监控磁盘空间</title>
+      <link>http://superwf.github.io/p555/</link>
+      <pubDate>Wed, 10 Jul 2013 02:32:07 +0000</pubDate>
+      
+      <guid>http://superwf.github.io/p555/</guid>
+      <description>今天弄了一下nagios的check_snmp_storage.pl
+但是发现
+返回
+在目标主机本地执行
+返回
+按snmp的计算应该是剩余12%
+在目标主机上df
+最后发现是df的值不对，由于是ext4分区有5%的保留块，实际的用量就应该是78%，但是由于最后5%是不能用的，78 + 5 = 83
+虽然df的计算数据不正确，但是报警值应该加上5%来算。文件系统 1K-块 已用 可用 已用% 挂载点
+check_snmp_storage 就应该改成
+check_snmp_storage.pl -H aaa.client.com -w 85 -c 90 -T pu -m /home</description>
+    </item>
+    
+    <item>
+      <title>rails 4.0.0发布，版本强迫更新症发作</title>
+      <link>http://superwf.github.io/p545/</link>
+      <pubDate>Thu, 04 Jul 2013 01:37:32 +0000</pubDate>
+      
+      <guid>http://superwf.github.io/p545/</guid>
+      <description>非技术文，记录一下。
+今看rails api的文档一个链接点不开了，一刷新发现版本变了。
+just go 4.0
+6月25日就发布了，我落后了…
+之前于工教的mfs的事先暂缓一下。
+change logs
+controller里的params不能直接用了，需要require 后在permit
+activerecord的update_attributes 加了个简便的alias — update
+migration里的定义可以直接加index，不用再之后add_index了，如t.string :name, index: true
+也可以直接t.index :name
+join table有了自己的create_join_table
+所有controller里的before_filter都改成before_action
+after 和 around的也同改。
+所有controller里的params给model的赋值也都得先require &amp;amp; permit
+所有model的scope 改 -&amp;gt; {where xxx}
+has_many的restrict改成restrict_with_error，连带着controller里的destroy也不用rescure了，直接用flash显示错误就行。
+升级到4.0不像2升到3变化那么大，也没有3.0到3.1的时候加了assets这些东西，大概算是平滑过度。</description>
+    </item>
+    
+    <item>
+      <title>cacti poller error, Cannot find module (SNMPv2-TC)</title>
+      <link>http://superwf.github.io/p533/</link>
+      <pubDate>Mon, 01 Jul 2013 04:18:10 +0000</pubDate>
+      
+      <guid>http://superwf.github.io/p533/</guid>
+      <description>cacti 运行一阵子之后发现监控主机的根分区快满了。一查发现log里的poller-error.log文件特别大。
+里面有好多类似
+Cannot find module (SNMPv2-TC)
+的错误。
+开始以为是少了什么snmp的依赖库，用apt-file search也没有找到这些东西。
+http://www.podciborski.co.uk/miscellaneous/snmp-cannot-find-module/
+竟然还有个snmp-mibs-downloader这么个东西
+之后download-mibs，自动安装。不再报错。
+今天看了一下cacti的图，发现一台机器的 load average 非常大，达到800多，别的机器峰值也没过10，还以为是数据采集出错了。
+上去top看了一下也没发现cpu占用很多的进程。ps 后发现好多mongodump的进程死了，原因是前几天备份分区满了每天的备份任务不能继续执行。
+mongodump的进程状态为D，-9也杀不掉，只好重启了。之后load average总算是正常了，惯性思维导致忽略重要的报警信息。</description>
+    </item>
+    
+    <item>
+      <title>em-websocket</title>
+      <link>http://superwf.github.io/p527/</link>
+      <pubDate>Tue, 25 Jun 2013 02:54:36 +0000</pubDate>
+      
+      <guid>http://superwf.github.io/p527/</guid>
+      <description>第一次做websocket的东西。
+eventmachine和原来习惯的顺序执行思路的编程相差很多。先是在
+本以为客户端会每两秒收到一次信息，但是结果是等3次都执行完，server一次性发送全部信息给client
+后来看eventmachine的api发现TickLoop这个循环可以非阻塞的立即发送信息给client，将普通循环替换成
+但是由于是非阻塞，tick_loop后面的代码会立即执行，而不管tick_loop，导致在tick_loop中的变量和后面变量不一致。
+开始还以为在tick_loop中生成了新的线程，复制了局部变量，但是debug变量的object_id后发现是没变的，后来显示前后的时间才发现了执行的顺序不对劲。
+再后来，发现在tick_loop中，ws.send 也是每次循环之后一起发送，而不是按照先后顺序调用的发送，比如
+在server的两次puts 相差1秒，但是在client的接收确实同时接收，没有时间差。
+最后试来试去，发现在EM.defer里用常规的循环，可以实现我想要的效果。在defer里用tick_loop不能。
+这样client可以按照时间顺序接收到消息。
+后来想想，ws这中模式，应大有作为，替换掉原来的http开发模式，使web程序变得更有交互性。大概主要的交互方式有两种，一种是直接推送js，让浏览器执行更新数据。
+一种是推送json，里面有需要调用的函数，与该函数的参数然后eval执行。应该是后种更好一些，交互的数据量更小但需要前台有丰富的接口支持。大概这类的前台框架国外已经有了吧我想。
+不过当前的开发主流框架还没有跟进到这个地步，web的开发流程与开发者也需要很大的逻辑转变。</description>
+    </item>
+    
+    <item>
+      <title>邮箱上传附件nginx问题</title>
+      <link>http://superwf.github.io/p525/</link>
+      <pubDate>Mon, 24 Jun 2013 05:54:08 +0000</pubDate>
+      
+      <guid>http://superwf.github.io/p525/</guid>
+      <description>今天有人反映公司邮箱大于1m的附件无法发送。一看是万网的邮箱。万网邮箱上传用的是个flash插件，一添加附件总会停留在上传的地方，给万网客服发了邮件人家回复说没问题。但是我这怎么也发不了邮件。
+后来想到可能是nginx透明proxy的问题，但是上传附件用的是post，不会被缓存。后来在chrome里的调试工具发现上传大文件时返回的是
+413 Request Entity Too Large 赶紧在nginx里加上 client_max_body_size = 100m;
+问题的难点在调试上。</description>
+    </item>
+    
+    <item>
+      <title>wheezy升级iceweasel</title>
+      <link>http://superwf.github.io/p523/</link>
+      <pubDate>Fri, 21 Jun 2013 09:35:54 +0000</pubDate>
+      
+      <guid>http://superwf.github.io/p523/</guid>
+      <description>今天调试websocket的东西，原本的iceweasel不支持websocket。
+win下的火狐都支持了。
+http://tech71.com/install-firefox-21-in-debian-wheezy/
+参照这个加源升级版本。</description>
+    </item>
+    
+    <item>
+      <title>chrome文件下载content-disposition错误</title>
+      <link>http://superwf.github.io/p520/</link>
+      <pubDate>Thu, 20 Jun 2013 07:06:45 +0000</pubDate>
+      
+      <guid>http://superwf.github.io/p520/</guid>
+      <description>碰到个怪问题。文件下载不能。chrom报错说多个content-disposition重复。
+看后台日志全都显示正常，后来发现只有今天新上传的几个文件下载有问题。用火狐试了一下能下载。发现这几个文件的文件名里都有逗号。所以在下载时指定的content-disposition里的filename里的内容被逗号分割了。在里面把文件名用单引号引起来就好了。</description>
+    </item>
+    
+    <item>
+      <title>ie下ajax缓存</title>
+      <link>http://superwf.github.io/p518/</link>
+      <pubDate>Thu, 20 Jun 2013 01:51:56 +0000</pubDate>
+      
+      <guid>http://superwf.github.io/p518/</guid>
+      <description>这个问题只在ie下才有，设置http head禁用缓存的方法无效。
+用的jquery
+这么全局设置一下为最佳方法。</description>
+    </item>
+    
+    <item>
+      <title>php email</title>
+      <link>http://superwf.github.io/p496/</link>
+      <pubDate>Sat, 08 Jun 2013 05:35:21 +0000</pubDate>
+      
+      <guid>http://superwf.github.io/p496/</guid>
+      <description>有个用php发送邮件的玩意出了问题。
+看了一下，原来的东西用的是phpmailer，用的一个163的邮箱做smtp验证发送。
+出问题是因为当天发送太多了，我进了一下这个163邮箱发现直接用网页发送提示数量超额，只能第二天接着发。
+于是打算把这个服务改到自己的邮件服务器上。
+不过phpmailer这玩意实在不好用，无论如何不能通过验证…
+于是看了一下roundcube里，用的是pear的net_smpt
+于是也就跟着用了。
+改了之后测试了一下，用户名密码肯定都没问题的情况下出错
+relay access denied
+出错几次之后还被自己的防火墙给封了….
+幸亏邮件服务器也是自己的，改了一下postfix的main.cf
+在 mynetworks 里把自己服务器的ip也加了进去，凑合能发了。
+但是 gmail的邮箱退信不能收说是不兼容
+Our system has detected that this message
+is 550-5.7.1 not RFC 2822 compliant
+按照这个解决了一下，在邮件头添加了一下From和To
+http://webmasters.stackexchange.com/questions/43059/why-is-an-email-failing-rfc2822-specifications</description>
+    </item>
+    
+    <item>
+      <title>关于unicorn的平滑重启</title>
+      <link>http://superwf.github.io/p492/</link>
+      <pubDate>Tue, 04 Jun 2013 07:42:43 +0000</pubDate>
+      
+      <guid>http://superwf.github.io/p492/</guid>
+      <description>http://ruby-china.org/topics/35
+今天偶然看到了这篇
+看到unicorn有个平滑重启，但是按这个
+preload_app false的配置，好像不能管用，还报很多错
+改回true之后倒是能用
+实验了一下，是可以的
+kill -USR2 之后生成新pid但是老pid.oldbin需要手动kill一下
+unicorn的说明里写等新进程载入完毕之后再kill老进程。</description>
+    </item>
+    
+    <item>
+      <title>awstats logrotate prerotate</title>
+      <link>http://superwf.github.io/p442/</link>
+      <pubDate>Fri, 17 May 2013 09:10:03 +0000</pubDate>
+      
+      <guid>http://superwf.github.io/p442/</guid>
+      <description>首先感谢这页资料
+http://kamisama.me/2013/03/20/install-configure-and-protect-awstats-for-multiple-nginx-vhost-on-debian/
+开始用splunk看的很好，不过终归是试用的，还是得找个合适的免费软件代替。
+看上了awstats，本来以为是个cgi程序，看了半天原来是个生成静态文件的工具。
+别人写的动态用php生成的弄出来，不过这东西要是动态的，太耗系统。
+好多资料里还需要手动日志切割，大概是年代太久了，当前系统里基本都会有自动的日志切割工具，debian里就会预装logrotate
+看资料写的在/etc/logrotate.d/nginx里
+prerotate 里加东西，省去了再加crontab的麻烦
+就看了看当前系统的
+发现这里有个run-parts httpd-prerotate
+于是就建立了一个httpd-prerotate的文件夹
+把需要执行的脚本放里面加上x权限。
+脚本为
+#!/bin/bash为
+if [ -x /usr/share/awstats/tools/awstats_buildstaticpages.pl]; then
+/usr/share/awstats/tools/awstats_buildstaticpages.pl -update -config=proxy -lang=cn -dir=/var/www/awstats -awstatsprog=/usr/lib/cgi-bin/awstats.pl
+fi
+然后配置好nginx的一个虚拟目录给 /var/www/awstats
+后来有一次看mysql的二进制日志，发现全都是非常小，而且看时间都是每天早上6.45生成的。
+明明my.cnf里配置了max_binlog_size = 1000M，但没起作用。
+原来就是/etc/logrotate.d/mysql-server里更新为daily，虽然这里的配置没有指定binlog，但是每次分割日志后都会通过postrotate重启mysql，也就生成了新的二进制日志。
+果断改成monthly</description>
+    </item>
+    
+    <item>
+      <title>cacti</title>
+      <link>http://superwf.github.io/p432/</link>
+      <pubDate>Thu, 16 May 2013 07:46:38 +0000</pubDate>
+      
+      <guid>http://superwf.github.io/p432/</guid>
+      <description>cacti又折腾了两天，主要是之前snmp的一些东西都忘了，又重新看了一下。
+弄明白了点觉得挺简单的，不过要是不明白，全都跟天书一样。
+软件全都aptitude安装，让系统默认配置。
+需要被监控的机器都要装snmpd
+看说明，要是想禁用snmpd v1 和 v2，在snmpd.conf里注释掉带community的行就行了，v3的认证不需要community
+在snmpd.conf里更改要监听的ip地址
+然后net-snmp-config –create-snmpv3-user -ro -a xxxxxxxx -x yyyyyyyy -X DES -A MD5 snmpuser
+man一下看看更好
+-a是验证密码，-x是是privpass，理解是snmp进行set时的写入密码，不过我感觉cacti都是读操作，应该用不到这个密码。
+建立snmpv3的用户与验证密码
+密码强制至少8位
+顺带一说cacti没法放到网站的根域名下，由于程序本身的设计必须被放在/cacti的虚拟目录下，不然总是redirect错误。
+在cacti里建立device
+填的和刚才建立的用户名和密码一致就行。
+template选择 ucd/net SNMP Host，这个模板基本想要的图都包括了。
+其他模板也行，就是带的图不一样而已。
+如果没出图，在graph management里找这个主机的随便一个图，开debug模式调试。
+图没问题了，在grahp trees 里添加新主机
+Tree Item Type选Host
+然后选中新主机添加
+后来看图里显示的硬盘和内存，都比实际的要小大概五分之一，难道是本机和snmp的算法不一样？回头问问老于。
+nagios里的nagios-snmp-plugin要用snmp v3的话，需要装以下东西
+libnet-snmp-perl libcrypt-hcesha-perl libcrypt-des-perl libdigest-hmac-perl</description>
+    </item>
+    
+    <item>
+      <title>iptables nginx 透明代理顺带加上ntop监个控</title>
+      <link>http://superwf.github.io/p410/</link>
+      <pubDate>Mon, 13 May 2013 08:08:40 +0000</pubDate>
+      
+      <guid>http://superwf.github.io/p410/</guid>
+      <description>公司最外层的华为最近动不动老死机，作为半网管，还是得亲自折腾这个事。
+正好弄个老服务器把华为换掉，一来可以部署监控，二来可以随意根据iptables调整，不用弄那些专业设备的晦涩难懂的命令。
+精力有限，作为一个coder思科华为这些专业设备的命令我是不想去学了，不如学精点iptables更通用些也能达到一样的效果。
+一开始看到用varnish代替squid的。想上varnish。后来看了写资料发现varnish是单一或某几个网站做后端缓存代理的，并不具备透明代理的能力。
+本来想写个iptables +　varnish的教程就泡汤了，怪不得网上没有人写过这个搭配的文章，原来没戏…
+不过也好，如果以后网站性能有问题时，可以上varnish，这个对rails的程序可能还真有些必要，有些地方的逻辑占用数据库和内存资源太多了，比如即时生成pdf或数据统计什么的。
+squid那玩意没弄过，不过正好nginx也能做透明代理。顺带夸一下nginx，学习回报大！学一个工具，会中N种功能。
+首先
+绑定网卡名称
+ntop安装的时候选择监控网卡,之后可以在 /var/lib/ntop/init.cfg 更改
+之后开启ntop可以用3000端口访问但是需要做限制,要不到处都能访问这个3000端口十分不靠谱
+在/etc/init.d/ntop里
+ntop_start函数里加上启动参数 -w 127.0.0.1:3000
+再在ngnix里加一个主机，请求全部转发给127.0.0.1:3000
+然后用nginx的这个主机名访问。
+后记：因为加了http验证，设置了一个浏览权限，但是后来要改ntop配置的时候，进入admin页面的时候又需要另一个http验证。
+双重验证的用户名和密码不一致导致冲突无法进入admin管理页面。开始我还以为是admin密码记错了，后来重新设置了密码ntop -A xxx仍然没用才意识到这点。
+当需要进入admin页面的时候先暂时注释掉nginx的http验证那两行好了….
+ntop里有个plugin round-robin database
+看名字应该是调用rrdtool制图的，一开始不知道，把插件都打开看看，后来马上硬盘就被填满了，发现是rrd这个插件可能是为了制图用了太多硬盘文件，务必关掉。
+运行了一周多，ntop常开没问题，cpu在cacti里的监控最高20%多，负载没上2，看来在一个路由上只运行ntop不要装太多东西是可以长期稳定运行的。
+cacti
+安装好之后cacti的网站根目录下竟然没有jquery.js 和 jquery.cookie.js两个文件导致不出图
+自己网上找好这俩文件放到根目录的javascript文件夹里。
+因为本机当作路由器，监控的是本机的物理网卡，确不出图。
+因为没有安装snmpd服务。
+后来打算先暂装cacti，看一阵子如果负载太大就放到其他机器上，路由器的机器先只进行路由、ntop和nginx透明代理的作用。
+据于工程师说ntop的负载太大，应该随用随开。
+nginx 透明代理
+服务器先设置nat
+若nginx和网关这个是同机，直接转发端口，默认转到本机上
+同时要加上限制，不让自己内网之外的地址滥用该端口进行代理
+set +o history # 需要先禁用!的转义，并且man手册里的！位置错了，现在需要写在-s或-d的前面而不是ip前面了。
+若不同机则转发到nginx代理地址
+将上述iptables 命令放到一个脚本上，加上x权限,放到/usr/local/bin/fw_nat
+再在/etc/init.d/里编写个fw_nat也加上x
+最后update-rc.d firewall start 01 2 3 4 5 . stop 99 0 1 6 .
+添加服务自动启动</description>
+    </item>
+    
+    <item>
+      <title>accepts_nested_attributes_for validates_presence_of</title>
+      <link>http://superwf.github.io/p408/</link>
+      <pubDate>Wed, 24 Apr 2013 02:50:38 +0000</pubDate>
+      
+      <guid>http://superwf.github.io/p408/</guid>
+      <description>用了accepts_nested_attributes_for之后
+在子模型中用了验证父模型的presence: true
+但是在关联创建的时候，父模型数据还没有save的时候总是不能通过验证。
+之前都是干脆取消了 presence的验证。
+后来想想不对劲，验证必须严格。
+参照
+http://api.rubyonrails.org/classes/ActiveRecord/NestedAttributes/ClassMethods.html#label-Validating+the+presence+of+a+parent+model
+这时候 has_many 和 belongs_to的
+inverse_of 参数就有用了。
+之前这个参数的说明我一直没理解。现在总算用上了一回。</description>
+    </item>
+    
+    <item>
+      <title>关于belongs_to的through</title>
+      <link>http://superwf.github.io/p405/</link>
+      <pubDate>Mon, 22 Apr 2013 09:47:32 +0000</pubDate>
+      
+      <guid>http://superwf.github.io/p405/</guid>
+      <description>has_one和has_many都有through 的参数。
+本来belongs_to也应该有。
+比如
+order belongs_to client
+client belongs_to company
+so
+order belongs_to company
+逻辑上比较容易这么想。
+但是belongs_to 没有越级的这种优惠。
+根据stackoverflow上有人说，belongs_to 认为当前模型一定会有一个外键与所属的表相关连。所有没有越级through参数。
+如果想简单的实现
+在order里定义
+或者
+delegate :company, to: :client
+都行
+但是这样的话在联合搜索的时候，不能通过模型关联自动生成联合查询的sql
+例如
+后来我采用的方式是在orders上增加company_id字段，在client的更新的hook上加上更新所有orders的company_id，为了搜索的方便，增加了更新的麻烦。</description>
+    </item>
+    
+    <item>
+      <title>activeresource的pagination</title>
+      <link>http://superwf.github.io/p403/</link>
+      <pubDate>Wed, 10 Apr 2013 06:11:14 +0000</pubDate>
+      
+      <guid>http://superwf.github.io/p403/</guid>
+      <description>use this gem
+active-resource-pagination
+就是activeresource没有activerecord那样方便的 relation关系，用着觉得不是很爽</description>
+    </item>
+    
+    <item>
+      <title>在activeresource中使用http-digest-authentication认证</title>
+      <link>http://superwf.github.io/p400/</link>
+      <pubDate>Wed, 03 Apr 2013 02:01:09 +0000</pubDate>
+      
+      <guid>http://superwf.github.io/p400/</guid>
+      <description>用https弄了半天，好像自己生成的证书不好用，总是不能通过验证
+就改用另一种比http basic认证安全一些的http-digest
+这种方法rails的api中没有提如何与activeresource配合使用，参照如下即可。
+https://rails.lighthouseapp.com/projects/8994/tickets/3335-http-digest-authentication-for-activeresource</description>
+    </item>
+    
+    <item>
+      <title>php支持mongodb</title>
+      <link>http://superwf.github.io/p398/</link>
+      <pubDate>Wed, 27 Mar 2013 08:43:06 +0000</pubDate>
+      
+      <guid>http://superwf.github.io/p398/</guid>
+      <description>本以为php内置了mongodb的支持，或者apt就可以下载自动配置。
+最后还是照mongodb网站的指示做
+先aptitude install php-pear php5-dev
+pecl install mongo
+再创建一个文件 /etc/php5/mods-available/mongo.ini
+里面写
+extension=mongo.so
+ln -s /etc/php5/mods-available/mongo.ini /etc/php5/conf.d/mongo.ini
+最后按系统规矩做个软链接
+ln -s /etc/php5/mods-available/mongo.ini /etc/php5/conf.d/mongo.ini
+重启fpm</description>
+    </item>
+    
+    <item>
+      <title>全lvm分区安装不能安装grub到硬盘</title>
+      <link>http://superwf.github.io/p395/</link>
+      <pubDate>Mon, 25 Mar 2013 02:42:00 +0000</pubDate>
+      
+      <guid>http://superwf.github.io/p395/</guid>
+      <description>昨天弄了一天服务器，有一个服务器重新分区后，全lvm分区，到最后总是错误，不能将grub安装到硬盘。
+没辙了只好先分了一个ext4分区出来，将其他空间规划成lvm，最后才装上了。
+看来是必须有一个非lvm分区负责启动。
+之前明明记得装过，全lvm分区，也能安装系统的。</description>
+    </item>
+    
+    <item>
+      <title>rails在test下使用memory引擎</title>
+      <link>http://superwf.github.io/p388/</link>
+      <pubDate>Tue, 19 Mar 2013 06:25:16 +0000</pubDate>
+      
+      <guid>http://superwf.github.io/p388/</guid>
+      <description>一直用rspec和database_cleaner进行测试，表一多，每个测试都要truncate所有的table，每个it都要一秒多，硬盘卡拉卡拉的巨响不说，这样下来一个模型测试下来就得好几分钟。
+每次一测试都可以去上个厕所什么的再回来。
+终于想到了，把test时用的db换成memory引擎的。
+google了一下，看有用sqlite的memory引擎的，不过mysql的也应该差不多。
+首先要将所有migration里的text 和 blob的字段换成 string的，因为memory不支持这两个类型。当然测试样例里如果要测试这些字段，也别放超过255个字符的就可以。
+然后在db/seed.rb文件里加上
+db = ::Atable.connection
+if ::Rails.env.test?
+tables = db.tables
+tables.delete ‘schema_migrations’
+tables.each do |t|
+db.execute “ALTER TABLE #{t} ENGINE= MEMORY”
+end
+exit
+end
+再执行rake db:seed RAILS_ENV=test
+将所有表转换为memory
+马上测试。原来要好几分钟的测试，现在就一两秒完成, done
+补充，后来我把这个功能单写了一个gem，叫convert_memory_engine
+https://github.com/superwf/convert_memory_engine
+也可以gem install convert_memory_engine</description>
+    </item>
+    
+    <item>
+      <title>dpkg –remove-architecture失败</title>
+      <link>http://superwf.github.io/p384/</link>
+      <pubDate>Mon, 18 Mar 2013 06:11:23 +0000</pubDate>
+      
+      <guid>http://superwf.github.io/p384/</guid>
+      <description>为了装skype，dpkg –add-architecture i386还装了一堆的依赖包，用不了想取消mutiarch就报错了，
+得先用一下这个命令把已经安装的i386的包都卸载先
+aptitude remove `dpkg –get-selections | grep i386 | awk ‘{print $1}’`</description>
+    </item>
+    
+    <item>
+      <title>部署新项目后，doorkeeper总是不能redirect到正确的url上</title>
+      <link>http://superwf.github.io/p382/</link>
+      <pubDate>Thu, 14 Mar 2013 06:40:38 +0000</pubDate>
+      
+      <guid>http://superwf.github.io/p382/</guid>
+      <description>今天大概折腾了大半天，新项目部署之后用doorkeeper授权之后总是跳转到之前开发的网址url上。
+改了很多配置，折腾devise什么的配置，最后发现是nginx的配置上的redirect的网址绑定了原来的地址。</description>
+    </item>
+    
+    <item>
+      <title>ruby2.0速度快了</title>
+      <link>http://superwf.github.io/p378/</link>
+      <pubDate>Wed, 13 Mar 2013 07:12:14 +0000</pubDate>
+      
+      <guid>http://superwf.github.io/p378/</guid>
+      <description>今天rvm上了一下2.0.0，然后重新bundle了一下项目重新启动，明显感觉重启速度快了一些，不是错觉。非常好！</description>
+    </item>
+    
+    <item>
+      <title>ruby读取二进制文件，activeresource的上传</title>
+      <link>http://superwf.github.io/p374/</link>
+      <pubDate>Mon, 18 Feb 2013 06:13:34 +0000</pubDate>
+      
+      <guid>http://superwf.github.io/p374/</guid>
+      <description>今天用到activeresource上传文件的功能，不能实现，因为activeresource好像还没有原生实现文件上传功能。
+改用rest-client代替了，也没多写多少。
+还有就是在windows下需要指定二进制模式，File.open(path, binmode: true)</description>
+    </item>
+    
+    <item>
+      <title>linux can not allocate memory</title>
+      <link>http://superwf.github.io/p371/</link>
+      <pubDate>Wed, 30 Jan 2013 00:49:32 +0000</pubDate>
+      
+      <guid>http://superwf.github.io/p371/</guid>
+      <description>前几天做信息的同事的主机出现
+cannot-allocate-memory-error
+导致ssh连不上，去本机登录想重启ssh服务也出这个错误，后来想杀进程，ps top也都报错，只能重启了。
+之后想办法看到这个
+http://thedaneshproject.com/posts/cannot-allocate-memory-error/
+照着把free_memory设置大一些不知道会不会有用。</description>
+    </item>
+    
+    <item>
+      <title>passenger upstream prematurely closed connection while reading response header from upstream</title>
+      <link>http://superwf.github.io/p369/</link>
+      <pubDate>Tue, 08 Jan 2013 03:11:40 +0000</pubDate>
+      
+      <guid>http://superwf.github.io/p369/</guid>
+      <description>这两天弄passenger
+一开始编译好之后，一配置，马上就运行出来了，觉得十分容易。
+第二天再配置的时候，就出502 Bad Gateway
+nginx erro log里显示
+upstream prematurely closed connection while reading response header from upstream
+google了很多结果，竟然还有时不时发生这种情况，大部分都能正常运行的例子。
+https://groups.google.com/forum/?fromgroups=#!topic/phusion-passenger/kcWP9T8uksg
+后来也没看到彻底的解决。先还是用unicorn好了，这个调试还熟悉。</description>
+    </item>
+    
+    <item>
+      <title>mongoid升级3.0之后出现undefined method `database’ for Mongoid:Module (NoMethodError)</title>
+      <link>http://superwf.github.io/p365/</link>
+      <pubDate>Mon, 07 Jan 2013 06:20:29 +0000</pubDate>
+      
+      <guid>http://superwf.github.io/p365/</guid>
+      <description>mongoid升级3.0之后出现undefined method `database’ for Mongoid:Module (NoMethodError)
+先是把mongoid版本制定 ~&amp;gt;2.0之后，确实可以正常使用，就确定是mongoid升级之后的方法名变了。
+搜到了这个，按之操作解决问题。
+http://stackoverflow.com/questions/12019922/config-carrierwave-with-mongoid-gridfs</description>
+    </item>
+    
+    <item>
+      <title>jquery_ujs在method为put或delete的时候加入参数</title>
+      <link>http://superwf.github.io/p361/</link>
+      <pubDate>Fri, 21 Dec 2012 06:17:28 +0000</pubDate>
+      
+      <guid>http://superwf.github.io/p361/</guid>
+      <description>当需要在点击删除或更新按钮的同时，弹出输入框输入原因并记录原因的时候。
+就需要在提交的同时增加虚拟表单中的数据。
+一开始不知道就直接加到url上了，但是后来觉得太难看，照着一下这个设置可以
+但是只针对有remote: true时起作用。
+https://github.com/rails/jquery-ujs/issues/168</description>
+    </item>
+    
+    <item>
+      <title>nginx&#43;fastcgi(11: Resource temporarily unavailable)</title>
+      <link>http://superwf.github.io/p358/</link>
+      <pubDate>Mon, 10 Dec 2012 03:09:01 +0000</pubDate>
+      
+      <guid>http://superwf.github.io/p358/</guid>
+      <description>老项目上偶尔会出现404 error
+老项目配置的是php4，单独编译的，每次出现这个错误的时候日志都是
+nginx+fastcgi(11: Resource temporarily unavailable)
+看socket文件是没问题，php4的进程也都在，之前都是重启php4的进程就行了，但为了一劳永逸，搜了一下
+发现这个
+http://forum.nginx.org/read.php?3,31467,31467
+先暂时改了
+sysctl net.core.somaxconn=8192
+nignx配置文件里
+event {
+worker_connections 8192;
+use epoll;
+}
+也跟着改了，先用一阵子看还有没有404错误。</description>
+    </item>
+    
+    <item>
+      <title>452 4.3.1 Insufficient system storage</title>
+      <link>http://superwf.github.io/p356/</link>
+      <pubDate>Tue, 27 Nov 2012 06:44:23 +0000</pubDate>
+      
+      <guid>http://superwf.github.io/p356/</guid>
+      <description>今天邮件服务器突然发不出去邮件，报这个错误。
+应该是空间不足。上服务器看了一下，root还剩900多M的可用空间。
+突然想到ext分区有一些保留空间。果断lvextend了一下就恢复了。
+查了一下发现这个
+http://forum.ubuntu.org.cn/viewtopic.php?p=2601803
+不过vg还很大，先稳定重要。</description>
+    </item>
+    
+    <item>
+      <title>系统升级后又一次找不到root，进入initramfs</title>
+      <link>http://superwf.github.io/p352/</link>
+      <pubDate>Fri, 16 Nov 2012 01:31:25 +0000</pubDate>
+      
+      <guid>http://superwf.github.io/p352/</guid>
+      <description>dist-upgrade之后又一次进入了initramfs，这回不像上次一样改一下grub里的 uuid 就好了。这次干脆丢失了uuid。
+在/dev/disk/by-uuid/里只剩下了两个内容，一个是boot的，另一个是整个lvm的（大概），没有root分区的uuid。
+下班的时候也没弄好。不过还好在initramfs下lvm进去之后看了一下，发现root的lv卷是not available。
+回家之后搜lvm not available的关键字。
+有人指出用lvchange -a y /dev/vg/root这个命令使lv变为可用状态。
+今天一早进机房，先看了看pv是not useable。
+先pvchange -a y /dev/xxxxxxx了一下。
+把两个pv的状态改为useable。
+lvchange的命令都没用上，再lvdisplay一看lv就已经都是available的状态了。
+然后ctrl+d推出initramfs，系统正常启动OK。所以当前这个blog才能又一次上线…。
+可喜可贺～ 赶紧备份数据库！</description>
+    </item>
+    
+    <item>
+      <title>pptp设置</title>
+      <link>http://superwf.github.io/p348/</link>
+      <pubDate>Wed, 31 Oct 2012 14:32:55 +0000</pubDate>
+      
+      <guid>http://superwf.github.io/p348/</guid>
+      <description>openvpn的推广阻力很大，主要是由于客户端太麻烦，客户不好控制。
+还是选一个能用自带拨号的东西吧，经老于推荐用了pptpd
+http://www.cnblogs.com/wusthjp/archive/2012/04/05/2433704.html
+参考了以上设置，还挺容易的。
+关键的几步就是
+net.ipv4.ip_forward = 1
+和
+iptables -t nat -A POSTROUTING -s 192.168.2.0/255.255.255.0 -j SNAT –to-source 192.168.1.108
+这个</description>
+    </item>
+    
+    <item>
+      <title>prawn里内嵌png</title>
+      <link>http://superwf.github.io/p345/</link>
+      <pubDate>Fri, 19 Oct 2012 03:22:36 +0000</pubDate>
+      
+      <guid>http://superwf.github.io/p345/</guid>
+      <description>prawn里内嵌png
+在photoshop里导出png时，必须选择无交错，否则prawn里会报错，不能嵌入图片。</description>
+    </item>
+    
+    <item>
+      <title>rspec中用了stub之后总有报错 wrong number of arguments(1 for 0)</title>
+      <link>http://superwf.github.io/p342/</link>
+      <pubDate>Thu, 27 Sep 2012 03:19:53 +0000</pubDate>
+      
+      <guid>http://superwf.github.io/p342/</guid>
+      <description>弄了好几个钟头，一开始用rspec -b参数看trace信息还以为是rspec版本的问题。
+弄到后来发现一个model的属性叫method弄得出错。
+属性名改为method_name之后就好了，method的名字不能用，是我疏忽了。</description>
+    </item>
+    
+    <item>
+      <title>rspec中counter_cache不自动更新的问题</title>
+      <link>http://superwf.github.io/p339/</link>
+      <pubDate>Wed, 05 Sep 2012 01:42:28 +0000</pubDate>
+      
+      <guid>http://superwf.github.io/p339/</guid>
+      <description>rspec时，counter_cache的数字没有自动更新。
+发现因为缓存，reload一下就好了。
+而且FactoryGirl.craete 所创建的对象不能出发 counter_cache自动更新功能，还是必须用model自己的create方法。</description>
+    </item>
+    
+    <item>
+      <title>64位系统下无法使用libpam-mysql的md5</title>
+      <link>http://superwf.github.io/p331/</link>
+      <pubDate>Thu, 23 Aug 2012 04:40:04 +0000</pubDate>
+      
+      <guid>http://superwf.github.io/p331/</guid>
+      <description>Aug 23 09:05:57 wfoffice saslauthd[7235]: pam_mysql – non-crypt()ish MD5 hash is not supported in this build.
+首先声明在32位系统上没这问题，只有64位系统出这个。
+花了大半天的时间
+也没弄好。
+http://bbs.chinaunix.net/forum.php?mod=viewthread&amp;amp;tid=1321601
+也按这个重新编译过了
+显示编译结果都OK，但还是出第一行的那个错误，不能通过验证。
+看pam-mysql这个模块最后更新是2006年，这么多年就没再更新过，估计是没戏了，那时候64位系统还没普及。
+https://bugs.launchpad.net/ubuntu/+source/pam-mysql/+bug/1006005
+显示bug一直没修复。</description>
+    </item>
+    
+    <item>
+      <title>wheezy下配置postfix mysql postfixadmin dovecot roundcube全apt安装</title>
+      <link>http://superwf.github.io/p317/</link>
+      <pubDate>Fri, 10 Aug 2012 05:55:07 +0000</pubDate>
+      
+      <guid>http://superwf.github.io/p317/</guid>
+      <description>aptititude install postfix
+选择internet 模式
+填写 example.com，需要预先设置本机域名 mail.example.com
+aptitude install postfixadmin
+数据库选择mysql
+输入mysql的root密码，然后设置postfixadmin的数据库访问密码
+http://mail.dna.com/setup.php
+设置postfixadmin
+设置setup密码 xxxxxxx
+将更新密码生成的hash复制到 /etc/postfixadmin/config.inc.php里的
+setup_password 里
+新增加管理员 wangfan@example.com 密码xxxxxx
+改用dovecot,不用courier
+aptitude install dovecot-pop3d dovecot-imapd dovecot-mysql
+postfix 的验证可以通过 sasl2-bin所生成的saslauthd来进行验证。
+但是与dovecot配合时，通过dovecot来验证，所以不需要sasl2-bin
+验证通过/var/spool/postfix/private/auth的socket文件来进行交互。
+这是折腾了一天得到的宝贵经验。
+第二天
+昨天卡在了dovecot的验证上，用数据库验证总是不能通过。log里总是显示auth fail，不能得到详细的登录日志
+看dovecot的doc，找到在 /conf.d/10-logging.conf里更改日志记录等级。
+增加debug_log_path = /var/log/mail.debug
+auth_debug = yes
+然后就能在mail.debug文件中查看详细的登录时执行的查询sql。
+发现sql没有捕捉到%d参数。原来在客户端用的登录名是user，而不是user@domain.com
+用了完整的登录名称，总算是通过了验证。
+可以发邮件之后。
+不能收是个问题，总是提示status=bounced (unknown user）
+需要在postfix的main.cf中加入
+local_transport = dovecot
+设置roundcube之后登录
+用全用户名登录，如 q@domain.com
+报错 Class ‘Net_IDNA2’ not found 这个问题
+因为是php5-intl这个模块装了之后，php-cgi进程没有重启加载新module，重启php进程之后就好了
+以上都是流水帐，以下是正经的总结。
+debian wheezy 装好后</description>
+    </item>
+    
+    <item>
+      <title>nginx https fastcgi</title>
+      <link>http://superwf.github.io/p313/</link>
+      <pubDate>Fri, 27 Jul 2012 09:04:19 +0000</pubDate>
+      
+      <guid>http://superwf.github.io/p313/</guid>
+      <description>upstream unicorn-ends{
+server unix:/xxxxxx/unicorn.sock;
+}
+map $scheme $fastcgi_https {
+default on;
+https on;
+}
+server {
+#listen 80;
+listen 443 default ssl;
+server_name www.example.com;
+client_max_body_size 50m;
+fastcgi_param HTTPS $fastcgi_https;
+fastcgi_param HTTPS on;
+#include /etc/nginx/fastcgi_params;
+#log_format main ‘$remote_addr – $remote_user [$time_local] “$request” ‘
+access_log /var/log/nginx/user.log;
+root /path/public;
+ssl on;
+ssl_certificate /etc/nginx/keys/server.crt;
+ssl_certificate_key /etc/nginx/keys/server.key;
+ssl_protocols SSLv3 SSLv2 TLSv1;
+ssl_ciphers ALL:!ADH:!EXPORT56:RC4+RSA:+HIGH:+MEDIUM:+LOW:+SSLv2:+EXP;
+ssl_prefer_server_ciphers on;
+# serve static files
+# Main location
+location / {</description>
+    </item>
+    
+    <item>
+      <title>mini_magick resize图片，不保持长宽比</title>
+      <link>http://superwf.github.io/p308/</link>
+      <pubDate>Wed, 04 Jul 2012 08:24:39 +0000</pubDate>
+      
+      <guid>http://superwf.github.io/p308/</guid>
+      <description>需要将图片更改成固定尺寸。
+github上关于mini_magick的说明全是 resize ‘100×100’ 这样的例子
+都是会自动保持长宽比。
+但我要的是不要保持长宽比的，找了半天愣是没发现。
+后来看imagemagick文档发现参数中用 ‘100×100!’
+加上个!，就强制不保持长宽比了。</description>
+    </item>
+    
+    <item>
+      <title>过滤html tag外内容的正则</title>
+      <link>http://superwf.github.io/p298/</link>
+      <pubDate>Mon, 25 Jun 2012 01:57:05 +0000</pubDate>
+      
+      <guid>http://superwf.github.io/p298/</guid>
+      <description>上礼拜上班最后俩钟头写的一个，大概是我用上过最复杂的正则了
+rails里用的，需要把所有html标签外的的数字与英文都替换成_…_包裹的内容。
+prawn里替换字体用的，领导希望所有英文用times new roman字体显示。其他中文用宋体，prawn里没找着这种混合设置，只能想到用正则筛。
+args[0].gsub!(/(?&amp;lt;!&amp;lsquo;&amp;lt;&amp;rsquo;)([a-z0-9]+)(?![^&amp;gt;]*?[&amp;gt;])/i, ‘\1‘) if args[0].is_a? String
+str.gsub!(/(?&amp;lt;=&amp;lt;([^&amp;gt;])&amp;gt;).*?([a-z0-9]+).*?(?=&amp;lt;/\1&amp;gt;)/i, ‘\2‘)
+如果在零宽度正回顾后发断言中使用了数量匹配，就报错。比如
+str.gsub!(/(?&amp;lt;=&amp;lt;([^&amp;gt;]+)&amp;gt;).*?([a-z0-9]+).*?(?=&amp;lt;/\1&amp;gt;)/i, ‘\2‘)
+但是匹配固定数量没问题，比如
+str.gsub!(/(?&amp;lt;=&amp;lt;([^&amp;gt;]{1})&amp;gt;).*?([a-z0-9]+).*?(?=&amp;lt;/\1&amp;gt;)/i, ‘\2‘)
+网上都这么写没错，可能ruby的有些特殊，还是bug?
+http://stackoverflow.com/questions/3479131/problem-with-quantifiers-and-look-behind
+如是说，说不止ruby一个不支持在反向回顾中支持数量匹配的。</description>
+    </item>
+    
+    <item>
+      <title>mongodb assertion: 13325</title>
+      <link>http://superwf.github.io/p295/</link>
+      <pubDate>Fri, 15 Jun 2012 03:01:10 +0000</pubDate>
+      
+      <guid>http://superwf.github.io/p295/</guid>
+      <description>打算把文件上传用mongodb的gridfs代替原来的文件系统存储。
+弄了半天carrierwave-mongoid
+文件是存进去了，但是读不出来。
+在命令行下用mongofiles -d databasename list能看到文件
+mongofiles -d databasename get uploads/1022/note.png就报错误
+assertion: 13325 couldn’t open file: uploads/1022/note.png
+搜了有人说是权限问题，搞了半天发现get带路径的文件名的时候，必须在当前文件夹下创建该目录结构。
+也就是说如果要get uploads/1022/note.png
+就必须先创建 uploads/1022这个文件夹。</description>
+    </item>
+    
+    <item>
+      <title>dia无法输入中文问题</title>
+      <link>http://superwf.github.io/p293/</link>
+      <pubDate>Tue, 05 Jun 2012 03:07:16 +0000</pubDate>
+      
+      <guid>http://superwf.github.io/p293/</guid>
+      <description>http://www.ubuntu-tw.org/modules/newbb/viewtopic.php?topic_id=48402&amp;amp;post_id=222438
+参考了这个，又折腾了半天gcin，scim，全都不灵
+后来在第二页看到了一个提示，把菜单里的dia命令换成dia-gnome
+用dia-gnome启动后一切OK</description>
+    </item>
+    
+    <item>
+      <title>一个建立rails新程序的向导</title>
+      <link>http://superwf.github.io/p289/</link>
+      <pubDate>Tue, 05 Jun 2012 00:53:00 +0000</pubDate>
+      
+      <guid>http://superwf.github.io/p289/</guid>
+      <description>rails new rails3-devise-rspec-cucumber -m https://raw.github.com/RailsApps/rails3-application-templates/master/rails3-devise-rspec-cucumber-template.rb</description>
+    </item>
+    
+    <item>
+      <title>ibm 3650 m3 bnx2/bnx2-rv2p-09ax-5.0.0.j3.fw</title>
+      <link>http://superwf.github.io/p279/</link>
+      <pubDate>Sat, 28 Apr 2012 08:01:37 +0000</pubDate>
+      
+      <guid>http://superwf.github.io/p279/</guid>
+      <description>这个服务器运行了半年多，忽然发现反应慢半拍。之前提到的升级的那个破dell，6、7年前的机器ssh进去之后，进入目录，命令补全什么的都很速度。
+按说ibm3650这个还是前年的新机器，竟然很慢。
+据于工说是ibm的硬盘驱动问题，系统默认可能识别驱动不对。
+于是安装了firmware-linux-nonfree
+之后报系统错误。
+update-initramfs: Generating /boot/initrd.img-2.6.32-5-amd64
+W: Possible missing firmware /lib/firmware/bnx2/bnx2-rv2p-09ax-5.0.0.j3.fw for module bnx2
+W: Possible missing firmware /lib/firmware/bnx2/bnx2-rv2p-06-5.0.0.j3.fw for module bnx2
+W: Possible missing firmware /lib/firmware/bnx2/bnx2-mips-06-5.0.0.j3.fw for module bnx2
+又说缺这个，搜了
+http://packages.debian.org/squeeze/firmware-bnx2
+说是网卡的驱动，总之装上
+之后反应就迅速起来了。</description>
+    </item>
+    
+    <item>
+      <title>网络启动安装linux</title>
+      <link>http://superwf.github.io/p276/</link>
+      <pubDate>Mon, 23 Apr 2012 09:40:04 +0000</pubDate>
+      
+      <guid>http://superwf.github.io/p276/</guid>
+      <description>之前配置过网络启动安装系统。当时还有于工一起鼓捣，他弄了个网络pxe安装win2003，这个我一直都不会，不过因为是win的东西…
+最近又要装个老服务器，光驱接口不通用，有usb但不支持usb启动，还好支持pxe。
+今天又配置了一下，参考这个
+http://www.ixpub.net/thread-1127829-1-1.html
+最后我的dhcpd.conf内容如下
+class “pxeclients” {
+match if substring (option vendor-class-identifier, 0, 9) = “PXEClient”;
+option vendor-class-identifier “PXEClient”;
+vendor-option-space PXE;
+option PXE.mtftp-ip 0.0.0.0;
+filename “pxelinux.0”;
+next-server 10.0.0.70;
+}
+allow booting;
+allow bootp;
+subnet 10.0.0.0 netmask 255.255.255.0 {
+range 10.0.0.101 10.0.0.200;
+option routers 10.0.0.1;
+option domain-name-servers 10.0.0.70;
+}
+group {
+next-server 10.0.0.70;
+#host tftpclient {
+# filename “pxelinux.0”;
+#}
+filename “pxelinux.0”;
+}
+一开始在163上下了个debian的网络启动文件。有些教程上说要下载pxelinux.0 mini.iso
+其实都不用，就下载netboot.tar.gz一个文件，然后解压就都有了。
+解压后会有pxelinux.0这个文件。
+中间发生了点问题，目标服务器是dell poweredge 1750。</description>
+    </item>
+    
+    <item>
+      <title>incompatible character encodings: UTF-8 and ASCII-8BIT</title>
+      <link>http://superwf.github.io/p274/</link>
+      <pubDate>Fri, 20 Apr 2012 03:46:10 +0000</pubDate>
+      
+      <guid>http://superwf.github.io/p274/</guid>
+      <description>有一个页面，上传csv并解析后存如数据库，如果解析格式错误则render之前的页面提示错误。
+有个问题，上传文件中的字符出错后，如果该字符中包含非ascii字符页面就会报错
+incompatible character encodings: UTF-8 and ASCII-8BIT
+网上说了好多都说数据库连接方面的修改。我这个是直接解析上传文件，还没有涉及到数据库连接上，整个程序都是utf-8编码，config.encoding也已经设置。
+后来参考http://www.cnblogs.com/kting/archive/2011/09/15/2177530.html
+后来发现问题出在上传文件的读入上
+params[:upload_file].read.encoding
+返回的字符串的encoding是 ASCII－8BIT
+在这里用params[:upload_file].read.force_encoding(“utf-8”)
+之后就正常了。
+其间还测试了Iconv.iconv方法，不过不灵，还试了String#toutf8方法，结果字符串变成了空白的，不清楚这个方法是干什么的。</description>
+    </item>
+    
+    <item>
+      <title>prawn生成的pdf在chrome中直接显示</title>
+      <link>http://superwf.github.io/p272/</link>
+      <pubDate>Thu, 19 Apr 2012 08:31:35 +0000</pubDate>
+      
+      <guid>http://superwf.github.io/p272/</guid>
+      <description>今天要调试个pdf生成页面，为了调试方便希望在chrome里直接显示pdf，这样每次刷新就可以看到pdf的变化。
+刚开始一点击pdf后浏览器总是自动下载文件。
+以为是nginx或者rails里mime的什么设置的问题，后来在controller里的send_data有个参数
+disposition: “inline”
+之后pdf就能直接显示在chrome里了。</description>
+    </item>
+    
+    <item>
+      <title>rubygems-bunlder不用每次都执行bundle exec</title>
+      <link>http://superwf.github.io/p269/</link>
+      <pubDate>Fri, 13 Apr 2012 02:07:23 +0000</pubDate>
+      
+      <guid>http://superwf.github.io/p269/</guid>
+      <description>找到这么一个好东西
+https://github.com/mpapis/rubygems-bundler
+安装之后，每次进入程序主目录之后，执行rails、rake等命令
+会自动根据当前程序Gemfile里的版本执行对应的程序。
+省略了每次必须先敲bundle exec的麻烦。
+可喜可贺</description>
+    </item>
+    
+    <item>
+      <title>rails aototest not running</title>
+      <link>http://superwf.github.io/p267/</link>
+      <pubDate>Fri, 13 Apr 2012 02:05:09 +0000</pubDate>
+      
+      <guid>http://superwf.github.io/p267/</guid>
+      <description>在一个新的rails3.2的程序里，打算用郭老师推荐的autotest
+可是按教程写的载入之后，运行autotest之后，进程就卡住，根本不往下走，完全不像autotest教程上说的，先自动整体测试一遍。
+google之后说是因为rspec升级为rspec2的缘故
+在程序主文件夹里放入文件夹 ./autotest/discover.rb
+内容为
+Autotest.add_discovery { “rspec2” }
+然后再执行autotest就能自动执行了。</description>
+    </item>
+    
+    <item>
+      <title>libreadline.so.5 undefined symbol problem导致reiserfs分区加载不了</title>
+      <link>http://superwf.github.io/p263/</link>
+      <pubDate>Fri, 30 Mar 2012 05:06:30 +0000</pubDate>
+      
+      <guid>http://superwf.github.io/p263/</guid>
+      <description>昨天由于rails c命令报错，说缺少readline这个库，调试了一些什么，具体的也想不起来了。
+今天一开机，报readline错误，而且几个lvm里的reiserfs分区也找不到了！
+一开始还以为是分区损坏，数据完蛋了。
+vgdisplay就报错
+symbol lookup error: /usr/local/lib/libreadline.so.5: undefined symbol
+后来google一下说是readline的问题
+按这个帖子说的
+http://ubuntuforums.org/showthread.php?t=269022
+把几个readline的文件都删了，然后ldconfig更新一下。
+竟然就好了。
+加密分区也回来了，可喜可贺！</description>
+    </item>
+    
+    <item>
+      <title>debian gpg</title>
+      <link>http://superwf.github.io/p258/</link>
+      <pubDate>Wed, 28 Mar 2012 09:15:26 +0000</pubDate>
+      
+      <guid>http://superwf.github.io/p258/</guid>
+      <description>升级wheezy之后需要装smplayer
+在sources.list里加入了
+deb http://www.debian-multimedia.org wheezy main non-free
+aptitude update之后
+由于没有公钥，下列签名无法进行验证： NO_PUBKEY 07DC563D1F41B907
+按http://www.debian-multimedia.org/上写的
+先装上debian-multimedia-keyring
+装上这个的意义应该就在于导入公钥
+顺便了解了一下gpg命令
+gpg –keyserver keyserver.ubuntu.com –search-keys 07DC563D1F41B907
+如果在公钥服务器上找到，导入之
+gpg –keyserver keyserver.ubuntu.com –recv 07DC563D1F41B907
+gpg –export –a 07DC563D1F41B907 | sudo apt-key add –
+后来知道apt-key这个命令的adv参数直接将后面的参数传递给gpg
+apt-key adv –keyserver keyserver.ubuntu.com –recv-keys D1F41B907
+D1F41B907就是刚才key的后8位。
+前面的那几个命令就用这一个就可以替代了。
+有些key在keyserver.ubuntu.com找不到，可以换wwwkeys.pgp.net试试。
+先gpg –list-keys看了一下，我这个系统里还存着去年的过是的key，是squeeze安装iceweasel用的
+用gpg –delete-keys xxxxxxx删除之</description>
+    </item>
+    
+    <item>
+      <title>bash.bashrc与profile</title>
+      <link>http://superwf.github.io/p253/</link>
+      <pubDate>Tue, 20 Mar 2012 01:26:03 +0000</pubDate>
+      
+      <guid>http://superwf.github.io/p253/</guid>
+      <description>之前装bash-completion时就发现不能自动加载，后来在~/bashrc里加了启动。
+后来用rvm也没有自动加载，每次都是启动之后再
+source /etc/profile.d/rvm.sh
+才装载上
+观察/etc/profile里有自动加载/etc/profile.d/这个目录里的sh文件
+还发现，就是在gnome登录后，打开窗口下的终端时，不能加载/etc/profile和~/bash_profile的内容。
+ctrl + alt + F1的控制台中是自动加载的。
+应该是profile等文件的内容只在交互式登录环境中其作用。
+为了在gnome中的终端中也其作用，于是把/etc/profile里加载/etc/profile.d的内容复制一份到/etc/bash.bashrc中。
+再在gnome中的终端中，这些配置就加载了。</description>
+    </item>
+    
+    <item>
+      <title>bind9默认不能查询，反解</title>
+      <link>http://superwf.github.io/p248/</link>
+      <pubDate>Mon, 19 Mar 2012 09:33:07 +0000</pubDate>
+      
+      <guid>http://superwf.github.io/p248/</guid>
+      <description>全aptitude安装
+之前的域控服务器挂了导致dns也完了。
+终于有有机会不得不弄个dns服务。
+发现bind9默认会不允许其他主机进行dns查询
+原来需要在其named.conf.options中添加
+acl allowed {10.0.0.0/24;};
+options {
+allow-query {allowed};
+}
+允许某个ip段访问才可。
+很久以后，之前用git都没事，后来用capistrano自动部署的时候被fail2ban ban
+发现auth.log里有
+POSSIBLE BREAK-IN ATTEMPT
+说是ip没有做反解。
+在named.conf.default-zones里加上
+zone “0.168.192.in-addr.arpa” {
+type master;
+file “/etc/bind/db.domain”;
+};
+这里ip要反写.
+然后在db.domain里加上
+3 IN PTR www.domain.com.
+域名最后要有一个.
+bind reload之后 nsloopup 一下应该就能反解了。了</description>
+    </item>
+    
+    <item>
+      <title>iis7 win2008R2 64</title>
+      <link>http://superwf.github.io/p246/</link>
+      <pubDate>Tue, 06 Mar 2012 05:50:00 +0000</pubDate>
+      
+      <guid>http://superwf.github.io/p246/</guid>
+      <description>折腾两天没弄出来，原来是32位兼容问题，我连盗版不稳定性都考虑了，看了下面这个解决的。
+http://blog.verypod.com/windows7-64-php-mysql-issue/</description>
+    </item>
+    
+    <item>
+      <title>nagios fcgiwrap</title>
+      <link>http://superwf.github.io/p240/</link>
+      <pubDate>Mon, 27 Feb 2012 06:08:40 +0000</pubDate>
+      
+      <guid>http://superwf.github.io/p240/</guid>
+      <description>网上N多到处copy的文章，统统都用一个perl的nginx-fcgi脚本来启动。
+找了很多还都失效了，或者报错说语法错误。
+后来也找了个有效的
+不过最终找了个有用的文
+http://vladgh.com/blog/nagios-nginx-ubuntu
+用fcgiwrap管理cgi，方便。
+apt 安装 nagios3之后，没有 /var/lib/nagios3/rw/nagios.cmd文件
+需要修改/etc/nagios3/nagios.cfg
+check_external_commands=1
+之后service nagios3 restart 就会生成这个文件了，在npc中用到。
+nagios的网站根目录在/usr/share/nagios3/htdocs
+设置好之后会访问会有一些css和js文件丢失的情况，需要自己建立软链接，其中images应该在 /etc/nagios3/images
+以下是我的nginx的配置，因为debian版本的升级，nagios的路径改了一些所以这个网站也要相应的改一些。
+cgi那里根据配置已经不用redirect了。
+本次更改，debian wheezy已经升级为稳定版了。
+server {
+listen 80;
+server_name monitor.com;
+access_log /var/log/nginx/monitor.log;
+location / {
+location ~ .cgi$ {
+root /usr/lib;
+include fastcgi_params;
+fastcgi_param SCRIPT_FILENAME $document_root$fastcgi_script_name;
+fastcgi_pass unix:/var/run/fcgiwrap.socket;
+}
+location ~ ^nagios3 {
+root /usr/share/nagios3/htdocs;
+}
+root /usr/share/nagios3/htdocs;
+index index.php;
+autoindex on;
+autoindex_exact_size off;
+autoindex_localtime on;
+client_max_body_size 100m;
+location ~ .php$ {</description>
+    </item>
+    
+    <item>
+      <title>debian cacti snmpdiskio</title>
+      <link>http://superwf.github.io/p235/</link>
+      <pubDate>Thu, 23 Feb 2012 09:28:02 +0000</pubDate>
+      
+      <guid>http://superwf.github.io/p235/</guid>
+      <description>下载了snmpdiskio这个插件，按里面README走
+最新版可能是0.9.6，但是到处都找不到了，其实用不到0.9.6也一样用。当前的服务器已经是3.2.0.4版本的内核，debian wheezy已经成stable了的时候了。
+在被监控机器上的 /etc/snmp/snmpd.conf里加上了
+extend .1.3.6.1.4.1.2021.54 hdNum /usr/local/bin/snmpdiskio hdNum
+extend .1.3.6.1.4.1.2021.55 hdIndex /usr/local/bin/snmpdiskio hdIndex
+extend .1.3.6.1.4.1.2021.56 hdDescr /usr/local/bin/snmpdiskio hdDescr
+extend .1.3.6.1.4.1.2021.57 hdInBlocks /usr/local/bin/snmpdiskio hdInBlocks
+extend .1.3.6.1.4.1.2021.58 hdOutBlocks /usr/local/bin/snmpdiskio hdOutBlocks
+在
+http://public.itmatrix.eu/Cacti_templates/Disk_IO
+wget http://public.itmatrix.eu/Cacti_templates/Disk_IO/partition.xml
+然后更改文件
+将&amp;lt;index_order&amp;gt;hdDescr:hdName:hdIndex&amp;lt;/index_order&amp;gt;
+这行 hdName: 去掉
+wget http://public.itmatrix.eu/Cacti_templates/Disk_IO/snmpdiskio
+install -m 0755 -o root -g root -p -v snmpdiskio /usr/local/bin/
+在监控端用
+snmpwalk -v2c -c public 192.168.0.10 .1.3.6.1.4.1.2021.54
+如果配置的是v3的验证
+snmpwalk -v3 -u uuu -l auth -a MD5 -A pppppppp 1.</description>
+    </item>
+    
+    <item>
+      <title>lvm加密分区</title>
+      <link>http://superwf.github.io/p228/</link>
+      <pubDate>Wed, 22 Feb 2012 05:03:02 +0000</pubDate>
+      
+      <guid>http://superwf.github.io/p228/</guid>
+      <description>装好cryptsetup
+以装好lvm为前提进行以下操作。
+若分区不存在则
+cryptsetup create home /dev/vg/home
+若已经建立lvm分区则
+cryptsetup luksFormat /dev/vg/home
+让输入密码就输
+完成之后的这个新盘的数据会被清空，加密分区就做好了。
+打消了我之前以为可以把普通分区无损转成加密分区的幻想…
+需要挂载时
+cryptsetup luksOpen /dev/vg/home home
+就会建立/dev/mapper/home的映射，或者自己起的其他名字的什么映射，必须通过映射名称来格式化和挂载。
+完成之后
+mkfs.ext4 /dev/mapper/home
+或者用其他需要的分区命令格式化
+然后mount这个映射就可以了，例如
+mount /dev/mapper/home /home
+若需要开机自动挂载
+则还需要一个key文件
+比如在 vim /root/home
+内容是11111111或者其他什么字符串就成
+然后
+cryptsetup luksAddKey /dev/vg/home /root/home
+添加了密钥
+需要修改/etc/crypttab文件
+home /dev/vg/home /root/home luks
+这样应该就可以自动启动挂载了
+不过我这启动时有个报错，启动之后用着也没影响
+FATAL: Error inserting padlock_sha (/lib/modules/2.6.32-5-amd64/kernel/drivers/crypto/padlock-sha.ko): No such device
+google说是内核bug，之后的升级应该能修正
+后来我把 padlock-sha加到 /etc/modprob.d/blacklis.conf里
+还有warning 报错，说那个key文件是明文，不过总算舒服点，也妨碍使用。
+如果不使用密钥加载则修改 /etc/crypttab文件的第三列为 none ，如下
+home /dev/vg/home none luks
+就会在开机加载该分区时提示让输入密码，还是这样好些，我最后就是这么设置的。</description>
+    </item>
+    
+    <item>
+      <title>nginx passenger rails</title>
+      <link>http://superwf.github.io/p219/</link>
+      <pubDate>Fri, 10 Feb 2012 02:52:57 +0000</pubDate>
+      
+      <guid>http://superwf.github.io/p219/</guid>
+      <description>前几天去面试，有个题目是关于passenger的
+我写没用过，用的是unicorn + nginx
+回来之后觉得passenger实在是有必要研究一下
+先gem install passenger
+然后装nginx的模块
+默认编译和我原来的apt装的差了好多参数
+选2自己加参数，用nginx -V看看原来的参数，把合适的都加进去，默认路径就/opt/nginx好了
+参数如下
+–conf-path=/etc/nginx/nginx.conf –error-log-path=/var/log/nginx/error.log –http-client-body-temp-path=/var/lib/nginx/body –http-fastcgi-temp-path=/var/lib/nginx/fastcgi –http-log-path=/var/log/nginx/access.log –http-proxy-temp-path=/var/lib/nginx/proxy –lock-path=/var/lock/nginx.lock –pid-path=/var/run/nginx.pid –with-http_geoip_module –with-http_gzip_static_module –with-http_realip_module –with-http_stub_status_module –with-http_sub_module –with-mail –with-mail_ssl_module
+按编译完的提示在nginx.conf里加上
+passenger_root /usr/lib/ruby/gems/1.9.1/gems/passenger-3.0.11;
+passenger_ruby /usr/bin/ruby1.9.1;
+编译好之后把 cp /opt/nginx/sbin/nginx /usr/sbin/nginx里，就直接用了，配置文件什么的都原来的位置
+在网站的配置里把我原来的unicorn的配置注释掉
+加上 passenger_enabled on;
+编译完了之后启动说少了libpcre.so.0
+aptitude install libpcre++0
+启动之后说
+git://github.com/galetahub/simple-captcha.git (at master) is not checked out. Please run `bundle install` (Bundler::GitError)
+bundle install 还不管用
+搜了搜
+用 bundle install –path vendor/
+把所有环境都集成到程序里</description>
+    </item>
+    
+    <item>
+      <title>rails postgresql</title>
+      <link>http://superwf.github.io/p217/</link>
+      <pubDate>Wed, 01 Feb 2012 06:54:00 +0000</pubDate>
+      
+      <guid>http://superwf.github.io/p217/</guid>
+      <description>往heroku上推项目，需要支持postgresql
+装完之后需要gem install pg
+需要libpq-dev的支持</description>
+    </item>
+    
+    <item>
+      <title>startssl https</title>
+      <link>http://superwf.github.io/p215/</link>
+      <pubDate>Wed, 01 Feb 2012 01:31:24 +0000</pubDate>
+      
+      <guid>http://superwf.github.io/p215/</guid>
+      <description>想从startssl申请个公网的证书，注册了也提出了申请，在选择域名的时候发现没有dyndns.info这个域名。
+写信过去要求申请添加这个域名，果然过了小半天如网上所说的那样，人家服务态度很好，把不能添加的原因给我发过来了，这个域名不支持whois服务，所以无法添加…
+免费的东西就泵抱怨了，残念…</description>
+    </item>
+    
+    <item>
+      <title>rails3 ssl https</title>
+      <link>http://superwf.github.io/p209/</link>
+      <pubDate>Mon, 30 Jan 2012 08:39:17 +0000</pubDate>
+      
+      <guid>http://superwf.github.io/p209/</guid>
+      <description>给项目的登录页面做个https认证，登录后还跳转回http的页面。
+先让nginx支持ssl
+在网站的配置文件中的server {…} 之前加入
+map $scheme $fastcgi_https { ## Detect when HTTPS is used
+default off;
+https on;
+}
+server {} 内加入
+fastcgi_param HTTPS $fastcgi_https;
+参考http://www.quany.info/web-design/nginx-400-bad-request-the-plain-http-request-was-sent-to-https-port.html
+其他ssl 的配置参考
+http://www.linuxidc.com/Linux/2011-09/44187.htm
+后来出现了400错误
+The page isn’t redirecting properly
+试了几回，把 server {} 里的
+ssl on;
+去掉就好了
+只要同时 listen 80;
+listen 443; 就行了
+然后在程序里的验证身份中
+redirect_to url_for(…., :protocol =&amp;gt; ‘https’)
+这样写，验证完的跳回80端口 :protocol =&amp;gt; ‘http’
+看rails的配置里，需要在confit/application.rb中加入
+config.force_ssl = true
+我加了之后出现页面循环重定向错误，后来把这个去掉了也没什么问题，觉得不用加这个。</description>
+    </item>
+    
+    <item>
+      <title>debian 系统迁移</title>
+      <link>http://superwf.github.io/p204/</link>
+      <pubDate>Thu, 19 Jan 2012 03:22:18 +0000</pubDate>
+      
+      <guid>http://superwf.github.io/p204/</guid>
+      <description>将一个老系统上的aptitude安装的软件导出列表，然后在新系统上完整的复制过去这个配置。
+参考如下
+http://serverfault.com/questions/737/ubuntu-how-to-setup-a-new-machine-like-an-existing-one
+debconf-get-selections
+debconf-set-selections
+~
+aptitude-create-state-bundle
+aptitude-run-state-bundle –unpack
+~
+dpkg –get-selections “*” &amp;gt;myselections
+“*” makes myselections include package entries for “purge” too.
+试了一下，加＊与不加好像没区别
+on a new machine
+# apt-get update
+# dpkg –set-selections &amp;lt;myselections # apt-get -u dselect-upgrade 有以上三套方案可选 我倾向与用 aptitude-create-state-bundle aptitude-run-state-bundle &amp;ndash;unpack 这个 先aptitude-create-state-bundle my_bundle 然后把my_bundle 考到新机器上 aptitude-run-state-bundle my_bundle</description>
+    </item>
+    
+    <item>
+      <title>debian apt-mirror</title>
+      <link>http://superwf.github.io/p200/</link>
+      <pubDate>Thu, 19 Jan 2012 02:56:57 +0000</pubDate>
+      
+      <guid>http://superwf.github.io/p200/</guid>
+      <description>很早之前配的apt-mirror
+最近有些修改，做一下记录
+比如 一台机器为 mirror.dna.com
+先装 apt-mirror
+编辑 /etc/apt/mirror.list
+set base_path /srv/apt-mirror # 我这里给单分了一个区，否则默认用/var里，得用个百十来G
+deb http://mirrors.163.com/debian stable main contrib non-free
+deb-src http://mirrors.163.com/debian stable main contrib non-free
+deb http://mirrors.163.com/debian squeeze-updates main contrib non-free # 这个是安装更新列表里的，否则如果用这个源安装新系统会说找不到安装源
+deb http://mirrors.163.com/debian squeeze main/debian-installer # 这个很重要，否则这个源只能更新，不能安装新系统
+然后配置nginx 添加一个新站点 mirrors.dna.com
+location / {
+root /srv/apt-mirror/mirror/mirrors.163.com;
+index index.html index.htm;
+autoindex on;
+}
+配置完毕
+然后装新系统时，选择安装源时，手动输入 mirrors.dna.com（先配置好dns将这个域名指向正确的ip）
+然后路径选择 debian 即可</description>
+    </item>
+    
+    <item>
+      <title>google拼音输入法scim</title>
+      <link>http://superwf.github.io/p195/</link>
+      <pubDate>Wed, 18 Jan 2012 01:53:05 +0000</pubDate>
+      
+      <guid>http://superwf.github.io/p195/</guid>
+      <description>scim-googlepinyin
+下载这个包，解包
+或者git clone git://github.com/tchaikov/scim-googlepinyin.git
+进去之后运行autogen.sh
+要是提示找不到scim, 装 scim-dev
+还需要 autoconf 包的支持，这个包里带几个需要的依赖
+装完之后 ./configure; make; make install
+之后 pkill scim
+scim -d
+我这不管用，scim 不能启动。
+重启之后好了，总之能用。</description>
+    </item>
+    
+    <item>
+      <title>rails3 update_attributes时不能更新date类型</title>
+      <link>http://superwf.github.io/p190/</link>
+      <pubDate>Thu, 05 Jan 2012 07:30:11 +0000</pubDate>
+      
+      <guid>http://superwf.github.io/p190/</guid>
+      <description>有个模型Primer的属性是over_date 类型是date
+从 nil 更新为 ‘2011-05-06’ 可以
+从有 到 无，就不能了
+update_attribute update_attributes save
+加上叹号，都返回true
+但是就是不更新为 NULL
+发现 datetime 类型的也有同样的问题
+但是在 rails c
+命令行下更新就没问题，十分头疼！
+最后没辙只好用 update_all 来更新，就是没法调用 before_update 的方法
+找出原因，是自己扩展的一个 NillClass的 method_missing方法影响了这个操作
+去掉了这个方法就好了。唉，自己作的。</description>
+    </item>
+    
+    <item>
+      <title>action_mailer的 view里不能调用helper里的方法</title>
+      <link>http://superwf.github.io/p187/</link>
+      <pubDate>Wed, 28 Dec 2011 06:27:05 +0000</pubDate>
+      
+      <guid>http://superwf.github.io/p187/</guid>
+      <description>action_mailer的 view里不能调用自定义helper里的方法
+但是原生的方法就可以，比如link_to
+其他后来定义的方法，比如ApplicationHelper里定义的就会说找不到方法
+是用delayedJobs发送的邮件，不知道有没有什么联系</description>
+    </item>
+    
+    <item>
+      <title>html5下的video</title>
+      <link>http://superwf.github.io/p184/</link>
+      <pubDate>Wed, 21 Dec 2011 05:57:53 +0000</pubDate>
+      
+      <guid>http://superwf.github.io/p184/</guid>
+      <description>html5内建的video标签竟然没有全屏按钮，没想到
+http://videojs.com/
+给html5用还挺好</description>
+    </item>
+    
+    <item>
+      <title>ruby websocket</title>
+      <link>http://superwf.github.io/p181/</link>
+      <pubDate>Mon, 21 Nov 2011 12:42:38 +0000</pubDate>
+      
+      <guid>http://superwf.github.io/p181/</guid>
+      <description>最近有空体验了一下websocket
+服务端用的是websocket-rack
+客户端用的是jquery 的 gracefulWebSocket
+jquery本来还有另一个websocket的插件不过可以发送消息到服务端，但是没能成功接收数据，可能是我哪的参数没用对。</description>
+    </item>
+    
+    <item>
+      <title>ruby合并pdf</title>
+      <link>http://superwf.github.io/p175/</link>
+      <pubDate>Tue, 20 Sep 2011 01:28:06 +0000</pubDate>
+      
+      <guid>http://superwf.github.io/p175/</guid>
+      <description>项目里有个功能需要动态合并很多静态的pdf文件为一个大的pdf文件
+没找到好的ruby内置的功能，找了个系统工具pdftk，算是还挺简单的。
+http://stackoverflow.com/questions/85459/is-it-possible-to-combine-a-series-of-pdfs-into-one-using-ruby</description>
+    </item>
+    
+    <item>
+      <title>ROR中我无法解决的问题</title>
+      <link>http://superwf.github.io/p171/</link>
+      <pubDate>Wed, 14 Sep 2011 03:41:12 +0000</pubDate>
+      
+      <guid>http://superwf.github.io/p171/</guid>
+      <description>目前已经有两个rails3的系统部署下去使用了，遇到了如下一些问题，至今无法解决。
+一个是observer问题
+这个observer是记录很多表数据的创建用户用的
+class RecordUserObserver &amp;lt; ActiveRecord::Observer include UserSessionsHelper observe Client, ClientEmail, Company, PrintLabel, ReSynthesis, Synthesis, Aminolysis, PageElectrophoresis, Desalt, Drain, Checkout, CheckoutOrder, CheckoutSign, Invoice, InvoiceSign, Cash, BadDebt, User, Role, Price, DeletionLogger, CheckoutPrimer, Order # 记录当前用户 def before_create(record) record.user_id = current_user.id end end 其中用到的 UserSessionsHelper如下 module UserSessionsHelper private # 当前用户的session def current_user_session return @current_user_session if defined?(@current_user_session) @current_user_session = UserSession.find end # 当前登录用户 def current_user return @current_user if defined?(@current_user) @current_user = current_user_session &amp;amp;&amp;amp; current_user_session.</description>
+    </item>
+    
+    <item>
+      <title>rails3 sso单点登录</title>
+      <link>http://superwf.github.io/p169/</link>
+      <pubDate>Fri, 02 Sep 2011 02:02:25 +0000</pubDate>
+      
+      <guid>http://superwf.github.io/p169/</guid>
+      <description>rails3 的单点登录
+网上搜说要用什么什么插件，多次实验后发现不用
+参考了这个
+http://logicsoul.com/2010/rails-3-enabling-cross-sub-domain-sso/
+在config/initializers/session_store.rb里
+修改
+MyApp::Application.config.session_store :active_record, :key =&amp;gt; ‘_sso_session’, :domain =&amp;gt; ‘.superwf.com’
+在多个网站中，把:key和:domain 改成一致的，就可以了，session跨数据库共享参见另一篇</description>
+    </item>
+    
+    <item>
+      <title>debian 升级后启动不能 进入initramfs</title>
+      <link>http://superwf.github.io/p167/</link>
+      <pubDate>Thu, 01 Sep 2011 08:03:08 +0000</pubDate>
+      
+      <guid>http://superwf.github.io/p167/</guid>
+      <description>一个作git server 用处的服务器，没什么其他的东西，尝试了一下unstable 的源，升级后重启悲剧了，进入initramfs的系统。
+系统还是lvm的分区，老scsi硬盘，挂不到其他机器上。
+后来在initramfs里mount 了一大圈总算找回了以前的数据。
+进入了/boot/grub/grub.cfg 里面有个root=UUID=xxxxxxx的玩意
+启动是报错就是因为说找不到这个UUID的硬件。尝试把UUID去掉，直接改成root=/dev/mapper/xxxx 我的lvm 的分区文件名，竟然起来了。
+这玩意肯定算grub升级的bug，大概。</description>
+    </item>
+    
+    <item>
+      <title>php Internal Server Error</title>
+      <link>http://superwf.github.io/p165/</link>
+      <pubDate>Wed, 31 Aug 2011 02:27:10 +0000</pubDate>
+      
+      <guid>http://superwf.github.io/p165/</guid>
+      <description>帮人配置个redhat上的php环境，万网已经给配置好了，但是一跑php就Internal Server Error
+看了半天，说是改权限755了，没用。
+看apache日志把，说是文件gid小于了允许运行的min_gid
+把文件都改成apache用户所属
+chown nobody:nobody /var/www/htdocs -R
+搞定</description>
+    </item>
+    
+    <item>
+      <title>meta结尾的模型名称引起的路由错误</title>
+      <link>http://superwf.github.io/p162/</link>
+      <pubDate>Tue, 30 Aug 2011 01:58:54 +0000</pubDate>
+      
+      <guid>http://superwf.github.io/p162/</guid>
+      <description>用了个模型叫plasmid_meta，在routes.rb里加了resources :plasmid_metas
+结果在form_for 里说找不到路径 plasmid_meta_index_path
+估计大概不是meta是个关键字，就是meta结尾的名词复数形式不太一样，后来也没查出来，把模型名改了，以后不用meta结尾的名字了…</description>
+    </item>
+    
+    <item>
+      <title>selenium firefox6</title>
+      <link>http://superwf.github.io/p159/</link>
+      <pubDate>Mon, 29 Aug 2011 02:50:19 +0000</pubDate>
+      
+      <guid>http://superwf.github.io/p159/</guid>
+      <description>升级了ff6，之后跑selenium的测试不动了，报超时错误。
+上网搜说是升级selenium-webdriver 到最新的就行了。弄了半天，升级了好几个相关的玩意，才总算又跑起来了，省了给ff降级。</description>
+    </item>
+    
+    <item>
+      <title>simple_captcha在production模式不显示</title>
+      <link>http://superwf.github.io/p155/</link>
+      <pubDate>Thu, 25 Aug 2011 07:13:49 +0000</pubDate>
+      
+      <guid>http://superwf.github.io/p155/</guid>
+      <description>http://stackoverflow.com/questions/5888681/in-my-rails-3-app-simple-captcha-doesnt-display-image-on-production-mode
+照做，解决</description>
+    </item>
+    
+    <item>
+      <title>rails 不同app间共享session</title>
+      <link>http://superwf.github.io/p153/</link>
+      <pubDate>Thu, 25 Aug 2011 05:23:49 +0000</pubDate>
+      
+      <guid>http://superwf.github.io/p153/</guid>
+      <description>http://stackoverflow.com/questions/4854577/using-a-sessions-table-from-another-db-in-rails
+http://stackoverflow.com/questions/377137/rails-multiple-top-level-domains-and-a-single-session-cookie
+参考，完毕</description>
+    </item>
+    
+    <item>
+      <title>IE无法登录rails程序</title>
+      <link>http://superwf.github.io/p149/</link>
+      <pubDate>Fri, 19 Aug 2011 04:18:29 +0000</pubDate>
+      
+      <guid>http://superwf.github.io/p149/</guid>
+      <description>新用的一个内部域名为primer_synthesis.dna.com
+页面提示不见容ie6的部分样式，但用户反应用ie8也上不去。我找了个机器用ie6 9 也都上不去。
+还以为是authlogic的问题。在我的开发机器上测试就没问题，但是服务器上的就是上不去，明明都是一样的代码。
+搜到这个后来
+http://www.letrails.cn/archives/ie7-bug-make-rails-session-cant-be-saved/
+把域名改了，去了下划线，就OK了</description>
+    </item>
+    
+    <item>
+      <title>compass添加52framework</title>
+      <link>http://superwf.github.io/p146/</link>
+      <pubDate>Fri, 12 Aug 2011 05:23:01 +0000</pubDate>
+      
+      <guid>http://superwf.github.io/p146/</guid>
+      <description>之后，css文件报错说找不到框架
+需要在
+为
+做一个连接</description>
+    </item>
+    
+    <item>
+      <title>rails will_paginate ajax</title>
+      <link>http://superwf.github.io/p142/</link>
+      <pubDate>Tue, 26 Jul 2011 07:52:53 +0000</pubDate>
+      
+      <guid>http://superwf.github.io/p142/</guid>
+      <description>终于到了一个不得不用ajax翻页的应用。搜了搜will_paginate本来的doc没有这个现成的设置，github上倒是有几个应用，看了看都觉得要改动的地方比较多，不舒服。
+后来看了一个例子，我用的haml
+加上这个js代码确实是产生ajax请求了。
+不过请求的页面返回的是html，不知道调用什么才能把新得到的html替换原html
+原来问题出在响应的头信息的Content-Type上
+又写了个对应的company.js.erb
+在里面
+带ajax的will_paginate应用OK
+在controller 中
+format.html 会自动调用 html.haml
+format.js 自动调用 js.erb</description>
+    </item>
+    
+    <item>
+      <title>rails uninitialized constant Rake::DSL</title>
+      <link>http://superwf.github.io/p139/</link>
+      <pubDate>Tue, 19 Jul 2011 07:00:09 +0000</pubDate>
+      
+      <guid>http://superwf.github.io/p139/</guid>
+      <description>机器换硬盘，配置新环境之后执行rake报错
+该装的都装了。后来又重新gem install rake了两次，才好了，这个问题有点莫名其妙～～～</description>
+    </item>
+    
+    <item>
+      <title>rails pdf prawn</title>
+      <link>http://superwf.github.io/p137/</link>
+      <pubDate>Tue, 19 Jul 2011 06:57:08 +0000</pubDate>
+      
+      <guid>http://superwf.github.io/p137/</guid>
+      <description>最近的项目里有个要打印标签的功能。
+本想用mini_magick在图片里写字。因为图片非常小，里面的字体几乎就没法看，没办法需要矢量图的东西。要是ruby没有支持矢量图操作的东西就完蛋了。结果发现pdf算是一种矢量图。后来用pawn生成一个小尺寸的pdf解决了打印问题</description>
+    </item>
+    
+    <item>
+      <title>rails3接收email</title>
+      <link>http://superwf.github.io/p127/</link>
+      <pubDate>Thu, 30 Jun 2011 07:41:16 +0000</pubDate>
+      
+      <guid>http://superwf.github.io/p127/</guid>
+      <description>http://cbpowell.wordpress.com/2011/01/17/saving-attachments-with-ruby-1-9-2-rails-3-and-the-mail-gem/
+rails发送邮件，按教程做都很容易，收邮件的事就一笔带过了，官方有个办法，不过还得把你的rails程序部署在你的mail server上，不实用。
+参考以上连接的方法实现接收邮件
+  </description>
+    </item>
+    
+    <item>
+      <title>mysql 主从机设置</title>
+      <link>http://superwf.github.io/p115/</link>
+      <pubDate>Fri, 24 Jun 2011 08:27:38 +0000</pubDate>
+      
+      <guid>http://superwf.github.io/p115/</guid>
+      <description>mysql 从5.1开始就好像不支持将主从配置写在my.ini里了，得先开服务然后用sql语句来操作同步，参考
+http://www.ooso.net/archives/547
+  </description>
+    </item>
+    
+    <item>
+      <title>mysql 网络连接慢</title>
+      <link>http://superwf.github.io/p113/</link>
+      <pubDate>Wed, 22 Jun 2011 03:53:48 +0000</pubDate>
+      
+      <guid>http://superwf.github.io/p113/</guid>
+      <description>公司有个老程序，数据库一直是win下的，想迁移到linux的mysql下，结果里面好多的sql语句乱写，大小写混乱导致linux下的mysql好多找不到表
+迁移后每次建立连接要花5秒左右的时间。连接之后查询倒是很快，网上搜了，在my.ini里加了
+不让mysql解析客户端的域名，连接终于快了</description>
+    </item>
+    
+    <item>
+      <title>mysql 1251错误</title>
+      <link>http://superwf.github.io/p111/</link>
+      <pubDate>Tue, 21 Jun 2011 08:15:06 +0000</pubDate>
+      
+      <guid>http://superwf.github.io/p111/</guid>
+      <description>今天用php4连接linux里的mysql5.1，报的这个错，代码1251
+解决方法
+其一:
+其二:
+总之得用mysql4兼容模式重新设置一下密码</description>
+    </item>
+    
+    <item>
+      <title>vsftp支持ssl与mysql支持</title>
+      <link>http://superwf.github.io/p106/</link>
+      <pubDate>Sun, 19 Jun 2011 09:04:55 +0000</pubDate>
+      
+      <guid>http://superwf.github.io/p106/</guid>
+      <description>在/etc/vsftpd
+ssl_enable=YES
+参考http://hi.baidu.com/sega_konami/blog/item/a99366c6246904039c163d7f.html
+让vsftp支持mysql的虚拟用户
+首先aptitidu install vsftpd 之后，系统中应该就自动创建了ftp这个用户。
+mkdir /srv/ftp; chown ftp:ftp /srv/ftp -R
+在/etc/vsftpd.conf中添加
+更改/etc/pam.d/vsftpd
+将原先没有注释的带auth字样的都注释掉，因为要用mysql验证方式
+再添加
+在mysql中建立库vsftp，建立用户vsftp并授权能访问vsftp库，在vsftp库中建立表users，字段login 和 password
+插入数据 admin / admin
+重启vsftpd 再用admin / admin的帐户密码登录</description>
+    </item>
+    
+    <item>
+      <title>debian lvm</title>
+      <link>http://superwf.github.io/p102/</link>
+      <pubDate>Fri, 17 Jun 2011 03:45:23 +0000</pubDate>
+      
+      <guid>http://superwf.github.io/p102/</guid>
+      <description>扩展磁盘分区
+先卸载 umount /home
+—e2fsck好像可以不用
+最后再mount /dev/debian/home /home
+硬盘分区应该有变化了
+创建逻辑卷
+然后mount之
+ 若是reiserfs分区，lvextend之后
+resize_reiserfs 该分区，可不卸载直接在线操作
+若是ext3、ext4，都支持不umount直接扩展
+之前是我的记忆可能有点混乱，记得不支持？最近试了确实是支持的
+lvextend之后，resize2fs /dev/mapper/xxxxx
+就行了，会提示online resize 成功之类的，不知道在io繁忙的系统上如何。
+试了一下，xfs和jfs都不支持在线扩充，必须先umount。
+减少分区有丢失数据的危险
+见http://wiki.portaboom.com/pmwiki.php?n=HowTos.LVMMini</description>
+    </item>
+    
+    <item>
+      <title>IBM X3650 M3 debian安装</title>
+      <link>http://superwf.github.io/p92/</link>
+      <pubDate>Wed, 15 Jun 2011 06:41:08 +0000</pubDate>
+      
+      <guid>http://superwf.github.io/p92/</guid>
+      <description>装了不下5回，装的时候没有任何问题，重启后不能引导系统。一开始还以为是raid没设置好，搜了一篇说是用lilo能引导，结果试了也不行。给客服电话，回复说这玩意不支持debian，只支持redhat和suse
+结果换了suse也不能引导。但是很奇怪的是，重启之后用光盘启动了，之后没管，光盘自动进入了从硬盘启动的选项，系统竟然能启动。之后又装了一下debian，然后用suse的那个安装光盘启动，再选从硬盘启动也能行！
+后来在一个台湾老哥的站上找到了。
+http://www.weithenn.org/cgi-bin/wiki.pl?IBM_xServer_%E7%AD%86%E8%A8%98#Heading20
+改成legacy only 添加到启动项里。OK</description>
+    </item>
+    
+    <item>
+      <title>内外网双网卡设置</title>
+      <link>http://superwf.github.io/p89/</link>
+      <pubDate>Fri, 03 Jun 2011 04:40:20 +0000</pubDate>
+      
+      <guid>http://superwf.github.io/p89/</guid>
+      <description>公司分了内外网两段，一台服务器eth0接公网ip，内网为10.0.0.50
+都设置完后能访问外网，公网不能访问，tracerout 一个外网ip发现走内网网段的路由
+查了一下，route命令
+  </description>
+    </item>
+    
+    <item>
+      <title>php-fcgi无法启动</title>
+      <link>http://superwf.github.io/p86/</link>
+      <pubDate>Thu, 02 Jun 2011 11:34:11 +0000</pubDate>
+      
+      <guid>http://superwf.github.io/p86/</guid>
+      <description>之前都用start-stop-daemon 来启动php-fcgi
+今天上了个老机器，莫名其妙不能启动，也没有任何报错
+后来搜了个新东西
+spawn-fcgi
+用这个启动了。
+  </description>
+    </item>
+    
+    <item>
+      <title>去掉a连接鼠标点击时出现的边框</title>
+      <link>http://superwf.github.io/p82/</link>
+      <pubDate>Wed, 25 May 2011 13:18:13 +0000</pubDate>
+      
+      <guid>http://superwf.github.io/p82/</guid>
+      <description>  </description>
+    </item>
+    
+    <item>
+      <title>debian装机档</title>
+      <link>http://superwf.github.io/p80/</link>
+      <pubDate>Wed, 25 May 2011 13:16:50 +0000</pubDate>
+      
+      <guid>http://superwf.github.io/p80/</guid>
+      <description>  </description>
+    </item>
+    
+    <item>
+      <title>预览图片</title>
+      <link>http://superwf.github.io/p78/</link>
+      <pubDate>Wed, 25 May 2011 13:16:01 +0000</pubDate>
+      
+      <guid>http://superwf.github.io/p78/</guid>
+      <description>当客户上传一个图片之前，不能在网页上预览这个图片，后来看到一个网站有这个功能。
+直接把图片数据写到img的src里，后来好像看到css中的background的url也可以用这种写法
+抠了和函数出来
+用的时候
+就可以在用户选中这个图片的时候，不上传图片就可在网页中预览效果。此时当然不能缩放裁减图片什么的，因为图片还没到服务器。</description>
+    </item>
+    
+    <item>
+      <title>linux备份系统</title>
+      <link>http://superwf.github.io/p75/</link>
+      <pubDate>Wed, 25 May 2011 13:13:12 +0000</pubDate>
+      
+      <guid>http://superwf.github.io/p75/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>attachment_fu的图片裁减生成缩略图</title>
+      <link>http://superwf.github.io/p73/</link>
+      <pubDate>Wed, 25 May 2011 13:12:24 +0000</pubDate>
+      
+      <guid>http://superwf.github.io/p73/</guid>
+      <description>attachment_fu默认的缩略图是直接生成，没有裁减的，对于不是正方形的图生成的缩略图不太好看。
+后来参考了张磊的一个帖子
+http://www.blogkid.net/archives/tag/%E5%9B%BE%E7%89%87
+改用mini_magick
+在model里添加了方法
+但是 :resize_to =&amp;gt; ‘800&amp;gt;’这个总是捣乱，不光把缩略图裁减了，还把原图也跟着裁减
+后来看了好长时间attachement_fu的源文件，在attachment_fu.rb里的
+改一下，只进行一次resize_to就好了。</description>
+    </item>
+    
+    <item>
+      <title>火狐下form不能嵌套？</title>
+      <link>http://superwf.github.io/p71/</link>
+      <pubDate>Wed, 25 May 2011 13:11:16 +0000</pubDate>
+      
+      <guid>http://superwf.github.io/p71/</guid>
+      <description>今天发现firefox下，form不能随便嵌套在table，tr或td里，其他元素不清楚是不是也这样。
+firebug里查看，form自动被排挤到了外面，不能正确包裹input导致提交不到内容
+在其他浏览器里form随便嵌套，又不占显示。</description>
+    </item>
+    
+    <item>
+      <title>lenny装ati驱动</title>
+      <link>http://superwf.github.io/p69/</link>
+      <pubDate>Wed, 25 May 2011 13:10:26 +0000</pubDate>
+      
+      <guid>http://superwf.github.io/p69/</guid>
+      <description>好多帖子都说在linux上的ati驱动非常整人。不弄不信，一弄果然是。
+我的配置是4290显卡。装的lennyd的amd64系统。
+先去amd主页下载了官方驱动，看后缀名是run，加上执行权限后直接运行，重启后干活像幻灯,，fglrxinfo错误，不认显卡。
+./usr/share/fglrx-uninstall.sh卸载了。
+然后用网上说的 ./ati-driver-installer-10-12-x86.x86_64.run –extract fglrx
+然后进fglrx文件夹用./ati-install.sh 10.12 –buildpkg Debian/lenny 声称deb，又报错，然后按照
+http://wiki.debian.org/Ati%20Installer%20in%20Lenny
+这个的改文件，把710改成640，明明没有710文件夹了，连个脚本都没修正，看来amd的测试也不怎么敬业。
+弄了半天，好不容易生成了一堆deb，还装不上，报好多错误，很让人崩溃！
+不得已投向ubuntu10.10 ，果然这个装驱动顺！直接运行run文件就OK，然后fgl_glxgears 测速度也没问题。
+不过更崩溃的时候是之后看了个片，可能是1080p的吧，画面停顿现象严重！没辙了！这个肯定还是驱动的问题，因为在同一个硬件系统下win7就一点问题都没有。
+吃回头草吧，好歹弄了一天多驱动，还算比较熟了。
+又 装回deiban，用m-a来装。修改了non free源，用aptitude安装几了fglrx-driver fglrx-source等几个fglrx开头的东西，先把fglrx-driver装好，然后m-a a-i fglrx，很fuck的又报错。搜后按
+http://blog.chinaunix.net/u/7493/showart.php?id=2336964
+终于不报错生成了fglrx的module
+然后modprob fglrx，然后悲剧
+Unable to load module fglrx: cannot allocate memory
+我都怀疑是集成显卡的问题，是不是内存被什么锁定了，所以集成显卡不能动态分到现存！
+经过了n次周折，重装了n次系统。折腾了3天，后来用了unstable源的驱动
+非常曲折，特此标记，怕之后如果重新装机的时候又忘了！</description>
+    </item>
+    
+    <item>
+      <title>vim搜索选中块</title>
+      <link>http://superwf.github.io/p66/</link>
+      <pubDate>Wed, 25 May 2011 13:08:30 +0000</pubDate>
+      
+      <guid>http://superwf.github.io/p66/</guid>
+      <description>一直以为vim应该内置这么个自动搜索选中部分的功能，就是不知道那个快捷键而已，原来还真的不支持，得用个插件。
+http://vim.wikia.com/wiki/VimTip171
+vsearch.vim</description>
+    </item>
+    
+    <item>
+      <title>putty用ssh密钥自动登录</title>
+      <link>http://superwf.github.io/p62/</link>
+      <pubDate>Wed, 25 May 2011 13:07:09 +0000</pubDate>
+      
+      <guid>http://superwf.github.io/p62/</guid>
+      <description>网上有一些关于用putty利用公钥私钥自动登录的教程，我记得至少试了三回，原来少写了一些关键的地方。
+这次总算成了。
+看了半天openssl的东西，了解了一下加密原理，对称加密和非对称加密。
+没用puttygen.exe生成密钥
+用linux里的ssh-keygen -b 1024 -t rsa生成密钥
+根据提示，起个名字，叫rsa-key好了，提示passphase，不输入，本来就为了方便，还要再输入密码就没意义了。
+成功后生成rsa-key和rsa-key.pub的私钥与公钥两只。
+把rsa-key下载到本地，改名叫rsa-key.ppk给puttygen.exe用。
+用puttygen.exe打开rsa-key.ppk文件，另存一下，这点很重要，其他教程上都没写！
+在服务器上，mv rsa-key.pub ~/.ssh/authorized_keys
+然后vim /etc/ssh/sshd_config
+将
+#PubkeyAuthentication yes
+#AuthorizedKeysFile %h/.ssh/authorized_keys
+这两行的注释去掉（这个教程上也基本都没提）
+然后/etc/init.d/ssh restart重启之
+服务端配置完毕
+客户端打开putty填入ip，选择左边的Connection -&amp;gt; SSH -&amp;gt; Auth
+把第一个勾掉，那个是ssh2用的，第二三个选项都要，其他都不要，然后在最下面选择刚才另存的那个rsa-key.ppk 文件
+再去 Connection -&amp;gt; Data 第一项填入默认的用户名
+再回到最上面的session，Save一下
+完毕
+之后就能靠鼠标双击一下ssh上服务器了
+再加点安全考虑，最后别忘了chmod 700 ~/.ssh -R</description>
+    </item>
+    
+    <item>
+      <title>linux驱动查询</title>
+      <link>http://superwf.github.io/p59/</link>
+      <pubDate>Wed, 25 May 2011 13:05:40 +0000</pubDate>
+      
+      <guid>http://superwf.github.io/p59/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>keychain使用</title>
+      <link>http://superwf.github.io/p55/</link>
+      <pubDate>Wed, 25 May 2011 13:04:26 +0000</pubDate>
+      
+      <guid>http://superwf.github.io/p55/</guid>
+      <description>先keychain ~/.ssh/id_rsa
+然后在.bashrc中加上
+  </description>
+    </item>
+    
+    <item>
+      <title>gitosis</title>
+      <link>http://superwf.github.io/p53/</link>
+      <pubDate>Wed, 25 May 2011 13:03:15 +0000</pubDate>
+      
+      <guid>http://superwf.github.io/p53/</guid>
+      <description>gitosis安装完之后，产生公钥和私钥
+用
+网上都写的直接产生的无法通过验证。可能ssh默认都要求密钥必须达到一定的位数，大概至少是1024位，否则就算正确也不认。</description>
+    </item>
+    
+    <item>
+      <title>lftp默认不能断点续传</title>
+      <link>http://superwf.github.io/p50/</link>
+      <pubDate>Thu, 12 May 2011 12:14:02 +0000</pubDate>
+      
+      <guid>http://superwf.github.io/p50/</guid>
+      <description>下了个大文件，中途可能因为连接超时什么的断了
+之前看过man lftp
+知道 -c可以续传，执行一下总说文件已存在，很shit
+查了一下发现得set xfer:clobber on
+把这个加到/etc/lftp.conf里，让它默认支持续传吧</description>
+    </item>
+    
+    <item>
+      <title>nuhup 命令</title>
+      <link>http://superwf.github.io/p48/</link>
+      <pubDate>Thu, 12 May 2011 02:00:49 +0000</pubDate>
+      
+      <guid>http://superwf.github.io/p48/</guid>
+      <description>之前总有类似操作
+mlnet &amp;amp;
+mysqld &amp;amp;
+之后程序就在后台运行了，原来不是所有程序都这样，有的程序是必须当前登录的时候运行，当前启动这个程序的用户一logout就自动关了。此时nohup 命令就有用了
+比如
+此时用户退出，进程也会继续运行，但是一定要正常退出，不能非正常一下子把ssh登录窗口关了了事</description>
+    </item>
+    
+    <item>
+      <title>rails3版本You have already activated依赖问题</title>
+      <link>http://superwf.github.io/p43/</link>
+      <pubDate>Thu, 12 May 2011 01:48:10 +0000</pubDate>
+      
+      <guid>http://superwf.github.io/p43/</guid>
+      <description>gem update之后，好多东西升级了之后原来的项目不能启动了，报错信息为
+You have already activated rack 1.3.0.beta, but your Gemfile requires rack 1.2.2
+于是在Gemfile里指定gem ‘rack’, ‘1.2.2’
+这样之后，rails server倒是没问题
+但是
+还是报错，看提示有个让用bundle exec的说法
+一试还真成
+启动OK</description>
+    </item>
+    
+    <item>
+      <title>rails3.1 ExecJS::RuntimeError</title>
+      <link>http://superwf.github.io/p39/</link>
+      <pubDate>Wed, 11 May 2011 06:45:51 +0000</pubDate>
+      
+      <guid>http://superwf.github.io/p39/</guid>
+      <description>rails3.1默认jquery 虽然还是beta版但也欣然的用上了
+不过一rails g controller home index
+application.js就报错，查了半天，是execjs没有runtime运行环境，还要v8什么的，没听说过了。gem 也搜不到v8这么个东西
+gem install therubyracer报错，说编译错误什么的，原来也要依赖的东西
+https://github.com/cowboyd/therubyracer
+按照上面说的做
+好吧我不愧是编译型语言的门外汉。原来少了g++这个东西
+一直以为gcc就全搞定了呢
+aptitude g++之后，在执行以上命令就OK了</description>
+    </item>
+    
+    <item>
+      <title>添加商品model时 valid? 错误</title>
+      <link>http://superwf.github.io/p31/</link>
+      <pubDate>Wed, 27 Apr 2011 07:02:59 +0000</pubDate>
+      
+      <guid>http://superwf.github.io/p31/</guid>
+      <description>添加product 时设置了一个字段为valid，没注意和active_record本身的方法冲突了，无法使用，同理freeze frozen因该也不能用，只好用show代替。</description>
+    </item>
+    
+    <item>
+      <title>如何使su不需要密码</title>
+      <link>http://superwf.github.io/p27/</link>
+      <pubDate>Wed, 27 Apr 2011 01:21:47 +0000</pubDate>
+      
+      <guid>http://superwf.github.io/p27/</guid>
+      <description>将信任的用户取消每次su的时候需要密码的限制
+在 /etc/pam.d/su
+添加此行
+然后将你的信任用户添加至 wheel组，没有的话先建立一个
+然后
+  </description>
+    </item>
+    
+    <item>
+      <title>active_record 的 changed</title>
+      <link>http://superwf.github.io/p20/</link>
+      <pubDate>Tue, 26 Apr 2011 07:13:32 +0000</pubDate>
+      
+      <guid>http://superwf.github.io/p20/</guid>
+      <description>本来想这样
+Client.all.each do |c|
+c.name.strip!
+c.save
+end
+但是不起作用
+试了一下发现
+c.name.strip!之后
+c.changed? 还是false
+必须用 = 赋值操作，才能save成
+必须 c.name = c.name.strip 才可以</description>
+    </item>
+    
+    <item>
+      <title>linux删除海量文件</title>
+      <link>http://superwf.github.io/p12/</link>
+      <pubDate>Fri, 15 Apr 2011 08:09:38 +0000</pubDate>
+      
+      <guid>http://superwf.github.io/p12/</guid>
+      <description>/var/spool/mqueue下海量文件，几百万
+rm * -f肯定不行
+list | xargs rm -f
+按说行，网上大家都说行，但是此命令执行一会就自动退出了，而且ls | wc -l
+发现啥都没删掉
+想了想用sed
+先ls &amp;gt; list 生成list文件
+写了个脚本
+每次删100个</description>
+    </item>
+    
+    <item>
+      <title>2rails3 project init</title>
+      <link>http://superwf.github.io/p10/</link>
+      <pubDate>Mon, 11 Apr 2011 07:12:26 +0000</pubDate>
+      
+      <guid>http://superwf.github.io/p10/</guid>
+      <description>安装msyql2 需要系统库libmysqlclient-dev 和 ruby1.9.1-dev libmysql-ruby1.9.1
+nokogiri需要 libxml2-dev libxslt1-dev
+readline需要 libreadline-dev
+安装rmagick
+需要 imagemagick libmagick9-dev
+在wheezy版本中的3.2.0的linux内核系统下，需要libmagickwand-dev，而没有libmagick9-dev这个包了。
+openssl 问题需要 libssl-dev
+后来改用rvm安装ruby，每次换系统的时候都马上把ruby先装上，然后等运行rails的时候报错还的重新编译ruby
+总结了一下，rvm装ruby之前，需要先apt安装好 libmysqlclient-dev libssl-dev libmagickwand-dev
+curl https://raw.github.com/wayneeseguin/rvm/master/binscripts/rvm-installer | bash -s stable
+后来系统升级了,curl会报错
+Could not download ‘https://github.com/wayneeseguin/rvm/tarball/master’.
+curl returned status ‘141’.
+是因为curl的安全设置不允许默认下载https的东西
+需要 echo insecure &amp;raquo; ~/.curlrc</description>
+    </item>
+    
+    <item>
+      <title>rails using openssl</title>
+      <link>http://superwf.github.io/p8/</link>
+      <pubDate>Thu, 07 Apr 2011 08:14:32 +0000</pubDate>
+      
+      <guid>http://superwf.github.io/p8/</guid>
+      <description>  </description>
+    </item>
+    
+    <item>
+      <title>之前的以项目运行不起来</title>
+      <link>http://superwf.github.io/p3/</link>
+      <pubDate>Wed, 06 Apr 2011 07:27:58 +0000</pubDate>
+      
+      <guid>http://superwf.github.io/p3/</guid>
+      <description>unicorn启动提示rack版本不对，找了半天发现是之前把gem都freeze在vender/cache里了
+重新bundle update之后更新所有的gem依赖包搞定</description>
+    </item>
+    
+    <item>
+      <title>ruby脚本无法在crontab里运行的问题</title>
+      <link>http://superwf.github.io/p4/</link>
+      <pubDate>Sat, 02 Apr 2011 01:49:12 +0000</pubDate>
+      
+      <guid>http://superwf.github.io/p4/</guid>
+      <description>昨天搞了大半天，弄了个rails3的non-browser程序，就当脚本运行
+写了个bash脚本运行这个rb程序，按说把ruby xxx.rb直接放到cron里运行也行，不过由于运行时间间隔较短，可能出现重复运行的情况，放到bash脚本里，每次运行时先查一下进程里有没有运行这个脚本，如果没有则运行之。本来这个检测都交给ruby运行也可以，不过如果出现什么timeout的错误退出了就必须人工启动了。
+写好之后，直接运行这个xxx.sh脚本运行这个xxx.rb程序，没有任何问题，但是放到crontab里就不行，来回调试，后来回家半夜了发现在cron里运行完xxx.rb之后的$?为1，然后仔细看了看我的xxx.rb
+原来的写法是
+终于想明白了原来在cron中运行的程序都必须取得绝对路径
+照着config/application.rb里的写法，改成
+正常运行了！</description>
+    </item>
+    
+    <item>
+      <title>Hello world！</title>
+      <link>http://superwf.github.io/p1/</link>
+      <pubDate>Sat, 02 Apr 2011 01:38:46 +0000</pubDate>
+      
+      <guid>http://superwf.github.io/p1/</guid>
+      <description>用我自己的blog，不知道是不是会被和谐
+反正原来baidu的那个被和谐过，就打算转成自己的了</description>
+    </item>
+    
+  </channel>
+</rss>

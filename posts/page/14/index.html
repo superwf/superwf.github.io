@@ -1,0 +1,680 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    
+    <title>老王的日志</title>
+    <meta name="viewport" content="width=device-width,minimum-scale=1">
+    <meta name="generator" content="Hugo 0.68.3" />
+    
+    
+      <META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW">
+    
+
+    
+    
+      <link href="/dist/css/app.1cb140d8ba31d5b2f1114537dd04802a.css" rel="stylesheet">
+    
+
+    
+
+    
+      
+    
+
+    
+    
+      <link href="/posts/index.xml" rel="alternate" type="application/rss+xml" title="老王的日志" />
+      <link href="/posts/index.xml" rel="feed" type="application/rss+xml" title="老王的日志" />
+      
+    
+    
+    <meta property="og:title" content="Posts" />
+<meta property="og:description" content="" />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="http://superwf.github.io/posts/" />
+<meta property="og:updated_time" content="2020-04-29T01:53:50+00:00" />
+<meta itemprop="name" content="Posts">
+<meta itemprop="description" content=""><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Posts"/>
+<meta name="twitter:description" content=""/>
+
+  </head>
+
+  <body class="ma0 avenir bg-near-white">
+
+    
+
+  <header>
+    <div class="pb3-m pb6-l bg-black">
+      <nav class="pv3 ph3 ph4-ns" role="navigation">
+  <div class="flex-l justify-between items-center center">
+    <a href="http://superwf.github.io/" class="f3 fw2 hover-white no-underline white-90 dib">
+      老王的日志
+    </a>
+    <div class="flex-l items-center">
+      
+
+      
+        <ul class="pl0 mr3">
+          
+          <li class="list f5 f4-ns fw4 dib pr3">
+            <a class="hover-white no-underline white-90" href="/migrate2020/" title="migrate2020 page">
+              migrate2020
+            </a>
+          </li>
+          
+          <li class="list f5 f4-ns fw4 dib pr3">
+            <a class="hover-white no-underline white-90" href="/coder-life/" title="coder-life page">
+              coder-life
+            </a>
+          </li>
+          
+        </ul>
+      
+      
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    </div>
+  </div>
+</nav>
+
+      <div class="tc-l pv3 ph3 ph4-ns">
+        <h1 class="f2 f-subheadline-l fw2 light-silver mb0 lh-title">
+          Posts
+        </h1>
+        
+      </div>
+    </div>
+  </header>
+
+
+    <main class="pb7" role="main">
+      
+  <article class="pa3 pa4-ns nested-copy-line-height nested-img">
+    <section class="cf ph3 ph5-l pv3 pv4-l f4 tc-l center measure-wide lh-copy mid-gray"></section>
+    <section class="flex-ns flex-wrap justify-around mt5">
+      
+        <div class="relative w-100 w-30-l mb4 bg-white"><div class="relative w-100 mb4 bg-white nested-copy-line-height">
+  <div class="bg-white mb3 pa4 gray overflow-hidden">
+    <span class="f6 db">Posts</span>
+    <h1 class="f3 near-black">
+      <a href="http://superwf.github.io/p795/" class="link black dim">
+        nvm install node
+      </a>
+    </h1>
+    <div class="nested-links f5 lh-copy nested-copy-line-height">
+      nvm install之后，sudo npm i -g xxx总说 command not found npm
+which npm
+echo $PATH之后发现npm是确实有的，问题就出在sudo上。
+visudo发现有
+Defaults secure_path这一行，把npm所在的路径加进去。
+补充：用nvm装的node，用不着sudo，直接npm i -g xxx也是安装在当前用户的nvm目录中，不需要写入系统目录的权限。
+一开始用www-data这个用户去编辑网站的程序，grunt serve的时候发现不能自动打开浏览器，还以为是什么东西没配置好，后来发现是因为www-data这个用户不能插入当前用户的桌面进程权限问题，必须用当前登录桌面用户来执行grunt serve才行。
+    </div>
+  </div>
+</div>
+</div>
+      
+        <div class="relative w-100 w-30-l mb4 bg-white"><div class="relative w-100 mb4 bg-white nested-copy-line-height">
+  <div class="bg-white mb3 pa4 gray overflow-hidden">
+    <span class="f6 db">Posts</span>
+    <h1 class="f3 near-black">
+      <a href="http://superwf.github.io/p790/" class="link black dim">
+        apt-mirrors的i18n问题
+      </a>
+    </h1>
+    <div class="nested-links f5 lh-copy nested-copy-line-height">
+      用于解决一直以来apt-mirrors不能自动同步i18n文件的问题，今天突然灵光一现，想到proxy_pass到外网的方法。
+    </div>
+  </div>
+</div>
+</div>
+      
+        <div class="relative w-100 w-30-l mb4 bg-white"><div class="relative w-100 mb4 bg-white nested-copy-line-height">
+  <div class="bg-white mb3 pa4 gray overflow-hidden">
+    <span class="f6 db">Posts</span>
+    <h1 class="f3 near-black">
+      <a href="http://superwf.github.io/p783/" class="link black dim">
+        今天把android模拟器运行了
+      </a>
+    </h1>
+    <div class="nested-links f5 lh-copy nested-copy-line-height">
+      升级jessie之后，apt可直接安装几个android的64位基本命令
+先准备好饭强
+apt 安装 openjdk-7-jdk
+http://android-studio.org/
+把android-studio下载了，解压后运行bin/studio.sh
+按向导自动配置好环境，会默认放到~/Android/Sdk中
+然后在.bashrc中添加
+ANDROID_HOME=”~/Android/Sdk”
+PATH=”$PATH:$ANDROID_HOME/platform-tools:$ANDROID_HOME/tools”
+然后直接运行android命令，安装需要的包，react-native需要android sdk build-tools 23.0.1和 android 6.0里的sdk-platform, arm eabi v7a system image, sources for android sdk
+再通过tools菜单创建一个虚拟手机．
+再在react-native创建的项目中的android文件夹中添加文件local.property，内容为sdk.dir=~/Android/Sdk
+然后缺的一些32位包可以用下面这几个包来补充。
+lib32stdc++6
+lib32z1-dev
+进入react-native创建的项目运行react-native run-android
+    </div>
+  </div>
+</div>
+</div>
+      
+        <div class="relative w-100 w-30-l mb4 bg-white"><div class="relative w-100 mb4 bg-white nested-copy-line-height">
+  <div class="bg-white mb3 pa4 gray overflow-hidden">
+    <span class="f6 db">Posts</span>
+    <h1 class="f3 near-black">
+      <a href="http://superwf.github.io/p770/" class="link black dim">
+        今天看到nosql的反模式
+      </a>
+    </h1>
+    <div class="nested-links f5 lh-copy nested-copy-line-height">
+      http://blog.nosqlfan.com/html/4156.html
+里面的一句话突然让我明白了很多，转换了一下思路
+就是：计算和存储耦合
+我从这句话想到的是：计算应该和存储分离。
+关系型数据库片中计算，文档型数据库偏重存储，而我一直以来想做的是找一个nosql来代替mysql，比如mongodb，应该是搞错了思路，应该让会做计算的做计算，优于存储的做存储，中间用程序来做数据一致维护，这样大概不会做到数据即时完全的一致性，就和数据库的cap理论一样，应该是有取舍才行的。
+    </div>
+  </div>
+</div>
+</div>
+      
+        <div class="relative w-100 w-30-l mb4 bg-white"><div class="relative w-100 mb4 bg-white nested-copy-line-height">
+  <div class="bg-white mb3 pa4 gray overflow-hidden">
+    <span class="f6 db">Posts</span>
+    <h1 class="f3 near-black">
+      <a href="http://superwf.github.io/p765/" class="link black dim">
+        debian upgrade to jassie
+      </a>
+    </h1>
+    <div class="nested-links f5 lh-copy nested-copy-line-height">
+      升级之后出的问题折腾了一天之后一一解决。
+1.升级后让卸载NVIDIA显卡驱动，期间死机两次，进去之后还得修复依赖关系很耗时，卸载之后直接用系统自带的包就可以装，以后也不用去nv官网下驱动了。
+2.升级后gnome3各种不爽还卡，虽然用wheezy的时候也是gnome3，但是可选classic模式还能凑合用。但这次升级之后选了flashback模式，但是菜单死活不出东西，网上说干净重装可用，且以后再说，搜了一下发现mate是gnome2演变而来，装上后发现十分舒服。
+http://mate-desktop.org/
+3.升级之后虚拟机网卡驱动竟然变了，用ghost重新装了一个kvm虚拟机，然后把驱动考出来又装回原来的虚拟机了。
+4.升级之后lvm不能自动识别，开机总是lv status not available。必须手动vgchange -a y才能进系统。最后这个解决
+http://www.linuxquestions.org/questions/linux-software-2/problems-booting-from-luks-on-top-of-lvm-4175487926/
+按这里说的在 /etc/default/grub:
+加一行
+然后运行update-grub，重启后能正常启动了。
+耽误了一天，之后服务器也升级的时候需要提前准备好这几点。
+    </div>
+  </div>
+</div>
+</div>
+      
+        <div class="relative w-100 w-30-l mb4 bg-white"><div class="relative w-100 mb4 bg-white nested-copy-line-height">
+  <div class="bg-white mb3 pa4 gray overflow-hidden">
+    <span class="f6 db">Posts</span>
+    <h1 class="f3 near-black">
+      <a href="http://superwf.github.io/p721/" class="link black dim">
+        erlang学习
+      </a>
+    </h1>
+    <div class="nested-links f5 lh-copy nested-copy-line-height">
+      先是过了一遍Erlang程序设计中文版（完整书签）。
+之前在html5里看过js的webworker，当时觉得看明白了，但是现在才觉得是真的明白了那玩意什么用处，也是一个进程之间的消息传递机制。
+然后打算看building_web_applications_with_erlang，发现看不下去。只好又看Erlang_OTP并发编程实战，之后对OTP有了一定了解，主要是稍微熟悉了一下OTP程序的的写法和handler。
+然后再看building_web_applications_with_erlang，大概明白了，但是不太看好yaws，几年来一直依赖rails的方便，这种底层的框架要自己从头写很多东西太累，也没谱。
+最后提到了ChicagoBoss，是个类rails的framework。但是按照github上的教程，编译总是报错，最后连例子也跑不起来。
+后来又转到了n20，看了看文档，比ChicagoBoss完善，但复杂程度也多了，短时间吃不下去。先下了个例子运行了一下，发现和传统的web程序相差太多，除了最初的页面载入之外几乎完全是用websocket来处理。为了这个又过了一遍cowboy的guide。n2o的教程反复弄了N天，也没懂，看来步子跨大了扯了蛋。后来看了nitrogen的教程http://nitrogenproject.com/doc/tutorial.html，才逐渐自己开始明白了。最后感觉n2o用的bert这个js库没用json，教程里也明确写了不支持json，大概和angularjs比较难搭配吧，弃之。看了cowboy的教程之后突然感觉直接用cowboy来写好了，将erlang和rails结合一下erlang部分做api用，rails做一些页面生成，页面用rails生成的静态html模板，后台请求都用json请求到cowboy上。
+nitrogen里的wf模块令我很在意-_-，后来从源码里发现是web framework的缩写…
+rebar相当于ruby的bundle，解决依赖包问题。rebar里的ling_builder，是部署到虚拟机用的，大概看了看，还不太懂，但是感觉是部署到amazon服务上用得到，自己的服务器大概不用这个。rebar与reltool.config配套使用发布。
+经过几天的使用发现rebar bug多，编译的时候erlydtl模板总是报错。现在是2014年了已经，
+https://github.com/rebar/rebar/issues/46这个bug现在好像还是这样，说是已经fix但是我这下载最新的rebar重新编译之后还是报错，而且每次编译能生成一个view文件，然后报错退出，改rebar.config的erlydtl_opts, [retrun_errors]也没起作用，多编译两次就都生成了，模板文件少的时候还行。erlang.mk，一开始也出错，在Makefile里加上
+ERLC_OPTS =
+覆盖 -Werror的选项，关闭错误报告(隐约感觉不太对，可能导致应该报错的地方也不报了)。
+这样以来就可以编译了，但是默认编译模板为xxx_dtl.beam，可能需要增加个批量改名功能在Makefile里。
+erlang.mk 把makefile几乎全包办了，其中解决依赖的功能和rebar有些重叠。https://medium.com/p/708597c0dd08，我个人也倾向与用erlang.mk，因为相对简单，但是n2o的那些东西全都用rebar。erlang.mk与relx.config配套发布用。
+rebar的wiki，他管compile、dependency和test。rebar可以在一开始创建项目用，就像rails new一样，先创建一个骨架出来。
+erlang.mk也都管这些。
+relx在OTP那本书里有推荐，是书的作者之一开发的，发布erlang程序用，和erlang.mk有配套使用。
+以下为备忘：
+priv目录： 用于存放各种需要随应用一起发布的其他内容。包括但不限于模板文件、共享对象文件和DLL等。定位应用priv目录的方法很简单：调用code:priv_dir()，便会以字符串形式得到priv目录的完整路径。
+.app 文件里的env 和 mudules书里没写，在线手册里有http://www.erlang.org/doc/design_principles/applications.html，modules是发布时将依赖一起打包的意思，env是application:get_env(app_name, env_name)用的
+ html模板用slim写，再用slimrb转换，js用coffeescript写，在开发模式的时候用watchr来监视并自动编译修改过的文件。既然铁了心要用angularjs，那erlydtl模板也几乎是用不到了，全部用静态html模板就可！
+riak和couchdb一样，都是有restful的api的，这样的话，除了权限安全问题不算的话，前台angularjs+后台的database就可以搞定。但安全问题靠database层应该是没戏的，中间层还是需要，但erlang都可以不用解析json，直接把前后台的数据当string传递一下即可，仅仅管理安全与权限，在必要的时候解析一下json重新包装数据。
+在riak已经弄了一阵子之后，看了riak的2i和search部分，觉得riak不太适合做比较复杂的后台程序，存储基于kv，v的内容可以是任意，所以在v的内容上的搜索和索引都不会方便，导致在复杂搜索和分页方面的实现可能会有问题，不是不能实现，而是实现相对太复杂，而且可能由于程序员经验不足会导致长期不能解决的搜索效率问题，还有就是短期内不会有类似active_record那样实现模型关系的方便的封装，难道还是要用mysql，先看看couchdb吧，用基于文档的来试试。mongodb虽然更成熟一些，但在分布上面不如erlang编写的有分布优势。后来看了一下http://nosql-database.org/的分类，riak是在kv分类里，更确实了我的这个想法，我还是需要确定一个document store类型的数据库。http://labs.linkfluence.net/nosql/2011/03/07/moving_from_couchdb_to_riak.html这篇写的也是将存储转到riak上，人家也没用riak做查询用。
+然后转到couchdb上，但最后由于种种原因，还是不能符合要求。
+    </div>
+  </div>
+</div>
+</div>
+      
+        <div class="relative w-100 w-30-l mb4 bg-white"><div class="relative w-100 mb4 bg-white nested-copy-line-height">
+  <div class="bg-white mb3 pa4 gray overflow-hidden">
+    <span class="f6 db">Posts</span>
+    <h1 class="f3 near-black">
+      <a href="http://superwf.github.io/p749/" class="link black dim">
+        about couchdb
+      </a>
+    </h1>
+    <div class="nested-links f5 lh-copy nested-copy-line-height">
+      从学习erlang一路到看上couchdb。看上它主要是因为map reduce，master-master deploy和couchapp这种方便的两层开发工具。
+nosql无模式的特点特别吸引人，但看到最后发现用couchdb很难实现复杂查询，查询条件超过3个以上的时候，需要建立大量的视图，尤其是我做过的程序里有的查询条件有近20个，排列组合起来需要巨量视图而且还需要根据复杂的查询条件匹配到不同的视图上，虽然大部分的组合可能很少被用到吧，这玩意没法弄。看来想要从mysql完整功能迁移还是得mongodb。但mongodb就做不到省略中间层程序的rest api了。看来网页程序要做到两层还需要再发展发展。
+http://www.lupaworld.com/article-215805-1.html这里的关于查询的部分差不多也是这个意思。
+couchdb支持像mysql的 LIKE “abc%”这样的语句可以用startkey=”abc”&amp;endkey=”abc\ufff0″这样来弄。参考如下
+http://stackoverflow.com/questions/5285787/full-text-search-in-couchdb
+如果只是做做blog这样的相对关系简单的东西，主要是不太需要复杂查询的还好。
+CouchDB权威指南看了一半左右吧，基本操作都讲完了，已经看了部分couchapp的开发实例了就没再接着学。
+    </div>
+  </div>
+</div>
+</div>
+      
+        <div class="relative w-100 w-30-l mb4 bg-white"><div class="relative w-100 mb4 bg-white nested-copy-line-height">
+  <div class="bg-white mb3 pa4 gray overflow-hidden">
+    <span class="f6 db">Posts</span>
+    <h1 class="f3 near-black">
+      <a href="http://superwf.github.io/p718/" class="link black dim">
+        各个分区格式的比较
+      </a>
+    </h1>
+    <div class="nested-links f5 lh-copy nested-copy-line-height">
+      各个分区格式的比较
+每个分区都是1G，用的命令是
+lvcreate -L 1G -n c[1-4] vg
+然后用mkfs格式化
+c1-&gt;ext4, c2-&gt;reiserfs, c3-&gt;btrfs, c4-&gt;ntfs
+文件系统 容量 已用 可用 已用% 挂载点
+/dev/mapper/vg-c1 1008M 34M 924M 4% /mnt/c1
+/dev/mapper/vg-c2 1.0G 33M 992M 4% /mnt/c2
+/dev/mapper/vg-c3 1.0G 56K 894M 1% /mnt/c3
+/dev/mapper/vg-c4 1.0G 5.6M 1019M 1% /mnt/c4
+看来还是ntfs装东西最多
+    </div>
+  </div>
+</div>
+</div>
+      
+        <div class="relative w-100 w-30-l mb4 bg-white"><div class="relative w-100 mb4 bg-white nested-copy-line-height">
+  <div class="bg-white mb3 pa4 gray overflow-hidden">
+    <span class="f6 db">Posts</span>
+    <h1 class="f3 near-black">
+      <a href="http://superwf.github.io/p710/" class="link black dim">
+        Can’t connect to MFS master (IP:127.0.0.1 ; PORT:9421)
+      </a>
+    </h1>
+    <div class="nested-links f5 lh-copy nested-copy-line-height">
+      昨天公司停电，今天一上班不能上网，一看服务器都是重启过的，应该是停电时间太长，机房的ups没顶上那么久。
+折腾一天下午最后下午联通给换了个光猫总算好了，看来是停电把光猫烧坏了。
+mfs停了之后修复了一通总算是都起来了，最后就剩下mfscgiserv，启动之后页面总是显示
+Can’t connect to MFS master (IP:127.0.0.1 ; PORT:9421)
+最后发现mfs.cgi文件是个python
+里面有masterhost这么个变量，虽然没去查搜测，但是看样子是从url里取值的。
+直接把那个值改成192.168.1.100，即服务器的mfsmaster内网监听地址，或者在cgi的url里加上
+?masterhost=192.168.1.100
+OK，cgi访问正常，对于有监控欲的人来说就算都运行正常这玩意也不能没有。
+    </div>
+  </div>
+</div>
+</div>
+      
+        <div class="relative w-100 w-30-l mb4 bg-white"><div class="relative w-100 mb4 bg-white nested-copy-line-height">
+  <div class="bg-white mb3 pa4 gray overflow-hidden">
+    <span class="f6 db">Posts</span>
+    <h1 class="f3 near-black">
+      <a href="http://superwf.github.io/p706/" class="link black dim">
+        mfs remove chunck server
+      </a>
+    </h1>
+    <div class="nested-links f5 lh-copy nested-copy-line-height">
+      最近有一个mfs chunck server不太稳定。
+打算将其上的硬盘换下来。
+于是先注释其 mfshdd.cfg
+*/mnt/chunck
+然后重启chunck server
+mfschunckserver restart
+然后就是等了
+在mfs.cgi上可以看到该硬盘的使用量在不断减少，数据被转移到其他硬盘上。
+转了好几天，该硬盘的数据总算不再减少了。
+但是endangered (691730)仍然很多，google也没找到这个数据的意思，大概是还有这么多数据只有一份copy，属于濒危状态，颜色是仅次与danger的橙色，等检查完了之后该硬盘就可以移除了。
+用mfschunckserver stop实验了一下，该数值不再减少了，start之后可以继续减少。
+看来还是得等endangered减到0为止吧。
+    </div>
+  </div>
+</div>
+</div>
+      
+    </section>
+
+<ul class="pagination">
+    
+    <li class="page-item">
+        <a href="/posts/" class="page-link" aria-label="First"><span aria-hidden="true">&laquo;&laquo;</span></a>
+    </li>
+    
+    <li class="page-item">
+    <a href="/posts/page/13/" class="page-link" aria-label="Previous"><span aria-hidden="true">&laquo;</span></a>
+    </li>
+    
+    
+    
+    
+    
+    
+    
+        
+        
+    
+    
+    <li class="page-item"><a class="page-link" href="/posts/">1</a></li>
+    
+    
+    
+    
+    
+    
+        
+        
+    
+    
+    <li class="page-item"><a class="page-link" href="/posts/page/2/">2</a></li>
+    
+    
+    
+    
+    
+    
+        
+        
+    
+    
+    <li class="page-item"><a class="page-link" href="/posts/page/3/">3</a></li>
+    
+    
+    
+    
+    
+    
+        
+        
+    
+    
+    <li class="page-item disabled"><span aria-hidden="true">&nbsp;&hellip;&nbsp;</span></li>
+    
+    
+    
+    
+    
+    
+        
+        
+    
+    
+    
+    
+    
+    
+    
+        
+        
+    
+    
+    
+    
+    
+    
+    
+        
+        
+    
+    
+    
+    
+    
+    
+    
+        
+        
+    
+    
+    
+    
+    
+    
+    
+        
+        
+    
+    
+    
+    
+    
+    
+    
+        
+        
+    
+    
+    
+    
+    
+    
+    
+        
+        
+    
+    
+    
+    
+    
+    
+    
+        
+        
+    
+    
+    
+    
+    
+    
+    
+        
+        
+    
+    
+    <li class="page-item"><a class="page-link" href="/posts/page/13/">13</a></li>
+    
+    
+    
+    
+    
+    
+        
+        
+    
+    
+    <li class="page-item active"><a class="page-link" href="/posts/page/14/">14</a></li>
+    
+    
+    
+    
+    
+    
+        
+        
+    
+    
+    <li class="page-item"><a class="page-link" href="/posts/page/15/">15</a></li>
+    
+    
+    
+    
+    
+    
+        
+        
+    
+    
+    <li class="page-item disabled"><span aria-hidden="true">&nbsp;&hellip;&nbsp;</span></li>
+    
+    
+    
+    
+    
+    
+        
+        
+    
+    
+    
+    
+    
+    
+    
+        
+        
+    
+    
+    
+    
+    
+    
+    
+        
+        
+    
+    
+    
+    
+    
+    
+    
+        
+        
+    
+    
+    
+    
+    
+    
+    
+        
+        
+    
+    
+    
+    
+    
+    
+    
+        
+        
+    
+    
+    
+    
+    
+    
+    
+        
+        
+    
+    
+    
+    
+    
+    
+    
+        
+        
+    
+    
+    
+    
+    
+    
+    
+        
+        
+    
+    
+    
+    
+    
+    
+    
+        
+        
+    
+    
+    
+    
+    
+    
+    
+        
+        
+    
+    
+    
+    
+    
+    
+    
+        
+        
+    
+    
+    <li class="page-item"><a class="page-link" href="/posts/page/28/">28</a></li>
+    
+    
+    <li class="page-item">
+    <a href="/posts/page/15/" class="page-link" aria-label="Next"><span aria-hidden="true">&raquo;</span></a>
+    </li>
+    
+    <li class="page-item">
+        <a href="/posts/page/28/" class="page-link" aria-label="Last"><span aria-hidden="true">&raquo;&raquo;</span></a>
+    </li>
+    
+</ul>
+
+</article>
+
+    </main>
+    <footer class="bg-black bottom-0 w-100 pa3" role="contentinfo">
+  <div class="flex justify-between">
+  <a class="f4 fw4 hover-white no-underline white-70 dn dib-ns pv2 ph3" href="http://superwf.github.io/" >
+    &copy;  老王的日志 2020 
+  </a>
+    <div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+</div>
+  </div>
+</footer>
+
+    
+
+  <script src="/dist/js/app.3fc0f988d21662902933.js"></script>
+
+
+  </body>
+</html>

@@ -1,0 +1,662 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    
+    <title>老王的日志</title>
+    <meta name="viewport" content="width=device-width,minimum-scale=1">
+    <meta name="generator" content="Hugo 0.68.3" />
+    
+    
+      <META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW">
+    
+
+    
+    
+      <link href="/dist/css/app.1cb140d8ba31d5b2f1114537dd04802a.css" rel="stylesheet">
+    
+
+    
+
+    
+      
+    
+
+    
+    
+      <link href="/posts/index.xml" rel="alternate" type="application/rss+xml" title="老王的日志" />
+      <link href="/posts/index.xml" rel="feed" type="application/rss+xml" title="老王的日志" />
+      
+    
+    
+    <meta property="og:title" content="Posts" />
+<meta property="og:description" content="" />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="http://superwf.github.io/posts/" />
+<meta property="og:updated_time" content="2020-04-29T01:53:50+00:00" />
+<meta itemprop="name" content="Posts">
+<meta itemprop="description" content=""><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Posts"/>
+<meta name="twitter:description" content=""/>
+
+  </head>
+
+  <body class="ma0 avenir bg-near-white">
+
+    
+
+  <header>
+    <div class="pb3-m pb6-l bg-black">
+      <nav class="pv3 ph3 ph4-ns" role="navigation">
+  <div class="flex-l justify-between items-center center">
+    <a href="http://superwf.github.io/" class="f3 fw2 hover-white no-underline white-90 dib">
+      老王的日志
+    </a>
+    <div class="flex-l items-center">
+      
+
+      
+        <ul class="pl0 mr3">
+          
+          <li class="list f5 f4-ns fw4 dib pr3">
+            <a class="hover-white no-underline white-90" href="/migrate2020/" title="migrate2020 page">
+              migrate2020
+            </a>
+          </li>
+          
+          <li class="list f5 f4-ns fw4 dib pr3">
+            <a class="hover-white no-underline white-90" href="/coder-life/" title="coder-life page">
+              coder-life
+            </a>
+          </li>
+          
+        </ul>
+      
+      
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    </div>
+  </div>
+</nav>
+
+      <div class="tc-l pv3 ph3 ph4-ns">
+        <h1 class="f2 f-subheadline-l fw2 light-silver mb0 lh-title">
+          Posts
+        </h1>
+        
+      </div>
+    </div>
+  </header>
+
+
+    <main class="pb7" role="main">
+      
+  <article class="pa3 pa4-ns nested-copy-line-height nested-img">
+    <section class="cf ph3 ph5-l pv3 pv4-l f4 tc-l center measure-wide lh-copy mid-gray"></section>
+    <section class="flex-ns flex-wrap justify-around mt5">
+      
+        <div class="relative w-100 w-30-l mb4 bg-white"><div class="relative w-100 mb4 bg-white nested-copy-line-height">
+  <div class="bg-white mb3 pa4 gray overflow-hidden">
+    <span class="f6 db">Posts</span>
+    <h1 class="f3 near-black">
+      <a href="http://superwf.github.io/p717/" class="link black dim">
+        这几年看过的书
+      </a>
+    </h1>
+    <div class="nested-links f5 lh-copy nested-copy-line-height">
+      以后边看边添加，有些生产中用上了，有些没用上过一阵子也就遗忘了。
+    </div>
+  </div>
+</div>
+</div>
+      
+        <div class="relative w-100 w-30-l mb4 bg-white"><div class="relative w-100 mb4 bg-white nested-copy-line-height">
+  <div class="bg-white mb3 pa4 gray overflow-hidden">
+    <span class="f6 db">Posts</span>
+    <h1 class="f3 near-black">
+      <a href="http://superwf.github.io/p846/" class="link black dim">
+        linux kernel 3.14下的ati driver
+      </a>
+    </h1>
+    <div class="nested-links f5 lh-copy nested-copy-line-height">
+      一个多月前升级系统之后，就不能进入桌面了，当时捣鼓了半天发现新的3.14内核不能正确安装ati的显卡驱动，导致一直使用3.13内核。我用的是amd的apu
+又加上当前google被全时间段墙，该问题一直没解决。
+后来找到了以下解决方法，看来确实是我判断的新的3.14内核和ati显卡驱动不兼容的问题，打上这个补丁后，也能正常用3.14内核使用桌面了。
+http://bluehatrecord.wordpress.com/2014/05/10/installing-the-proprietary-amd-catalyst-14-4-fglrx-driver-on-fedora-20-with-kernel-3-14/
+    </div>
+  </div>
+</div>
+</div>
+      
+        <div class="relative w-100 w-30-l mb4 bg-white"><div class="relative w-100 mb4 bg-white nested-copy-line-height">
+  <div class="bg-white mb3 pa4 gray overflow-hidden">
+    <span class="f6 db">Posts</span>
+    <h1 class="f3 near-black">
+      <a href="http://superwf.github.io/p843/" class="link black dim">
+        ionic -&gt; mobile-angular
+      </a>
+    </h1>
+    <div class="nested-links f5 lh-copy nested-copy-line-height">
+      弄了一周的ionic做了个小app
+https://github.com/superwf/convictconditioning
+发现ionic各种不好用。
+需要日期插件，需要额外加angular-ui-date
+需要一个照相机的图标加拍照功能，结果没有，找了一下发现bootstrap里的图标挺合适。
+加上bootstrap后又发现css有些冲突，有些小地方有些错位，早知如此最开始就该用mobile-angular做啦。
+遂果断换mobile-angular。
+    </div>
+  </div>
+</div>
+</div>
+      
+        <div class="relative w-100 w-30-l mb4 bg-white"><div class="relative w-100 mb4 bg-white nested-copy-line-height">
+  <div class="bg-white mb3 pa4 gray overflow-hidden">
+    <span class="f6 db">Posts</span>
+    <h1 class="f3 near-black">
+      <a href="http://superwf.github.io/p835/" class="link black dim">
+        puppet与rvm中ruby的环境变量
+      </a>
+    </h1>
+    <div class="nested-links f5 lh-copy nested-copy-line-height">
+      看了半个多月教程，开始按部就班的操作的时候碰到不少麻烦。
+比如hiera-mysql这个。
+WARN: 2014-05-21 16:19:14 +0800: Cannot load backend mysql: cannot load such file — hiera/backend/mysql_backend
+nil
+gem install hiera-mysql挺成功的，但一用mysql后端就出这个错
+google了一大堆还真没看见别人出这个错误的。
+都想手动把这个文件加到$:路径里了。
+最后发现是之前rvm的残留问题。
+最近听了于工的建议捣鼓puppet，由于装puppet用的是deb安装，和rvm不太对付于是换回了系统ruby。
+结果导致gem里没有hiera
+再gem install hiera一下。
+后来感觉hiera-mysql好像只能存取string？，不如yaml能array和hash。
+agent第一次请求的时候需要master签名认证。
+一直只知道公钥私钥，但是不太清楚签名的具体含义。马上查了一下，发现证书也是一对公钥和私钥，就是多了签名，最重要的是还多了个有效期限制。
+我的理解是，agent(一下简称a)第一次请求master(以下简称m)的时候，把a的公钥发过去。这时候m上执行puppet cert list，看到的是agent发来的公钥。
+执行puppet sign的时候，是用m的证书私钥加密了该a的公钥，可以成为认证公钥。之后的通信都用这个认证公钥加密。每次a和m通信的数据都会用自己的私钥和对方的公钥双重加密，收到的数据再用自己的私钥和公钥两次解密，得到明文数据。
+第二个理解是，是证书这个公钥只加密另一个公钥，不加密数据内容。每次数据传输，先根据证书解密加密后的公钥，在用该公钥解密内容。
+应该是第二种比较靠谱，加密用的计算量要少的多。
+puppet里的证书都是pem的后缀，说实在的这些密钥的证书后缀也很混乱。pem代表base64编码，与加密方式没啥关系。
+以后新装机器该puppet登场了，之前琢磨过的aptitude export import什么的太过时了~
+puppet和nginx整合的例子找了几个看了看，现在都不能用了，只有官方的这个能和apache2整合
+http://docs.puppetlabs.com/guides/passenger.html
+虚拟主机的配置里，关于ssl密钥的配置比其他nginx教程里的多了几行参数，我也不清楚具体起的哪些环节的认证作用。
+    </div>
+  </div>
+</div>
+</div>
+      
+        <div class="relative w-100 w-30-l mb4 bg-white"><div class="relative w-100 mb4 bg-white nested-copy-line-height">
+  <div class="bg-white mb3 pa4 gray overflow-hidden">
+    <span class="f6 db">Posts</span>
+    <h1 class="f3 near-black">
+      <a href="http://superwf.github.io/p830/" class="link black dim">
+        jessie的一次系统升级
+      </a>
+    </h1>
+    <div class="nested-links f5 lh-copy nested-copy-line-height">
+      今天运行了一下 dist-upgrade
+升级之后现实显卡驱动，年纪大了记性不好，忘了最近换的amd的apu的机器了，又装了nvidia的驱动。结果黑屏司机。
+后来想起来了之后又装回去，去amd网站下驱动，装上之后死的更彻底，连键盘都不灵了。
+后来用另一个电脑google一下，卸载了官方驱动，用apt装 fglrx-xxxx的一系列都装上。
+然后还是黑屏，但是硬件没死，还能切换到其他控制台，查看Xorg.0.log发现说没有发现Screen，改/etc/X11/xorg.conf把里面的nvidia换成radeon。
+然后进桌面，开干活。
+vim开始报错vimim语法错误，这玩意好久没更新，估计也不会更新了，自己改了改还凑合能用。
+然后php页面不出东西了，看日志是php5-fpm.sock权限错误，之前是 0666，升级之后的默认权限变成 0660了，而且还是root文件，所以www-data的nginx不能读写。
+一开始还以为是/etc/init.d/php5-fpm里的设置，后来发现可以在/etc/php5/fpm/pool.d/www.conf里改，把listen.mode改成0666或者吧listen.owner和group都改成www-data。
+不知道这个算不算个bug，不过既然是能通过配置文件修改，大概也就算个整合问题。
+    </div>
+  </div>
+</div>
+</div>
+      
+        <div class="relative w-100 w-30-l mb4 bg-white"><div class="relative w-100 mb4 bg-white nested-copy-line-height">
+  <div class="bg-white mb3 pa4 gray overflow-hidden">
+    <span class="f6 db">Posts</span>
+    <h1 class="f3 near-black">
+      <a href="http://superwf.github.io/p821/" class="link black dim">
+        第一个相对完整的angularjs项目
+      </a>
+    </h1>
+    <div class="nested-links f5 lh-copy nested-copy-line-height">
+      遇到的第一个相对麻烦的问题是blueimp的jquery-file-upload
+用yeoman套装习惯了，插件都习惯用bower install来安装，于是就
+然后发现缺模板，就把http://blueimp.github.io/jQuery-File-Upload/里的html copy下来当模板。还报错，后来发现是jquery-ui的问题，既然用bootstrap，在index.html里把jquery-ui那行删掉。然后又发现scope总是undefined。折腾半天感觉不应该把jquery-file-upload写在bower.json里，这样会多出一些无用的插件。
+这大概是因为blueimp的jquery-file-upload与bower兼容的不太好，太多地方不能自动化，不知道算不算个bug，反正从他的例子上直接copy就能用。
+于是在bower.json删掉jquery-file-upload，然后只把需要用的几个js文件写在下面的bower:js 块里。html模板部分还是都从例子里copy。
+ 部署的时候第一次grunt build之后页面报错说没有blueimp.fileupload这个module
+后来发现由于bower.json里没有jquery-file-upload，服务器端的jquery-file-upload没有安装
+于是
+grunt build 之后发现glyphicon的图标都变形了，问题出在 app/styles/main.sass里的
+然后还需要在copy块里的src数组里加上
+参考：http://stackoverflow.com/questions/21932451/assets-missing-in-angular-application-built-using-grunt
+弄完之后重新grunt build
+    </div>
+  </div>
+</div>
+</div>
+      
+        <div class="relative w-100 w-30-l mb4 bg-white"><div class="relative w-100 mb4 bg-white nested-copy-line-height">
+  <div class="bg-white mb3 pa4 gray overflow-hidden">
+    <span class="f6 db">Posts</span>
+    <h1 class="f3 near-black">
+      <a href="http://superwf.github.io/p817/" class="link black dim">
+        angularjs one controller vs multi views
+      </a>
+    </h1>
+    <div class="nested-links f5 lh-copy nested-copy-line-height">
+      第一个views是页面加载时就有的，第二个view是后加载的。
+第二个view加载后，该controller的scope中的变量更新后，第一个view中的ng-bind变量不能同步显示更新的内容，好像已经断开了链接一行。
+http://stackoverflow.com/questions/16210822/angular-js-views-sharing-same-controller-model-data-resets-when-changing-view
+看来每次controller加载后重新有自己的编译过程，不能用同一controller中的变量绑定来同步。
+后来想到了用$rootScope.$broadcast 的广播方式，把这个事件发出去然后在其他controller里用$rootScope.$on接收，实现了想要的功能。
+    </div>
+  </div>
+</div>
+</div>
+      
+        <div class="relative w-100 w-30-l mb4 bg-white"><div class="relative w-100 mb4 bg-white nested-copy-line-height">
+  <div class="bg-white mb3 pa4 gray overflow-hidden">
+    <span class="f6 db">Posts</span>
+    <h1 class="f3 near-black">
+      <a href="http://superwf.github.io/p815/" class="link black dim">
+        rvm crontab custom_require.rb:36:in `require’: cannot load such file — bundler/setup
+      </a>
+    </h1>
+    <div class="nested-links f5 lh-copy nested-copy-line-height">
+      用rvm环境时，用crontab运行ruby脚本今天报错。之前也运行过倒是没出过什么问题。
+查了一下，让用ruby的绝对路径。
+还是报错，看来cron时还是需要加入rvm的初始化环境。
+于是为了运行a.rb，需要额外弄一个a.sh
+  
+    </div>
+  </div>
+</div>
+</div>
+      
+        <div class="relative w-100 w-30-l mb4 bg-white"><div class="relative w-100 mb4 bg-white nested-copy-line-height">
+  <div class="bg-white mb3 pa4 gray overflow-hidden">
+    <span class="f6 db">Posts</span>
+    <h1 class="f3 near-black">
+      <a href="http://superwf.github.io/p803/" class="link black dim">
+        yeoman &amp; rails整合开发
+      </a>
+    </h1>
+    <div class="nested-links f5 lh-copy nested-copy-line-height">
+      grunt serve的测试环境用的9000端口，向后台发起的默认ajax也是9000
+为了与rails整合，在app.coffee里加上
+然后在所有需要请求的url之前都加上 rails + ‘/user.json’
+这里还涉及到一个ajax跨域的事，得在rails的controller里设置
+实际部署的时候可以去掉这个，在nginx里加这个header，把*改成相对应的域名。
+后来发现加这个不灵
+http://serverfault.com/questions/418709/nginx-add-header-for-a-50-page
+401状态下无法自定义header，需要用
+http://wiki.nginx.org/HttpHeadersMoreModule
+这仅仅因为在开发环境下grunt serve和rails需要用到不同的域，至少需要不同端口，实际部署的时候应该是用不到这些。
+干了两天之后各种问题导致各种手动修改补丁，最后还是用nginx配置这些比较合适，在开发时就干脆把这两个后台都整合到一个域名里，也消除了跨域的问题。
+nginx配置
+  
+    </div>
+  </div>
+</div>
+</div>
+      
+        <div class="relative w-100 w-30-l mb4 bg-white"><div class="relative w-100 mb4 bg-white nested-copy-line-height">
+  <div class="bg-white mb3 pa4 gray overflow-hidden">
+    <span class="f6 db">Posts</span>
+    <h1 class="f3 near-black">
+      <a href="http://superwf.github.io/p801/" class="link black dim">
+        angular-ui angular-bootstrap
+      </a>
+    </h1>
+    <div class="nested-links f5 lh-copy nested-copy-line-height">
+      名字虽然叫angular-ui，但安装的时候要
+bower install angular-bootstrap
+今天早上运行代码报错
+angular-ui was not injected in your file.
+google了一下才发现angular-ui已经过期，分崩离兮成了几个小项目了。
+    </div>
+  </div>
+</div>
+</div>
+      
+    </section>
+
+<ul class="pagination">
+    
+    <li class="page-item">
+        <a href="/posts/" class="page-link" aria-label="First"><span aria-hidden="true">&laquo;&laquo;</span></a>
+    </li>
+    
+    <li class="page-item">
+    <a href="/posts/page/12/" class="page-link" aria-label="Previous"><span aria-hidden="true">&laquo;</span></a>
+    </li>
+    
+    
+    
+    
+    
+    
+    
+        
+        
+    
+    
+    <li class="page-item"><a class="page-link" href="/posts/">1</a></li>
+    
+    
+    
+    
+    
+    
+        
+        
+    
+    
+    <li class="page-item"><a class="page-link" href="/posts/page/2/">2</a></li>
+    
+    
+    
+    
+    
+    
+        
+        
+    
+    
+    <li class="page-item"><a class="page-link" href="/posts/page/3/">3</a></li>
+    
+    
+    
+    
+    
+    
+        
+        
+    
+    
+    <li class="page-item disabled"><span aria-hidden="true">&nbsp;&hellip;&nbsp;</span></li>
+    
+    
+    
+    
+    
+    
+        
+        
+    
+    
+    
+    
+    
+    
+    
+        
+        
+    
+    
+    
+    
+    
+    
+    
+        
+        
+    
+    
+    
+    
+    
+    
+    
+        
+        
+    
+    
+    
+    
+    
+    
+    
+        
+        
+    
+    
+    
+    
+    
+    
+    
+        
+        
+    
+    
+    
+    
+    
+    
+    
+        
+        
+    
+    
+    
+    
+    
+    
+    
+        
+        
+    
+    
+    <li class="page-item"><a class="page-link" href="/posts/page/12/">12</a></li>
+    
+    
+    
+    
+    
+    
+        
+        
+    
+    
+    <li class="page-item active"><a class="page-link" href="/posts/page/13/">13</a></li>
+    
+    
+    
+    
+    
+    
+        
+        
+    
+    
+    <li class="page-item"><a class="page-link" href="/posts/page/14/">14</a></li>
+    
+    
+    
+    
+    
+    
+        
+        
+    
+    
+    <li class="page-item disabled"><span aria-hidden="true">&nbsp;&hellip;&nbsp;</span></li>
+    
+    
+    
+    
+    
+    
+        
+        
+    
+    
+    
+    
+    
+    
+    
+        
+        
+    
+    
+    
+    
+    
+    
+    
+        
+        
+    
+    
+    
+    
+    
+    
+    
+        
+        
+    
+    
+    
+    
+    
+    
+    
+        
+        
+    
+    
+    
+    
+    
+    
+    
+        
+        
+    
+    
+    
+    
+    
+    
+    
+        
+        
+    
+    
+    
+    
+    
+    
+    
+        
+        
+    
+    
+    
+    
+    
+    
+    
+        
+        
+    
+    
+    
+    
+    
+    
+    
+        
+        
+    
+    
+    
+    
+    
+    
+    
+        
+        
+    
+    
+    
+    
+    
+    
+    
+        
+        
+    
+    
+    
+    
+    
+    
+    
+        
+        
+    
+    
+    <li class="page-item"><a class="page-link" href="/posts/page/28/">28</a></li>
+    
+    
+    <li class="page-item">
+    <a href="/posts/page/14/" class="page-link" aria-label="Next"><span aria-hidden="true">&raquo;</span></a>
+    </li>
+    
+    <li class="page-item">
+        <a href="/posts/page/28/" class="page-link" aria-label="Last"><span aria-hidden="true">&raquo;&raquo;</span></a>
+    </li>
+    
+</ul>
+
+</article>
+
+    </main>
+    <footer class="bg-black bottom-0 w-100 pa3" role="contentinfo">
+  <div class="flex justify-between">
+  <a class="f4 fw4 hover-white no-underline white-70 dn dib-ns pv2 ph3" href="http://superwf.github.io/" >
+    &copy;  老王的日志 2020 
+  </a>
+    <div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+</div>
+  </div>
+</footer>
+
+    
+
+  <script src="/dist/js/app.3fc0f988d21662902933.js"></script>
+
+
+  </body>
+</html>

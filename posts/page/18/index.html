@@ -1,0 +1,712 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    
+    <title>老王的日志</title>
+    <meta name="viewport" content="width=device-width,minimum-scale=1">
+    <meta name="generator" content="Hugo 0.68.3" />
+    
+    
+      <META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW">
+    
+
+    
+    
+      <link href="/dist/css/app.1cb140d8ba31d5b2f1114537dd04802a.css" rel="stylesheet">
+    
+
+    
+
+    
+      
+    
+
+    
+    
+      <link href="/posts/index.xml" rel="alternate" type="application/rss+xml" title="老王的日志" />
+      <link href="/posts/index.xml" rel="feed" type="application/rss+xml" title="老王的日志" />
+      
+    
+    
+    <meta property="og:title" content="Posts" />
+<meta property="og:description" content="" />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="http://superwf.github.io/posts/" />
+<meta property="og:updated_time" content="2020-04-29T01:53:50+00:00" />
+<meta itemprop="name" content="Posts">
+<meta itemprop="description" content=""><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Posts"/>
+<meta name="twitter:description" content=""/>
+
+  </head>
+
+  <body class="ma0 avenir bg-near-white">
+
+    
+
+  <header>
+    <div class="pb3-m pb6-l bg-black">
+      <nav class="pv3 ph3 ph4-ns" role="navigation">
+  <div class="flex-l justify-between items-center center">
+    <a href="http://superwf.github.io/" class="f3 fw2 hover-white no-underline white-90 dib">
+      老王的日志
+    </a>
+    <div class="flex-l items-center">
+      
+
+      
+        <ul class="pl0 mr3">
+          
+          <li class="list f5 f4-ns fw4 dib pr3">
+            <a class="hover-white no-underline white-90" href="/migrate2020/" title="migrate2020 page">
+              migrate2020
+            </a>
+          </li>
+          
+          <li class="list f5 f4-ns fw4 dib pr3">
+            <a class="hover-white no-underline white-90" href="/coder-life/" title="coder-life page">
+              coder-life
+            </a>
+          </li>
+          
+        </ul>
+      
+      
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    </div>
+  </div>
+</nav>
+
+      <div class="tc-l pv3 ph3 ph4-ns">
+        <h1 class="f2 f-subheadline-l fw2 light-silver mb0 lh-title">
+          Posts
+        </h1>
+        
+      </div>
+    </div>
+  </header>
+
+
+    <main class="pb7" role="main">
+      
+  <article class="pa3 pa4-ns nested-copy-line-height nested-img">
+    <section class="cf ph3 ph5-l pv3 pv4-l f4 tc-l center measure-wide lh-copy mid-gray"></section>
+    <section class="flex-ns flex-wrap justify-around mt5">
+      
+        <div class="relative w-100 w-30-l mb4 bg-white"><div class="relative w-100 mb4 bg-white nested-copy-line-height">
+  <div class="bg-white mb3 pa4 gray overflow-hidden">
+    <span class="f6 db">Posts</span>
+    <h1 class="f3 near-black">
+      <a href="http://superwf.github.io/p432/" class="link black dim">
+        cacti
+      </a>
+    </h1>
+    <div class="nested-links f5 lh-copy nested-copy-line-height">
+      cacti又折腾了两天，主要是之前snmp的一些东西都忘了，又重新看了一下。
+弄明白了点觉得挺简单的，不过要是不明白，全都跟天书一样。
+软件全都aptitude安装，让系统默认配置。
+需要被监控的机器都要装snmpd
+看说明，要是想禁用snmpd v1 和 v2，在snmpd.conf里注释掉带community的行就行了，v3的认证不需要community
+在snmpd.conf里更改要监听的ip地址
+然后net-snmp-config –create-snmpv3-user -ro -a xxxxxxxx -x yyyyyyyy -X DES -A MD5 snmpuser
+man一下看看更好
+-a是验证密码，-x是是privpass，理解是snmp进行set时的写入密码，不过我感觉cacti都是读操作，应该用不到这个密码。
+建立snmpv3的用户与验证密码
+密码强制至少8位
+顺带一说cacti没法放到网站的根域名下，由于程序本身的设计必须被放在/cacti的虚拟目录下，不然总是redirect错误。
+在cacti里建立device
+填的和刚才建立的用户名和密码一致就行。
+template选择 ucd/net SNMP Host，这个模板基本想要的图都包括了。
+其他模板也行，就是带的图不一样而已。
+如果没出图，在graph management里找这个主机的随便一个图，开debug模式调试。
+图没问题了，在grahp trees 里添加新主机
+Tree Item Type选Host
+然后选中新主机添加
+后来看图里显示的硬盘和内存，都比实际的要小大概五分之一，难道是本机和snmp的算法不一样？回头问问老于。
+nagios里的nagios-snmp-plugin要用snmp v3的话，需要装以下东西
+libnet-snmp-perl libcrypt-hcesha-perl libcrypt-des-perl libdigest-hmac-perl
+    </div>
+  </div>
+</div>
+</div>
+      
+        <div class="relative w-100 w-30-l mb4 bg-white"><div class="relative w-100 mb4 bg-white nested-copy-line-height">
+  <div class="bg-white mb3 pa4 gray overflow-hidden">
+    <span class="f6 db">Posts</span>
+    <h1 class="f3 near-black">
+      <a href="http://superwf.github.io/p410/" class="link black dim">
+        iptables nginx 透明代理顺带加上ntop监个控
+      </a>
+    </h1>
+    <div class="nested-links f5 lh-copy nested-copy-line-height">
+      公司最外层的华为最近动不动老死机，作为半网管，还是得亲自折腾这个事。
+正好弄个老服务器把华为换掉，一来可以部署监控，二来可以随意根据iptables调整，不用弄那些专业设备的晦涩难懂的命令。
+精力有限，作为一个coder思科华为这些专业设备的命令我是不想去学了，不如学精点iptables更通用些也能达到一样的效果。
+一开始看到用varnish代替squid的。想上varnish。后来看了写资料发现varnish是单一或某几个网站做后端缓存代理的，并不具备透明代理的能力。
+本来想写个iptables +　varnish的教程就泡汤了，怪不得网上没有人写过这个搭配的文章，原来没戏…
+不过也好，如果以后网站性能有问题时，可以上varnish，这个对rails的程序可能还真有些必要，有些地方的逻辑占用数据库和内存资源太多了，比如即时生成pdf或数据统计什么的。
+squid那玩意没弄过，不过正好nginx也能做透明代理。顺带夸一下nginx，学习回报大！学一个工具，会中N种功能。
+首先
+绑定网卡名称
+ntop安装的时候选择监控网卡,之后可以在 /var/lib/ntop/init.cfg 更改
+之后开启ntop可以用3000端口访问但是需要做限制,要不到处都能访问这个3000端口十分不靠谱
+在/etc/init.d/ntop里
+ntop_start函数里加上启动参数 -w 127.0.0.1:3000
+再在ngnix里加一个主机，请求全部转发给127.0.0.1:3000
+然后用nginx的这个主机名访问。
+后记：因为加了http验证，设置了一个浏览权限，但是后来要改ntop配置的时候，进入admin页面的时候又需要另一个http验证。
+双重验证的用户名和密码不一致导致冲突无法进入admin管理页面。开始我还以为是admin密码记错了，后来重新设置了密码ntop -A xxx仍然没用才意识到这点。
+当需要进入admin页面的时候先暂时注释掉nginx的http验证那两行好了….
+ntop里有个plugin round-robin database
+看名字应该是调用rrdtool制图的，一开始不知道，把插件都打开看看，后来马上硬盘就被填满了，发现是rrd这个插件可能是为了制图用了太多硬盘文件，务必关掉。
+运行了一周多，ntop常开没问题，cpu在cacti里的监控最高20%多，负载没上2，看来在一个路由上只运行ntop不要装太多东西是可以长期稳定运行的。
+cacti
+安装好之后cacti的网站根目录下竟然没有jquery.js 和 jquery.cookie.js两个文件导致不出图
+自己网上找好这俩文件放到根目录的javascript文件夹里。
+因为本机当作路由器，监控的是本机的物理网卡，确不出图。
+因为没有安装snmpd服务。
+后来打算先暂装cacti，看一阵子如果负载太大就放到其他机器上，路由器的机器先只进行路由、ntop和nginx透明代理的作用。
+据于工程师说ntop的负载太大，应该随用随开。
+nginx 透明代理
+服务器先设置nat
+若nginx和网关这个是同机，直接转发端口，默认转到本机上
+同时要加上限制，不让自己内网之外的地址滥用该端口进行代理
+set +o history # 需要先禁用!的转义，并且man手册里的！位置错了，现在需要写在-s或-d的前面而不是ip前面了。
+若不同机则转发到nginx代理地址
+将上述iptables 命令放到一个脚本上，加上x权限,放到/usr/local/bin/fw_nat
+再在/etc/init.d/里编写个fw_nat也加上x
+最后update-rc.d firewall start 01 2 3 4 5 . stop 99 0 1 6 .
+添加服务自动启动
+    </div>
+  </div>
+</div>
+</div>
+      
+        <div class="relative w-100 w-30-l mb4 bg-white"><div class="relative w-100 mb4 bg-white nested-copy-line-height">
+  <div class="bg-white mb3 pa4 gray overflow-hidden">
+    <span class="f6 db">Posts</span>
+    <h1 class="f3 near-black">
+      <a href="http://superwf.github.io/p408/" class="link black dim">
+        accepts_nested_attributes_for validates_presence_of
+      </a>
+    </h1>
+    <div class="nested-links f5 lh-copy nested-copy-line-height">
+      用了accepts_nested_attributes_for之后
+在子模型中用了验证父模型的presence: true
+但是在关联创建的时候，父模型数据还没有save的时候总是不能通过验证。
+之前都是干脆取消了 presence的验证。
+后来想想不对劲，验证必须严格。
+参照
+http://api.rubyonrails.org/classes/ActiveRecord/NestedAttributes/ClassMethods.html#label-Validating+the+presence+of+a+parent+model
+这时候 has_many 和 belongs_to的
+inverse_of 参数就有用了。
+之前这个参数的说明我一直没理解。现在总算用上了一回。
+    </div>
+  </div>
+</div>
+</div>
+      
+        <div class="relative w-100 w-30-l mb4 bg-white"><div class="relative w-100 mb4 bg-white nested-copy-line-height">
+  <div class="bg-white mb3 pa4 gray overflow-hidden">
+    <span class="f6 db">Posts</span>
+    <h1 class="f3 near-black">
+      <a href="http://superwf.github.io/p405/" class="link black dim">
+        关于belongs_to的through
+      </a>
+    </h1>
+    <div class="nested-links f5 lh-copy nested-copy-line-height">
+      has_one和has_many都有through 的参数。
+本来belongs_to也应该有。
+比如
+order belongs_to client
+client belongs_to company
+so
+order belongs_to company
+逻辑上比较容易这么想。
+但是belongs_to 没有越级的这种优惠。
+根据stackoverflow上有人说，belongs_to 认为当前模型一定会有一个外键与所属的表相关连。所有没有越级through参数。
+如果想简单的实现
+在order里定义
+或者
+delegate :company, to: :client
+都行
+但是这样的话在联合搜索的时候，不能通过模型关联自动生成联合查询的sql
+例如
+后来我采用的方式是在orders上增加company_id字段，在client的更新的hook上加上更新所有orders的company_id，为了搜索的方便，增加了更新的麻烦。
+    </div>
+  </div>
+</div>
+</div>
+      
+        <div class="relative w-100 w-30-l mb4 bg-white"><div class="relative w-100 mb4 bg-white nested-copy-line-height">
+  <div class="bg-white mb3 pa4 gray overflow-hidden">
+    <span class="f6 db">Posts</span>
+    <h1 class="f3 near-black">
+      <a href="http://superwf.github.io/p403/" class="link black dim">
+        activeresource的pagination
+      </a>
+    </h1>
+    <div class="nested-links f5 lh-copy nested-copy-line-height">
+      use this gem
+active-resource-pagination
+就是activeresource没有activerecord那样方便的 relation关系，用着觉得不是很爽
+    </div>
+  </div>
+</div>
+</div>
+      
+        <div class="relative w-100 w-30-l mb4 bg-white"><div class="relative w-100 mb4 bg-white nested-copy-line-height">
+  <div class="bg-white mb3 pa4 gray overflow-hidden">
+    <span class="f6 db">Posts</span>
+    <h1 class="f3 near-black">
+      <a href="http://superwf.github.io/p400/" class="link black dim">
+        在activeresource中使用http-digest-authentication认证
+      </a>
+    </h1>
+    <div class="nested-links f5 lh-copy nested-copy-line-height">
+      用https弄了半天，好像自己生成的证书不好用，总是不能通过验证
+就改用另一种比http basic认证安全一些的http-digest
+这种方法rails的api中没有提如何与activeresource配合使用，参照如下即可。
+https://rails.lighthouseapp.com/projects/8994/tickets/3335-http-digest-authentication-for-activeresource
+    </div>
+  </div>
+</div>
+</div>
+      
+        <div class="relative w-100 w-30-l mb4 bg-white"><div class="relative w-100 mb4 bg-white nested-copy-line-height">
+  <div class="bg-white mb3 pa4 gray overflow-hidden">
+    <span class="f6 db">Posts</span>
+    <h1 class="f3 near-black">
+      <a href="http://superwf.github.io/p398/" class="link black dim">
+        php支持mongodb
+      </a>
+    </h1>
+    <div class="nested-links f5 lh-copy nested-copy-line-height">
+      本以为php内置了mongodb的支持，或者apt就可以下载自动配置。
+最后还是照mongodb网站的指示做
+先aptitude install php-pear php5-dev
+pecl install mongo
+再创建一个文件 /etc/php5/mods-available/mongo.ini
+里面写
+extension=mongo.so
+ln -s /etc/php5/mods-available/mongo.ini /etc/php5/conf.d/mongo.ini
+最后按系统规矩做个软链接
+ln -s /etc/php5/mods-available/mongo.ini /etc/php5/conf.d/mongo.ini
+重启fpm
+    </div>
+  </div>
+</div>
+</div>
+      
+        <div class="relative w-100 w-30-l mb4 bg-white"><div class="relative w-100 mb4 bg-white nested-copy-line-height">
+  <div class="bg-white mb3 pa4 gray overflow-hidden">
+    <span class="f6 db">Posts</span>
+    <h1 class="f3 near-black">
+      <a href="http://superwf.github.io/p395/" class="link black dim">
+        全lvm分区安装不能安装grub到硬盘
+      </a>
+    </h1>
+    <div class="nested-links f5 lh-copy nested-copy-line-height">
+      昨天弄了一天服务器，有一个服务器重新分区后，全lvm分区，到最后总是错误，不能将grub安装到硬盘。
+没辙了只好先分了一个ext4分区出来，将其他空间规划成lvm，最后才装上了。
+看来是必须有一个非lvm分区负责启动。
+之前明明记得装过，全lvm分区，也能安装系统的。
+    </div>
+  </div>
+</div>
+</div>
+      
+        <div class="relative w-100 w-30-l mb4 bg-white"><div class="relative w-100 mb4 bg-white nested-copy-line-height">
+  <div class="bg-white mb3 pa4 gray overflow-hidden">
+    <span class="f6 db">Posts</span>
+    <h1 class="f3 near-black">
+      <a href="http://superwf.github.io/p388/" class="link black dim">
+        rails在test下使用memory引擎
+      </a>
+    </h1>
+    <div class="nested-links f5 lh-copy nested-copy-line-height">
+      一直用rspec和database_cleaner进行测试，表一多，每个测试都要truncate所有的table，每个it都要一秒多，硬盘卡拉卡拉的巨响不说，这样下来一个模型测试下来就得好几分钟。
+每次一测试都可以去上个厕所什么的再回来。
+终于想到了，把test时用的db换成memory引擎的。
+google了一下，看有用sqlite的memory引擎的，不过mysql的也应该差不多。
+首先要将所有migration里的text 和 blob的字段换成 string的，因为memory不支持这两个类型。当然测试样例里如果要测试这些字段，也别放超过255个字符的就可以。
+然后在db/seed.rb文件里加上
+db = ::Atable.connection
+if ::Rails.env.test?
+tables = db.tables
+tables.delete ‘schema_migrations’
+tables.each do |t|
+db.execute “ALTER TABLE #{t} ENGINE= MEMORY”
+end
+exit
+end
+再执行rake db:seed RAILS_ENV=test
+将所有表转换为memory
+马上测试。原来要好几分钟的测试，现在就一两秒完成, done
+补充，后来我把这个功能单写了一个gem，叫convert_memory_engine
+https://github.com/superwf/convert_memory_engine
+也可以gem install convert_memory_engine
+    </div>
+  </div>
+</div>
+</div>
+      
+        <div class="relative w-100 w-30-l mb4 bg-white"><div class="relative w-100 mb4 bg-white nested-copy-line-height">
+  <div class="bg-white mb3 pa4 gray overflow-hidden">
+    <span class="f6 db">Posts</span>
+    <h1 class="f3 near-black">
+      <a href="http://superwf.github.io/p384/" class="link black dim">
+        dpkg –remove-architecture失败
+      </a>
+    </h1>
+    <div class="nested-links f5 lh-copy nested-copy-line-height">
+      为了装skype，dpkg –add-architecture i386还装了一堆的依赖包，用不了想取消mutiarch就报错了，
+得先用一下这个命令把已经安装的i386的包都卸载先
+aptitude remove `dpkg –get-selections | grep i386 | awk ‘{print $1}’`
+    </div>
+  </div>
+</div>
+</div>
+      
+    </section>
+
+<ul class="pagination">
+    
+    <li class="page-item">
+        <a href="/posts/" class="page-link" aria-label="First"><span aria-hidden="true">&laquo;&laquo;</span></a>
+    </li>
+    
+    <li class="page-item">
+    <a href="/posts/page/17/" class="page-link" aria-label="Previous"><span aria-hidden="true">&laquo;</span></a>
+    </li>
+    
+    
+    
+    
+    
+    
+    
+        
+        
+    
+    
+    <li class="page-item"><a class="page-link" href="/posts/">1</a></li>
+    
+    
+    
+    
+    
+    
+        
+        
+    
+    
+    <li class="page-item"><a class="page-link" href="/posts/page/2/">2</a></li>
+    
+    
+    
+    
+    
+    
+        
+        
+    
+    
+    <li class="page-item"><a class="page-link" href="/posts/page/3/">3</a></li>
+    
+    
+    
+    
+    
+    
+        
+        
+    
+    
+    <li class="page-item disabled"><span aria-hidden="true">&nbsp;&hellip;&nbsp;</span></li>
+    
+    
+    
+    
+    
+    
+        
+        
+    
+    
+    
+    
+    
+    
+    
+        
+        
+    
+    
+    
+    
+    
+    
+    
+        
+        
+    
+    
+    
+    
+    
+    
+    
+        
+        
+    
+    
+    
+    
+    
+    
+    
+        
+        
+    
+    
+    
+    
+    
+    
+    
+        
+        
+    
+    
+    
+    
+    
+    
+    
+        
+        
+    
+    
+    
+    
+    
+    
+    
+        
+        
+    
+    
+    
+    
+    
+    
+    
+        
+        
+    
+    
+    
+    
+    
+    
+    
+        
+        
+    
+    
+    
+    
+    
+    
+    
+        
+        
+    
+    
+    
+    
+    
+    
+    
+        
+        
+    
+    
+    
+    
+    
+    
+    
+        
+        
+    
+    
+    <li class="page-item"><a class="page-link" href="/posts/page/17/">17</a></li>
+    
+    
+    
+    
+    
+    
+        
+        
+    
+    
+    <li class="page-item active"><a class="page-link" href="/posts/page/18/">18</a></li>
+    
+    
+    
+    
+    
+    
+        
+        
+    
+    
+    <li class="page-item"><a class="page-link" href="/posts/page/19/">19</a></li>
+    
+    
+    
+    
+    
+    
+        
+        
+    
+    
+    <li class="page-item disabled"><span aria-hidden="true">&nbsp;&hellip;&nbsp;</span></li>
+    
+    
+    
+    
+    
+    
+        
+        
+    
+    
+    
+    
+    
+    
+    
+        
+        
+    
+    
+    
+    
+    
+    
+    
+        
+        
+    
+    
+    
+    
+    
+    
+    
+        
+        
+    
+    
+    
+    
+    
+    
+    
+        
+        
+    
+    
+    
+    
+    
+    
+    
+        
+        
+    
+    
+    
+    
+    
+    
+    
+        
+        
+    
+    
+    
+    
+    
+    
+    
+        
+        
+    
+    
+    <li class="page-item"><a class="page-link" href="/posts/page/28/">28</a></li>
+    
+    
+    <li class="page-item">
+    <a href="/posts/page/19/" class="page-link" aria-label="Next"><span aria-hidden="true">&raquo;</span></a>
+    </li>
+    
+    <li class="page-item">
+        <a href="/posts/page/28/" class="page-link" aria-label="Last"><span aria-hidden="true">&raquo;&raquo;</span></a>
+    </li>
+    
+</ul>
+
+</article>
+
+    </main>
+    <footer class="bg-black bottom-0 w-100 pa3" role="contentinfo">
+  <div class="flex justify-between">
+  <a class="f4 fw4 hover-white no-underline white-70 dn dib-ns pv2 ph3" href="http://superwf.github.io/" >
+    &copy;  老王的日志 2020 
+  </a>
+    <div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+</div>
+  </div>
+</footer>
+
+    
+
+  <script src="/dist/js/app.3fc0f988d21662902933.js"></script>
+
+
+  </body>
+</html>

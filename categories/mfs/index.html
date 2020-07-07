@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    
+    <title>mfs | 老王的日志</title>
+    <meta name="viewport" content="width=device-width,minimum-scale=1">
+    <meta name="generator" content="Hugo 0.68.3" />
+    
+    
+      <META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW">
+    
+
+    
+    
+      <link href="/dist/css/app.1cb140d8ba31d5b2f1114537dd04802a.css" rel="stylesheet">
+    
+
+    
+
+    
+      
+    
+
+    
+    
+      <link href="/categories/mfs/index.xml" rel="alternate" type="application/rss+xml" title="老王的日志" />
+      <link href="/categories/mfs/index.xml" rel="feed" type="application/rss+xml" title="老王的日志" />
+      
+    
+    
+    <meta property="og:title" content="mfs" />
+<meta property="og:description" content="" />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="http://superwf.github.io/categories/mfs/" />
+<meta property="og:updated_time" content="2014-07-25T05:12:19+00:00" />
+<meta itemprop="name" content="mfs">
+<meta itemprop="description" content=""><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="mfs"/>
+<meta name="twitter:description" content=""/>
+
+  </head>
+
+  <body class="ma0 avenir bg-near-white">
+
+    
+
+  <header>
+    <div class="pb3-m pb6-l bg-black">
+      <nav class="pv3 ph3 ph4-ns" role="navigation">
+  <div class="flex-l justify-between items-center center">
+    <a href="http://superwf.github.io/" class="f3 fw2 hover-white no-underline white-90 dib">
+      老王的日志
+    </a>
+    <div class="flex-l items-center">
+      
+
+      
+        <ul class="pl0 mr3">
+          
+          <li class="list f5 f4-ns fw4 dib pr3">
+            <a class="hover-white no-underline white-90" href="/migrate2020/" title="migrate2020 page">
+              migrate2020
+            </a>
+          </li>
+          
+          <li class="list f5 f4-ns fw4 dib pr3">
+            <a class="hover-white no-underline white-90" href="/coder-life/" title="coder-life page">
+              coder-life
+            </a>
+          </li>
+          
+        </ul>
+      
+      
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    </div>
+  </div>
+</nav>
+
+      <div class="tc-l pv3 ph3 ph4-ns">
+        <h1 class="f2 f-subheadline-l fw2 light-silver mb0 lh-title">
+          mfs
+        </h1>
+        
+      </div>
+    </div>
+  </header>
+
+
+    <main class="pb7" role="main">
+      
+  <article class="cf pa3 pa4-m pa4-l">
+    <div class="measure-wide-l center f4 lh-copy nested-copy-line-height nested-links nested-img mid-gray">
+      <p>Below you will find pages that utilize the taxonomy term “mfs”</p>
+    </div>
+  </article>
+  <div class="mw8 center">    
+    <section class="flex-ns flex-wrap justify-around mt5">
+      
+        <div class="relative w-100  mb4 bg-white">
+          <div class="relative w-100 mb4 bg-white nested-copy-line-height">
+  <div class="bg-white mb3 pa4 gray overflow-hidden">
+    <span class="f6 db">Posts</span>
+    <h1 class="f3 near-black">
+      <a href="http://superwf.github.io/p902/" class="link black dim">
+        mfs的metalogger服务器备份频率
+      </a>
+    </h1>
+    <div class="nested-links f5 lh-copy nested-copy-line-height">
+      mfsmaster上的 metadata.mfs是每小时备份一次，如果出现问题，只要这个文件还在，会损失一小时之内的数据，这个在不少地方都提到过。
+本以为mfsmetalogger上也是这样，但经过这一两天的观察发现mfsmetalogger上是每天备份一次，如果手动启动metalogger则会在刚连接master的时候备份一次。
+所以如果是mfsmaster主机突然彻底完蛋的话，凭借mfsmetalogger的备份可能会丢一天之内的数据。至少setgoal为2的情况下。
+还算可接受吧，只要心里有这个谱。
+    </div>
+  </div>
+</div>
+
+        </div>
+      
+        <div class="relative w-100  mb4 bg-white">
+          <div class="relative w-100 mb4 bg-white nested-copy-line-height">
+  <div class="bg-white mb3 pa4 gray overflow-hidden">
+    <span class="f6 db">Posts</span>
+    <h1 class="f3 near-black">
+      <a href="http://superwf.github.io/p710/" class="link black dim">
+        Can’t connect to MFS master (IP:127.0.0.1 ; PORT:9421)
+      </a>
+    </h1>
+    <div class="nested-links f5 lh-copy nested-copy-line-height">
+      昨天公司停电，今天一上班不能上网，一看服务器都是重启过的，应该是停电时间太长，机房的ups没顶上那么久。
+折腾一天下午最后下午联通给换了个光猫总算好了，看来是停电把光猫烧坏了。
+mfs停了之后修复了一通总算是都起来了，最后就剩下mfscgiserv，启动之后页面总是显示
+Can’t connect to MFS master (IP:127.0.0.1 ; PORT:9421)
+最后发现mfs.cgi文件是个python
+里面有masterhost这么个变量，虽然没去查搜测，但是看样子是从url里取值的。
+直接把那个值改成192.168.1.100，即服务器的mfsmaster内网监听地址，或者在cgi的url里加上
+?masterhost=192.168.1.100
+OK，cgi访问正常，对于有监控欲的人来说就算都运行正常这玩意也不能没有。
+    </div>
+  </div>
+</div>
+
+        </div>
+      
+        <div class="relative w-100  mb4 bg-white">
+          <div class="relative w-100 mb4 bg-white nested-copy-line-height">
+  <div class="bg-white mb3 pa4 gray overflow-hidden">
+    <span class="f6 db">Posts</span>
+    <h1 class="f3 near-black">
+      <a href="http://superwf.github.io/p706/" class="link black dim">
+        mfs remove chunck server
+      </a>
+    </h1>
+    <div class="nested-links f5 lh-copy nested-copy-line-height">
+      最近有一个mfs chunck server不太稳定。
+打算将其上的硬盘换下来。
+于是先注释其 mfshdd.cfg
+*/mnt/chunck
+然后重启chunck server
+mfschunckserver restart
+然后就是等了
+在mfs.cgi上可以看到该硬盘的使用量在不断减少，数据被转移到其他硬盘上。
+转了好几天，该硬盘的数据总算不再减少了。
+但是endangered (691730)仍然很多，google也没找到这个数据的意思，大概是还有这么多数据只有一份copy，属于濒危状态，颜色是仅次与danger的橙色，等检查完了之后该硬盘就可以移除了。
+用mfschunckserver stop实验了一下，该数值不再减少了，start之后可以继续减少。
+看来还是得等endangered减到0为止吧。
+    </div>
+  </div>
+</div>
+
+        </div>
+      
+        <div class="relative w-100  mb4 bg-white">
+          <div class="relative w-100 mb4 bg-white nested-copy-line-height">
+  <div class="bg-white mb3 pa4 gray overflow-hidden">
+    <span class="f6 db">Posts</span>
+    <h1 class="f3 near-black">
+      <a href="http://superwf.github.io/p568/" class="link black dim">
+        记录软raid1转换为mfs chunkserver
+      </a>
+    </h1>
+    <div class="nested-links f5 lh-copy nested-copy-line-height">
+      之前的一个备份用的raid1，当时做的软raid1。
+看了一下raid的mdadm，/etc/mdadm/mdadm.conf里的配置基本上不起作用。
+先卸载了所有raild1的挂载，注释掉/etc/fstab里的所有相关分区。
+这样就算已经删除了，想了想，没做raid0，一块坏数据全完蛋的话很让人胆颤，还是做了跨硬盘的lvm，怕万一坏一块的时候另一块的数据还能找回来点，其他的数据可靠性就靠mfs了。
+又先格式化成lvm分区。
+然后vgcreate /dev/sdb1 /dev/sdc1 raidvg
+然后lvcreate -l 99999 -n chunk raidvg
+再格式化，再挂载，再把挂载点写到fstab里
+再把挂载点加到/etc/mfshdd.cfg里。
+mfschunckserver start之
+    </div>
+  </div>
+</div>
+
+        </div>
+      
+    </section>
+  </div>
+
+    </main>
+    <footer class="bg-black bottom-0 w-100 pa3" role="contentinfo">
+  <div class="flex justify-between">
+  <a class="f4 fw4 hover-white no-underline white-70 dn dib-ns pv2 ph3" href="http://superwf.github.io/" >
+    &copy;  老王的日志 2020 
+  </a>
+    <div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+</div>
+  </div>
+</footer>
+
+    
+
+  <script src="/dist/js/app.3fc0f988d21662902933.js"></script>
+
+
+  </body>
+</html>

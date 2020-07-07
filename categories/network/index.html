@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    
+    <title>network | 老王的日志</title>
+    <meta name="viewport" content="width=device-width,minimum-scale=1">
+    <meta name="generator" content="Hugo 0.68.3" />
+    
+    
+      <META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW">
+    
+
+    
+    
+      <link href="/dist/css/app.1cb140d8ba31d5b2f1114537dd04802a.css" rel="stylesheet">
+    
+
+    
+
+    
+      
+    
+
+    
+    
+      <link href="/categories/network/index.xml" rel="alternate" type="application/rss+xml" title="老王的日志" />
+      <link href="/categories/network/index.xml" rel="feed" type="application/rss+xml" title="老王的日志" />
+      
+    
+    
+    <meta property="og:title" content="network" />
+<meta property="og:description" content="" />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="http://superwf.github.io/categories/network/" />
+<meta property="og:updated_time" content="2013-07-01T04:18:10+00:00" />
+<meta itemprop="name" content="network">
+<meta itemprop="description" content=""><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="network"/>
+<meta name="twitter:description" content=""/>
+
+  </head>
+
+  <body class="ma0 avenir bg-near-white">
+
+    
+
+  <header>
+    <div class="pb3-m pb6-l bg-black">
+      <nav class="pv3 ph3 ph4-ns" role="navigation">
+  <div class="flex-l justify-between items-center center">
+    <a href="http://superwf.github.io/" class="f3 fw2 hover-white no-underline white-90 dib">
+      老王的日志
+    </a>
+    <div class="flex-l items-center">
+      
+
+      
+        <ul class="pl0 mr3">
+          
+          <li class="list f5 f4-ns fw4 dib pr3">
+            <a class="hover-white no-underline white-90" href="/migrate2020/" title="migrate2020 page">
+              migrate2020
+            </a>
+          </li>
+          
+          <li class="list f5 f4-ns fw4 dib pr3">
+            <a class="hover-white no-underline white-90" href="/coder-life/" title="coder-life page">
+              coder-life
+            </a>
+          </li>
+          
+        </ul>
+      
+      
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    </div>
+  </div>
+</nav>
+
+      <div class="tc-l pv3 ph3 ph4-ns">
+        <h1 class="f2 f-subheadline-l fw2 light-silver mb0 lh-title">
+          network
+        </h1>
+        
+      </div>
+    </div>
+  </header>
+
+
+    <main class="pb7" role="main">
+      
+  <article class="cf pa3 pa4-m pa4-l">
+    <div class="measure-wide-l center f4 lh-copy nested-copy-line-height nested-links nested-img mid-gray">
+      <p>Below you will find pages that utilize the taxonomy term “network”</p>
+    </div>
+  </article>
+  <div class="mw8 center">    
+    <section class="flex-ns flex-wrap justify-around mt5">
+      
+        <div class="relative w-100  mb4 bg-white">
+          <div class="relative w-100 mb4 bg-white nested-copy-line-height">
+  <div class="bg-white mb3 pa4 gray overflow-hidden">
+    <span class="f6 db">Posts</span>
+    <h1 class="f3 near-black">
+      <a href="http://superwf.github.io/p533/" class="link black dim">
+        cacti poller error, Cannot find module (SNMPv2-TC)
+      </a>
+    </h1>
+    <div class="nested-links f5 lh-copy nested-copy-line-height">
+      cacti 运行一阵子之后发现监控主机的根分区快满了。一查发现log里的poller-error.log文件特别大。
+里面有好多类似
+Cannot find module (SNMPv2-TC)
+的错误。
+开始以为是少了什么snmp的依赖库，用apt-file search也没有找到这些东西。
+http://www.podciborski.co.uk/miscellaneous/snmp-cannot-find-module/
+竟然还有个snmp-mibs-downloader这么个东西
+之后download-mibs，自动安装。不再报错。
+今天看了一下cacti的图，发现一台机器的 load average 非常大，达到800多，别的机器峰值也没过10，还以为是数据采集出错了。
+上去top看了一下也没发现cpu占用很多的进程。ps 后发现好多mongodump的进程死了，原因是前几天备份分区满了每天的备份任务不能继续执行。
+mongodump的进程状态为D，-9也杀不掉，只好重启了。之后load average总算是正常了，惯性思维导致忽略重要的报警信息。
+    </div>
+  </div>
+</div>
+
+        </div>
+      
+        <div class="relative w-100  mb4 bg-white">
+          <div class="relative w-100 mb4 bg-white nested-copy-line-height">
+  <div class="bg-white mb3 pa4 gray overflow-hidden">
+    <span class="f6 db">Posts</span>
+    <h1 class="f3 near-black">
+      <a href="http://superwf.github.io/p442/" class="link black dim">
+        awstats logrotate prerotate
+      </a>
+    </h1>
+    <div class="nested-links f5 lh-copy nested-copy-line-height">
+      首先感谢这页资料
+http://kamisama.me/2013/03/20/install-configure-and-protect-awstats-for-multiple-nginx-vhost-on-debian/
+开始用splunk看的很好，不过终归是试用的，还是得找个合适的免费软件代替。
+看上了awstats，本来以为是个cgi程序，看了半天原来是个生成静态文件的工具。
+别人写的动态用php生成的弄出来，不过这东西要是动态的，太耗系统。
+好多资料里还需要手动日志切割，大概是年代太久了，当前系统里基本都会有自动的日志切割工具，debian里就会预装logrotate
+看资料写的在/etc/logrotate.d/nginx里
+prerotate 里加东西，省去了再加crontab的麻烦
+就看了看当前系统的
+发现这里有个run-parts httpd-prerotate
+于是就建立了一个httpd-prerotate的文件夹
+把需要执行的脚本放里面加上x权限。
+脚本为
+#!/bin/bash为
+if [ -x /usr/share/awstats/tools/awstats_buildstaticpages.pl]; then
+/usr/share/awstats/tools/awstats_buildstaticpages.pl -update -config=proxy -lang=cn -dir=/var/www/awstats -awstatsprog=/usr/lib/cgi-bin/awstats.pl
+fi
+然后配置好nginx的一个虚拟目录给 /var/www/awstats
+后来有一次看mysql的二进制日志，发现全都是非常小，而且看时间都是每天早上6.45生成的。
+明明my.cnf里配置了max_binlog_size = 1000M，但没起作用。
+原来就是/etc/logrotate.d/mysql-server里更新为daily，虽然这里的配置没有指定binlog，但是每次分割日志后都会通过postrotate重启mysql，也就生成了新的二进制日志。
+果断改成monthly
+    </div>
+  </div>
+</div>
+
+        </div>
+      
+        <div class="relative w-100  mb4 bg-white">
+          <div class="relative w-100 mb4 bg-white nested-copy-line-height">
+  <div class="bg-white mb3 pa4 gray overflow-hidden">
+    <span class="f6 db">Posts</span>
+    <h1 class="f3 near-black">
+      <a href="http://superwf.github.io/p432/" class="link black dim">
+        cacti
+      </a>
+    </h1>
+    <div class="nested-links f5 lh-copy nested-copy-line-height">
+      cacti又折腾了两天，主要是之前snmp的一些东西都忘了，又重新看了一下。
+弄明白了点觉得挺简单的，不过要是不明白，全都跟天书一样。
+软件全都aptitude安装，让系统默认配置。
+需要被监控的机器都要装snmpd
+看说明，要是想禁用snmpd v1 和 v2，在snmpd.conf里注释掉带community的行就行了，v3的认证不需要community
+在snmpd.conf里更改要监听的ip地址
+然后net-snmp-config –create-snmpv3-user -ro -a xxxxxxxx -x yyyyyyyy -X DES -A MD5 snmpuser
+man一下看看更好
+-a是验证密码，-x是是privpass，理解是snmp进行set时的写入密码，不过我感觉cacti都是读操作，应该用不到这个密码。
+建立snmpv3的用户与验证密码
+密码强制至少8位
+顺带一说cacti没法放到网站的根域名下，由于程序本身的设计必须被放在/cacti的虚拟目录下，不然总是redirect错误。
+在cacti里建立device
+填的和刚才建立的用户名和密码一致就行。
+template选择 ucd/net SNMP Host，这个模板基本想要的图都包括了。
+其他模板也行，就是带的图不一样而已。
+如果没出图，在graph management里找这个主机的随便一个图，开debug模式调试。
+图没问题了，在grahp trees 里添加新主机
+Tree Item Type选Host
+然后选中新主机添加
+后来看图里显示的硬盘和内存，都比实际的要小大概五分之一，难道是本机和snmp的算法不一样？回头问问老于。
+nagios里的nagios-snmp-plugin要用snmp v3的话，需要装以下东西
+libnet-snmp-perl libcrypt-hcesha-perl libcrypt-des-perl libdigest-hmac-perl
+    </div>
+  </div>
+</div>
+
+        </div>
+      
+        <div class="relative w-100  mb4 bg-white">
+          <div class="relative w-100 mb4 bg-white nested-copy-line-height">
+  <div class="bg-white mb3 pa4 gray overflow-hidden">
+    <span class="f6 db">Posts</span>
+    <h1 class="f3 near-black">
+      <a href="http://superwf.github.io/p410/" class="link black dim">
+        iptables nginx 透明代理顺带加上ntop监个控
+      </a>
+    </h1>
+    <div class="nested-links f5 lh-copy nested-copy-line-height">
+      公司最外层的华为最近动不动老死机，作为半网管，还是得亲自折腾这个事。
+正好弄个老服务器把华为换掉，一来可以部署监控，二来可以随意根据iptables调整，不用弄那些专业设备的晦涩难懂的命令。
+精力有限，作为一个coder思科华为这些专业设备的命令我是不想去学了，不如学精点iptables更通用些也能达到一样的效果。
+一开始看到用varnish代替squid的。想上varnish。后来看了写资料发现varnish是单一或某几个网站做后端缓存代理的，并不具备透明代理的能力。
+本来想写个iptables +　varnish的教程就泡汤了，怪不得网上没有人写过这个搭配的文章，原来没戏…
+不过也好，如果以后网站性能有问题时，可以上varnish，这个对rails的程序可能还真有些必要，有些地方的逻辑占用数据库和内存资源太多了，比如即时生成pdf或数据统计什么的。
+squid那玩意没弄过，不过正好nginx也能做透明代理。顺带夸一下nginx，学习回报大！学一个工具，会中N种功能。
+首先
+绑定网卡名称
+ntop安装的时候选择监控网卡,之后可以在 /var/lib/ntop/init.cfg 更改
+之后开启ntop可以用3000端口访问但是需要做限制,要不到处都能访问这个3000端口十分不靠谱
+在/etc/init.d/ntop里
+ntop_start函数里加上启动参数 -w 127.0.0.1:3000
+再在ngnix里加一个主机，请求全部转发给127.0.0.1:3000
+然后用nginx的这个主机名访问。
+后记：因为加了http验证，设置了一个浏览权限，但是后来要改ntop配置的时候，进入admin页面的时候又需要另一个http验证。
+双重验证的用户名和密码不一致导致冲突无法进入admin管理页面。开始我还以为是admin密码记错了，后来重新设置了密码ntop -A xxx仍然没用才意识到这点。
+当需要进入admin页面的时候先暂时注释掉nginx的http验证那两行好了….
+ntop里有个plugin round-robin database
+看名字应该是调用rrdtool制图的，一开始不知道，把插件都打开看看，后来马上硬盘就被填满了，发现是rrd这个插件可能是为了制图用了太多硬盘文件，务必关掉。
+运行了一周多，ntop常开没问题，cpu在cacti里的监控最高20%多，负载没上2，看来在一个路由上只运行ntop不要装太多东西是可以长期稳定运行的。
+cacti
+安装好之后cacti的网站根目录下竟然没有jquery.js 和 jquery.cookie.js两个文件导致不出图
+自己网上找好这俩文件放到根目录的javascript文件夹里。
+因为本机当作路由器，监控的是本机的物理网卡，确不出图。
+因为没有安装snmpd服务。
+后来打算先暂装cacti，看一阵子如果负载太大就放到其他机器上，路由器的机器先只进行路由、ntop和nginx透明代理的作用。
+据于工程师说ntop的负载太大，应该随用随开。
+nginx 透明代理
+服务器先设置nat
+若nginx和网关这个是同机，直接转发端口，默认转到本机上
+同时要加上限制，不让自己内网之外的地址滥用该端口进行代理
+set +o history # 需要先禁用!的转义，并且man手册里的！位置错了，现在需要写在-s或-d的前面而不是ip前面了。
+若不同机则转发到nginx代理地址
+将上述iptables 命令放到一个脚本上，加上x权限,放到/usr/local/bin/fw_nat
+再在/etc/init.d/里编写个fw_nat也加上x
+最后update-rc.d firewall start 01 2 3 4 5 . stop 99 0 1 6 .
+添加服务自动启动
+    </div>
+  </div>
+</div>
+
+        </div>
+      
+        <div class="relative w-100  mb4 bg-white">
+          <div class="relative w-100 mb4 bg-white nested-copy-line-height">
+  <div class="bg-white mb3 pa4 gray overflow-hidden">
+    <span class="f6 db">Posts</span>
+    <h1 class="f3 near-black">
+      <a href="http://superwf.github.io/p356/" class="link black dim">
+        452 4.3.1 Insufficient system storage
+      </a>
+    </h1>
+    <div class="nested-links f5 lh-copy nested-copy-line-height">
+      今天邮件服务器突然发不出去邮件，报这个错误。
+应该是空间不足。上服务器看了一下，root还剩900多M的可用空间。
+突然想到ext分区有一些保留空间。果断lvextend了一下就恢复了。
+查了一下发现这个
+http://forum.ubuntu.org.cn/viewtopic.php?p=2601803
+不过vg还很大，先稳定重要。
+    </div>
+  </div>
+</div>
+
+        </div>
+      
+        <div class="relative w-100  mb4 bg-white">
+          <div class="relative w-100 mb4 bg-white nested-copy-line-height">
+  <div class="bg-white mb3 pa4 gray overflow-hidden">
+    <span class="f6 db">Posts</span>
+    <h1 class="f3 near-black">
+      <a href="http://superwf.github.io/p348/" class="link black dim">
+        pptp设置
+      </a>
+    </h1>
+    <div class="nested-links f5 lh-copy nested-copy-line-height">
+      openvpn的推广阻力很大，主要是由于客户端太麻烦，客户不好控制。
+还是选一个能用自带拨号的东西吧，经老于推荐用了pptpd
+http://www.cnblogs.com/wusthjp/archive/2012/04/05/2433704.html
+参考了以上设置，还挺容易的。
+关键的几步就是
+net.ipv4.ip_forward = 1
+和
+iptables -t nat -A POSTROUTING -s 192.168.2.0/255.255.255.0 -j SNAT –to-source 192.168.1.108
+这个
+    </div>
+  </div>
+</div>
+
+        </div>
+      
+    </section>
+  </div>
+
+    </main>
+    <footer class="bg-black bottom-0 w-100 pa3" role="contentinfo">
+  <div class="flex justify-between">
+  <a class="f4 fw4 hover-white no-underline white-70 dn dib-ns pv2 ph3" href="http://superwf.github.io/" >
+    &copy;  老王的日志 2020 
+  </a>
+    <div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+</div>
+  </div>
+</footer>
+
+    
+
+  <script src="/dist/js/app.3fc0f988d21662902933.js"></script>
+
+
+  </body>
+</html>

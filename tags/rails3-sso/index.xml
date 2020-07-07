@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>rails3 sso on 老王的日志</title>
+    <link>http://superwf.github.io/tags/rails3-sso/</link>
+    <description>Recent content in rails3 sso on 老王的日志</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-CN</language>
+    <lastBuildDate>Fri, 02 Sep 2011 02:02:25 +0000</lastBuildDate>
+    
+	<atom:link href="http://superwf.github.io/tags/rails3-sso/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>rails3 sso单点登录</title>
+      <link>http://superwf.github.io/p169/</link>
+      <pubDate>Fri, 02 Sep 2011 02:02:25 +0000</pubDate>
+      
+      <guid>http://superwf.github.io/p169/</guid>
+      <description>rails3 的单点登录
+网上搜说要用什么什么插件，多次实验后发现不用
+参考了这个
+http://logicsoul.com/2010/rails-3-enabling-cross-sub-domain-sso/
+在config/initializers/session_store.rb里
+修改
+MyApp::Application.config.session_store :active_record, :key =&amp;gt; ‘_sso_session’, :domain =&amp;gt; ‘.superwf.com’
+在多个网站中，把:key和:domain 改成一致的，就可以了，session跨数据库共享参见另一篇</description>
+    </item>
+    
+  </channel>
+</rss>

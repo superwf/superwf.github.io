@@ -1,0 +1,694 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    
+    <title>老王的日志</title>
+    <meta name="viewport" content="width=device-width,minimum-scale=1">
+    <meta name="generator" content="Hugo 0.68.3" />
+    
+    
+      <META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW">
+    
+
+    
+    
+      <link href="/dist/css/app.1cb140d8ba31d5b2f1114537dd04802a.css" rel="stylesheet">
+    
+
+    
+
+    
+      
+    
+
+    
+    
+      <link href="/posts/index.xml" rel="alternate" type="application/rss+xml" title="老王的日志" />
+      <link href="/posts/index.xml" rel="feed" type="application/rss+xml" title="老王的日志" />
+      
+    
+    
+    <meta property="og:title" content="Posts" />
+<meta property="og:description" content="" />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="http://superwf.github.io/posts/" />
+<meta property="og:updated_time" content="2020-04-29T01:53:50+00:00" />
+<meta itemprop="name" content="Posts">
+<meta itemprop="description" content=""><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Posts"/>
+<meta name="twitter:description" content=""/>
+
+  </head>
+
+  <body class="ma0 avenir bg-near-white">
+
+    
+
+  <header>
+    <div class="pb3-m pb6-l bg-black">
+      <nav class="pv3 ph3 ph4-ns" role="navigation">
+  <div class="flex-l justify-between items-center center">
+    <a href="http://superwf.github.io/" class="f3 fw2 hover-white no-underline white-90 dib">
+      老王的日志
+    </a>
+    <div class="flex-l items-center">
+      
+
+      
+        <ul class="pl0 mr3">
+          
+          <li class="list f5 f4-ns fw4 dib pr3">
+            <a class="hover-white no-underline white-90" href="/migrate2020/" title="migrate2020 page">
+              migrate2020
+            </a>
+          </li>
+          
+          <li class="list f5 f4-ns fw4 dib pr3">
+            <a class="hover-white no-underline white-90" href="/coder-life/" title="coder-life page">
+              coder-life
+            </a>
+          </li>
+          
+        </ul>
+      
+      
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    </div>
+  </div>
+</nav>
+
+      <div class="tc-l pv3 ph3 ph4-ns">
+        <h1 class="f2 f-subheadline-l fw2 light-silver mb0 lh-title">
+          Posts
+        </h1>
+        
+      </div>
+    </div>
+  </header>
+
+
+    <main class="pb7" role="main">
+      
+  <article class="pa3 pa4-ns nested-copy-line-height nested-img">
+    <section class="cf ph3 ph5-l pv3 pv4-l f4 tc-l center measure-wide lh-copy mid-gray"></section>
+    <section class="flex-ns flex-wrap justify-around mt5">
+      
+        <div class="relative w-100 w-30-l mb4 bg-white"><div class="relative w-100 mb4 bg-white nested-copy-line-height">
+  <div class="bg-white mb3 pa4 gray overflow-hidden">
+    <span class="f6 db">Posts</span>
+    <h1 class="f3 near-black">
+      <a href="http://superwf.github.io/p348/" class="link black dim">
+        pptp设置
+      </a>
+    </h1>
+    <div class="nested-links f5 lh-copy nested-copy-line-height">
+      openvpn的推广阻力很大，主要是由于客户端太麻烦，客户不好控制。
+还是选一个能用自带拨号的东西吧，经老于推荐用了pptpd
+http://www.cnblogs.com/wusthjp/archive/2012/04/05/2433704.html
+参考了以上设置，还挺容易的。
+关键的几步就是
+net.ipv4.ip_forward = 1
+和
+iptables -t nat -A POSTROUTING -s 192.168.2.0/255.255.255.0 -j SNAT –to-source 192.168.1.108
+这个
+    </div>
+  </div>
+</div>
+</div>
+      
+        <div class="relative w-100 w-30-l mb4 bg-white"><div class="relative w-100 mb4 bg-white nested-copy-line-height">
+  <div class="bg-white mb3 pa4 gray overflow-hidden">
+    <span class="f6 db">Posts</span>
+    <h1 class="f3 near-black">
+      <a href="http://superwf.github.io/p345/" class="link black dim">
+        prawn里内嵌png
+      </a>
+    </h1>
+    <div class="nested-links f5 lh-copy nested-copy-line-height">
+      prawn里内嵌png
+在photoshop里导出png时，必须选择无交错，否则prawn里会报错，不能嵌入图片。
+    </div>
+  </div>
+</div>
+</div>
+      
+        <div class="relative w-100 w-30-l mb4 bg-white"><div class="relative w-100 mb4 bg-white nested-copy-line-height">
+  <div class="bg-white mb3 pa4 gray overflow-hidden">
+    <span class="f6 db">Posts</span>
+    <h1 class="f3 near-black">
+      <a href="http://superwf.github.io/p342/" class="link black dim">
+        rspec中用了stub之后总有报错 wrong number of arguments(1 for 0)
+      </a>
+    </h1>
+    <div class="nested-links f5 lh-copy nested-copy-line-height">
+      弄了好几个钟头，一开始用rspec -b参数看trace信息还以为是rspec版本的问题。
+弄到后来发现一个model的属性叫method弄得出错。
+属性名改为method_name之后就好了，method的名字不能用，是我疏忽了。
+    </div>
+  </div>
+</div>
+</div>
+      
+        <div class="relative w-100 w-30-l mb4 bg-white"><div class="relative w-100 mb4 bg-white nested-copy-line-height">
+  <div class="bg-white mb3 pa4 gray overflow-hidden">
+    <span class="f6 db">Posts</span>
+    <h1 class="f3 near-black">
+      <a href="http://superwf.github.io/p339/" class="link black dim">
+        rspec中counter_cache不自动更新的问题
+      </a>
+    </h1>
+    <div class="nested-links f5 lh-copy nested-copy-line-height">
+      rspec时，counter_cache的数字没有自动更新。
+发现因为缓存，reload一下就好了。
+而且FactoryGirl.craete 所创建的对象不能出发 counter_cache自动更新功能，还是必须用model自己的create方法。
+    </div>
+  </div>
+</div>
+</div>
+      
+        <div class="relative w-100 w-30-l mb4 bg-white"><div class="relative w-100 mb4 bg-white nested-copy-line-height">
+  <div class="bg-white mb3 pa4 gray overflow-hidden">
+    <span class="f6 db">Posts</span>
+    <h1 class="f3 near-black">
+      <a href="http://superwf.github.io/p331/" class="link black dim">
+        64位系统下无法使用libpam-mysql的md5
+      </a>
+    </h1>
+    <div class="nested-links f5 lh-copy nested-copy-line-height">
+      Aug 23 09:05:57 wfoffice saslauthd[7235]: pam_mysql – non-crypt()ish MD5 hash is not supported in this build.
+首先声明在32位系统上没这问题，只有64位系统出这个。
+花了大半天的时间
+也没弄好。
+http://bbs.chinaunix.net/forum.php?mod=viewthread&amp;tid=1321601
+也按这个重新编译过了
+显示编译结果都OK，但还是出第一行的那个错误，不能通过验证。
+看pam-mysql这个模块最后更新是2006年，这么多年就没再更新过，估计是没戏了，那时候64位系统还没普及。
+https://bugs.launchpad.net/ubuntu/+source/pam-mysql/+bug/1006005
+显示bug一直没修复。
+    </div>
+  </div>
+</div>
+</div>
+      
+        <div class="relative w-100 w-30-l mb4 bg-white"><div class="relative w-100 mb4 bg-white nested-copy-line-height">
+  <div class="bg-white mb3 pa4 gray overflow-hidden">
+    <span class="f6 db">Posts</span>
+    <h1 class="f3 near-black">
+      <a href="http://superwf.github.io/p317/" class="link black dim">
+        wheezy下配置postfix mysql postfixadmin dovecot roundcube全apt安装
+      </a>
+    </h1>
+    <div class="nested-links f5 lh-copy nested-copy-line-height">
+      aptititude install postfix
+选择internet 模式
+填写 example.com，需要预先设置本机域名 mail.example.com
+aptitude install postfixadmin
+数据库选择mysql
+输入mysql的root密码，然后设置postfixadmin的数据库访问密码
+http://mail.dna.com/setup.php
+设置postfixadmin
+设置setup密码 xxxxxxx
+将更新密码生成的hash复制到 /etc/postfixadmin/config.inc.php里的
+setup_password 里
+新增加管理员 wangfan@example.com 密码xxxxxx
+改用dovecot,不用courier
+aptitude install dovecot-pop3d dovecot-imapd dovecot-mysql
+postfix 的验证可以通过 sasl2-bin所生成的saslauthd来进行验证。
+但是与dovecot配合时，通过dovecot来验证，所以不需要sasl2-bin
+验证通过/var/spool/postfix/private/auth的socket文件来进行交互。
+这是折腾了一天得到的宝贵经验。
+第二天
+昨天卡在了dovecot的验证上，用数据库验证总是不能通过。log里总是显示auth fail，不能得到详细的登录日志
+看dovecot的doc，找到在 /conf.d/10-logging.conf里更改日志记录等级。
+增加debug_log_path = /var/log/mail.debug
+auth_debug = yes
+然后就能在mail.debug文件中查看详细的登录时执行的查询sql。
+发现sql没有捕捉到%d参数。原来在客户端用的登录名是user，而不是user@domain.com
+用了完整的登录名称，总算是通过了验证。
+可以发邮件之后。
+不能收是个问题，总是提示status=bounced (unknown user）
+需要在postfix的main.cf中加入
+local_transport = dovecot
+设置roundcube之后登录
+用全用户名登录，如 q@domain.com
+报错 Class ‘Net_IDNA2’ not found 这个问题
+因为是php5-intl这个模块装了之后，php-cgi进程没有重启加载新module，重启php进程之后就好了
+以上都是流水帐，以下是正经的总结。
+debian wheezy 装好后
+    </div>
+  </div>
+</div>
+</div>
+      
+        <div class="relative w-100 w-30-l mb4 bg-white"><div class="relative w-100 mb4 bg-white nested-copy-line-height">
+  <div class="bg-white mb3 pa4 gray overflow-hidden">
+    <span class="f6 db">Posts</span>
+    <h1 class="f3 near-black">
+      <a href="http://superwf.github.io/p313/" class="link black dim">
+        nginx https fastcgi
+      </a>
+    </h1>
+    <div class="nested-links f5 lh-copy nested-copy-line-height">
+      upstream unicorn-ends{
+server unix:/xxxxxx/unicorn.sock;
+}
+map $scheme $fastcgi_https {
+default on;
+https on;
+}
+server {
+#listen 80;
+listen 443 default ssl;
+server_name www.example.com;
+client_max_body_size 50m;
+fastcgi_param HTTPS $fastcgi_https;
+fastcgi_param HTTPS on;
+#include /etc/nginx/fastcgi_params;
+#log_format main ‘$remote_addr – $remote_user [$time_local] “$request” ‘
+access_log /var/log/nginx/user.log;
+root /path/public;
+ssl on;
+ssl_certificate /etc/nginx/keys/server.crt;
+ssl_certificate_key /etc/nginx/keys/server.key;
+ssl_protocols SSLv3 SSLv2 TLSv1;
+ssl_ciphers ALL:!ADH:!EXPORT56:RC4+RSA:+HIGH:+MEDIUM:+LOW:+SSLv2:+EXP;
+ssl_prefer_server_ciphers on;
+# serve static files
+# Main location
+location / {
+    </div>
+  </div>
+</div>
+</div>
+      
+        <div class="relative w-100 w-30-l mb4 bg-white"><div class="relative w-100 mb4 bg-white nested-copy-line-height">
+  <div class="bg-white mb3 pa4 gray overflow-hidden">
+    <span class="f6 db">Posts</span>
+    <h1 class="f3 near-black">
+      <a href="http://superwf.github.io/p308/" class="link black dim">
+        mini_magick resize图片，不保持长宽比
+      </a>
+    </h1>
+    <div class="nested-links f5 lh-copy nested-copy-line-height">
+      需要将图片更改成固定尺寸。
+github上关于mini_magick的说明全是 resize ‘100×100’ 这样的例子
+都是会自动保持长宽比。
+但我要的是不要保持长宽比的，找了半天愣是没发现。
+后来看imagemagick文档发现参数中用 ‘100×100!’
+加上个!，就强制不保持长宽比了。
+    </div>
+  </div>
+</div>
+</div>
+      
+        <div class="relative w-100 w-30-l mb4 bg-white"><div class="relative w-100 mb4 bg-white nested-copy-line-height">
+  <div class="bg-white mb3 pa4 gray overflow-hidden">
+    <span class="f6 db">Posts</span>
+    <h1 class="f3 near-black">
+      <a href="http://superwf.github.io/p298/" class="link black dim">
+        过滤html tag外内容的正则
+      </a>
+    </h1>
+    <div class="nested-links f5 lh-copy nested-copy-line-height">
+      上礼拜上班最后俩钟头写的一个，大概是我用上过最复杂的正则了
+rails里用的，需要把所有html标签外的的数字与英文都替换成_…_包裹的内容。
+prawn里替换字体用的，领导希望所有英文用times new roman字体显示。其他中文用宋体，prawn里没找着这种混合设置，只能想到用正则筛。
+args[0].gsub!(/(?&lt;!&lsquo;&lt;&rsquo;)([a-z0-9]+)(?![^&gt;]*?[&gt;])/i, ‘\1‘) if args[0].is_a? String
+str.gsub!(/(?&lt;=&lt;([^&gt;])&gt;).*?([a-z0-9]+).*?(?=&lt;/\1&gt;)/i, ‘\2‘)
+如果在零宽度正回顾后发断言中使用了数量匹配，就报错。比如
+str.gsub!(/(?&lt;=&lt;([^&gt;]+)&gt;).*?([a-z0-9]+).*?(?=&lt;/\1&gt;)/i, ‘\2‘)
+但是匹配固定数量没问题，比如
+str.gsub!(/(?&lt;=&lt;([^&gt;]{1})&gt;).*?([a-z0-9]+).*?(?=&lt;/\1&gt;)/i, ‘\2‘)
+网上都这么写没错，可能ruby的有些特殊，还是bug?
+http://stackoverflow.com/questions/3479131/problem-with-quantifiers-and-look-behind
+如是说，说不止ruby一个不支持在反向回顾中支持数量匹配的。
+    </div>
+  </div>
+</div>
+</div>
+      
+        <div class="relative w-100 w-30-l mb4 bg-white"><div class="relative w-100 mb4 bg-white nested-copy-line-height">
+  <div class="bg-white mb3 pa4 gray overflow-hidden">
+    <span class="f6 db">Posts</span>
+    <h1 class="f3 near-black">
+      <a href="http://superwf.github.io/p295/" class="link black dim">
+        mongodb assertion: 13325
+      </a>
+    </h1>
+    <div class="nested-links f5 lh-copy nested-copy-line-height">
+      打算把文件上传用mongodb的gridfs代替原来的文件系统存储。
+弄了半天carrierwave-mongoid
+文件是存进去了，但是读不出来。
+在命令行下用mongofiles -d databasename list能看到文件
+mongofiles -d databasename get uploads/1022/note.png就报错误
+assertion: 13325 couldn’t open file: uploads/1022/note.png
+搜了有人说是权限问题，搞了半天发现get带路径的文件名的时候，必须在当前文件夹下创建该目录结构。
+也就是说如果要get uploads/1022/note.png
+就必须先创建 uploads/1022这个文件夹。
+    </div>
+  </div>
+</div>
+</div>
+      
+    </section>
+
+<ul class="pagination">
+    
+    <li class="page-item">
+        <a href="/posts/" class="page-link" aria-label="First"><span aria-hidden="true">&laquo;&laquo;</span></a>
+    </li>
+    
+    <li class="page-item">
+    <a href="/posts/page/19/" class="page-link" aria-label="Previous"><span aria-hidden="true">&laquo;</span></a>
+    </li>
+    
+    
+    
+    
+    
+    
+    
+        
+        
+    
+    
+    <li class="page-item"><a class="page-link" href="/posts/">1</a></li>
+    
+    
+    
+    
+    
+    
+        
+        
+    
+    
+    <li class="page-item"><a class="page-link" href="/posts/page/2/">2</a></li>
+    
+    
+    
+    
+    
+    
+        
+        
+    
+    
+    <li class="page-item"><a class="page-link" href="/posts/page/3/">3</a></li>
+    
+    
+    
+    
+    
+    
+        
+        
+    
+    
+    <li class="page-item disabled"><span aria-hidden="true">&nbsp;&hellip;&nbsp;</span></li>
+    
+    
+    
+    
+    
+    
+        
+        
+    
+    
+    
+    
+    
+    
+    
+        
+        
+    
+    
+    
+    
+    
+    
+    
+        
+        
+    
+    
+    
+    
+    
+    
+    
+        
+        
+    
+    
+    
+    
+    
+    
+    
+        
+        
+    
+    
+    
+    
+    
+    
+    
+        
+        
+    
+    
+    
+    
+    
+    
+    
+        
+        
+    
+    
+    
+    
+    
+    
+    
+        
+        
+    
+    
+    
+    
+    
+    
+    
+        
+        
+    
+    
+    
+    
+    
+    
+    
+        
+        
+    
+    
+    
+    
+    
+    
+    
+        
+        
+    
+    
+    
+    
+    
+    
+    
+        
+        
+    
+    
+    
+    
+    
+    
+    
+        
+        
+    
+    
+    
+    
+    
+    
+    
+        
+        
+    
+    
+    
+    
+    
+    
+    
+        
+        
+    
+    
+    <li class="page-item"><a class="page-link" href="/posts/page/19/">19</a></li>
+    
+    
+    
+    
+    
+    
+        
+        
+    
+    
+    <li class="page-item active"><a class="page-link" href="/posts/page/20/">20</a></li>
+    
+    
+    
+    
+    
+    
+        
+        
+    
+    
+    <li class="page-item"><a class="page-link" href="/posts/page/21/">21</a></li>
+    
+    
+    
+    
+    
+    
+        
+        
+    
+    
+    <li class="page-item disabled"><span aria-hidden="true">&nbsp;&hellip;&nbsp;</span></li>
+    
+    
+    
+    
+    
+    
+        
+        
+    
+    
+    
+    
+    
+    
+    
+        
+        
+    
+    
+    
+    
+    
+    
+    
+        
+        
+    
+    
+    
+    
+    
+    
+    
+        
+        
+    
+    
+    
+    
+    
+    
+    
+        
+        
+    
+    
+    
+    
+    
+    
+    
+        
+        
+    
+    
+    <li class="page-item"><a class="page-link" href="/posts/page/28/">28</a></li>
+    
+    
+    <li class="page-item">
+    <a href="/posts/page/21/" class="page-link" aria-label="Next"><span aria-hidden="true">&raquo;</span></a>
+    </li>
+    
+    <li class="page-item">
+        <a href="/posts/page/28/" class="page-link" aria-label="Last"><span aria-hidden="true">&raquo;&raquo;</span></a>
+    </li>
+    
+</ul>
+
+</article>
+
+    </main>
+    <footer class="bg-black bottom-0 w-100 pa3" role="contentinfo">
+  <div class="flex justify-between">
+  <a class="f4 fw4 hover-white no-underline white-70 dn dib-ns pv2 ph3" href="http://superwf.github.io/" >
+    &copy;  老王的日志 2020 
+  </a>
+    <div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+</div>
+  </div>
+</footer>
+
+    
+
+  <script src="/dist/js/app.3fc0f988d21662902933.js"></script>
+
+
+  </body>
+</html>

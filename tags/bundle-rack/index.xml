@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>bundle rack on 老王的日志</title>
+    <link>http://superwf.github.io/tags/bundle-rack/</link>
+    <description>Recent content in bundle rack on 老王的日志</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-CN</language>
+    <lastBuildDate>Wed, 06 Apr 2011 07:27:58 +0000</lastBuildDate>
+    
+	<atom:link href="http://superwf.github.io/tags/bundle-rack/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>之前的以项目运行不起来</title>
+      <link>http://superwf.github.io/p3/</link>
+      <pubDate>Wed, 06 Apr 2011 07:27:58 +0000</pubDate>
+      
+      <guid>http://superwf.github.io/p3/</guid>
+      <description>unicorn启动提示rack版本不对，找了半天发现是之前把gem都freeze在vender/cache里了
+重新bundle update之后更新所有的gem依赖包搞定</description>
+    </item>
+    
+  </channel>
+</rss>

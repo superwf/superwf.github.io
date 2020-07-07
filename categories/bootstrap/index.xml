@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>bootstrap on 老王的日志</title>
+    <link>http://superwf.github.io/categories/bootstrap/</link>
+    <description>Recent content in bootstrap on 老王的日志</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-CN</language>
+    <lastBuildDate>Tue, 22 Oct 2013 00:36:25 +0000</lastBuildDate>
+    
+	<atom:link href="http://superwf.github.io/categories/bootstrap/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>jquery-ui与bootstrap冲突的地方</title>
+      <link>http://superwf.github.io/p669/</link>
+      <pubDate>Tue, 22 Oct 2013 00:36:25 +0000</pubDate>
+      
+      <guid>http://superwf.github.io/p669/</guid>
+      <description>好长一段时间内用jquery-ui的dialog，右上方的关闭按钮没有x，显示是空白的。还以为是jquery-ui-rails的这个gem带的样式的问题。
+后来发现是与bootstrap的js冲突了，只要去掉bootstrap的js就能显示x。
+不过为了兼容，先把这个按钮隐藏了，待以后再解决吧。
+  </description>
+    </item>
+    
+    <item>
+      <title>bootstrap modal</title>
+      <link>http://superwf.github.io/p665/</link>
+      <pubDate>Fri, 18 Oct 2013 06:44:07 +0000</pubDate>
+      
+      <guid>http://superwf.github.io/p665/</guid>
+      <description>bootstrap modal不支持层叠，看来在有些情况下还是不能取代jquery-ui dialog
+但是由于美观效果好点，还是偏向与用他。
+问题是他在css中限制了width
+手动把width改成auto之后，modal会拉伸占据整个页面。
+但jquery-ui里的dialog就没有这种情况，会根据内容的宽度自动适应。
+最后改了一下modal-dialog的css
+实现了自动适应宽度。</description>
+    </item>
+    
+  </channel>
+</rss>

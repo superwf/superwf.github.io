@@ -1,0 +1,640 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    
+    <title>老王的日志</title>
+    <meta name="viewport" content="width=device-width,minimum-scale=1">
+    <meta name="generator" content="Hugo 0.68.3" />
+    
+    
+      <META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW">
+    
+
+    
+    
+      <link href="/dist/css/app.1cb140d8ba31d5b2f1114537dd04802a.css" rel="stylesheet">
+    
+
+    
+
+    
+      
+    
+
+    
+    
+      <link href="/posts/index.xml" rel="alternate" type="application/rss+xml" title="老王的日志" />
+      <link href="/posts/index.xml" rel="feed" type="application/rss+xml" title="老王的日志" />
+      
+    
+    
+    <meta property="og:title" content="Posts" />
+<meta property="og:description" content="" />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="http://superwf.github.io/posts/" />
+<meta property="og:updated_time" content="2020-04-29T01:53:50+00:00" />
+<meta itemprop="name" content="Posts">
+<meta itemprop="description" content=""><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Posts"/>
+<meta name="twitter:description" content=""/>
+
+  </head>
+
+  <body class="ma0 avenir bg-near-white">
+
+    
+
+  <header>
+    <div class="pb3-m pb6-l bg-black">
+      <nav class="pv3 ph3 ph4-ns" role="navigation">
+  <div class="flex-l justify-between items-center center">
+    <a href="http://superwf.github.io/" class="f3 fw2 hover-white no-underline white-90 dib">
+      老王的日志
+    </a>
+    <div class="flex-l items-center">
+      
+
+      
+        <ul class="pl0 mr3">
+          
+          <li class="list f5 f4-ns fw4 dib pr3">
+            <a class="hover-white no-underline white-90" href="/migrate2020/" title="migrate2020 page">
+              migrate2020
+            </a>
+          </li>
+          
+          <li class="list f5 f4-ns fw4 dib pr3">
+            <a class="hover-white no-underline white-90" href="/coder-life/" title="coder-life page">
+              coder-life
+            </a>
+          </li>
+          
+        </ul>
+      
+      
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    </div>
+  </div>
+</nav>
+
+      <div class="tc-l pv3 ph3 ph4-ns">
+        <h1 class="f2 f-subheadline-l fw2 light-silver mb0 lh-title">
+          Posts
+        </h1>
+        
+      </div>
+    </div>
+  </header>
+
+
+    <main class="pb7" role="main">
+      
+  <article class="pa3 pa4-ns nested-copy-line-height nested-img">
+    <section class="cf ph3 ph5-l pv3 pv4-l f4 tc-l center measure-wide lh-copy mid-gray"></section>
+    <section class="flex-ns flex-wrap justify-around mt5">
+      
+        <div class="relative w-100 w-30-l mb4 bg-white"><div class="relative w-100 mb4 bg-white nested-copy-line-height">
+  <div class="bg-white mb3 pa4 gray overflow-hidden">
+    <span class="f6 db">Posts</span>
+    <h1 class="f3 near-black">
+      <a href="http://superwf.github.io/p1092/" class="link black dim">
+        三体观后感
+      </a>
+    </h1>
+    <div class="nested-links f5 lh-copy nested-copy-line-height">
+      说是观后感，其实刚看了一半多。其中看到关于智子的空间展开想到了我们这个空间的结构是三维，加上时间是四维，五维大概是平行宇宙的概念。再高的维度就很难理解了。不过对于学程序的人倒是有个现成的概念，多维数组，正好针对了从一维到多维空间的概念。在高维的数组中每个元素虽然还是多维，但已经相当于一个点了，想要对低维空间产生影响，还是得使用下标，相当于智子的三维展开，哈哈。
+看到后来发现书中的高维度一直只是扩展了空间上的维度，没有涉及到跨越时间维度的概念，在这个体系设定中时间应该是不可跨越的．
+书中提到一点，原话大概是这么说的：不要轻视简单，简单意味着牢固．书的序言中写的作者还写过三体运行的程序，看来也是业内人士啊．
+不过智子既然能展开到十一维，感觉就应该在时间这个维度可以跨越了，即使不能改变当前世界也应该能传递过去和未来的信息，但书中的智子没有时间穿越能力。相不出来就还是干脆就接受书中的设定好了，故事还是很精彩的。
+    </div>
+  </div>
+</div>
+</div>
+      
+        <div class="relative w-100 w-30-l mb4 bg-white"><div class="relative w-100 mb4 bg-white nested-copy-line-height">
+  <div class="bg-white mb3 pa4 gray overflow-hidden">
+    <span class="f6 db">Posts</span>
+    <h1 class="f3 near-black">
+      <a href="http://superwf.github.io/p1086/" class="link black dim">
+        nodejs child_process的exec spawn 和fork
+      </a>
+    </h1>
+    <div class="nested-links f5 lh-copy nested-copy-line-height">
+      今天终于感觉好像是彻底明白这三个东西了，这三个方法的命名其实就已经揭示了其用途．
+exec，执行，也仅仅是执行一下，然后返回点东西，然后这个进程就应该完结了，适用与ls，whoami等命令行进程，特点就是基本都是瞬间执行完的．
+spawn，生成一个持续运行的服务进程，该进程和主进程同死，但肯定是生的晚点．
+fork，和spawn很相似，区别在于这个是特别针对nodejs本身脚本的对于v8引擎的实例有优化，我是这样理解的．
+fork可以和主进程之间通过process的send和on进行通信，和前端的web workder非常像．
+    </div>
+  </div>
+</div>
+</div>
+      
+        <div class="relative w-100 w-30-l mb4 bg-white"><div class="relative w-100 mb4 bg-white nested-copy-line-height">
+  <div class="bg-white mb3 pa4 gray overflow-hidden">
+    <span class="f6 db">Posts</span>
+    <h1 class="f3 near-black">
+      <a href="http://superwf.github.io/p1079/" class="link black dim">
+        单页Web应用 JavaScript从前端到后端
+      </a>
+    </h1>
+    <div class="nested-links f5 lh-copy nested-copy-line-height">
+      这本书对用nodejs构建前后端都做了个一些大概的介绍，从引用的工具来看书也是前两三年写的了．
+里面不管前端还是后端都不是很深入，也不可能在一本书内很深入，但其中两个概念和我特别有共鸣．一个是分形，一个是软件工程的阻抗．
+分形是指一个事物从宏观的形状与微观形状对应相似，一个系统分为mvc，具体到前端的v层又会分为mvc三层，不绝对但会相似．
+现在的体系基本都跳不出mvc的结构，只有事件订阅发布机制我感觉是个可以打破这种结构的例外的调用．
+软件的阻抗在web领域尤其多，前端用js，后端用java，php，rails等，到数据库mysql等关系行数据库，由于语言的不匹配数据至少要转换两次，从json到后端语言的数据结构，到sql存储．
+但在nodejs构建的系统上，数据从前端到后端一直在传递json，极大的削减了阻抗，做web系统用nodejs，我看行～
+    </div>
+  </div>
+</div>
+</div>
+      
+        <div class="relative w-100 w-30-l mb4 bg-white"><div class="relative w-100 mb4 bg-white nested-copy-line-height">
+  <div class="bg-white mb3 pa4 gray overflow-hidden">
+    <span class="f6 db">Posts</span>
+    <h1 class="f3 near-black">
+      <a href="http://superwf.github.io/p1069/" class="link black dim">
+        ecmascript测试mocha与jasmine
+      </a>
+    </h1>
+    <div class="nested-links f5 lh-copy nested-copy-line-height">
+      npm的包里最常用的两种框架是mocha和jasmine，我最早接触jasmine，但是mocha的使用量好像更普遍．
+jasmine是一个运行测试的框架，并自带了一系列的断言方法，用expect(…).to…来实行验证，而且自带了一系列spy方法用来伪造数据，还带了ajax伪造，是一站式解决方案，基本不需要其他测试库补充．
+mocha只是一个测试运行框架，并没有带断言方法，需要额外的assert或者推荐的几个chai　expect.js　should.js来共同运行，而且也没有伪造数据的功能，推荐用sinon．
+mocha的it.skip和it.only很有用．jasmine好像只有xit和mocha的skip对应
+用了两天决定还是用jasmine了，各种小库都要再看api，不如一揽子都有的jasmine．
+jasmine和mocha的运行函数都是describe和it，在这点上是一致的
+在node环境下需要测试浏览器，用jsdom或phantomjs来模拟浏览器，或者用karma来加载真实浏览器如chrome或firefox，就不是那么好配置的了．
+ mocha写的测试，转到jasmine就改改断言就行了，今天遇到个问题原来mocha下运行没错，jasmine下报Uncaught InvalidStateError: Failed to execute ‘dispatchEvent’ on ‘EventTarget’: The event is already being dispatched
+最后发现是jasmine下运行事件回调后，回调函数后面的同步代码没有执行完就立即开始第二个测试，所以上一个的document.removeEventListener还没执行清除，导致下一个测试中的mousemove事件被绑定了两次，但之前mocha中就没有发生问题，也许是mocha的执行机制会等待清理代码执行完吧？
+ 
+    </div>
+  </div>
+</div>
+</div>
+      
+        <div class="relative w-100 w-30-l mb4 bg-white"><div class="relative w-100 mb4 bg-white nested-copy-line-height">
+  <div class="bg-white mb3 pa4 gray overflow-hidden">
+    <span class="f6 db">Posts</span>
+    <h1 class="f3 near-black">
+      <a href="http://superwf.github.io/p1067/" class="link black dim">
+        png压缩工具
+      </a>
+    </h1>
+    <div class="nested-links f5 lh-copy nested-copy-line-height">
+      看书看到pngcrush，在npm上搜相关工具最后找到了gulp-pngmin，依赖pngquant系统包，压缩率平均能到60%以上
+    </div>
+  </div>
+</div>
+</div>
+      
+        <div class="relative w-100 w-30-l mb4 bg-white"><div class="relative w-100 mb4 bg-white nested-copy-line-height">
+  <div class="bg-white mb3 pa4 gray overflow-hidden">
+    <span class="f6 db">Posts</span>
+    <h1 class="f3 near-black">
+      <a href="http://superwf.github.io/p1062/" class="link black dim">
+        js前端代码检查工具
+      </a>
+    </h1>
+    <div class="nested-links f5 lh-copy nested-copy-line-height">
+      在试过了jslint jshint eslint之后，最近发现了jscs，推荐前端代码风格统一用．
+可以直接用一些preset设置风格，我比较倾向与node风格的
+https://github.com/felixge/node-style-guide
+我的.jscsrc配置
+  
+    </div>
+  </div>
+</div>
+</div>
+      
+        <div class="relative w-100 w-30-l mb4 bg-white"><div class="relative w-100 mb4 bg-white nested-copy-line-height">
+  <div class="bg-white mb3 pa4 gray overflow-hidden">
+    <span class="f6 db">Posts</span>
+    <h1 class="f3 near-black">
+      <a href="http://superwf.github.io/p1028/" class="link black dim">
+        推荐前端书籍
+      </a>
+    </h1>
+    <div class="nested-links f5 lh-copy nested-copy-line-height">
+      最近看一些深入的js的书籍．
+jquery基础教程第四版，刚入职的时候看的书，之前从来都是现查在线jquery api文档，但作为一个专职前端的话，从头过一遍还是很有必要，之前大概知道promise是怎么回事，通过这本书才理解了．
+精通CSS高级Web标准解决方案，现在css3的书很多说的有些模糊，因为具体标准是否已经实现或者废弃了还都未确定．看了之后用上了很多．
+testable javascript，测试驱动的javascript开发．bdd一直是我的理想，有时会想是不是先找个测试的职位锻炼一下养成测试的习惯比较好．作为一个开发者同时写开发和测试真的有些难，测试环境的搭建，以可测试为前提写代码等都是相当难以跨越的墙．
+eloquent javascript第二版，还没有中文的，看的在线的，推荐看．
+javascript 函数式编程，颠覆了我之前对js的看法，发现了很多之前代码中很多模糊的地方，看了这本书之后不敢说都懂了吧，但确实明白了很多．极大的弱化了我对面向对象的习惯与态度，现在已经不太倾向与写类实例什么的了．尾递归什么的之前在erlang里见过也还算凑合理解了．多学几门语言真的很有用，即使不会在生产中应用，也很扩展人的思路．
+javascript模式，看了一遍感觉挺深，需要多看几遍的书．
+MVC的JavaScript Web富应用开发，作者也是很迷恋ruby方式的人，特意实现了一个spine框架，用include和extend来修改类．
+数据结构与算法JavaScript描述，将了很多基本算法的道理，看的时候明白，就是忘的快．
+javascript权威指南第六版，编写可读代码的艺术，如何阅读一本书，编写可维护的javascript，javascript精粹，这几本是我推荐我现在团队里小伙伴看的基础书，希望他们真的看了，不过从他们写的代码上看好像效果不大…人真的没有那么容易改变．
+阮一峰的ecmascript6，在线看的，希望ec6加速实现．
+Packt.Jasmine.JavaScript.Testing.2nd.Edition，看了好几本测试的书，只有这本里提到了karma．也提到了react，看来最近有必要学一下react，总觉得现在用的handlebars不太方便（不时尚，大概就是这种感觉～）．最后提到了webpack，让我接触到了一个新的开发工具，体验了一下，感觉就像是js的黑科技，一切都能require进来．
+svg经典入门，看完大概明白了svg是怎么回事，以后工作应该用不上，真的用也应该有ui设计，用还不太会用．
+Socket.io Real-time Web Application Development，排名第一的基于websocket的应用库，未来web向实时性发展，必须以来它，可惜我目前还没有实际应用．
+html5 canvas，canvas才应该是未来的发展趋势，要不然svg一直存在这么多年也没有太多的发展，目前基于canvas的动画应该是网页未来的趋势．
+React – Up and Running，受上一本书的影响觉得应该学学这个，正在看．
+webgl编程指南，WebGL Up and Running，计划要看．
+ 建议大家少看什么21天精通xxx，或者48小时掌握xxx之类的，学习没有捷径，这种标题就是抓住人愿意速成的心理．
+个人推荐oreilly 和 图灵这两个系列，另外再推荐一下模仿游戏这部电影，讲的是图灵的生平，图灵可以算是所有计算机行业祖师爷等级的人物，从事计算机相关行业的都应该看看．
+    </div>
+  </div>
+</div>
+</div>
+      
+        <div class="relative w-100 w-30-l mb4 bg-white"><div class="relative w-100 mb4 bg-white nested-copy-line-height">
+  <div class="bg-white mb3 pa4 gray overflow-hidden">
+    <span class="f6 db">Posts</span>
+    <h1 class="f3 near-black">
+      <a href="http://superwf.github.io/p1033/" class="link black dim">
+        jasmine-jquery loadFixtures and sinon
+      </a>
+    </h1>
+    <div class="nested-links f5 lh-copy nested-copy-line-height">
+      karma中的loadFixtures突然不管用了，用浏览器探测发现都没有请求 loadFixtures的文件，然后就是各种搜索，升级jasmine-jquery
+最后发现是前面的一个测试文件用了sinon的fakeServer，忘了最后restore，导致之后的fixtures的请求都被拦截了
+在用sinon的文件最后一定要加上
+  
+    </div>
+  </div>
+</div>
+</div>
+      
+        <div class="relative w-100 w-30-l mb4 bg-white"><div class="relative w-100 mb4 bg-white nested-copy-line-height">
+  <div class="bg-white mb3 pa4 gray overflow-hidden">
+    <span class="f6 db">Posts</span>
+    <h1 class="f3 near-black">
+      <a href="http://superwf.github.io/p1023/" class="link black dim">
+        (intermediate value)(…) is not a function
+      </a>
+    </h1>
+    <div class="nested-links f5 lh-copy nested-copy-line-height">
+      http://stackoverflow.com/questions/20307462/js-cant-combine-lib-files
+打包发布后的这种问题几乎一定是某个库后面没有加分号导致。
+我这里这次是由typeahead这个库引起的。
+一般需要优先检查上次成功发布之后新加入的库。
+    </div>
+  </div>
+</div>
+</div>
+      
+        <div class="relative w-100 w-30-l mb4 bg-white"><div class="relative w-100 mb4 bg-white nested-copy-line-height">
+  <div class="bg-white mb3 pa4 gray overflow-hidden">
+    <span class="f6 db">Posts</span>
+    <h1 class="f3 near-black">
+      <a href="http://superwf.github.io/p1019/" class="link black dim">
+        在float left与float right之间的内容居中
+      </a>
+    </h1>
+    <div class="nested-links f5 lh-copy nested-copy-line-height">
+      答案如下，竟然是将居中的内容放到最右边，令我印象深刻。
+http://stackoverflow.com/questions/15724700/how-make-middle-div-to-fill-space-between-floating-elements
+HTML
+`left CSS
+#left {width: 200px;float: left;}#middle {overflow: hidden;}#right {width: 200px;float: right;}   
+    </div>
+  </div>
+</div>
+</div>
+      
+    </section>
+
+<ul class="pagination">
+    
+    <li class="page-item">
+        <a href="/posts/" class="page-link" aria-label="First"><span aria-hidden="true">&laquo;&laquo;</span></a>
+    </li>
+    
+    <li class="page-item">
+    <a href="/posts/page/8/" class="page-link" aria-label="Previous"><span aria-hidden="true">&laquo;</span></a>
+    </li>
+    
+    
+    
+    
+    
+    
+    
+        
+        
+    
+    
+    <li class="page-item"><a class="page-link" href="/posts/">1</a></li>
+    
+    
+    
+    
+    
+    
+        
+        
+    
+    
+    <li class="page-item"><a class="page-link" href="/posts/page/2/">2</a></li>
+    
+    
+    
+    
+    
+    
+        
+        
+    
+    
+    <li class="page-item"><a class="page-link" href="/posts/page/3/">3</a></li>
+    
+    
+    
+    
+    
+    
+        
+        
+    
+    
+    <li class="page-item disabled"><span aria-hidden="true">&nbsp;&hellip;&nbsp;</span></li>
+    
+    
+    
+    
+    
+    
+        
+        
+    
+    
+    
+    
+    
+    
+    
+        
+        
+    
+    
+    
+    
+    
+    
+    
+        
+        
+    
+    
+    
+    
+    
+    
+    
+        
+        
+    
+    
+    <li class="page-item"><a class="page-link" href="/posts/page/8/">8</a></li>
+    
+    
+    
+    
+    
+    
+        
+        
+    
+    
+    <li class="page-item active"><a class="page-link" href="/posts/page/9/">9</a></li>
+    
+    
+    
+    
+    
+    
+        
+        
+    
+    
+    <li class="page-item"><a class="page-link" href="/posts/page/10/">10</a></li>
+    
+    
+    
+    
+    
+    
+        
+        
+    
+    
+    <li class="page-item disabled"><span aria-hidden="true">&nbsp;&hellip;&nbsp;</span></li>
+    
+    
+    
+    
+    
+    
+        
+        
+    
+    
+    
+    
+    
+    
+    
+        
+        
+    
+    
+    
+    
+    
+    
+    
+        
+        
+    
+    
+    
+    
+    
+    
+    
+        
+        
+    
+    
+    
+    
+    
+    
+    
+        
+        
+    
+    
+    
+    
+    
+    
+    
+        
+        
+    
+    
+    
+    
+    
+    
+    
+        
+        
+    
+    
+    
+    
+    
+    
+    
+        
+        
+    
+    
+    
+    
+    
+    
+    
+        
+        
+    
+    
+    
+    
+    
+    
+    
+        
+        
+    
+    
+    
+    
+    
+    
+    
+        
+        
+    
+    
+    
+    
+    
+    
+    
+        
+        
+    
+    
+    
+    
+    
+    
+    
+        
+        
+    
+    
+    
+    
+    
+    
+    
+        
+        
+    
+    
+    
+    
+    
+    
+    
+        
+        
+    
+    
+    
+    
+    
+    
+    
+        
+        
+    
+    
+    
+    
+    
+    
+    
+        
+        
+    
+    
+    <li class="page-item"><a class="page-link" href="/posts/page/28/">28</a></li>
+    
+    
+    <li class="page-item">
+    <a href="/posts/page/10/" class="page-link" aria-label="Next"><span aria-hidden="true">&raquo;</span></a>
+    </li>
+    
+    <li class="page-item">
+        <a href="/posts/page/28/" class="page-link" aria-label="Last"><span aria-hidden="true">&raquo;&raquo;</span></a>
+    </li>
+    
+</ul>
+
+</article>
+
+    </main>
+    <footer class="bg-black bottom-0 w-100 pa3" role="contentinfo">
+  <div class="flex justify-between">
+  <a class="f4 fw4 hover-white no-underline white-70 dn dib-ns pv2 ph3" href="http://superwf.github.io/" >
+    &copy;  老王的日志 2020 
+  </a>
+    <div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+</div>
+  </div>
+</footer>
+
+    
+
+  <script src="/dist/js/app.3fc0f988d21662902933.js"></script>
+
+
+  </body>
+</html>

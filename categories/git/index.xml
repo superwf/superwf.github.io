@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>git on 老王的日志</title>
+    <link>http://superwf.github.io/categories/git/</link>
+    <description>Recent content in git on 老王的日志</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-CN</language>
+    <lastBuildDate>Thu, 12 Jan 2017 09:11:16 +0000</lastBuildDate>
+    
+	<atom:link href="http://superwf.github.io/categories/git/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>内网搭建gitlab-ce gitlab-runner cnpmjs.org管理私有nodejs</title>
+      <link>http://superwf.github.io/p1163/</link>
+      <pubDate>Thu, 12 Jan 2017 09:11:16 +0000</pubDate>
+      
+      <guid>http://superwf.github.io/p1163/</guid>
+      <description>    </description>
+    </item>
+    
+    <item>
+      <title>git merge –no-ff</title>
+      <link>http://superwf.github.io/p1143/</link>
+      <pubDate>Mon, 31 Oct 2016 06:04:24 +0000</pubDate>
+      
+      <guid>http://superwf.github.io/p1143/</guid>
+      <description>到处都写的是merge的时候是默认fast-forward，但是最近经过我反复尝试，好像merge时都会生成新的commit，可能git哪个版本更新之后就变成了–no-ff是默认设置了吧
+后来经过实验才明白，只有rebase之后的merge才会默认快进，也就是说–no-ff只有在rebase之后的merge中才会起作用．
+普通的merge是都会生成新的提交记录的．</description>
+    </item>
+    
+  </channel>
+</rss>

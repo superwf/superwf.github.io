@@ -1,0 +1,1039 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>ecmascript on 老王的日志</title>
+    <link>http://superwf.github.io/categories/ecmascript/</link>
+    <description>Recent content in ecmascript on 老王的日志</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-CN</language>
+    <lastBuildDate>Wed, 29 Apr 2020 01:53:50 +0000</lastBuildDate>
+    
+	<atom:link href="http://superwf.github.io/categories/ecmascript/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Rust vs C/C&#43;&#43;</title>
+      <link>http://superwf.github.io/p1560/</link>
+      <pubDate>Wed, 29 Apr 2020 01:53:50 +0000</pubDate>
+      
+      <guid>http://superwf.github.io/p1560/</guid>
+      <description>一个现代化语言所应具备的特性大体如下
+首要条件，图灵完备
+有统一安装源的第三方包管理平台与集成工具，可以自动解决各种依赖与版本管理，ruby、js、python等都有现成的案例，linux的apt与yum也都属于这种工具。
+友好的单元测试编写与运行环境。
+代码风格自动格式化工具
+与ide集成的静态类型检查（language server）
+方便快速的编译命令
+良好设计的模块分隔规则
+异步/多线程处理
+良好设计的错误处理模式
+方便的注释与代码文档化提取工具
+方便的内存管理，自动GC或其他更好的方式，手动内存管理对于业务开发太耗费人工并且引入更多bug。
+跨平台运行、编译表现的一致性。
+rust安装与版本升级都用rustup
+cargo默认添加依赖得手动添加，想达到’npm insall’这种自动安装依赖，需要安装cargo-edit
+安装的过程中报了个错误X86_64_UNKNOWN_LINUX_GNU_OPENSSL_LIB_DIR，需要先安装libssl-dev</description>
+    </item>
+    
+    <item>
+      <title>Manning.Electron.in.Action</title>
+      <link>http://superwf.github.io/p1536/</link>
+      <pubDate>Wed, 15 Apr 2020 01:53:50 +0000</pubDate>
+      
+      <guid>http://superwf.github.io/p1536/</guid>
+      <description>《manning electron in action》
+electorn的优势
+集成最新的chromium，不用被浏览器兼容性托后腿
+可同时访问浏览器与本地api，没有任何浏览器开发程序的限制
+主要特性
+分为主进程与0个或多个renderer进程
+学的时候正赶上electron7的安装bug，由于配置了内网远程安装路径上少了个v，总是安装失败
+后来自己在node_modules/@electron/get中自己改了一下代码去掉路径中的v，然后再手动执行node node_modules/electron/install.js。
+这个bug在cnpm的issues中已经有人提了，之后不久应该会有修正。
+前几章用存储并展示markdown文件与操作clipboard的小例子讲解了main与renderer之间如何通信。
+但目前版本中在renderer进程中目前已经默认关闭了nodeIntegretion。
+比较好的方式是在创建BrowserWindow的时候使用参数，使用
+{
+webPreferences: {
+preload: __dirname + ‘./preload.js’,
+}
+}
+在指定的preload.js中将ipc模块负值到全局window上。
+前面的例子都是比较原始的开发流程，开发，编译，看看效果
+直到第11章，引入了其他类型脚本编译，开发环境livereload，开始精彩起来，示例工程为Jetsetter，一个管理收拾履行物品打包的小应用。
+13章，测试，使用spectron，底层仍然调用selenium，selenium用过当时感觉api不太友好没太深入。
+不过spectron里面可以使用async await，和puppeteer非常像，比较友好，而且更好的是可以直接访问ui层，这个比puppeteer好像还强点
+不知道在当今是否可以与puppeteer结合
+说到底spectron仍然是黑盒测试，而非单元测试。
+14章 打包
+electron-packager 与 electron-forge
+15章
+错误收集，使用 minidump读取错误二进制文件
+程序内更新升级，这个功能封装的很方便。
+16章 发布苹果的app store，呃，没苹果产品，跳过
+appendix
+之前的所有例子详解</description>
+    </item>
+    
+    <item>
+      <title>webpack proxy的changeOrigin</title>
+      <link>http://superwf.github.io/p1534/</link>
+      <pubDate>Mon, 30 Dec 2019 02:40:07 +0000</pubDate>
+      
+      <guid>http://superwf.github.io/p1534/</guid>
+      <description>开发环境中经常要用到webpack的proxy
+在后端有域名校验的情况下，需要经常修改代理的请求http header中的host来模拟验证过程，其中的changeOrigin是关键字段。
+在http-proxy-middleware的文档中可以看到
+changeOrigin 的注释是 needed for virtual hosted sites
+其含义还是很模糊，通过wireshark抓包最终确认
+changeOrigin: true
+实际请求host与target中配置的一致
+changeOrigin: false (默认值)
+实际请求host与浏览器url中的一致</description>
+    </item>
+    
+    <item>
+      <title>使用unpkg站点可使用的umd发布格式发布npm包</title>
+      <link>http://superwf.github.io/p1530/</link>
+      <pubDate>Thu, 19 Dec 2019 18:12:43 +0000</pubDate>
+      
+      <guid>http://superwf.github.io/p1530/</guid>
+      <description> 如果发布的npm包需要在unpkg这种cdn中应用，需要在package.json中添加unpkg或browser字段，如果都没有，会使用main字段，main也没有则会直接使用文件夹下的index.js，指向打包编译为umd格式的文件。 该优先级识别顺序在express-unpkg包的源码中可查询。  </description>
+    </item>
+    
+    <item>
+      <title>热替换</title>
+      <link>http://superwf.github.io/p1525/</link>
+      <pubDate>Fri, 15 Nov 2019 06:24:40 +0000</pubDate>
+      
+      <guid>http://superwf.github.io/p1525/</guid>
+      <description>一次hmr热替换失效问题 {#%E4%B8%80%E6%AC%A1hmr%E7%83%AD%E6%9B%BF%E6%8D%A2%E5%A4%B1%E6%95%88%E9%97%AE%E9%A2%98}  webpack配置 {#webpack%E9%85%8D%E7%BD%AE} 在devServer中添加hot项
+ 代码配合 {#%E4%BB%A3%E7%A0%81%E9%85%8D%E5%90%88} 在webpack的entry中制定的源码中需要
+这种由webpack提供的hmr方案是不需要react-hot-loader的
+ 以下是我遇到的一次热替换失效问题 {#%E4%BB%A5%E4%B8%8B%E6%98%AF%E6%88%91%E9%81%87%E5%88%B0%E7%9A%84%E4%B8%80%E6%AC%A1%E7%83%AD%E6%9B%BF%E6%8D%A2%E5%A4%B1%E6%95%88%E9%97%AE%E9%A2%98} 在一次进行代码优化之后，发现热替换失效，最开始没在意，认为升级webpack或loader即可修正。
+经过两些天的开发工作之后按F5倍感疲惫，决定彻底解决该问题。
+尝试各种依赖升级，之后与另一个项目对比发现在所有依赖与工程配置都一样的情况下，另一个项目的hmr正常工作，问题项目就是工作。
+在问题项目中，非React.lazy加载的组件都可正常hmr。
+问题集中在了路由加载，最终发现，routes的路由数组，由于代码优化，被放到了其中一个数据store的属性中，导致hmr失效。将routes数组全部经过react的props层层传递，即可使hmr正常工作。</description>
+    </item>
+    
+    <item>
+      <title>前端的各种路径别名</title>
+      <link>http://superwf.github.io/p1494/</link>
+      <pubDate>Mon, 12 Aug 2019 01:12:09 +0000</pubDate>
+      
+      <guid>http://superwf.github.io/p1494/</guid>
+      <description>在进入es module时代后，import使用已经是日常标配。
+但在引入模块时，经常需要 import ‘../../../xxxx’ 这种跨多级相对路径的引用。于是在各种工具环节，都可以找到前人已经开发好的path alias配置或工具，让coders可以使用各种简化的路径来引入模块。
+我用过的一些比如webpack配置alias，babel插件babel-plugin-module-resolver，tsconfig中的paths
+在单应用开发时，使用这些之一的配置可以很方便的简化模块引入行为。
+但在最近的lerna开发几个mono repo时遇到了问题。在packages中的平行应用互相引用时，遇到各种路径问题，最终结论是，在跨package调用时尽量使用相对路径，或者在整个mono repo的根package中设置统一的别名配置。</description>
+    </item>
+    
+    <item>
+      <title>webgl学习</title>
+      <link>http://superwf.github.io/p1455/</link>
+      <pubDate>Mon, 10 Jun 2019 15:23:04 +0000</pubDate>
+      
+      <guid>http://superwf.github.io/p1455/</guid>
+      <description>Varyings 用于在vertex与fragment中共享数据
+attribute限定为逐顶点变量。
+Uniforms用于记录一些非逐顶点的，全局、且在每帧之间不变的数据，如光照位置与亮度，全局位移与透视信息等。
+生成阴影，需要在帧缓冲中离屏绘制然后将阴影的坐标存到该帧所在的一个材质中，然后在实际绘图时从该材质获取阴影数据之后通过颜色合成计算出阴影。当小数点精度不够时会产生斑马纹，还需要手动调节数据精度。
+webgl是左手还是右手坐标系？原生是左手，但一旦设置了视点，应用了视点矩阵，从z轴的反方向看就变成了右手坐标系。而大多数程序的视点都是这样的做的。所以绝大多数场景应以右手坐标系考虑。</description>
+    </item>
+    
+    <item>
+      <title>关于配置文件格式</title>
+      <link>http://superwf.github.io/p1476/</link>
+      <pubDate>Thu, 30 May 2019 08:31:05 +0000</pubDate>
+      
+      <guid>http://superwf.github.io/p1476/</guid>
+      <description>最近从阮一峰的分享中看到了一篇文章
+请不要用 JSON 作为配置文件
+其中的一些观点
+  json的设计目标只是轻量级数据交换语言。  json的通用解析不能解析注释。
+  到底应该用哪种格式作为配置文件？没有确定的答案，这依赖与项目的应用场景，语言，工程等多方因素。
+命令行flag是一个相对通用的选择。
+  我在一些工具类项目中也深有体会，其中最令人不快的大概要算是tsconfig.json文件了。
+在我开发过得一些前端工具项目中，基本使用js文件作为配置文件。原因如下
+  本身就是前端项目，可以直接require配置文件。  js配置文件中可以添加任何需要的逻辑，例如根据不同的环境变量输出不同的配置。例如eslint与babel都支持js格式的配置文件。
+  如果考虑到该配置文件需要跨语言支持，可以考虑yaml。
+  虽然typescript只支持tsconfig.json，但其验证功能却很有用。
+假设用deno识别ts文件作为配置文件，在ts文件中引入对应项目的配置文件类型可自动校验配置。
+如果需要识别多种格式的配置文件，不要自己挨个写类型识别。
+推荐一下通用配置文件识别工具。
+cosmiconfig</description>
+    </item>
+    
+    <item>
+      <title>Error.captureStackTrace</title>
+      <link>http://superwf.github.io/p1465/</link>
+      <pubDate>Tue, 30 Apr 2019 01:49:27 +0000</pubDate>
+      
+      <guid>http://superwf.github.io/p1465/</guid>
+      <description>一直用各种测试库都会遇到一种问题，当一些抽象的功能函数throw error的时候，
+错误会提示到该函数内，而不是调用函数的地方。
+但各种测试库的断言函数就不会有这种问题，会直接提示到调用行。
+最近想起了这个问题，查了一下发现了Error.captureStackTrace这个方法。
+是v8引擎自带，并不是es标准语法，见文档。
+例子看了看，半明白，自己实验一下才知道具体使用场景。
+应该是配合自定义的Error类来用的。
+Error.captureStackTrace的第二个参数就应该放需要被忽略的断言函数或想要被忽略的自定义函数。
+assert库里的fail方法，就是该功能的一个兼容封装，可以直接使用。</description>
+    </item>
+    
+    <item>
+      <title>前端页面截图功能</title>
+      <link>http://superwf.github.io/p1444/</link>
+      <pubDate>Sat, 30 Mar 2019 08:58:33 +0000</pubDate>
+      
+      <guid>http://superwf.github.io/p1444/</guid>
+      <description>原生方法 navigator.mediaDevices.getDisplayMedia()，chrome版本要求高，刚出一个月左右，大概72版本才可用。
+缺点：截图的时候会一定会出提示，选择需要截图的屏幕、应用、或chrome的tab。用户体验不太好。
+chrome extension，方法 需要开发一个额外的扩展，截图api调用chrome.tabs.captureVisibleTab，
+缺点：只能截图当前页面的可见部分。额外安装扩展。
+html2canvas第三方库 调研了一下该库的基础截图原理，希望找到可用的底层api，但发现该库用的是最艰难的方法，将dom在绘制时获取computed style一层层绘制。
+缺点：会出现截图和实际页面不太一致的情况。
+优点：兼容性好，不需要客户额外安装。</description>
+    </item>
+    
+    <item>
+      <title>2018总结</title>
+      <link>http://superwf.github.io/p1446/</link>
+      <pubDate>Wed, 13 Mar 2019 08:29:00 +0000</pubDate>
+      
+      <guid>http://superwf.github.io/p1446/</guid>
+      <description>2018前端总结 新技能  chrome extension puppeteer/puppeteer-core mobx/mobx-utils typescript/tslint koa2 mobx commitlint changelog git-cz fetch-mock markdownlint ant-design service worker/pwa  老技能强化  jest webpack react babel vim/nvim tslint/prettier git hooks domain driver development nginx  </description>
+    </item>
+    
+    <item>
+      <title>chrome扩展</title>
+      <link>http://superwf.github.io/p1436/</link>
+      <pubDate>Wed, 06 Mar 2019 11:36:10 +0000</pubDate>
+      
+      <guid>http://superwf.github.io/p1436/</guid>
+      <description>一个chrome扩展通常的执行顺序
+其中的api繁多而且大多没有例子。
+开发期间发现了这个
+https://github.com/xpl/crx-hotreload
+介绍文章
+https://60devs.com/hot-reloading-for-chrome-extensions.html
+对于扩展开发十分有用，有时候产生的错误比较多的时候扩展不能刷新，还是需要关闭浏览器重开才能生效。</description>
+    </item>
+    
+    <item>
+      <title>use puppeteer-core to replace puppeteer</title>
+      <link>http://superwf.github.io/p1411/</link>
+      <pubDate>Mon, 12 Nov 2018 10:09:17 +0000</pubDate>
+      
+      <guid>http://superwf.github.io/p1411/</guid>
+      <description>有亮点不同 不会下载Chromium. 不会识别一堆以PUPPETEER_开头的环境变量。  其他的地方都一样，按说只要把所有require(puppeteer)的地方都换成require(&#39;puppeteer-core&#39;)即可。
+针对绝大多数用户，其实都已经安装了chrome，每次安装为了puppeteer都要下载一个巨大的Chromium，在国内的网络环境下十分耗时。
+可问题是一些依赖的第三方package里面用的是require(puppeteer)。
+这种情况推荐使用modules-alias工具登场。
+用别名的方式将系统中的puppeteer
+都置换为puppeteer-core
+运行例子: jest-with-puppeteer-core</description>
+    </item>
+    
+    <item>
+      <title>conventional-changelog不能生成最新日志的情况</title>
+      <link>http://superwf.github.io/p1408/</link>
+      <pubDate>Tue, 30 Oct 2018 02:55:48 +0000</pubDate>
+      
+      <guid>http://superwf.github.io/p1408/</guid>
+      <description>最近遇到conventional-changelog不能生成最新变更日志的问题。
+经过排查发现，是因为gitflow和conventional-changelog一起使用时，应先升级package.json中的version，生成changelog之后再进行gitflow的release操作，否则最新的git标签与package.json中的version相同，则不会生成changelog。</description>
+    </item>
+    
+    <item>
+      <title>eslint与prettier的集成的错误认识</title>
+      <link>http://superwf.github.io/p1402/</link>
+      <pubDate>Fri, 26 Oct 2018 09:48:03 +0000</pubDate>
+      
+      <guid>http://superwf.github.io/p1402/</guid>
+      <description>我的编辑器里，既装了eslint的插件，也装了prettier的插件，然后，这两个工具都其作用并能自动修正文件了，还有什么问题呢？
+我之前的eslint配置是这样的
+&amp;lt;br /&amp;gt; extends: [&amp;lt;br /&amp;gt; &#39;airbnb&#39;,&amp;lt;br /&amp;gt; &#39;prettier&#39;,&amp;lt;br /&amp;gt; ],&amp;lt;br /&amp;gt;
+prettier有其自己的配置文件，在eslint中通过eslint-config-prettier一起生效，使这两个规则不会冲突。
+问题在于，每次文件保存，eslint和prettier会先后两次修正文件，引起两次写操作，结果可坑会导致开发环境webpack或jest运行多次。
+之前没有在意这个细节，最近有空打算彻底解决一些之前觉得不对劲的地方。
+正确的配置应该是，添加eslint-plugin-prettier，并且在编辑器中禁用prettier插件，使文件保存是，仅eslint修正即可，eslint通过这个plugin识别prettier.config.js配置来集成规则。
+新的配置如下
+&amp;lt;br /&amp;gt; extends: [&amp;lt;br /&amp;gt; &#39;airbnb&#39;,&amp;lt;br /&amp;gt; &#39;prettier&#39;,&amp;lt;br /&amp;gt; ],&amp;lt;br /&amp;gt; plugins: [&#39;prettier&#39;],&amp;lt;br /&amp;gt; rules: {&amp;lt;br /&amp;gt; &#39;prettier/prettier&#39;: &#39;error&#39;&amp;lt;br /&amp;gt; }</description>
+    </item>
+    
+    <item>
+      <title>vim的ale调用eslint引起webpack与jest多次重新编译问题</title>
+      <link>http://superwf.github.io/p1398/</link>
+      <pubDate>Wed, 17 Oct 2018 02:22:14 +0000</pubDate>
+      
+      <guid>http://superwf.github.io/p1398/</guid>
+      <description>在前端项目中，有大量的import，webpack的resolve.alias为此提供了很大的方便。为项目的一些常用路径定义别名，可以极大的简化代码并提高代码可读性。
+eslint有一个plugin– eslint-plugin-import，能检测import的package是否合规，为了与webpack的alias一起工作，于是又有了一个新工具— eslint-import-resolver-webpack，使eslint可以识别webpack中定义的别名引用路径。
+https://www.npmjs.com/package/eslint-import-resolver-webpack
+我最初使用的是文档中省事的写法，直接在.eslintrc.js中使用了webpack的文件名
+config:‘webpack.config.js‘vim通过ale插件，支持eslint语法检查，是随输入随检查。
+从此开始了编译的噩梦。
+只要vim修改了文件内容，文件还没保存，但jest –watch 或 webpack-dev-server进程就会认为文件有改动，疯狂的重新编译，或重新运行测试。
+一开始没意识到问题，还以为正常就这样，后来发现用其他编辑器在文件还没有保存的时候，修改文件内容是不会出发文件监听更新事件的。
+首先定位错误到vim，经过挨个插件排查发现问题出在ale上，只要每次ale调用eslint，就会触发文件更新。实际用ls -l –full-time检查了一下发现eslint并没有更新文件的任何属性。
+于是定位到eslint，对比了一下tslint，发现tslint不会触发文件更新事件。以为是eslint的bug或默认行为？于是开始排除eslint的插件，发现只要加载了webpack的配置，就会触发文件更新。终于定位到错误。
+最后，将webpack中的alias部分提取到独立的文件，分别由.eslintrc.js与webpack.config引入使用，解决该问题。</description>
+    </item>
+    
+    <item>
+      <title>react16.5.2 component api笔记</title>
+      <link>http://superwf.github.io/p1395/</link>
+      <pubDate>Tue, 16 Oct 2018 09:56:43 +0000</pubDate>
+      
+      <guid>http://superwf.github.io/p1395/</guid>
+      <description>&amp;lt;li&amp;gt; constructor(props) &amp;lt;ul&amp;gt; &amp;lt;li&amp;gt; 不能在这里setState。 &amp;lt;/li&amp;gt; &amp;lt;li&amp;gt; 只有这里可以直接给this.state赋值。 &amp;lt;/li&amp;gt; &amp;lt;li&amp;gt; 不能在这里调用有side-effects作用的函数，如果有需要，在componentDidMount里调用。 &amp;lt;/li&amp;gt; &amp;lt;li&amp;gt; 不要在这里用props的值生成state内容。 &amp;lt;/li&amp;gt; &amp;lt;/ul&amp;gt; &amp;lt;/li&amp;gt; &amp;lt;li&amp;gt; componentDidMount &amp;lt;ul&amp;gt; &amp;lt;li&amp;gt; 此时组件已经载入，发起request请求，进行setState操作。 &amp;lt;/li&amp;gt; &amp;lt;li&amp;gt; 可以在此进行一些事件订阅。 &amp;lt;/li&amp;gt; &amp;lt;/ul&amp;gt; &amp;lt;/li&amp;gt; &amp;lt;li&amp;gt; componentDidUpdate(prevProps, prevState, snapshot) &amp;lt;ul&amp;gt; &amp;lt;li&amp;gt; 在每次更新state或props之后调用，在第一次render时&amp;lt;strong&amp;gt;不&amp;lt;/strong&amp;gt;调用。 &amp;lt;/li&amp;gt; &amp;lt;li&amp;gt; 此处禁用setState（文档上说尽量避免，但我认为应该禁用，如果有逻辑必须在此处调用setState，那么有必要重新梳理逻辑，一定是哪里想错了）。 &amp;lt;/li&amp;gt; &amp;lt;li&amp;gt; 如果shouldComponentUpdate返回false，则不会被调用。 &amp;lt;/li&amp;gt; &amp;lt;li&amp;gt; 如果有getSnapshotBeforeUpdate，则getSnapshotBeforeUpdate的返回值会作为第三个参数传入。 &amp;lt;/li&amp;gt; &amp;lt;/ul&amp;gt; &amp;lt;/li&amp;gt; &amp;lt;li&amp;gt; componentWillUnmount &amp;lt;ul&amp;gt; &amp;lt;li&amp;gt; 在此进行一些取消订阅或其他的清扫操作。 &amp;lt;/li&amp;gt; &amp;lt;li&amp;gt; 此处禁用setState。 &amp;lt;/li&amp;gt; &amp;lt;/ul&amp;gt; &amp;lt;/li&amp;gt; &amp;lt;li&amp;gt; shouldComponentUpdate(nextProps, nextState) &amp;lt;ul&amp;gt; &amp;lt;li&amp;gt; return false则不会重新渲染，可在此处改善渲染性能避免重复渲染。 &amp;lt;/li&amp;gt; &amp;lt;li&amp;gt; return false会阻止UNSAFE_componentWillUpdate(), render(), and componentDidUpdate() 这三个生命周期函数的运行。 &amp;lt;/li&amp;gt; &amp;lt;li&amp;gt; 在绝大多数情况下，不应手动实现该函数，应依赖react本身的默认更新行为。 &amp;lt;/li&amp;gt; &amp;lt;/ul&amp;gt; &amp;lt;/li&amp;gt;  &amp;lt;li&amp;gt; getSnapshotBeforeUpdate &amp;lt;ul&amp;gt; &amp;lt;li&amp;gt; 在每次组件重渲染前调用，可获取当前dom内容。 &amp;lt;/li&amp;gt; &amp;lt;li&amp;gt; 应有返回值。 &amp;lt;/li&amp;gt; &amp;lt;/ul&amp;gt; &amp;lt;/li&amp;gt; &amp;lt;li&amp;gt; componentDidCatch(error, info) &amp;lt;ul&amp;gt; &amp;lt;li&amp;gt; 捕获前端组件错误，通常只在最外层组件实现一次即可。 &amp;lt;/li&amp;gt; &amp;lt;li&amp;gt; 以下错误不在该函数捕获范围内： &amp;lt;/li&amp;gt; &amp;lt;li&amp;gt; dom事件错误。 &amp;lt;/li&amp;gt; &amp;lt;li&amp;gt; 异步错误。 &amp;lt;/li&amp;gt; &amp;lt;li&amp;gt; 服务端渲染。 &amp;lt;/li&amp;gt; &amp;lt;li&amp;gt; 该函数本身又抛出的错误。 &amp;lt;/li&amp;gt; &amp;lt;/ul&amp;gt; &amp;lt;/li&amp;gt; &amp;lt;li&amp;gt; 即将废弃 &amp;lt;ul&amp;gt; &amp;lt;li&amp;gt; UNSAFE_componentWillMount &amp;lt;/li&amp;gt; &amp;lt;li&amp;gt; UNSAFE_componentWillReceiveProps &amp;lt;/li&amp;gt; &amp;lt;li&amp;gt; UNSAFE_componentWillUpdate &amp;lt;/li&amp;gt; &amp;lt;li&amp;gt; 都是去掉UNSAFE的同名函数的别名，即将废弃，无论是有没有UNSAFE前缀，别用就对了。 &amp;lt;/li&amp;gt; &amp;lt;/ul&amp;gt; &amp;lt;/li&amp;gt; &amp;lt;li&amp;gt; 非生命周期的实例方法 &amp;lt;ul&amp;gt; &amp;lt;li&amp;gt; setState(updater[, callback]) &amp;lt;/li&amp;gt; &amp;lt;li&amp;gt; setState可能同步或异步执行，因此不保证调用后的state为最新状态。 &amp;lt;/li&amp;gt; &amp;lt;li&amp;gt; updater除了对象，还可以是函数，例如：&amp;lt;br /&amp;gt; &amp;lt;code&amp;gt;&amp;amp;lt;br /&amp;gt;  this.</description>
+    </item>
+    
+    <item>
+      <title>jest的一次失败的mock</title>
+      <link>http://superwf.github.io/p1385/</link>
+      <pubDate>Wed, 22 Aug 2018 09:00:36 +0000</pubDate>
+      
+      <guid>http://superwf.github.io/p1385/</guid>
+      <description>今天添加了一个新测试用例，在需要mock的文件模块旁边添加了__mocks__然后里面添加了同名文件，之后在test文件里指定
+jest.mock(‘moduleA’)
+但无论如何都会加载实际模块而不是__mocks__文件夹里的内容。经过了一大轮的拼写检查、jest.doMock、为jest.mock添加第二个参数临时实现，还试了一下automock，全都不行。
+最后发现该模块为了调整测试环境，在jestSetup文件里被使用了……
+难怪无法mock，自己的坑啊。</description>
+    </item>
+    
+    <item>
+      <title>webpack/uglifyjs的remove  dead_code功能</title>
+      <link>http://superwf.github.io/p1380/</link>
+      <pubDate>Fri, 17 Aug 2018 02:11:52 +0000</pubDate>
+      
+      <guid>http://superwf.github.io/p1380/</guid>
+      <description>昨天在项目里加上了mobx-react-devtools开发环境调试用。但是生产环境不希望有，于是加上了
+&amp;lt;br /&amp;gt; import MobxDevTools from &#39;mobx-react-devtools&#39;&amp;lt;br /&amp;gt; ...&amp;lt;br /&amp;gt; render () {&amp;lt;br /&amp;gt; return ...&amp;lt;br /&amp;gt; {process.env.NODE_ENV !== &#39;production&#39; &amp;amp;&amp;amp; &amp;lt;MobxDevTools /&amp;gt;
+}&amp;lt;br /&amp;gt; }&amp;lt;br /&amp;gt;
+打包后发现代码体积明显增大，即使加了webpack生产环境打包的UglifyJsPlugin({
+uglifyOptions: { compress: { dead_code: true } }
+})
+也去不掉。应该是因为import是静态引入的特点造成的。
+最后自己想了个法子解决了一下，写一个空组件
+export default null
+在webpack的alias里判断生产环境，则添加alias[‘mobx-react-devtools’] = ‘./app/component/Null.jsx’
+在生产环境中吧这个空组件替换进去，如果还有其他希望生产环境中排除的都可以如此解决。</description>
+    </item>
+    
+    <item>
+      <title>fetch与promise.finally</title>
+      <link>http://superwf.github.io/p1362/</link>
+      <pubDate>Fri, 20 Jul 2018 09:16:59 +0000</pubDate>
+      
+      <guid>http://superwf.github.io/p1362/</guid>
+      <description>es7里面的Promise.prototype.finally，可以通过core-js的polyfill来补全。
+本以为加上了core-js就可以了，但真的遇到不支持的浏览器仍然会报没有finally方法的错误。
+打开控制台调试，发现Promise.prototype.finally已经打上补丁是存在的。
+最后发现，在chrome中
+在火狐的低版本浏览器中
+ fetch返回的是个伪Promise对象，并不是全局Promise的实例，怪不得没有finally方法。
+干脆通过自己加上一段代码polyfill上去得了
+  </description>
+    </item>
+    
+    <item>
+      <title>后端对于restful接口返回状态码的理解</title>
+      <link>http://superwf.github.io/p1355/</link>
+      <pubDate>Fri, 20 Jul 2018 01:21:29 +0000</pubDate>
+      
+      <guid>http://superwf.github.io/p1355/</guid>
+      <description>今天在上班路上突然理解了一件长久以来困扰我的事情。
+做前端这几年，遇到做后端的接口，全都声称是restful接口，但使用http状态码作为判定条件的一个都没有，统统返回200然后在消息体里自定义状态码。
+原因大概因为jquery或axios等接口请求库，默认配置下，接口若返回非200响应，里面的消息体就拿不到啦。在大部分人的前端知识体系中，非200意味着抛出错误，消息体什么的当然拿不到，所以当应用出错时希望拿到错误提示等信息，必须还是返回200的状态。
+其实，非200的状态返回的消息，前端一样拿得到，只是需要一些额外配置一下。但后端人员对于前端jquery ajax请求应用的示例作为标准，或者理所当然认为前端人员的水平也只能获取到200返回的消息。于是就出现了各种各样的自定义消息体…
+推荐一下fetch，返回的是Response对象，只要是服务端相应了，里面都可以拿到各种接口返回数据，只有在网络出问题比如请求不可达的情况下会抛出错误。
+最后为自己的库做个广告 fxios</description>
+    </item>
+    
+    <item>
+      <title>deno与typescript</title>
+      <link>http://superwf.github.io/p1352/</link>
+      <pubDate>Mon, 09 Jul 2018 07:21:51 +0000</pubDate>
+      
+      <guid>http://superwf.github.io/p1352/</guid>
+      <description>多年前用过coffeescript，后来换工作之后因为团队里没人用，被强制放弃了。也幸亏放弃了coffeescript，才能紧跟ecmascript语法的发展，之后就一直用babel走标准es语法路线，在选择编译型前端(类似coffee需要编译成js才能运行)语言的时候都非常谨慎。
+之前我在flowtype与typescript之间一直倾向flowtype，一点是因为是facebook出品和react是一家，另一点是因为flowtype允许渐进式引入项目。typescript则是一旦使用则必须全部使用，至于是微软出品倒是不太介意。
+最近node的作者新开了个deno，默认直接运行typescript，node一下成了没爹的娃，可持续性堪忧。最重要的一点是：typescript赢了，各位准备深入学习吧。已经提早入ts坑的同学们，恭喜路子走对了。</description>
+    </item>
+    
+    <item>
+      <title>fetch meet 302 redirect</title>
+      <link>http://superwf.github.io/p1347/</link>
+      <pubDate>Tue, 01 May 2018 12:26:53 +0000</pubDate>
+      
+      <guid>http://superwf.github.io/p1347/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>fetch自动先发起option请求的问题</title>
+      <link>http://superwf.github.io/p1338/</link>
+      <pubDate>Wed, 18 Apr 2018 14:22:33 +0000</pubDate>
+      
+      <guid>http://superwf.github.io/p1338/</guid>
+      <description>以前有些fetch在发起post请求之前总会先发一个option，等服务器返回头allow-methods里有post才会再发真正的post请求。没仔细研究还以为是post的特殊行为。最近遇到了get请求竟然也会先发option请求，但服务器没有正确返回头信息，导致请求中断。
+仔细研究了一下以前不会先发起option请求区别发现在于只要有自定义的header放到fetch的option里，就一定会先试探发起一个option请求，不管是get还是post或其他什么请求方法。</description>
+    </item>
+    
+    <item>
+      <title>数据到底应该前端还是后端处理</title>
+      <link>http://superwf.github.io/p1333/</link>
+      <pubDate>Sat, 24 Mar 2018 09:43:20 +0000</pubDate>
+      
+      <guid>http://superwf.github.io/p1333/</guid>
+      <description>上家公司的后端同学，几乎是不会将数据做任何处理，大多数接口都是直接就是把数据库中的数据以数组形式输出，前端需要的、不需要的属性全有。以后端人员的思维就是，反正数据是给你了，你想怎么处理都行。前端处理业务逻辑多不说，还导致大量接口数据浪费和冗余。
+现在公司的后端能力强，也容易沟通，常常是前端需要什么数据结构，就可以直接输出什么数据结构。
+但个人认为数据要前端还是后端处理，得看具体情况。
+例如树状菜单的输出。前端需要树状数据结构，如果要后端输出，可能这个接口需要多次数据库命中，或者后端一次性将数据拿出然后进行递归操作整理成树形结构。这种情况下，我认为后端接口还是直接输出数组方式较好。将计算任务前端化可以极大的减轻后端服务器内存与运算压力，等于是将运算分布到每个客户端上执行。如果是一些仅仅需要个总数计算的情况，就最好后端计算后直接输出数字比较好了，否则输出一大堆复杂结构的数组，前端也仅仅是计算一下数组的长度，太浪费带宽。</description>
+    </item>
+    
+    <item>
+      <title>package.json中的sideEffects: false</title>
+      <link>http://superwf.github.io/p1327/</link>
+      <pubDate>Mon, 26 Feb 2018 08:33:27 +0000</pubDate>
+      
+      <guid>http://superwf.github.io/p1327/</guid>
+      <description>https://medium.com/webpack/webpack-4-beta-try-it-today-6b1d27d7d7e2最近webpack升级到了4，看了一下变更日志，支持package.json中的sideEffects: false。一开始没理解。
+后来看了一下lodash-es就明白了，这个选项不是在项目本身的package.json中添加的，是在其他npm依赖包中需要的配置。
+当npm包为纯函数时，加上这个可以让webpack在production模式打包时极大的减少文件体积。
+在npmjs上查了一下package.json配置说明，目前还没有这项的说明，应该是个非标准配置。</description>
+    </item>
+    
+    <item>
+      <title>setTimeout参数</title>
+      <link>http://superwf.github.io/p1325/</link>
+      <pubDate>Mon, 26 Feb 2018 05:34:36 +0000</pubDate>
+      
+      <guid>http://superwf.github.io/p1325/</guid>
+      <description>今天看到一段代码setTimeout还有第三个参数，之前没见过。
+看了一下mdn，是除了回调函数和延迟时间之后的参数都会被传入回调函数中。
+顺带看了setInterval和setImmediate也是一样，可以通过更多的参数向回调函数中传入参数。</description>
+    </item>
+    
+    <item>
+      <title>jquery与学习曲线</title>
+      <link>http://superwf.github.io/p1316/</link>
+      <pubDate>Mon, 05 Feb 2018 08:03:07 +0000</pubDate>
+      
+      <guid>http://superwf.github.io/p1316/</guid>
+      <description>前两天公司年会，听了一句话：不谈价钱的比性能就是耍流氓。之前听过，是描述手机的价格和性能对比的，这次听到之后想到了一些工作上的事情。
+头两年刚接触browserify的时候，当时刚将我的前端工程融入npm的海洋，感觉之前一直用jquery的自己太low了。
+现在再结合上面那句话，在库与框架的选型上，价钱可比做学习时间成本，性能是该库可控的项目规模，周边第三方环境的支持与掌握之后coder可达到的开发效率。在轻松学习成本条件下，jquery还是挺不错的选择。</description>
+    </item>
+    
+    <item>
+      <title>service worker的fetch事件和cache的match</title>
+      <link>http://superwf.github.io/p1308/</link>
+      <pubDate>Mon, 05 Feb 2018 01:02:59 +0000</pubDate>
+      
+      <guid>http://superwf.github.io/p1308/</guid>
+      <description>早些时候看到在work service中可以拦截fetch从而起到缓存的作用。
+这两天自己试了试，发现这个fetch不是狭义的原生fetch函数，浏览器发起的http请求，普通ajax都在被拦截之列。亏的我原来为了用service worker缓存还打算把原来qwest的请求换成fetch，看来是不用的。
+cache和caches都有match方法，但cache的match经我试验是跨caches的key的，不是当前open的key的cache都能匹配到，只不过在then的回调中response是undefined。从api的定义上，感觉不应该是这样，如果match不到，应该reject才多啊。
+caches的match也是跨key的，这个好理解。
+参考</description>
+    </item>
+    
+    <item>
+      <title>react与redux优化部分总结</title>
+      <link>http://superwf.github.io/p1282/</link>
+      <pubDate>Wed, 17 Jan 2018 05:45:18 +0000</pubDate>
+      
+      <guid>http://superwf.github.io/p1282/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>es快速排序算法</title>
+      <link>http://superwf.github.io/p1268/</link>
+      <pubDate>Fri, 05 Jan 2018 02:36:42 +0000</pubDate>
+      
+      <guid>http://superwf.github.io/p1268/</guid>
+      <description>基于网上的代码参考，以下是一个自己改了点的递归版本
+  </description>
+    </item>
+    
+    <item>
+      <title>redux-saga</title>
+      <link>http://superwf.github.io/p1251/</link>
+      <pubDate>Tue, 26 Dec 2017 06:15:51 +0000</pubDate>
+      
+      <guid>http://superwf.github.io/p1251/</guid>
+      <description>自从了解generator开始，就对这个语法很反感。一个英文教程上有个形容词是mind-bending，╮（╯＿╰）╭看来不光我一个人这么认为。
+一定要运行的时候还总需要while(true) 或for来搭配，使其带来的那点同步的好处被抵消殆尽。
+saga让人用generator语法，可看了一下源码发现里面一个generator语法也没用，一个this没有，全程函数编程，真是高了！
+能明显感觉出的好处是当有多个并发，其中一个成功或失败的情况下其余不需要的可以自动cancel。
+看到一篇文章对redux-saga源码的分析，最后一张图神解释
+
+同样的还有菊叔漫画里的，如何画小米，哈哈。
+于是拿来教育年轻小伙，网上的零碎视频，散教程，大概也就能带你到第四步。要真正掌握什么，还是得老老实实看官方文档。
+下面将一下我对saga的源码的理解。
+最开始先run，执行saga生成iterator，在proc中执行第一轮的next。
+通过middleware监听所有redux的action，每当有action通过的时候multicastChannel查看所有taker，如果有匹配则执行该taker，taker中包含对下一轮next的回调。
+由saga put的action会带SAGA_ACTION的标识立即执行，其他action会缓存执行。
+在generator中通过take实现对事件的按需监听，是saga相对其他库实现事件机制的一大优势。举个例子，通常来说，在登录之前页面只需要监听LOGIN事件，肯定不会有LOGOUT发生，当LOGIN事件发生并成功后，LOGIN不再需要监听，这时再开始监听LOGOUT事件。在传统的页面编程中，LOGIN和LOGOUT通常都是页面载入后就都开始监听的，稍微有点不效率。</description>
+    </item>
+    
+    <item>
+      <title>react server render的坑</title>
+      <link>http://superwf.github.io/p1241/</link>
+      <pubDate>Thu, 16 Nov 2017 03:16:39 +0000</pubDate>
+      
+      <guid>http://superwf.github.io/p1241/</guid>
+      <description>首先是各种在node_modules中的外部依赖，需要用webpack-node-externals放到externals中
+如果是使用了nodejs内置的工具，需要在externals中添加额外配置，比如 {http: ‘commonjs http’, fs: ‘commonjs fs’ }
+然后是禁止使用各种window全局变量，使用各种挂在window下的全局方法之前需要先判断一下方法是否存在。
+在webpack编译过的server环境中__dirname和__filename都取不到值，需要用definePlugin预先在webpack的配置中取值。
+各种import进来的sass，less，css还有base64的图片一定要用extract-text-webpack-plugin去除。
+react-router的各个组件经过代码分割之后是异步加载，在服务端这里要变成同步是个问题。在react-router文档说明如下，所以目前能用的解决方法就是为服务端另写一份路由，只是要在这个问题解决之前要暂时维护两份本应该统一的路由文件。
+ &amp;lt;p class=&amp;quot;cye-lm-tag&amp;quot;&amp;gt; We’ve tried and failed a couple of times. What we learned: &amp;lt;/p&amp;gt; &amp;lt;ol&amp;gt; &amp;lt;li&amp;gt; You need synchronous module resolution on the server so you can get those bundles in the initial render. &amp;lt;/li&amp;gt; &amp;lt;li&amp;gt; You need to load all the bundles in the client that were involved in the server render before rendering so that the client render is the same as the server render.</description>
+    </item>
+    
+    <item>
+      <title>vue与mobx</title>
+      <link>http://superwf.github.io/p1231/</link>
+      <pubDate>Thu, 22 Jun 2017 02:27:41 +0000</pubDate>
+      
+      <guid>http://superwf.github.io/p1231/</guid>
+      <description>最近接触到MobX，读了读api，发现其结合了vue，meteor的一些写法，为了源码看得更明白些还特意看了看typescript。
+其autorun的api很早之前在meteor上看过，当时觉得特别神奇。哇，这就能自动监听数据更新并运行了，当时还以为meteor是靠厉害的词法分析来推倒出数据依赖关系呢。
+后来看了vue，发现这种依赖是通过get来收集依赖，然后在set的时候再触发依赖运行。但由于一直以为autorun会在收集依赖之前就可以运行，仍然觉得autorun很神奇。
+后来运行了一下mobx例子才发现其autorun和vue一样，其监听函数也必须初始全运行一次收集好依赖关系，才能在数据更新时正确运行。那种我以为的只有在数据更新时，autorun才会开始正确执行的想法是错误的。meteor的autorun也不是靠什么厉害的词法分析来实现的。底层大概也是靠Object.defineProperty来实现的，虽然还没看过meteor的源码。</description>
+    </item>
+    
+    <item>
+      <title>react或vue的数据应该在什么时候开始请求</title>
+      <link>http://superwf.github.io/p1190/</link>
+      <pubDate>Fri, 19 May 2017 05:36:52 +0000</pubDate>
+      
+      <guid>http://superwf.github.io/p1190/</guid>
+      <description>之前在做react的时候，一开始都照着例子，在componentWillMount里进行数据加载请求。
+后来在新项目中使用vue，也在beforeMount中开始数据加载请求。
+面试的时候被人提问过，也是这么回答的，人家也没就这个话题说太多。
+最近在项目中发现这种方法实在是有问题，当当前组件开始载入时，进行数据请求，在请求回调中设置当前组件的数据（react与vue的生命周期比较类似，可以当作同一种来说明）。但如果数据返回较慢，此时用户切换到其他路由，组件已经卸载，一则组件的this在请求数据的回调中存在是内存泄漏，二则组件已经卸载，再更新自身的数据肯定有问题。
+我想出来的解决方法有两种
+一，是在组件生命周期外部请求数据，在数据确实拿到后再挂载组件。
+二，终极解决方法，其实已经用了有一阵子了，但一直没有发现这个好处，即react + redux，vue + vuex。将数据放到外部，其实也相当于将数据请求放到组件的生命周期外部。
+有些小项目本以为数据没多复杂，可以不用redux/vuex这种外部数据管理，但如果自己管理数据的话往往又麻烦又容易出各种问题。这样看来，全家桶还是必要的。</description>
+    </item>
+    
+    <item>
+      <title>最近又重新学习了一下js的基础</title>
+      <link>http://superwf.github.io/p1148/</link>
+      <pubDate>Wed, 09 Nov 2016 01:28:58 +0000</pubDate>
+      
+      <guid>http://superwf.github.io/p1148/</guid>
+      <description>有几个js本身的逻辑错误问题
+var a = ?
+a == !a
+答案是 []，问题出在隐式类型转换
+if (a == 2 &amp;amp;&amp;amp; a == 3) {
+…
+}
+答案是重写Number.prototype.valueOf
+最后一个问题最奇葩，浏览器环境里的元素会自动生成全局变量foo，只想该元素…．本以为这个是最开始js作为玩乐脚本的情况下来取悦程序员的快捷方式，在chrome里试了一下，发现到现在还保留着这个特性．</description>
+    </item>
+    
+    <item>
+      <title>window.open被浏览器拦截问题</title>
+      <link>http://superwf.github.io/p1124/</link>
+      <pubDate>Tue, 14 Jun 2016 02:03:12 +0000</pubDate>
+      
+      <guid>http://superwf.github.io/p1124/</guid>
+      <description>在一个表单的提交事件中调用了window.open(”, ‘_blank’)，被浏览器拦截．
+几经调试发现，window.open放在ajax回调函数中就会被拦截，放在ajax之前就不会．
+后来实验证实，只要不在当前的事件循环中执行，只要进入下一个事件循环都会被拦截．解决方法就是
+先window.open，再在之后的回调中更改新打开的window的location来实现传递参数即可</description>
+    </item>
+    
+    <item>
+      <title>getBoundingClientRect的误差</title>
+      <link>http://superwf.github.io/p1101/</link>
+      <pubDate>Mon, 25 Jan 2016 08:56:14 +0000</pubDate>
+      
+      <guid>http://superwf.github.io/p1101/</guid>
+      <description>今天调试一个元素，用getBoundingClientRect得到的left，始终比实际的left多一块．
+后来发现是该元素的上级元素为了居中，使margin的左右都为auto，元素本身getBoundingClientRect得到的left即为正确的left加上了自动多出来的margin．
+本来这个功能是配合一个position:fixed的样式用的，但是position:fixed出现混乱的错误，滚动后内容被莫名其妙的白色区域覆盖，好象是显卡错误那种像素滞留的问题，最后还是换position:absolute配合现计算的定位来做靠谱．</description>
+    </item>
+    
+    <item>
+      <title>nodejs child_process的exec spawn 和fork</title>
+      <link>http://superwf.github.io/p1086/</link>
+      <pubDate>Thu, 24 Dec 2015 09:32:57 +0000</pubDate>
+      
+      <guid>http://superwf.github.io/p1086/</guid>
+      <description>今天终于感觉好像是彻底明白这三个东西了，这三个方法的命名其实就已经揭示了其用途．
+exec，执行，也仅仅是执行一下，然后返回点东西，然后这个进程就应该完结了，适用与ls，whoami等命令行进程，特点就是基本都是瞬间执行完的．
+spawn，生成一个持续运行的服务进程，该进程和主进程同死，但肯定是生的晚点．
+fork，和spawn很相似，区别在于这个是特别针对nodejs本身脚本的对于v8引擎的实例有优化，我是这样理解的．
+fork可以和主进程之间通过process的send和on进行通信，和前端的web workder非常像．</description>
+    </item>
+    
+    <item>
+      <title>png压缩工具</title>
+      <link>http://superwf.github.io/p1067/</link>
+      <pubDate>Tue, 08 Dec 2015 07:06:39 +0000</pubDate>
+      
+      <guid>http://superwf.github.io/p1067/</guid>
+      <description>看书看到pngcrush，在npm上搜相关工具最后找到了gulp-pngmin，依赖pngquant系统包，压缩率平均能到60%以上</description>
+    </item>
+    
+    <item>
+      <title>js前端代码检查工具</title>
+      <link>http://superwf.github.io/p1062/</link>
+      <pubDate>Tue, 03 Nov 2015 05:49:26 +0000</pubDate>
+      
+      <guid>http://superwf.github.io/p1062/</guid>
+      <description>在试过了jslint jshint eslint之后，最近发现了jscs，推荐前端代码风格统一用．
+可以直接用一些preset设置风格，我比较倾向与node风格的
+https://github.com/felixge/node-style-guide
+我的.jscsrc配置
+  </description>
+    </item>
+    
+    <item>
+      <title>推荐前端书籍</title>
+      <link>http://superwf.github.io/p1028/</link>
+      <pubDate>Mon, 14 Sep 2015 03:10:36 +0000</pubDate>
+      
+      <guid>http://superwf.github.io/p1028/</guid>
+      <description>最近看一些深入的js的书籍．
+jquery基础教程第四版，刚入职的时候看的书，之前从来都是现查在线jquery api文档，但作为一个专职前端的话，从头过一遍还是很有必要，之前大概知道promise是怎么回事，通过这本书才理解了．
+精通CSS高级Web标准解决方案，现在css3的书很多说的有些模糊，因为具体标准是否已经实现或者废弃了还都未确定．看了之后用上了很多．
+testable javascript，测试驱动的javascript开发．bdd一直是我的理想，有时会想是不是先找个测试的职位锻炼一下养成测试的习惯比较好．作为一个开发者同时写开发和测试真的有些难，测试环境的搭建，以可测试为前提写代码等都是相当难以跨越的墙．
+eloquent javascript第二版，还没有中文的，看的在线的，推荐看．
+javascript 函数式编程，颠覆了我之前对js的看法，发现了很多之前代码中很多模糊的地方，看了这本书之后不敢说都懂了吧，但确实明白了很多．极大的弱化了我对面向对象的习惯与态度，现在已经不太倾向与写类实例什么的了．尾递归什么的之前在erlang里见过也还算凑合理解了．多学几门语言真的很有用，即使不会在生产中应用，也很扩展人的思路．
+javascript模式，看了一遍感觉挺深，需要多看几遍的书．
+MVC的JavaScript Web富应用开发，作者也是很迷恋ruby方式的人，特意实现了一个spine框架，用include和extend来修改类．
+数据结构与算法JavaScript描述，将了很多基本算法的道理，看的时候明白，就是忘的快．
+javascript权威指南第六版，编写可读代码的艺术，如何阅读一本书，编写可维护的javascript，javascript精粹，这几本是我推荐我现在团队里小伙伴看的基础书，希望他们真的看了，不过从他们写的代码上看好像效果不大…人真的没有那么容易改变．
+阮一峰的ecmascript6，在线看的，希望ec6加速实现．
+Packt.Jasmine.JavaScript.Testing.2nd.Edition，看了好几本测试的书，只有这本里提到了karma．也提到了react，看来最近有必要学一下react，总觉得现在用的handlebars不太方便（不时尚，大概就是这种感觉～）．最后提到了webpack，让我接触到了一个新的开发工具，体验了一下，感觉就像是js的黑科技，一切都能require进来．
+svg经典入门，看完大概明白了svg是怎么回事，以后工作应该用不上，真的用也应该有ui设计，用还不太会用．
+Socket.io Real-time Web Application Development，排名第一的基于websocket的应用库，未来web向实时性发展，必须以来它，可惜我目前还没有实际应用．
+html5 canvas，canvas才应该是未来的发展趋势，要不然svg一直存在这么多年也没有太多的发展，目前基于canvas的动画应该是网页未来的趋势．
+React – Up and Running，受上一本书的影响觉得应该学学这个，正在看．
+webgl编程指南，WebGL Up and Running，计划要看．
+ 建议大家少看什么21天精通xxx，或者48小时掌握xxx之类的，学习没有捷径，这种标题就是抓住人愿意速成的心理．
+个人推荐oreilly 和 图灵这两个系列，另外再推荐一下模仿游戏这部电影，讲的是图灵的生平，图灵可以算是所有计算机行业祖师爷等级的人物，从事计算机相关行业的都应该看看．</description>
+    </item>
+    
+    <item>
+      <title>jasmine-jquery loadFixtures and sinon</title>
+      <link>http://superwf.github.io/p1033/</link>
+      <pubDate>Wed, 02 Sep 2015 02:31:57 +0000</pubDate>
+      
+      <guid>http://superwf.github.io/p1033/</guid>
+      <description>karma中的loadFixtures突然不管用了，用浏览器探测发现都没有请求 loadFixtures的文件，然后就是各种搜索，升级jasmine-jquery
+最后发现是前面的一个测试文件用了sinon的fakeServer，忘了最后restore，导致之后的fixtures的请求都被拦截了
+在用sinon的文件最后一定要加上
+  </description>
+    </item>
+    
+    <item>
+      <title>(intermediate value)(…) is not a function</title>
+      <link>http://superwf.github.io/p1023/</link>
+      <pubDate>Wed, 12 Aug 2015 05:03:57 +0000</pubDate>
+      
+      <guid>http://superwf.github.io/p1023/</guid>
+      <description>http://stackoverflow.com/questions/20307462/js-cant-combine-lib-files
+打包发布后的这种问题几乎一定是某个库后面没有加分号导致。
+我这里这次是由typeahead这个库引起的。
+一般需要优先检查上次成功发布之后新加入的库。</description>
+    </item>
+    
+    <item>
+      <title>安装photomjs参数</title>
+      <link>http://superwf.github.io/p1016/</link>
+      <pubDate>Wed, 29 Jul 2015 02:58:05 +0000</pubDate>
+      
+      <guid>http://superwf.github.io/p1016/</guid>
+      <description>今天安装uncss用到photomjs依赖，装不上找vpn什么的。
+后来无意在
+https://github.com/Medium/phantomjs
+看到
+npm install phantomjs –phantomjs_cdnurl=http://cnpmjs.org/downloads
+Or add property into your .npmrc file (https://www.npmjs.org/doc/files/npmrc.html)
+phantomjs_cdnurl=http://cnpmjs.org/downloads
+这回省事了也不用到处找代理了</description>
+    </item>
+    
+    <item>
+      <title>javascript不支持正则分组</title>
+      <link>http://superwf.github.io/p1014/</link>
+      <pubDate>Tue, 28 Jul 2015 03:26:31 +0000</pubDate>
+      
+      <guid>http://superwf.github.io/p1014/</guid>
+      <description>今天本来想在打包上线的时候去掉所有的console.log内容。
+写了半天平衡组的正则总是运行不了，最后想到可能是js不支持。之前用ruby的时候好像也不支持复杂的正则。
+标记一下以后也不用费劲写了…
+http://stackoverflow.com/questions/5886386/how-can-this-regex-be-made-javascript-compatible</description>
+    </item>
+    
+    <item>
+      <title>gulp顺序执行</title>
+      <link>http://superwf.github.io/p1011/</link>
+      <pubDate>Thu, 23 Jul 2015 07:46:15 +0000</pubDate>
+      
+      <guid>http://superwf.github.io/p1011/</guid>
+      <description>一般来说，依赖的任务不会顺序执行。
+为每个任务加上回调参数，可以确保顺序执行，但只能是依赖单个任务。
+若要多任务依赖，还得promise。
+若每个任务里，return的是gulp.src()…..的任务，其实和promise是一样的，也可以按顺序回调。</description>
+    </item>
+    
+    <item>
+      <title>gulp-useref</title>
+      <link>http://superwf.github.io/p1006/</link>
+      <pubDate>Wed, 22 Jul 2015 07:55:14 +0000</pubDate>
+      
+      <guid>http://superwf.github.io/p1006/</guid>
+      <description>最近发布后发现gulp-useref，执行后仅仅打包压缩了js语css文件，但并没有删除原始的文件列表，并且build:remove endbuild之间的内容也没有删除。
+搞得我紧急修补了一批的正则，用gulp-replace替换掉不应出现的部分，不过好在打包合并什么的功能还在，要不就不好办了。
+后来经过来回折腾发现是由于windows中的换行\n\r导致gulp-useref的替换功能失效，在assets之前将所有的\r都替换掉就可以了。领导发了命令必须在win下开发……</description>
+    </item>
+    
+    <item>
+      <title>safari中checked伪类失灵</title>
+      <link>http://superwf.github.io/p997/</link>
+      <pubDate>Tue, 23 Jun 2015 07:21:24 +0000</pubDate>
+      
+      <guid>http://superwf.github.io/p997/</guid>
+      <description>今天调了大半天bootstrap-material-design中的checkbox在safari中的效果失灵问题．
+最终原因是因为safari中对checkbox的checked伪类不起作用，无奈只好通过js在check的时候给input旁边的span加类，然后用加上的类来写css样式．</description>
+    </item>
+    
+    <item>
+      <title>还是不用bootstrap-material-design的好</title>
+      <link>http://superwf.github.io/p994/</link>
+      <pubDate>Mon, 15 Jun 2015 05:20:55 +0000</pubDate>
+      
+      <guid>http://superwf.github.io/p994/</guid>
+      <description>项目经历了两个多月开发，直到用ladda-botton样式之后，bootstrap-material-design在整个样式中所占的比例已经很小了．bootstrap-material-design虽然增加了一些特效，但也破坏了很多bootstrap原有好的东西，总之如果新起一个项目的话，还是不用bootstrap-material-design的好．</description>
+    </item>
+    
+    <item>
+      <title>gulp-size的bug,jquery-cookie</title>
+      <link>http://superwf.github.io/p991/</link>
+      <pubDate>Thu, 11 Jun 2015 08:54:13 +0000</pubDate>
+      
+      <guid>http://superwf.github.io/p991/</guid>
+      <description>我的gulp里有这么一段
+ 莫名奇妙的html文件就会少一些．上下左右排查了一番，发现去掉gulp-size即可恢复正常．
+jquery-cookie会缓存cookie，当后端更新cookie后不会立即跟着更新．</description>
+    </item>
+    
+    <item>
+      <title>推荐spinejs和＜基于MVC的JavaScript Web富应用开发＞</title>
+      <link>http://superwf.github.io/p986/</link>
+      <pubDate>Sun, 24 May 2015 08:18:57 +0000</pubDate>
+      
+      <guid>http://superwf.github.io/p986/</guid>
+      <description>最近又读了一次＜基于MVC的JavaScript Web富应用开发＞，之前读的时候没太留意书的作者也是spinejs的作者．这次读由于自己开始专职的前端工作，体会更深了一些．
+这本书里前面几章讲的基本就是如何将js打造成一个ruby类似结构的模式．extend和include让ruby程序员用起来倍感亲切．
+其中模块触发事件更新视图的功能我感觉就和reactjs的逻辑差不多．
+希望在实际工作中能用到．当前项目领导不让用任何框架，只好自己写了一个功能简陋类mvc，附加功能仍在不断添加中．</description>
+    </item>
+    
+    <item>
+      <title>bootstrap3的富文本编辑器</title>
+      <link>http://superwf.github.io/p983/</link>
+      <pubDate>Mon, 11 May 2015 06:50:17 +0000</pubDate>
+      
+      <guid>http://superwf.github.io/p983/</guid>
+      <description>官网上的例子是bootstrap-wysiwyg，但仅针对bs2
+后来找了个能用的http://summernote.org/#/deep-dive#api-summernote
+名为summernote</description>
+    </item>
+    
+    <item>
+      <title>ie模式设置与ajax跨域的问题</title>
+      <link>http://superwf.github.io/p974/</link>
+      <pubDate>Fri, 08 May 2015 01:52:23 +0000</pubDate>
+      
+      <guid>http://superwf.github.io/p974/</guid>
+      <description>在ie中默认没有以下标签很可能会按兼容模式渲染页面，如果ie版本大于10的时候加上这个就会有用．
+关于ajax跨域，之前总以为加上access-controll-allow-origin就可以，最近发现即使加上了这些access-controll-allow的header，ajax跨域是可以请求了，但是cookie是肯定带不过去的，想在ajax请求前加上cookie或者自定义的一些头信息，会被浏览器安全策略阻止．看来安全跨域只有用jsonp．通过jsonp带来子域的cookie，并且服务端需要设置该cookie可以在一级域名中的作用域．这样页面端域名的js也可以取到jsonp带来的cookie了，然后通过url或其他方法在每个请求上将cookie传递过去即可让服务端获取session．</description>
+    </item>
+    
+    <item>
+      <title>js数字的限制位数</title>
+      <link>http://superwf.github.io/p972/</link>
+      <pubDate>Thu, 30 Apr 2015 23:13:54 +0000</pubDate>
+      
+      <guid>http://superwf.github.io/p972/</guid>
+      <description>当后端传来的id过大时，js取得的精度最多有17位，比如当传入19位数字时，最后两位会自动置0，虽然支持的数字很大，但精度也就17位。
+解决的方法要不将id改小，要不就将id按字符串传递。</description>
+    </item>
+    
+    <item>
+      <title>前端的包管理器</title>
+      <link>http://superwf.github.io/p959/</link>
+      <pubDate>Wed, 08 Apr 2015 05:35:01 +0000</pubDate>
+      
+      <guid>http://superwf.github.io/p959/</guid>
+      <description>今天从
+https://github.com/componentjs/component/blob/master/disambiguation.md
+看到
+https://github.com/wilmoore/frontend-packagers
+看了一些前端库管理工具
+bower已经用的很熟了，和wiredep和gulp-useref配合熟练开发和发布．
+不过也很看好npm + browserify
+component看上去也不错，不过维护组分成了normalize.io和duojs，未来不太可知也．
+看来是组内的开发思路分道扬镳了．
+amd规则的requirejs一直没用，一开始看觉得挺新颖，但后来觉得这个规则强制改变了很多js原生库的写法，有些库不支持amd规则还需要手工修补．
+最重要的是nodejs工具会把所有依赖库都打包，之后就都是同步加载了，最大的减少了amd规则的依赖性．只有用cdn加载各种依赖库的情况下例外．
+browserify将commonjs规则引入前端这个才是趋势，不过也可能是我常年的服务端思想惯性使然吧．</description>
+    </item>
+    
+    <item>
+      <title>推荐semantic-ui</title>
+      <link>http://superwf.github.io/p951/</link>
+      <pubDate>Wed, 01 Apr 2015 11:49:18 +0000</pubDate>
+      
+      <guid>http://superwf.github.io/p951/</guid>
+      <description>最近看上了semantic-ui
+在ui方面可以替代bootstrap，效果方面比bootstrap-material-design还要出色，再加上meterial-design还没有完成。
+semantic的api接口module方面做的挺不错，让一个ui框架还能干一些路由层的活，对于不用大框架的项目来说方便极了。
+项目上最后没用semantic作ui，还是用的bootstrap．不过api用的不错，十多k也不大．
+项目伪ajax请求用sinon很方便．
+顺带还发现了jquery-form，也不用再到处找支持ajax文件上传的插件了。</description>
+    </item>
+    
+    <item>
+      <title>关于karma的base路径</title>
+      <link>http://superwf.github.io/p945/</link>
+      <pubDate>Wed, 18 Mar 2015 01:16:49 +0000</pubDate>
+      
+      <guid>http://superwf.github.io/p945/</guid>
+      <description>karma的karma.conf.js中的basePath是关于本地路径的设置，如果不设置就是karma.conf.js所在的路径．
+files里的路径都是基于karma.conf.js里来匹配的．都属于后端路径．这个概念我一开始没搞清楚前后端路径，调试了不少时间．
+在files里比如有”public/img/*.png”，则 karma start之后会在chrome里（假设使用chrome-launcher）,在浏览器中访问 /base/public/img/[img name].png
+即可访问到后端提供的文件．前端路径中的base是固定的．
+最开始的时候我还以为前端的这个base和配置文件里的那个basePath有什么关联呢，还在本地建立了个base文件夹试了试也访问不到．
+为了在karma打开的浏览器中能访问到该fixtures，还需要在karma的配置文件中添加该fixtures的路径为serverd： true
+{pattern: ‘test/fixtures/*.html’, served: true}</description>
+    </item>
+    
+    <item>
+      <title>angularjs-ui-date concat之后不能运行</title>
+      <link>http://superwf.github.io/p935/</link>
+      <pubDate>Tue, 25 Nov 2014 08:50:48 +0000</pubDate>
+      
+      <guid>http://superwf.github.io/p935/</guid>
+      <description>最近弄部署,用gulp-concat和uglify将js文件合并之后,出现
+n.datepicker is undefined错误
+发现overstack说是有的js文件里有的行没加;所以合并之后会出现这种问题.从现象上分析很合理,但是我没能找到jquery-ui或angular-ui-date那几万行里的错误.
+http://stackoverflow.com/questions/10429838/uncaught-typeerror-undefined-is-not-a-function-on-loading-jquery-min-js
+于是后来改用angular-bootstrap里的datepicker,还挺好用.但一开始出现一个问题
+ng-include里的datepicker不好用,只在第一次点击的时候可以,再就不灵了,好像ng-include里用了一个独立的scope
+后来通过将include里的文件放到一个文件取消include修复.</description>
+    </item>
+    
+    <item>
+      <title>用blueimp的jquery-file-uploader上传文件</title>
+      <link>http://superwf.github.io/p932/</link>
+      <pubDate>Fri, 07 Nov 2014 07:08:03 +0000</pubDate>
+      
+      <guid>http://superwf.github.io/p932/</guid>
+      <description>一直对是否能用ajax上传文件很含糊,今天又重新弄了一下jquery-file-uploader,确定是可以的.
+顺带做了一次golang后台的文件上传接收,还挺容易的,不过仅限于小文件,大文件的服务端肯定应该是另一种写法.
+不过用bower安装之后有些麻烦.这玩意不能写道bower.json里.否则会在index.html中加入一些额外的东西.必须手动添加到index.html中</description>
+    </item>
+    
+    <item>
+      <title>ionic -&gt; mobile-angular</title>
+      <link>http://superwf.github.io/p843/</link>
+      <pubDate>Tue, 03 Jun 2014 06:41:34 +0000</pubDate>
+      
+      <guid>http://superwf.github.io/p843/</guid>
+      <description>弄了一周的ionic做了个小app
+https://github.com/superwf/convictconditioning
+发现ionic各种不好用。
+需要日期插件，需要额外加angular-ui-date
+需要一个照相机的图标加拍照功能，结果没有，找了一下发现bootstrap里的图标挺合适。
+加上bootstrap后又发现css有些冲突，有些小地方有些错位，早知如此最开始就该用mobile-angular做啦。
+遂果断换mobile-angular。</description>
+    </item>
+    
+    <item>
+      <title>第一个相对完整的angularjs项目</title>
+      <link>http://superwf.github.io/p821/</link>
+      <pubDate>Sun, 04 May 2014 10:19:24 +0000</pubDate>
+      
+      <guid>http://superwf.github.io/p821/</guid>
+      <description>遇到的第一个相对麻烦的问题是blueimp的jquery-file-upload
+用yeoman套装习惯了，插件都习惯用bower install来安装，于是就
+然后发现缺模板，就把http://blueimp.github.io/jQuery-File-Upload/里的html copy下来当模板。还报错，后来发现是jquery-ui的问题，既然用bootstrap，在index.html里把jquery-ui那行删掉。然后又发现scope总是undefined。折腾半天感觉不应该把jquery-file-upload写在bower.json里，这样会多出一些无用的插件。
+这大概是因为blueimp的jquery-file-upload与bower兼容的不太好，太多地方不能自动化，不知道算不算个bug，反正从他的例子上直接copy就能用。
+于是在bower.json删掉jquery-file-upload，然后只把需要用的几个js文件写在下面的bower:js 块里。html模板部分还是都从例子里copy。
+ 部署的时候第一次grunt build之后页面报错说没有blueimp.fileupload这个module
+后来发现由于bower.json里没有jquery-file-upload，服务器端的jquery-file-upload没有安装
+于是
+grunt build 之后发现glyphicon的图标都变形了，问题出在 app/styles/main.sass里的
+然后还需要在copy块里的src数组里加上
+参考：http://stackoverflow.com/questions/21932451/assets-missing-in-angular-application-built-using-grunt
+弄完之后重新grunt build</description>
+    </item>
+    
+    <item>
+      <title>angularjs one controller vs multi views</title>
+      <link>http://superwf.github.io/p817/</link>
+      <pubDate>Fri, 18 Apr 2014 02:21:58 +0000</pubDate>
+      
+      <guid>http://superwf.github.io/p817/</guid>
+      <description>第一个views是页面加载时就有的，第二个view是后加载的。
+第二个view加载后，该controller的scope中的变量更新后，第一个view中的ng-bind变量不能同步显示更新的内容，好像已经断开了链接一行。
+http://stackoverflow.com/questions/16210822/angular-js-views-sharing-same-controller-model-data-resets-when-changing-view
+看来每次controller加载后重新有自己的编译过程，不能用同一controller中的变量绑定来同步。
+后来想到了用$rootScope.$broadcast 的广播方式，把这个事件发出去然后在其他controller里用$rootScope.$on接收，实现了想要的功能。</description>
+    </item>
+    
+    <item>
+      <title>yeoman &amp; rails整合开发</title>
+      <link>http://superwf.github.io/p803/</link>
+      <pubDate>Mon, 14 Apr 2014 05:14:36 +0000</pubDate>
+      
+      <guid>http://superwf.github.io/p803/</guid>
+      <description>grunt serve的测试环境用的9000端口，向后台发起的默认ajax也是9000
+为了与rails整合，在app.coffee里加上
+然后在所有需要请求的url之前都加上 rails + ‘/user.json’
+这里还涉及到一个ajax跨域的事，得在rails的controller里设置
+实际部署的时候可以去掉这个，在nginx里加这个header，把*改成相对应的域名。
+后来发现加这个不灵
+http://serverfault.com/questions/418709/nginx-add-header-for-a-50-page
+401状态下无法自定义header，需要用
+http://wiki.nginx.org/HttpHeadersMoreModule
+这仅仅因为在开发环境下grunt serve和rails需要用到不同的域，至少需要不同端口，实际部署的时候应该是用不到这些。
+干了两天之后各种问题导致各种手动修改补丁，最后还是用nginx配置这些比较合适，在开发时就干脆把这两个后台都整合到一个域名里，也消除了跨域的问题。
+nginx配置
+  </description>
+    </item>
+    
+    <item>
+      <title>angular-ui angular-bootstrap</title>
+      <link>http://superwf.github.io/p801/</link>
+      <pubDate>Fri, 11 Apr 2014 07:19:23 +0000</pubDate>
+      
+      <guid>http://superwf.github.io/p801/</guid>
+      <description>名字虽然叫angular-ui，但安装的时候要
+bower install angular-bootstrap
+今天早上运行代码报错
+angular-ui was not injected in your file.
+google了一下才发现angular-ui已经过期，分崩离兮成了几个小项目了。</description>
+    </item>
+    
+    <item>
+      <title>nvm install node</title>
+      <link>http://superwf.github.io/p795/</link>
+      <pubDate>Thu, 03 Apr 2014 08:25:27 +0000</pubDate>
+      
+      <guid>http://superwf.github.io/p795/</guid>
+      <description>nvm install之后，sudo npm i -g xxx总说 command not found npm
+which npm
+echo $PATH之后发现npm是确实有的，问题就出在sudo上。
+visudo发现有
+Defaults secure_path这一行，把npm所在的路径加进去。
+补充：用nvm装的node，用不着sudo，直接npm i -g xxx也是安装在当前用户的nvm目录中，不需要写入系统目录的权限。
+一开始用www-data这个用户去编辑网站的程序，grunt serve的时候发现不能自动打开浏览器，还以为是什么东西没配置好，后来发现是因为www-data这个用户不能插入当前用户的桌面进程权限问题，必须用当前登录桌面用户来执行grunt serve才行。</description>
+    </item>
+    
+    <item>
+      <title>angularjs-translate</title>
+      <link>http://superwf.github.io/p687/</link>
+      <pubDate>Fri, 27 Dec 2013 07:15:43 +0000</pubDate>
+      
+      <guid>http://superwf.github.io/p687/</guid>
+      <description>最近弄的angularjs程序，想从后台调用生成的json来填充前台的翻译
+但由于javascript async加载的特性，语言包总是会时不时出现加载晚了，页面上的 {{lang}}这种变量都无法显示的情况。
+http://www.ng-newsletter.com/posts/angular-translate.html
+https://github.com/PascalPrecht
+顺带说一下 angular-translate-loader-url，这个可能过时了，怎么都不能用
+用了这个插件之后，没办法，把翻译都写在一个静态的js里了，好在从原来的yaml到js的结构，基本没啥区别，就是加了好多引号。</description>
+    </item>
+    
+    <item>
+      <title>angular-ui bootstrap modal $watch not work</title>
+      <link>http://superwf.github.io/p683/</link>
+      <pubDate>Fri, 20 Dec 2013 07:05:10 +0000</pubDate>
+      
+      <guid>http://superwf.github.io/p683/</guid>
+      <description>直接在一个modal里
+$scope.$watch ‘current_page’, -&amp;gt; …
+想进行翻页，就翻页那块换，数据不换也没有后台请求。
+http://stackoverflow.com/questions/19572514/datepicker-inside-a-modal-not-working?newreg=465289cbf441442cb01b6e8ad8b46dce
+从这里学了一下，改成 $scope.$watch(‘pager.current_page’, -&amp;gt; …
+Working! yeah</description>
+    </item>
+    
+    <item>
+      <title>angularjs下的分页</title>
+      <link>http://superwf.github.io/p678/</link>
+      <pubDate>Wed, 18 Dec 2013 08:19:25 +0000</pubDate>
+      
+      <guid>http://superwf.github.io/p678/</guid>
+      <description>最近一阵子一直在进修js，学了angularjs，分页配合http://angular-ui.github.io/bootstrap/很好，可惜只针对bootstrapV2的css，项目的css已经都改成了v3的，没办法这个分页实在重要，引用了一段bootstrapV2的css进来。
+自从弄了angularjs，之前的得力工具simple_form、will_paginate什么的全都变的豪无用处。
+现在写模板就直接写slim文件，然后配置到服务器上让nginx缓存html文件来提升效率了。
+多年前我就想过这样一个类似的框架，将页面和数据完全分割，但是没能力做出来，现在也不成，angularjs做到了，而且还能将页面数据监控与动作绑定起来，让页面真正活了起来。</description>
+    </item>
+    
+    <item>
+      <title>ie下ajax缓存</title>
+      <link>http://superwf.github.io/p518/</link>
+      <pubDate>Thu, 20 Jun 2013 01:51:56 +0000</pubDate>
+      
+      <guid>http://superwf.github.io/p518/</guid>
+      <description>这个问题只在ie下才有，设置http head禁用缓存的方法无效。
+用的jquery
+这么全局设置一下为最佳方法。</description>
+    </item>
+    
+    <item>
+      <title>html5下的video</title>
+      <link>http://superwf.github.io/p184/</link>
+      <pubDate>Wed, 21 Dec 2011 05:57:53 +0000</pubDate>
+      
+      <guid>http://superwf.github.io/p184/</guid>
+      <description>html5内建的video标签竟然没有全屏按钮，没想到
+http://videojs.com/
+给html5用还挺好</description>
+    </item>
+    
+    <item>
+      <title>ruby websocket</title>
+      <link>http://superwf.github.io/p181/</link>
+      <pubDate>Mon, 21 Nov 2011 12:42:38 +0000</pubDate>
+      
+      <guid>http://superwf.github.io/p181/</guid>
+      <description>最近有空体验了一下websocket
+服务端用的是websocket-rack
+客户端用的是jquery 的 gracefulWebSocket
+jquery本来还有另一个websocket的插件不过可以发送消息到服务端，但是没能成功接收数据，可能是我哪的参数没用对。</description>
+    </item>
+    
+    <item>
+      <title>预览图片</title>
+      <link>http://superwf.github.io/p78/</link>
+      <pubDate>Wed, 25 May 2011 13:16:01 +0000</pubDate>
+      
+      <guid>http://superwf.github.io/p78/</guid>
+      <description>当客户上传一个图片之前，不能在网页上预览这个图片，后来看到一个网站有这个功能。
+直接把图片数据写到img的src里，后来好像看到css中的background的url也可以用这种写法
+抠了和函数出来
+用的时候
+就可以在用户选中这个图片的时候，不上传图片就可在网页中预览效果。此时当然不能缩放裁减图片什么的，因为图片还没到服务器。</description>
+    </item>
+    
+  </channel>
+</rss>

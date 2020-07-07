@@ -1,0 +1,661 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    
+    <title>老王的日志</title>
+    <meta name="viewport" content="width=device-width,minimum-scale=1">
+    <meta name="generator" content="Hugo 0.68.3" />
+    
+    
+      <META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW">
+    
+
+    
+    
+      <link href="/dist/css/app.1cb140d8ba31d5b2f1114537dd04802a.css" rel="stylesheet">
+    
+
+    
+
+    
+      
+    
+
+    
+    
+      <link href="/posts/index.xml" rel="alternate" type="application/rss+xml" title="老王的日志" />
+      <link href="/posts/index.xml" rel="feed" type="application/rss+xml" title="老王的日志" />
+      
+    
+    
+    <meta property="og:title" content="Posts" />
+<meta property="og:description" content="" />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="http://superwf.github.io/posts/" />
+<meta property="og:updated_time" content="2020-04-29T01:53:50+00:00" />
+<meta itemprop="name" content="Posts">
+<meta itemprop="description" content=""><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Posts"/>
+<meta name="twitter:description" content=""/>
+
+  </head>
+
+  <body class="ma0 avenir bg-near-white">
+
+    
+
+  <header>
+    <div class="pb3-m pb6-l bg-black">
+      <nav class="pv3 ph3 ph4-ns" role="navigation">
+  <div class="flex-l justify-between items-center center">
+    <a href="http://superwf.github.io/" class="f3 fw2 hover-white no-underline white-90 dib">
+      老王的日志
+    </a>
+    <div class="flex-l items-center">
+      
+
+      
+        <ul class="pl0 mr3">
+          
+          <li class="list f5 f4-ns fw4 dib pr3">
+            <a class="hover-white no-underline white-90" href="/migrate2020/" title="migrate2020 page">
+              migrate2020
+            </a>
+          </li>
+          
+          <li class="list f5 f4-ns fw4 dib pr3">
+            <a class="hover-white no-underline white-90" href="/coder-life/" title="coder-life page">
+              coder-life
+            </a>
+          </li>
+          
+        </ul>
+      
+      
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    </div>
+  </div>
+</nav>
+
+      <div class="tc-l pv3 ph3 ph4-ns">
+        <h1 class="f2 f-subheadline-l fw2 light-silver mb0 lh-title">
+          Posts
+        </h1>
+        
+      </div>
+    </div>
+  </header>
+
+
+    <main class="pb7" role="main">
+      
+  <article class="pa3 pa4-ns nested-copy-line-height nested-img">
+    <section class="cf ph3 ph5-l pv3 pv4-l f4 tc-l center measure-wide lh-copy mid-gray"></section>
+    <section class="flex-ns flex-wrap justify-around mt5">
+      
+        <div class="relative w-100 w-30-l mb4 bg-white"><div class="relative w-100 mb4 bg-white nested-copy-line-height">
+  <div class="bg-white mb3 pa4 gray overflow-hidden">
+    <span class="f6 db">Posts</span>
+    <h1 class="f3 near-black">
+      <a href="http://superwf.github.io/p935/" class="link black dim">
+        angularjs-ui-date concat之后不能运行
+      </a>
+    </h1>
+    <div class="nested-links f5 lh-copy nested-copy-line-height">
+      最近弄部署,用gulp-concat和uglify将js文件合并之后,出现
+n.datepicker is undefined错误
+发现overstack说是有的js文件里有的行没加;所以合并之后会出现这种问题.从现象上分析很合理,但是我没能找到jquery-ui或angular-ui-date那几万行里的错误.
+http://stackoverflow.com/questions/10429838/uncaught-typeerror-undefined-is-not-a-function-on-loading-jquery-min-js
+于是后来改用angular-bootstrap里的datepicker,还挺好用.但一开始出现一个问题
+ng-include里的datepicker不好用,只在第一次点击的时候可以,再就不灵了,好像ng-include里用了一个独立的scope
+后来通过将include里的文件放到一个文件取消include修复.
+    </div>
+  </div>
+</div>
+</div>
+      
+        <div class="relative w-100 w-30-l mb4 bg-white"><div class="relative w-100 mb4 bg-white nested-copy-line-height">
+  <div class="bg-white mb3 pa4 gray overflow-hidden">
+    <span class="f6 db">Posts</span>
+    <h1 class="f3 near-black">
+      <a href="http://superwf.github.io/p932/" class="link black dim">
+        用blueimp的jquery-file-uploader上传文件
+      </a>
+    </h1>
+    <div class="nested-links f5 lh-copy nested-copy-line-height">
+      一直对是否能用ajax上传文件很含糊,今天又重新弄了一下jquery-file-uploader,确定是可以的.
+顺带做了一次golang后台的文件上传接收,还挺容易的,不过仅限于小文件,大文件的服务端肯定应该是另一种写法.
+不过用bower安装之后有些麻烦.这玩意不能写道bower.json里.否则会在index.html中加入一些额外的东西.必须手动添加到index.html中
+    </div>
+  </div>
+</div>
+</div>
+      
+        <div class="relative w-100 w-30-l mb4 bg-white"><div class="relative w-100 mb4 bg-white nested-copy-line-height">
+  <div class="bg-white mb3 pa4 gray overflow-hidden">
+    <span class="f6 db">Posts</span>
+    <h1 class="f3 near-black">
+      <a href="http://superwf.github.io/p928/" class="link black dim">
+        golang recover from panic
+      </a>
+    </h1>
+    <div class="nested-links f5 lh-copy nested-copy-line-height">
+      the golang code below
+但是当json日期格式不正确时,整个golang进程会退出
+后来发现处理 decoder的err时,必须panic(err),才能被recover获取,否则就会退出整个golang的process.
+    </div>
+  </div>
+</div>
+</div>
+      
+        <div class="relative w-100 w-30-l mb4 bg-white"><div class="relative w-100 mb4 bg-white nested-copy-line-height">
+  <div class="bg-white mb3 pa4 gray overflow-hidden">
+    <span class="f6 db">Posts</span>
+    <h1 class="f3 near-black">
+      <a href="http://superwf.github.io/p917/" class="link black dim">
+        golang的一些入门小特性
+      </a>
+    </h1>
+    <div class="nested-links f5 lh-copy nested-copy-line-height">
+      一个是
+这种，前面的_说明引入的这个库匿名使用，只是引入的时候执行里面的init进行进行一些注册功能。
+还有一个是
+一开始没太看明白还一位是种新语法，查也没查到，后来自己想通了，(*http.ResponseWriter)(nil) 的意思是初始化了一个http.ResponseWriter类型的指针，并且初始化值为nil
+struct的tag支持多种功能，每种tag类型之间用空格分开，而不是逗号。
+  
+    </div>
+  </div>
+</div>
+</div>
+      
+        <div class="relative w-100 w-30-l mb4 bg-white"><div class="relative w-100 mb4 bg-white nested-copy-line-height">
+  <div class="bg-white mb3 pa4 gray overflow-hidden">
+    <span class="f6 db">Posts</span>
+    <h1 class="f3 near-black">
+      <a href="http://superwf.github.io/p906/" class="link black dim">
+        最近又看了看php,做了几个ab的测试
+      </a>
+    </h1>
+    <div class="nested-links f5 lh-copy nested-copy-line-height">
+      最近折腾服务器部署，感觉rails占内存多有时候需要重启服务才能缓解一下卡的情况。
+考虑之后的程序用什么来做，于是又搜了一下php，发现几年真是大发展php的明明空间大量应用，匿名函数和闭包竟然都支持了，laravel的几个命令行工具，简明语义的语法写法，composer这个类似bundle的好东西，使php本身的混乱程度大幅减少。
+命名空间之前还听说的时候没见哪实际用过，现在看看一些新库的代码都已经用在生产上了，php还是很有搞头。
+发现了phalcom这个php框架，竟然是用c写的来大幅提升系统性能，实在是令人意外。
+于是用phalcom网站的测试方法测试了一下各个框架
+ab和程序都是运行在同一主机，6g内存apu4核
+测试了一下各个框架的ab -n 2000 -c 10 http://xxxx
+rails用的是rails4.1，新建的一个临时程序，nginx + unicorn，就简单的能跑出hello world，在production模式下
+Concurrency Level: 10
+Time taken for tests: 1.461 seconds
+Complete requests: 2000
+Failed requests: 0
+Total transferred: 888000 bytes
+HTML transferred: 22000 bytes
+Requests per second: 1369.20 [#/sec] (mean)
+Time per request: 7.304 [ms] (mean)
+Time per request: 0.730 [ms] (mean, across all concurrent requests)
+Transfer rate: 593.68 [Kbytes/sec] received
+beego的helloworld
+Concurrency Level: 10
+    </div>
+  </div>
+</div>
+</div>
+      
+        <div class="relative w-100 w-30-l mb4 bg-white"><div class="relative w-100 mb4 bg-white nested-copy-line-height">
+  <div class="bg-white mb3 pa4 gray overflow-hidden">
+    <span class="f6 db">Posts</span>
+    <h1 class="f3 near-black">
+      <a href="http://superwf.github.io/p902/" class="link black dim">
+        mfs的metalogger服务器备份频率
+      </a>
+    </h1>
+    <div class="nested-links f5 lh-copy nested-copy-line-height">
+      mfsmaster上的 metadata.mfs是每小时备份一次，如果出现问题，只要这个文件还在，会损失一小时之内的数据，这个在不少地方都提到过。
+本以为mfsmetalogger上也是这样，但经过这一两天的观察发现mfsmetalogger上是每天备份一次，如果手动启动metalogger则会在刚连接master的时候备份一次。
+所以如果是mfsmaster主机突然彻底完蛋的话，凭借mfsmetalogger的备份可能会丢一天之内的数据。至少setgoal为2的情况下。
+还算可接受吧，只要心里有这个谱。
+    </div>
+  </div>
+</div>
+</div>
+      
+        <div class="relative w-100 w-30-l mb4 bg-white"><div class="relative w-100 mb4 bg-white nested-copy-line-height">
+  <div class="bg-white mb3 pa4 gray overflow-hidden">
+    <span class="f6 db">Posts</span>
+    <h1 class="f3 near-black">
+      <a href="http://superwf.github.io/p900/" class="link black dim">
+        mysql的innodb
+      </a>
+    </h1>
+    <div class="nested-links f5 lh-copy nested-copy-line-height">
+      其实可能应该叫mariadb了，最近听了老于的建议，换成了mariadb。
+迁移之后因为新服务器内存大了很多，加大了缓存解决了很多之前锁表的问题。
+设置binlog之后，在从机上同步时发现master上设置的binlog-ignore-db = mysql,information_schema没起作用，从机还是照常同步
+后来在从机上设置replicate-ignore-db = mysql,information_schema也没起作用
+可能是mysql从5.5还是什么版本之后，需要多行设置，或者就是之前网上那些示例全写错了
+应该写成
+binlog-ignore-db = mysql
+binlog-ignore-db = information_schema
+replicate-ignore-db = mysql
+replicate-ignore-db = information_schema
+    </div>
+  </div>
+</div>
+</div>
+      
+        <div class="relative w-100 w-30-l mb4 bg-white"><div class="relative w-100 mb4 bg-white nested-copy-line-height">
+  <div class="bg-white mb3 pa4 gray overflow-hidden">
+    <span class="f6 db">Posts</span>
+    <h1 class="f3 near-black">
+      <a href="http://superwf.github.io/p898/" class="link black dim">
+        jessie的升级与ati显卡
+      </a>
+    </h1>
+    <div class="nested-links f5 lh-copy nested-copy-line-height">
+      升级多了各种软件总能保持新鲜，升级太多了太折腾。
+这次升级是完了，jessie里删除了fglrx-driver的包。只能用amd网站的包来装，虽然打了补丁之后可以安装但是一进桌面就黑屏，而且鼠标键盘统统没反应。
+重启后删除/etc/X11/xorg.conf倒是能进桌面，但分辨率低，一看就是没显卡驱动。
+之前这种问题都能通过发行包里的fglrx驱动和amd官网驱动配合调试解决，这次是玩不转了。
+实在不行，最后硬件解决，从另一个机器上弄了个nvidia的显卡插上用了，不玩ati了。
+    </div>
+  </div>
+</div>
+</div>
+      
+        <div class="relative w-100 w-30-l mb4 bg-white"><div class="relative w-100 mb4 bg-white nested-copy-line-height">
+  <div class="bg-white mb3 pa4 gray overflow-hidden">
+    <span class="f6 db">Posts</span>
+    <h1 class="f3 near-black">
+      <a href="http://superwf.github.io/p895/" class="link black dim">
+        puppet gpg
+      </a>
+    </h1>
+    <div class="nested-links f5 lh-copy nested-copy-line-height">
+      用puppet部署mysql
+有puppetlabs-mysql这个现成的包，但用过之后觉得不好，因为自定义配置文件太麻烦，想不让它接管配置文件还不行。
+后来在自己的包里部署，需要用到预先确认安装密码的问题
+http://stackoverflow.com/questions/1202347/how-can-i-pass-a-password-from-a-bash-script-to-aptitude-for-installing-mysql
+jessie可以直接用mariadb代替mysql，据于工说性能还好一些
+需要看mariadb预安装的参数，用
+debconf-show mariadb-server-5.5
+http://www.bdqn.cn/news/201309/11151.shtml
+由于puppet的exec默认用的是sh，不太清楚怎么让变成bash执行，所以只能是echo … | sudo debconf-set-selections 这样来写
+配置文件用hiera的file存储，为每个机器单独存储。
+由于之前一直用kvm的虚拟机，公司工作必须要用ie，qq什么的。vagrant的virtualbox和kvm不能同时开，网上找了能同开的方法，但是修改后会死机，总之还是不能同开。
+后来找了vagrant的插件vagrant-kvm和vagrant-libvirt，但是在已经打包成box格式之后都不能兼容自己做的kvm虚拟机。
+遂直接不用vagrant。
+直接自装一个qcow2格式的kvm，copy该镜像文件作为备份，装乱之后再copy覆盖回去，省大了事了，托我大中国防火墙的仙气，也再不用翻山越岭的去下载vagrant那些镜像。
+hiera的gpg加密有问题，一是私钥必须是无密码的，如果有密码，在命令行模式还有机会输入密码，在服务端运行的时候就不能解密了
+一旦启用gpg后端的文件，就会莫名其妙的多出好多需要hiera赋值的参数，这些参数本来都是有默认值的，但一旦启用gpg，不知道为什么就会报没有赋值的错误。
+另想了个办法把需要加密的东西都写到file里，在.gitignore里忽略hiera的file文件。
+mcollective，尝试了之后觉得还是有些用，只是没有刚开始看得时候的惊喜，可能是手下管理的机器不太多吧。
+需要提一下的是一开始mco命令总是没有任何自带的插件，什么inventory、facts都没有，是因为debian源里的mcollective-client是2.0的版本，必须用外带的puppetlabs的apt源，升级成2.5,就一切都ok了，剩下的交给puppetlabs-mcollective来配置就能傻瓜式完成。
+    </div>
+  </div>
+</div>
+</div>
+      
+        <div class="relative w-100 w-30-l mb4 bg-white"><div class="relative w-100 mb4 bg-white nested-copy-line-height">
+  <div class="bg-white mb3 pa4 gray overflow-hidden">
+    <span class="f6 db">Posts</span>
+    <h1 class="f3 near-black">
+      <a href="http://superwf.github.io/p889/" class="link black dim">
+        puppet自动安装中的untrusted packages
+      </a>
+    </h1>
+    <div class="nested-links f5 lh-copy nested-copy-line-height">
+      当用到第三方源的时候，安装包会提示untrusted packages
+让进一步确认Yes或者汉语的Shi，手动是没事但自动安装脚本就被破坏了。
+http://anothersysadmin.wordpress.com/2008/12/30/tip-installing-untrusted-packages-without-confirmation-on-debian/
+http://debiananwenderhandbuch.de/apt.conf.html
+通过设置apt.conf的参数
+puppet用apt-get而不是aptitude所以配置apt
+可以用puppet的file增加个文件在/etc/apt/apt.conf.d/里
+    </div>
+  </div>
+</div>
+</div>
+      
+    </section>
+
+<ul class="pagination">
+    
+    <li class="page-item">
+        <a href="/posts/" class="page-link" aria-label="First"><span aria-hidden="true">&laquo;&laquo;</span></a>
+    </li>
+    
+    <li class="page-item">
+    <a href="/posts/page/11/" class="page-link" aria-label="Previous"><span aria-hidden="true">&laquo;</span></a>
+    </li>
+    
+    
+    
+    
+    
+    
+    
+        
+        
+    
+    
+    <li class="page-item"><a class="page-link" href="/posts/">1</a></li>
+    
+    
+    
+    
+    
+    
+        
+        
+    
+    
+    <li class="page-item"><a class="page-link" href="/posts/page/2/">2</a></li>
+    
+    
+    
+    
+    
+    
+        
+        
+    
+    
+    <li class="page-item"><a class="page-link" href="/posts/page/3/">3</a></li>
+    
+    
+    
+    
+    
+    
+        
+        
+    
+    
+    <li class="page-item disabled"><span aria-hidden="true">&nbsp;&hellip;&nbsp;</span></li>
+    
+    
+    
+    
+    
+    
+        
+        
+    
+    
+    
+    
+    
+    
+    
+        
+        
+    
+    
+    
+    
+    
+    
+    
+        
+        
+    
+    
+    
+    
+    
+    
+    
+        
+        
+    
+    
+    
+    
+    
+    
+    
+        
+        
+    
+    
+    
+    
+    
+    
+    
+        
+        
+    
+    
+    
+    
+    
+    
+    
+        
+        
+    
+    
+    <li class="page-item"><a class="page-link" href="/posts/page/11/">11</a></li>
+    
+    
+    
+    
+    
+    
+        
+        
+    
+    
+    <li class="page-item active"><a class="page-link" href="/posts/page/12/">12</a></li>
+    
+    
+    
+    
+    
+    
+        
+        
+    
+    
+    <li class="page-item"><a class="page-link" href="/posts/page/13/">13</a></li>
+    
+    
+    
+    
+    
+    
+        
+        
+    
+    
+    <li class="page-item disabled"><span aria-hidden="true">&nbsp;&hellip;&nbsp;</span></li>
+    
+    
+    
+    
+    
+    
+        
+        
+    
+    
+    
+    
+    
+    
+    
+        
+        
+    
+    
+    
+    
+    
+    
+    
+        
+        
+    
+    
+    
+    
+    
+    
+    
+        
+        
+    
+    
+    
+    
+    
+    
+    
+        
+        
+    
+    
+    
+    
+    
+    
+    
+        
+        
+    
+    
+    
+    
+    
+    
+    
+        
+        
+    
+    
+    
+    
+    
+    
+    
+        
+        
+    
+    
+    
+    
+    
+    
+    
+        
+        
+    
+    
+    
+    
+    
+    
+    
+        
+        
+    
+    
+    
+    
+    
+    
+    
+        
+        
+    
+    
+    
+    
+    
+    
+    
+        
+        
+    
+    
+    
+    
+    
+    
+    
+        
+        
+    
+    
+    
+    
+    
+    
+    
+        
+        
+    
+    
+    <li class="page-item"><a class="page-link" href="/posts/page/28/">28</a></li>
+    
+    
+    <li class="page-item">
+    <a href="/posts/page/13/" class="page-link" aria-label="Next"><span aria-hidden="true">&raquo;</span></a>
+    </li>
+    
+    <li class="page-item">
+        <a href="/posts/page/28/" class="page-link" aria-label="Last"><span aria-hidden="true">&raquo;&raquo;</span></a>
+    </li>
+    
+</ul>
+
+</article>
+
+    </main>
+    <footer class="bg-black bottom-0 w-100 pa3" role="contentinfo">
+  <div class="flex justify-between">
+  <a class="f4 fw4 hover-white no-underline white-70 dn dib-ns pv2 ph3" href="http://superwf.github.io/" >
+    &copy;  老王的日志 2020 
+  </a>
+    <div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+</div>
+  </div>
+</footer>
+
+    
+
+  <script src="/dist/js/app.3fc0f988d21662902933.js"></script>
+
+
+  </body>
+</html>

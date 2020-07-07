@@ -1,0 +1,622 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    
+    <title>wheezy下配置postfix mysql postfixadmin dovecot roundcube全apt安装 | 老王的日志</title>
+    <meta name="viewport" content="width=device-width,minimum-scale=1">
+    <meta name="generator" content="Hugo 0.68.3" />
+    
+    
+      <META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW">
+    
+
+    
+    
+      <link href="/dist/css/app.1cb140d8ba31d5b2f1114537dd04802a.css" rel="stylesheet">
+    
+
+    
+
+    
+      
+    
+
+    
+    
+    <meta property="og:title" content="wheezy下配置postfix mysql postfixadmin dovecot roundcube全apt安装" />
+<meta property="og:description" content="aptititude install postfix
+选择internet 模式
+填写 example.com，需要预先设置本机域名 mail.example.com
+aptitude install postfixadmin
+数据库选择mysql
+输入mysql的root密码，然后设置postfixadmin的数据库访问密码
+http://mail.dna.com/setup.php
+设置postfixadmin
+设置setup密码 xxxxxxx
+将更新密码生成的hash复制到 /etc/postfixadmin/config.inc.php里的
+setup_password 里
+新增加管理员 wangfan@example.com 密码xxxxxx
+改用dovecot,不用courier
+aptitude install dovecot-pop3d dovecot-imapd dovecot-mysql
+postfix 的验证可以通过 sasl2-bin所生成的saslauthd来进行验证。
+但是与dovecot配合时，通过dovecot来验证，所以不需要sasl2-bin
+验证通过/var/spool/postfix/private/auth的socket文件来进行交互。
+这是折腾了一天得到的宝贵经验。
+第二天
+昨天卡在了dovecot的验证上，用数据库验证总是不能通过。log里总是显示auth fail，不能得到详细的登录日志
+看dovecot的doc，找到在 /conf.d/10-logging.conf里更改日志记录等级。
+增加debug_log_path = /var/log/mail.debug
+auth_debug = yes
+然后就能在mail.debug文件中查看详细的登录时执行的查询sql。
+发现sql没有捕捉到%d参数。原来在客户端用的登录名是user，而不是user@domain.com
+用了完整的登录名称，总算是通过了验证。
+可以发邮件之后。
+不能收是个问题，总是提示status=bounced (unknown user）
+需要在postfix的main.cf中加入
+local_transport = dovecot
+设置roundcube之后登录
+用全用户名登录，如 q@domain.com
+报错 Class ‘Net_IDNA2’ not found 这个问题
+因为是php5-intl这个模块装了之后，php-cgi进程没有重启加载新module，重启php进程之后就好了
+以上都是流水帐，以下是正经的总结。
+debian wheezy 装好后" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://superwf.github.io/p317/" />
+<meta property="article:published_time" content="2012-08-10T05:55:07+00:00" />
+<meta property="article:modified_time" content="2012-08-10T05:55:07+00:00" />
+<meta itemprop="name" content="wheezy下配置postfix mysql postfixadmin dovecot roundcube全apt安装">
+<meta itemprop="description" content="aptititude install postfix
+选择internet 模式
+填写 example.com，需要预先设置本机域名 mail.example.com
+aptitude install postfixadmin
+数据库选择mysql
+输入mysql的root密码，然后设置postfixadmin的数据库访问密码
+http://mail.dna.com/setup.php
+设置postfixadmin
+设置setup密码 xxxxxxx
+将更新密码生成的hash复制到 /etc/postfixadmin/config.inc.php里的
+setup_password 里
+新增加管理员 wangfan@example.com 密码xxxxxx
+改用dovecot,不用courier
+aptitude install dovecot-pop3d dovecot-imapd dovecot-mysql
+postfix 的验证可以通过 sasl2-bin所生成的saslauthd来进行验证。
+但是与dovecot配合时，通过dovecot来验证，所以不需要sasl2-bin
+验证通过/var/spool/postfix/private/auth的socket文件来进行交互。
+这是折腾了一天得到的宝贵经验。
+第二天
+昨天卡在了dovecot的验证上，用数据库验证总是不能通过。log里总是显示auth fail，不能得到详细的登录日志
+看dovecot的doc，找到在 /conf.d/10-logging.conf里更改日志记录等级。
+增加debug_log_path = /var/log/mail.debug
+auth_debug = yes
+然后就能在mail.debug文件中查看详细的登录时执行的查询sql。
+发现sql没有捕捉到%d参数。原来在客户端用的登录名是user，而不是user@domain.com
+用了完整的登录名称，总算是通过了验证。
+可以发邮件之后。
+不能收是个问题，总是提示status=bounced (unknown user）
+需要在postfix的main.cf中加入
+local_transport = dovecot
+设置roundcube之后登录
+用全用户名登录，如 q@domain.com
+报错 Class ‘Net_IDNA2’ not found 这个问题
+因为是php5-intl这个模块装了之后，php-cgi进程没有重启加载新module，重启php进程之后就好了
+以上都是流水帐，以下是正经的总结。
+debian wheezy 装好后">
+<meta itemprop="datePublished" content="2012-08-10T05:55:07&#43;00:00" />
+<meta itemprop="dateModified" content="2012-08-10T05:55:07&#43;00:00" />
+<meta itemprop="wordCount" content="730">
+
+
+
+<meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="wheezy下配置postfix mysql postfixadmin dovecot roundcube全apt安装"/>
+<meta name="twitter:description" content="aptititude install postfix
+选择internet 模式
+填写 example.com，需要预先设置本机域名 mail.example.com
+aptitude install postfixadmin
+数据库选择mysql
+输入mysql的root密码，然后设置postfixadmin的数据库访问密码
+http://mail.dna.com/setup.php
+设置postfixadmin
+设置setup密码 xxxxxxx
+将更新密码生成的hash复制到 /etc/postfixadmin/config.inc.php里的
+setup_password 里
+新增加管理员 wangfan@example.com 密码xxxxxx
+改用dovecot,不用courier
+aptitude install dovecot-pop3d dovecot-imapd dovecot-mysql
+postfix 的验证可以通过 sasl2-bin所生成的saslauthd来进行验证。
+但是与dovecot配合时，通过dovecot来验证，所以不需要sasl2-bin
+验证通过/var/spool/postfix/private/auth的socket文件来进行交互。
+这是折腾了一天得到的宝贵经验。
+第二天
+昨天卡在了dovecot的验证上，用数据库验证总是不能通过。log里总是显示auth fail，不能得到详细的登录日志
+看dovecot的doc，找到在 /conf.d/10-logging.conf里更改日志记录等级。
+增加debug_log_path = /var/log/mail.debug
+auth_debug = yes
+然后就能在mail.debug文件中查看详细的登录时执行的查询sql。
+发现sql没有捕捉到%d参数。原来在客户端用的登录名是user，而不是user@domain.com
+用了完整的登录名称，总算是通过了验证。
+可以发邮件之后。
+不能收是个问题，总是提示status=bounced (unknown user）
+需要在postfix的main.cf中加入
+local_transport = dovecot
+设置roundcube之后登录
+用全用户名登录，如 q@domain.com
+报错 Class ‘Net_IDNA2’ not found 这个问题
+因为是php5-intl这个模块装了之后，php-cgi进程没有重启加载新module，重启php进程之后就好了
+以上都是流水帐，以下是正经的总结。
+debian wheezy 装好后"/>
+
+  </head>
+
+  <body class="ma0 avenir bg-near-white">
+
+    
+   
+  
+
+  <header>
+    <div class="bg-black">
+      <nav class="pv3 ph3 ph4-ns" role="navigation">
+  <div class="flex-l justify-between items-center center">
+    <a href="http://superwf.github.io/" class="f3 fw2 hover-white no-underline white-90 dib">
+      老王的日志
+    </a>
+    <div class="flex-l items-center">
+      
+
+      
+        <ul class="pl0 mr3">
+          
+          <li class="list f5 f4-ns fw4 dib pr3">
+            <a class="hover-white no-underline white-90" href="/migrate2020/" title="migrate2020 page">
+              migrate2020
+            </a>
+          </li>
+          
+          <li class="list f5 f4-ns fw4 dib pr3">
+            <a class="hover-white no-underline white-90" href="/coder-life/" title="coder-life page">
+              coder-life
+            </a>
+          </li>
+          
+        </ul>
+      
+      
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    </div>
+  </div>
+</nav>
+
+    </div>
+  </header>
+
+
+
+    <main class="pb7" role="main">
+      
+  
+  <article class="flex-l flex-wrap justify-between mw8 center ph3">
+    <header class="mt4 w-100">
+      <aside class="instapaper_ignoref b helvetica tracked">
+          
+        POSTS
+      </aside>
+      
+
+
+
+
+  <div id="sharing" class="mt3">
+
+    
+    <a href="https://www.facebook.com/sharer.php?u=http://superwf.github.io/" class="facebook no-underline" aria-label="share on Facebook">
+      <svg height="32px"  style="enable-background:new 0 0 67 67;" version="1.1" viewBox="0 0 67 67" width="32px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><path d="M28.765,50.32h6.744V33.998h4.499l0.596-5.624h-5.095  l0.007-2.816c0-1.466,0.14-2.253,2.244-2.253h2.812V17.68h-4.5c-5.405,0-7.307,2.729-7.307,7.317v3.377h-3.369v5.625h3.369V50.32z   M33,64C16.432,64,3,50.569,3,34S16.432,4,33,4s30,13.431,30,30S49.568,64,33,64z" style="fill-rule:evenodd;clip-rule:evenodd;"/></svg>
+
+    </a>
+
+    
+    
+    <a href="https://twitter.com/share?url=http://superwf.github.io/&amp;text=wheezy%e4%b8%8b%e9%85%8d%e7%bd%aepostfix%20mysql%20postfixadmin%20dovecot%20roundcube%e5%85%a8apt%e5%ae%89%e8%a3%85" class="twitter no-underline" aria-label="share on Twitter">
+      <svg height="32px"  style="enable-background:new 0 0 67 67;" version="1.1" viewBox="0 0 67 67" width="32px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><path d="M37.167,22.283c-2.619,0.953-4.274,3.411-4.086,6.101  l0.063,1.038l-1.048-0.127c-3.813-0.487-7.145-2.139-9.974-4.915l-1.383-1.377l-0.356,1.017c-0.754,2.267-0.272,4.661,1.299,6.271  c0.838,0.89,0.649,1.017-0.796,0.487c-0.503-0.169-0.943-0.296-0.985-0.233c-0.146,0.149,0.356,2.076,0.754,2.839  c0.545,1.06,1.655,2.097,2.871,2.712l1.027,0.487l-1.215,0.021c-1.173,0-1.215,0.021-1.089,0.467  c0.419,1.377,2.074,2.839,3.918,3.475l1.299,0.444l-1.131,0.678c-1.676,0.976-3.646,1.526-5.616,1.568  C19.775,43.256,19,43.341,19,43.405c0,0.211,2.557,1.397,4.044,1.864c4.463,1.377,9.765,0.783,13.746-1.568  c2.829-1.673,5.657-5,6.978-8.221c0.713-1.716,1.425-4.851,1.425-6.354c0-0.975,0.063-1.102,1.236-2.267  c0.692-0.678,1.341-1.419,1.467-1.631c0.21-0.403,0.188-0.403-0.88-0.043c-1.781,0.636-2.033,0.551-1.152-0.402  c0.649-0.678,1.425-1.907,1.425-2.267c0-0.063-0.314,0.042-0.671,0.233c-0.377,0.212-1.215,0.53-1.844,0.72l-1.131,0.361l-1.027-0.7  c-0.566-0.381-1.361-0.805-1.781-0.932C39.766,21.902,38.131,21.944,37.167,22.283z M33,64C16.432,64,3,50.569,3,34S16.432,4,33,4  s30,13.431,30,30S49.568,64,33,64z" style="fill-rule:evenodd;clip-rule:evenodd;fill:;"/></svg>
+
+    </a>
+
+    
+    <a href="https://www.linkedin.com/shareArticle?mini=true&amp;url=http://superwf.github.io/&amp;title=wheezy%e4%b8%8b%e9%85%8d%e7%bd%aepostfix%20mysql%20postfixadmin%20dovecot%20roundcube%e5%85%a8apt%e5%ae%89%e8%a3%85" class="linkedin no-underline" aria-label="share on LinkedIn">
+      <svg  height="32px"  style="enable-background:new 0 0 65 65;" version="1.1" viewBox="0 0 65 65" width="32px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+  <path d="M50.837,48.137V36.425c0-6.275-3.35-9.195-7.816-9.195  c-3.604,0-5.219,1.983-6.119,3.374V27.71h-6.79c0.09,1.917,0,20.427,0,20.427h6.79V36.729c0-0.609,0.044-1.219,0.224-1.655  c0.49-1.22,1.607-2.483,3.482-2.483c2.458,0,3.44,1.873,3.44,4.618v10.929H50.837z M22.959,24.922c2.367,0,3.842-1.57,3.842-3.531  c-0.044-2.003-1.475-3.528-3.797-3.528s-3.841,1.524-3.841,3.528c0,1.961,1.474,3.531,3.753,3.531H22.959z M34,64  C17.432,64,4,50.568,4,34C4,17.431,17.432,4,34,4s30,13.431,30,30C64,50.568,50.568,64,34,64z M26.354,48.137V27.71h-6.789v20.427  H26.354z" style="fill-rule:evenodd;clip-rule:evenodd;fill:;"/>
+</svg>
+
+    </a>
+  </div>
+
+      <h1 class="f1 athelas mt3 mb1">wheezy下配置postfix mysql postfixadmin dovecot roundcube全apt安装</h1>
+      
+      <p class="tracked">
+          By <strong>
+          
+              admin
+          
+          </strong>
+      </p>
+      
+      
+      <time class="f6 mv4 dib tracked" datetime="2012-08-10T05:55:07Z">August 10, 2012</time>
+
+      
+      
+    </header>
+    <div class="nested-copy-line-height lh-copy serif f4 nested-links nested-img mid-gray pr4-l w-two-thirds-l"><p>aptititude install postfix</p>
+<p>选择internet 模式</p>
+<p>填写 example.com，需要预先设置本机域名 mail.example.com</p>
+<p>aptitude install postfixadmin</p>
+<p>数据库选择mysql</p>
+<p>输入mysql的root密码，然后设置postfixadmin的数据库访问密码</p>
+<p><a href="http://mail.dna.com/setup.php">http://mail.dna.com/setup.php</a></p>
+<p>设置postfixadmin</p>
+<p>设置setup密码 xxxxxxx</p>
+<p>将更新密码生成的hash复制到 /etc/postfixadmin/config.inc.php里的</p>
+<p>setup_password 里</p>
+<p>新增加管理员 <a href="mailto:wangfan@example.com">wangfan@example.com</a> 密码xxxxxx</p>
+<p>改用dovecot,不用courier</p>
+<p>aptitude install dovecot-pop3d dovecot-imapd dovecot-mysql</p>
+<p>postfix 的验证可以通过 sasl2-bin所生成的saslauthd来进行验证。</p>
+<p>但是与dovecot配合时，通过dovecot来验证，所以不需要sasl2-bin</p>
+<p>验证通过/var/spool/postfix/private/auth的socket文件来进行交互。</p>
+<p>这是折腾了一天得到的宝贵经验。</p>
+<p>第二天</p>
+<p>昨天卡在了dovecot的验证上，用数据库验证总是不能通过。log里总是显示auth fail，不能得到详细的登录日志</p>
+<p>看dovecot的doc，找到在 /conf.d/10-logging.conf里更改日志记录等级。</p>
+<p>增加debug_log_path = /var/log/mail.debug</p>
+<p>auth_debug = yes</p>
+<p>然后就能在mail.debug文件中查看详细的登录时执行的查询sql。</p>
+<p>发现sql没有捕捉到%d参数。原来在客户端用的登录名是user，而不是user@domain.com</p>
+<p>用了完整的登录名称，总算是通过了验证。</p>
+<p>可以发邮件之后。</p>
+<p>不能收是个问题，总是提示status=bounced (unknown user）</p>
+<p>需要在postfix的main.cf中加入</p>
+<p>local_transport = dovecot</p>
+<p>设置roundcube之后登录</p>
+<p>用全用户名登录，如 <a href="mailto:q@domain.com">q@domain.com</a></p>
+<p>报错 Class ‘Net_IDNA2’ not found 这个问题</p>
+<p>因为是php5-intl这个模块装了之后，php-cgi进程没有重启加载新module，重启php进程之后就好了</p>
+<p>以上都是流水帐，以下是正经的总结。</p>
+<p>debian wheezy 装好后</p>
+<p>装基础包</p>
+<p>make gcc g++</p>
+<p>curl -L <a href="https://get.rvm.io">https://get.rvm.io</a> | bash -s stable –ruby</p>
+<p>上ruby，这个和配置mail服务器没啥关系，可以跳过。</p>
+<p>装mail软件</p>
+<p>nginx php5-cgi spawn-fcgi</p>
+<p>自行配置nginx或apache什么的，这个不管了。</p>
+<p>aptitude install postfix-mysql mysql-server dovecot-mysql dovecot-imapd dovecot-pop3d</p>
+<p>顺带来一句，发生了ssh登录问题</p>
+<p>之前用key登录一直没问题的主机和新主机，都出现了</p>
+<p>Too many authentication failures for username 的问题</p>
+<p>key-add -D没用</p>
+<p>后来看了这个</p>
+<p><a href="http://superuser.com/questions/187779/too-many-authentication-failures-for-username">http://superuser.com/questions/187779/too-many-authentication-failures-for-username</a></p>
+<p>在.ssh/config里主机设置里得加上IdentitiesOnly yes</p>
+<p>装postfixadmin时，输入mysql的root密码自动建立postfixadmin的库，并定义postfixadmin的密码</p>
+<p>以下所有关于数据库的sql语句都是基于postfixadmin自动建立数据库而写的，所以一定要先建立好postfixadmin的库并设置好访问权限。</p>
+<p>设置好postfixadmin的web访问网址，访问/setup.php</p>
+<p>设置setup密码</p>
+<p>添加用户之前，必须先设置好加密方式</p>
+<p>由于dovecot升级到2.x之后，doveadm pw命令取代了原来的dovecotpw</p>
+<p>修改/usr/share/postfixadmin/config.inc.php</p>
+<p>以dovecot的加密方式来认证密码</p>
+<p>$CONF[‘encrypt’] = ‘dovecot:CRAM-MD5’;</p>
+<p>$CONF[‘dovecotpw’] = ‘/usr/bin/doveadm pw’;</p>
+<p>修改同路径下的function.php</p>
+<p>1244行，大概这么个位置(行位置可能随版本变化而变)</p>
+<p>if(!$pipe) {</p>
+<p>die(“can’t proc_open $dovecotpw”);</p>
+<p>} else {</p>
+<p>把$password = fread($pipes[1], “200”);这行和这行以上到else之下都注释了</p>
+<p>添加一行</p>
+<p>$password = `$dovecotpw ‘-s’ $method -p ‘$pw’`;</p>
+<p>}</p>
+<p>这要是不改的话，回头加密方式不一样，新加的用户肯定登录不上去。</p>
+<p>phper的从业经验发挥了作用。</p>
+<p>apt方式装phpmyadmin</p>
+<p>添加虚拟用户，该用户所属mail用户组</p>
+<p>useradd -g mail -u 500 vmail -d /home/vmail -m -s /bin/false</p>
+<p>cd /etc/postfix</p>
+<p>vi main.cf</p>
+<p>把smtpd_tls_* 的都注释掉</p>
+<p>先都不用tls，需要用的教程另写</p>
+<p>改好域名信息，其他默认配置都不需要更改</p>
+<p>myhostname = mail.example.com</p>
+<p>myorigin = example.com</p>
+<p>mydomain = $myorigin</p>
+<p>mydestination = localhost, example.com, localhost.$mydomain, $mydomain</p>
+<p>在最下增加</p>
+<p># virtual config</p>
+<p>virtual_mailbox_domains = proxy:mysql:$config_directory/mysql_virtual_domains_maps.cf</p>
+<p>virtual_mailbox_base = /home/vmail</p>
+<p>virtual_mailbox_maps = proxy:mysql:$config_directory/mysql_virtual_mailbox_maps.cf</p>
+<p>virtual_alias_maps = proxy:mysql:$config_directory/mysql_virtual_alias_maps.cf</p>
+<p>local_transport = dovecot</p>
+<p>virtual_transport = dovecot</p>
+<p>#dovecot_destination_recipient_limit = 1</p>
+<p>virtual_minimum_uid = 500</p>
+<p>virtual_uid_maps = static:500</p>
+<p>virtual_gid_maps = static:8</p>
+<p># sasl</p>
+<p>smtpd_sasl_auth_enable = yes</p>
+<p>smtpd_sasl_exceptions_networks = $mynetworks</p>
+<p>smtpd_sasl_security_options = noanonymous</p>
+<p>broken_sasl_auth_clients = yes</p>
+<p>smtpd_sasl_type = dovecot</p>
+<p>smtpd_sasl_path = private/auth</p>
+<p>#smtpd_tls_cert_file = /etc/postfix/smtpd.cert</p>
+<p>#smtpd_tls_key_file = /etc/postfix/smtpd.key</p>
+<p>smtpd_use_tls = no</p>
+<p>smtpd_recipient_restrictions =permit_mynetworks permit_sasl_authenticated reject_unauth_destination permit_auth_destination permit</p>
+<p>文件 mysql_virtual_domains_maps.cf 内容如下</p>
+<p>user = mail</p>
+<p>password = mail</p>
+<p>hosts = 127.0.0.1</p>
+<p>dbname = postfixadmin</p>
+<p>table = domain</p>
+<p>select_field = domain</p>
+<p>where_field = domain</p>
+<p>additional_conditions = AND backupmx = ‘0’ AND active = ‘1’</p>
+<p>文件 mysql_virtual_mailbox_maps.cf 内容如下</p>
+<p>user = mail</p>
+<p>password = mail</p>
+<p>hosts = 127.0.0.1</p>
+<p>dbname = postfixadmin</p>
+<p>table = mailbox</p>
+<p>select_field = CONCAT(domain, ‘/’, maildir)</p>
+<p>where_field = name</p>
+<p>additional_conditions = AND active = ‘1’</p>
+<p>文件 mysql_virtual_alias_maps.cf 内容</p>
+<p>user = mail</p>
+<p>password = mail</p>
+<p>hosts = 127.0.0.1</p>
+<p>dbname = postfixadmin</p>
+<p>table = alias</p>
+<p>select_field = goto</p>
+<p>where_field = address</p>
+<p>additional_conditions = AND active = ‘1’</p>
+<p>编辑 master.cf</p>
+<p>最下加入</p>
+<p>dovecot unix – n n – – pipe</p>
+<p>flags=DRhu user=vmail:mail argv=/usr/lib/dovecot/deliver -d ${recipient} -f ${sender}</p>
+<p>每个文件里的用户名密码和库指向随配置不同自行更改。</p>
+<p>dovecot配置</p>
+<p>/etc/dovecot/conf.d/10-auth.conf</p>
+<p>disable_plaintext_auth = no</p>
+<p>auth_mechanisms = plain</p>
+<p>允许明文密码登录，如果是yes的话，web登录可以配置加密密码，但用foxmail等客户端的没法设置加密密码，所以为no</p>
+<p>最下面的 ！include auth-*****.conf.ext</p>
+<p>的一堆东西</p>
+<p>把sql 那个取消注释，其他的都注释掉。</p>
+<p>接下来编辑 auth-sql.conf.ext</p>
+<p>位置是 /etc/dovecot/conf.d/auth-sql.conf.ext</p>
+<p>如果没有就创建一个，内容如下</p>
+<p>passdb {</p>
+<p>driver = sql</p>
+<p>args = /etc/dovecot/dovecot-sql.conf.ext</p>
+<p>}</p>
+<p>userdb {</p>
+<p>driver = sql</p>
+<p>args = /etc/dovecot/dovecot-sql.conf.ext</p>
+<p>}</p>
+<p>然后编辑 /etc/dovecot/dovecot-sql.conf.ext</p>
+<p>初始状态该文件应该是全都注释的</p>
+<p>添加内容</p>
+<p>driver = mysql</p>
+<p>connect = host=127.0.0.1 dbname=postfixadmin user=mail password=mail</p>
+<p>default_pass_scheme = CRAM-MD5</p>
+<p>user_query = SELECT ‘/home/vmail/%d/%n’ AS home, ‘maildir:/home/vmail/%d/%n’ AS mail, 500 AS uid, 8 AS gid, concat(‘dirsize:storage=’, quota) AS quota FROM mailbox WHERE username = ‘%u’ AND active = ‘1’</p>
+<p>password_query = SELECT username, password, ‘/home/vmail/%d/%n’ AS userdb_home, ‘maildir:/home/vmail/%d/%n’ AS userdb_mail, 500 AS userdb_uid, 8 AS userdb_gid, domain FROM mailbox WHERE username = ‘%u’ AND active = ‘1’</p>
+<p>iterate_query = SELECT username, domain FROM mailbox</p>
+<p>再回到conf.d目录，编辑 10-mail.conf</p>
+<p>mail_location = maildir:/home/vmail/%d/%u</p>
+<p>mail_uid = 500</p>
+<p>mail_gid = 8</p>
+<p>这两个id是刚才添加的vmail的uid和系统本身存在的mail用户的gid，可随配置而自行更改。</p>
+<p>编辑 10-master.conf</p>
+<p>找到 service auth 这个块，里面的</p>
+<p>unix_listener auth-userdb {</p>
+<p>mode = 0660</p>
+<p>user = vmail</p>
+<p>group = mail</p>
+<p>}</p>
+<p>unix_listener /var/spool/postfix/private/auth {</p>
+<p>mode = 0660</p>
+<p>user = postfix</p>
+<p>group = postfix</p>
+<p>}</p>
+<p>这个postfix的更改正好配合了postfix的main.cf里的 private/auth 设置</p>
+<p>测试邮件，几乎100%都有些问题，dove的debug在conf.d/10-logging.conf里设置</p>
+<p>修改 debug_log_path = /var/log/mail.debug 然后查看该文件的输出</p>
+<p>以debug方式运行时会收不到邮件，查看mail.info发现postfix不能写入mail.debug，权限不够</p>
+<p>修改mail.debug 所属组</p>
+<p>chown root:adm mail.debug</p>
+<p>要多看/var/log/mail.info的输出</p>
+<p>apt装roundcube</p>
+<p>设置roundcube 库密码</p>
+<p>由于是apt安装，配置文件在/etc/roundcube里</p>
+<p>修改main.inc.php</p>
+<p>$rcmail_config[‘default_host’] = ‘mail.example.com’</p>
+<p>$rcmail_config[‘smtp_server’] = ‘mail.example.com’</p>
+<p># 以下两行不要设置，一开始看别的教程设置了，web页面不能发送邮件，总是smtp 250验证不能通过错误，其他客户端发送接受都没问题，看mail服务器的log也没问题。</p>
+<p># 不填写的话，会自动以smtp的用户名和密码连接smtp发送邮件。</p>
+<p>$rcmail_config[‘smtp_user’] = ‘%u’</p>
+<p>$rcmail_config[‘smtp_pass’] = ‘%p’</p>
+<p>此次配置主要参考文档</p>
+<p><a href="http://library.linode.com/email/postfix/dovecot-mysql-debian-6-squeeze">http://library.linode.com/email/postfix/dovecot-mysql-debian-6-squeeze</a></p>
+<p><a href="http://johnny.chadda.se/article/mail-server-howto-postfix-and-dovecot-with-mysql-and-tlsssl-postgrey-and-dspam/">http://johnny.chadda.se/article/mail-server-howto-postfix-and-dovecot-with-mysql-and-tlsssl-postgrey-and-dspam/</a></p>
+<p>dovecot官方文档 2版本的哦</p>
+<p><a href="http://wiki2.dovecot.org/">http://wiki2.dovecot.org/</a></p>
+<p>postfix官方文档</p>
+<p><a href="http://www.postfix.org/postconf.5.html">www.postfix.org/postconf.5.html</a></p>
+<p>邮箱配额</p>
+<p>这个主要参考了</p>
+<p><a href="http://wiki2.dovecot.org/">http://wiki2.dovecot.org/</a></p>
+<p>10-mail.conf</p>
+<p>mail_plugins = $mail_plugins quota</p>
+<p>20-imap.conf</p>
+<p>mail_plugins = $mail_plugins imap_quota # 这个没其作用，不太清楚</p>
+<p>90-quota.conf</p>
+<p>plugin {</p>
+<p>quota = maildir:User quota</p>
+<p>quota_rule = *:storage=100M # 这行也没多大用，主要起作用的是sql里的配置。</p>
+<p>quota_rule2 = Trash:storage=+10M # 这行的作用是给回收站增加额外的10M容量或者更多，不然的话，配额满了，会出现邮件不能删除的问题。</p>
+<p>}</p>
+<p>最后，还是发现最重要的一点</p>
+<p>修改dovecot-sql.conf.ext</p>
+<p>user_query = SELECT ‘/home/vmail/%d/%n’ AS home, ‘maildir:/home/vmail/%d/%n’ AS mail, 500 AS uid, 8 AS gid, concat(‘*:storage=’, FLOOR(quota/1048576), ‘M’) AS quota FROM mailbox WHERE username = ‘%u’ AND active = ‘1’</p>
+<p>password_query = SELECT username, password, ‘/home/vmail/%d/%n’ AS userdb_home, ‘maildir:/home/vmail/%d/%n’ AS userdb_mail, 500 AS userdb_uid, 8 AS userdb_gid, domain, CONCAT(‘*:storage=’, FLOOR(quota/1048576), ‘M’) AS userdb_quota_rule FROM mailbox WHERE username = ‘%u’ AND active = ‘1’</p>
+<p>password_query里的userdb_quota_rule好像是没用，在debug里没看到相应的查询。</p>
+<p>其中的M可根据需要修改成G什么的单位，不过quota也得变更相应的除数。</p>
+<p>还有就是除完了的数得要FLOOR，不能有小数点，要不不认。</p>
+<p>因为用postfixadmin编辑生成的配额是按bytes为单位的。</p>
+<p>使用postfixadmin显示并管理邮箱配额</p>
+<p><a href="http://wenku.baidu.com/view/2530adedaeaad1f346933fe2.html">http://wenku.baidu.com/view/2530adedaeaad1f346933fe2.html</a></p>
+<p>在postfixadmin中编辑用户配额的时候，会有一个默认配额，和最大配额，这个不是在postfixadmin的配置文件里设置，是在域名清单里，编辑域名设置当前域名的最大配额和邮箱个数时编辑。</p>
+<p>后来实际用的时候还发生了nginx不出页面的问题</p>
+<p><a href="http://hzcsky.blog.51cto.com/1560073/475574">http://hzcsky.blog.51cto.com/1560073/475574</a></p>
+<p>看这个解决。</p>
+<p>后续，用了几天又出新问题。抄送时，收件人是同域人时，收件人和抄送人都收不到邮件，不报错，看日志显示</p>
+<p>Aug 22 12:59:04 mail postfix/pipe[11988]: warning: pipe flag `D’ requires dovecot_destination_recipient_limit = 1</p>
+<p>Aug 22 12:59:04 mail postfix/pipe[11993]: 659BA446E0: to=<a href="mailto:me@example.com">me@example.com</a>, relay=dovecot, delay=3416, delays=3416/0.2/0/0.07, dsn=4.3.5, status=deferred (mail system configuration error)</p>
+<p>在postfix配置main.cf里加上</p>
+<p>dovecot_destination_recipient_limit = 1</p>
+<p>因为用的是dovecot配合，所以是这个，如果是配合其他的收件工具，就</p>
+<p>xxxx_destination_recipient_limit = 1</p>
+<p>后来在同一个postfixadmin中添加了多个域名的时候，dns指向也成功之后，新域名下的邮箱可以发邮件但不能接收,必须在main.cf中的mydestinatino 中把心域名也加上然后reload postfix</p>
+<ul class="pa0">
+  
+</ul>
+<div class="mt6 instapaper_ignoref">
+      
+      
+      </div>
+    </div>
+
+    <aside class="w-30-l mt6-l">
+
+
+
+
+  <div class="bg-light-gray pa3 nested-list-reset nested-copy-line-height nested-links">
+    <p class="f5 b mb3">Related</p>
+    <ul class="pa0 list">
+	   
+	     <li  class="mb2">
+          <a href="/p313/">nginx https fastcgi</a>
+        </li>
+	    
+	     <li  class="mb2">
+          <a href="/p308/">mini_magick resize图片，不保持长宽比</a>
+        </li>
+	    
+	     <li  class="mb2">
+          <a href="/p298/">过滤html tag外内容的正则</a>
+        </li>
+	    
+	     <li  class="mb2">
+          <a href="/p295/">mongodb assertion: 13325</a>
+        </li>
+	    
+	     <li  class="mb2">
+          <a href="/p293/">dia无法输入中文问题</a>
+        </li>
+	    
+	     <li  class="mb2">
+          <a href="/p289/">一个建立rails新程序的向导</a>
+        </li>
+	    
+	     <li  class="mb2">
+          <a href="/p279/">ibm 3650 m3 bnx2/bnx2-rv2p-09ax-5.0.0.j3.fw</a>
+        </li>
+	    
+	     <li  class="mb2">
+          <a href="/p276/">网络启动安装linux</a>
+        </li>
+	    
+	     <li  class="mb2">
+          <a href="/p274/">incompatible character encodings: UTF-8 and ASCII-8BIT</a>
+        </li>
+	    
+	     <li  class="mb2">
+          <a href="/p272/">prawn生成的pdf在chrome中直接显示</a>
+        </li>
+	    
+	     <li  class="mb2">
+          <a href="/p269/">rubygems-bunlder不用每次都执行bundle exec</a>
+        </li>
+	    
+	     <li  class="mb2">
+          <a href="/p267/">rails aototest not running</a>
+        </li>
+	    
+	     <li  class="mb2">
+          <a href="/p263/">libreadline.so.5 undefined symbol problem导致reiserfs分区加载不了</a>
+        </li>
+	    
+	     <li  class="mb2">
+          <a href="/p258/">debian gpg</a>
+        </li>
+	    
+	     <li  class="mb2">
+          <a href="/p253/">bash.bashrc与profile</a>
+        </li>
+	    
+    </ul>
+</div>
+
+</aside>
+
+  </article>
+
+    </main>
+    <footer class="bg-black bottom-0 w-100 pa3" role="contentinfo">
+  <div class="flex justify-between">
+  <a class="f4 fw4 hover-white no-underline white-70 dn dib-ns pv2 ph3" href="http://superwf.github.io/" >
+    &copy;  老王的日志 2020 
+  </a>
+    <div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+</div>
+  </div>
+</footer>
+
+    
+
+  <script src="/dist/js/app.3fc0f988d21662902933.js"></script>
+
+
+  </body>
+</html>

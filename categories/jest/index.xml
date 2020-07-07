@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>jest on 老王的日志</title>
+    <link>http://superwf.github.io/categories/jest/</link>
+    <description>Recent content in jest on 老王的日志</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-CN</language>
+    <lastBuildDate>Mon, 12 Nov 2018 10:09:17 +0000</lastBuildDate>
+    
+	<atom:link href="http://superwf.github.io/categories/jest/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>use puppeteer-core to replace puppeteer</title>
+      <link>http://superwf.github.io/p1411/</link>
+      <pubDate>Mon, 12 Nov 2018 10:09:17 +0000</pubDate>
+      
+      <guid>http://superwf.github.io/p1411/</guid>
+      <description>有亮点不同 不会下载Chromium. 不会识别一堆以PUPPETEER_开头的环境变量。  其他的地方都一样，按说只要把所有require(puppeteer)的地方都换成require(&#39;puppeteer-core&#39;)即可。
+针对绝大多数用户，其实都已经安装了chrome，每次安装为了puppeteer都要下载一个巨大的Chromium，在国内的网络环境下十分耗时。
+可问题是一些依赖的第三方package里面用的是require(puppeteer)。
+这种情况推荐使用modules-alias工具登场。
+用别名的方式将系统中的puppeteer
+都置换为puppeteer-core
+运行例子: jest-with-puppeteer-core</description>
+    </item>
+    
+    <item>
+      <title>jest的一次失败的mock</title>
+      <link>http://superwf.github.io/p1385/</link>
+      <pubDate>Wed, 22 Aug 2018 09:00:36 +0000</pubDate>
+      
+      <guid>http://superwf.github.io/p1385/</guid>
+      <description>今天添加了一个新测试用例，在需要mock的文件模块旁边添加了__mocks__然后里面添加了同名文件，之后在test文件里指定
+jest.mock(‘moduleA’)
+但无论如何都会加载实际模块而不是__mocks__文件夹里的内容。经过了一大轮的拼写检查、jest.doMock、为jest.mock添加第二个参数临时实现，还试了一下automock，全都不行。
+最后发现该模块为了调整测试环境，在jestSetup文件里被使用了……
+难怪无法mock，自己的坑啊。</description>
+    </item>
+    
+  </channel>
+</rss>

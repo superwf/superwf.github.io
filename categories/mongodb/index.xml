@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>mongodb on 老王的日志</title>
+    <link>http://superwf.github.io/categories/mongodb/</link>
+    <description>Recent content in mongodb on 老王的日志</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-CN</language>
+    <lastBuildDate>Fri, 28 Feb 2014 05:53:58 +0000</lastBuildDate>
+    
+	<atom:link href="http://superwf.github.io/categories/mongodb/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>今天看到nosql的反模式</title>
+      <link>http://superwf.github.io/p770/</link>
+      <pubDate>Fri, 28 Feb 2014 05:53:58 +0000</pubDate>
+      
+      <guid>http://superwf.github.io/p770/</guid>
+      <description>http://blog.nosqlfan.com/html/4156.html
+里面的一句话突然让我明白了很多，转换了一下思路
+就是：计算和存储耦合
+我从这句话想到的是：计算应该和存储分离。
+关系型数据库片中计算，文档型数据库偏重存储，而我一直以来想做的是找一个nosql来代替mysql，比如mongodb，应该是搞错了思路，应该让会做计算的做计算，优于存储的做存储，中间用程序来做数据一致维护，这样大概不会做到数据即时完全的一致性，就和数据库的cap理论一样，应该是有取舍才行的。</description>
+    </item>
+    
+    <item>
+      <title>mongoid升级3.0之后出现undefined method `database’ for Mongoid:Module (NoMethodError)</title>
+      <link>http://superwf.github.io/p365/</link>
+      <pubDate>Mon, 07 Jan 2013 06:20:29 +0000</pubDate>
+      
+      <guid>http://superwf.github.io/p365/</guid>
+      <description>mongoid升级3.0之后出现undefined method `database’ for Mongoid:Module (NoMethodError)
+先是把mongoid版本制定 ~&amp;gt;2.0之后，确实可以正常使用，就确定是mongoid升级之后的方法名变了。
+搜到了这个，按之操作解决问题。
+http://stackoverflow.com/questions/12019922/config-carrierwave-with-mongoid-gridfs</description>
+    </item>
+    
+  </channel>
+</rss>

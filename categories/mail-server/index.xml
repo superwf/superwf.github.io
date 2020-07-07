@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>mail server on 老王的日志</title>
+    <link>http://superwf.github.io/categories/mail-server/</link>
+    <description>Recent content in mail server on 老王的日志</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-CN</language>
+    <lastBuildDate>Tue, 07 Apr 2015 13:45:04 +0000</lastBuildDate>
+    
+	<atom:link href="http://superwf.github.io/categories/mail-server/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>postfix 垃圾邮件问题</title>
+      <link>http://superwf.github.io/p957/</link>
+      <pubDate>Tue, 07 Apr 2015 13:45:04 +0000</pubDate>
+      
+      <guid>http://superwf.github.io/p957/</guid>
+      <description>邮件服务器又出问题，上去一看根目录满了，清空了邮件日志，并查看了一下最新的日志发现大量发送垃圾邮件
+以前出过一次这种错误，从日志上能看出是哪个帐号有问题，禁用这个帐号或者改个新密码就可以了
+这次是大量邮件匿名发送，from=&amp;lt;&amp;gt;，也没有记录客户端ip
+晚上弄了一会，先停了postfix，再清空队列。
+在再/etc/postfix/main.cf加了一行
+  </description>
+    </item>
+    
+    <item>
+      <title>mail系统发附件自动剪切体积</title>
+      <link>http://superwf.github.io/p671/</link>
+      <pubDate>Wed, 23 Oct 2013 06:15:05 +0000</pubDate>
+      
+      <guid>http://superwf.github.io/p671/</guid>
+      <description>今天有人反映邮件发附件的时候，稍微大点的附件，发出去之后体积被缩小了，在已发邮件里看体积小了好多，而且压缩文件下载之后解压错误。
+查了一下发现系统的/tmp文件夹满了…
+头一次发现这种问题，这个缓存系统不是会自动清空的么。
+清空了，重新发了一下就好了。
+本来分区的时候并没有制定/tmp分区的大小，好像是挂在/分区下的。</description>
+    </item>
+    
+    <item>
+      <title>wheezy下配置postfix mysql postfixadmin dovecot roundcube全apt安装</title>
+      <link>http://superwf.github.io/p317/</link>
+      <pubDate>Fri, 10 Aug 2012 05:55:07 +0000</pubDate>
+      
+      <guid>http://superwf.github.io/p317/</guid>
+      <description>aptititude install postfix
+选择internet 模式
+填写 example.com，需要预先设置本机域名 mail.example.com
+aptitude install postfixadmin
+数据库选择mysql
+输入mysql的root密码，然后设置postfixadmin的数据库访问密码
+http://mail.dna.com/setup.php
+设置postfixadmin
+设置setup密码 xxxxxxx
+将更新密码生成的hash复制到 /etc/postfixadmin/config.inc.php里的
+setup_password 里
+新增加管理员 wangfan@example.com 密码xxxxxx
+改用dovecot,不用courier
+aptitude install dovecot-pop3d dovecot-imapd dovecot-mysql
+postfix 的验证可以通过 sasl2-bin所生成的saslauthd来进行验证。
+但是与dovecot配合时，通过dovecot来验证，所以不需要sasl2-bin
+验证通过/var/spool/postfix/private/auth的socket文件来进行交互。
+这是折腾了一天得到的宝贵经验。
+第二天
+昨天卡在了dovecot的验证上，用数据库验证总是不能通过。log里总是显示auth fail，不能得到详细的登录日志
+看dovecot的doc，找到在 /conf.d/10-logging.conf里更改日志记录等级。
+增加debug_log_path = /var/log/mail.debug
+auth_debug = yes
+然后就能在mail.debug文件中查看详细的登录时执行的查询sql。
+发现sql没有捕捉到%d参数。原来在客户端用的登录名是user，而不是user@domain.com
+用了完整的登录名称，总算是通过了验证。
+可以发邮件之后。
+不能收是个问题，总是提示status=bounced (unknown user）
+需要在postfix的main.cf中加入
+local_transport = dovecot
+设置roundcube之后登录
+用全用户名登录，如 q@domain.com
+报错 Class ‘Net_IDNA2’ not found 这个问题
+因为是php5-intl这个模块装了之后，php-cgi进程没有重启加载新module，重启php进程之后就好了
+以上都是流水帐，以下是正经的总结。
+debian wheezy 装好后</description>
+    </item>
+    
+  </channel>
+</rss>

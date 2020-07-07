@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>chrome on 老王的日志</title>
+    <link>http://superwf.github.io/categories/chrome/</link>
+    <description>Recent content in chrome on 老王的日志</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-CN</language>
+    <lastBuildDate>Sat, 30 Mar 2019 08:58:33 +0000</lastBuildDate>
+    
+	<atom:link href="http://superwf.github.io/categories/chrome/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>前端页面截图功能</title>
+      <link>http://superwf.github.io/p1444/</link>
+      <pubDate>Sat, 30 Mar 2019 08:58:33 +0000</pubDate>
+      
+      <guid>http://superwf.github.io/p1444/</guid>
+      <description>原生方法 navigator.mediaDevices.getDisplayMedia()，chrome版本要求高，刚出一个月左右，大概72版本才可用。
+缺点：截图的时候会一定会出提示，选择需要截图的屏幕、应用、或chrome的tab。用户体验不太好。
+chrome extension，方法 需要开发一个额外的扩展，截图api调用chrome.tabs.captureVisibleTab，
+缺点：只能截图当前页面的可见部分。额外安装扩展。
+html2canvas第三方库 调研了一下该库的基础截图原理，希望找到可用的底层api，但发现该库用的是最艰难的方法，将dom在绘制时获取computed style一层层绘制。
+缺点：会出现截图和实际页面不太一致的情况。
+优点：兼容性好，不需要客户额外安装。</description>
+    </item>
+    
+  </channel>
+</rss>
