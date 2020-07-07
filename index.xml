@@ -12,14 +12,14 @@
     
     
     <item>
-      <title>原域名wangfan.bj.cn</title>
+      <title>原域名wangfan.bj.cn deprecated</title>
       <link>http://superwf.github.io/migrate2020/</link>
       <pubDate>Mon, 11 May 2020 05:32:10 +0000</pubDate>
       
       <guid>http://superwf.github.io/migrate2020/</guid>
       <description>多年前在在万网做了域名备案，最近联通又开始要域名备案。
-树挪死人挪活，不和这些大爷们折腾了，原域名不要了，之后该域名与本人无任何关系。
-从wordperss将所有内容通过hugo插件导出，内容有些乱，以后有空再整理。</description>
+树挪死人挪活，不和这些大爷们折腾了，原域名不要了，所有wangfan.bj.cn内容全都放到github page上。
+从wordperss将所有内容通过hugo插件导出。</description>
     </item>
     
     <item>
