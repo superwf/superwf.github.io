@@ -1,0 +1,11 @@
+{
+  "name": "superwf.github.io",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "git@github.com:superwf/superwf.github.io.git",
+  "author": "wangfan15 <wangfan15@jd.com>",
+  "license": "MIT",
+  "dependencies": {
+    "prettier": "^2.2.1"
+  }
+}
