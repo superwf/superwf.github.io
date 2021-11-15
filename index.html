@@ -38,6 +38,35 @@
     <meta name="twitter:card" content="summary" />
     <meta name="twitter:title" content="老王的开发日志" />
     <meta name="twitter:description" content="" />
+    <style>
+      .dropdown {
+        color: white;
+        position: relative;
+        display: inline-block;
+      }
+
+      .dropdown-content {
+        display: none;
+        position: absolute;
+        min-width: 160px;
+        left: -5em;
+        background-color: #000;
+        box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+        padding: 12px 16px;
+        z-index: 1;
+      }
+      .dropdown-content li:not(:last-child) {
+        border-bottom: 1px dashed #555;
+        margin-bottom: 0.5em;
+      }
+      .dropdown-content li:hover {
+        background: #333;
+      }
+
+      .dropdown:hover .dropdown-content {
+        display: block;
+      }
+    </style>
   </head>
 
   <body class="ma0 avenir bg-near-white">
@@ -51,37 +80,67 @@
             >
               老王的开发日志
             </a>
-            <div class="flex-l items-center">
-              <ul class="pl0 mr3">
-                <li class="list f5 f4-ns fw4 dib pr3">
-                  <a
-                    class="hover-white no-underline white-90"
-                    href="/migrate2020/"
-                    title="migrate2020 page"
-                  >
-                    migrate2020
-                  </a>
-                </li>
+            <div class="flex-l items-center dropdown">
+              <span>发展历程 & 分享文档</span>
+              <div class="dropdown-content">
+                <ul class="pl0 mr3">
+                  <li class="list f5 f4-ns fw4 dib pr3">
+                    <a
+                      class="hover-white no-underline white-90"
+                      href="/migrate2020/"
+                      title="migrate2020 page"
+                    >
+                      migrate2020
+                    </a>
+                  </li>
 
-                <li class="list f5 f4-ns fw4 dib pr3">
-                  <a
-                    class="hover-white no-underline white-90"
-                    href="/coder-life/"
-                    title="coder-life page"
-                  >
-                    coder-life
-                  </a>
-                </li>
-                <li class="list f5 f4-ns fw4 dib pr3">
-                  <a
-                    class="hover-white no-underline white-90"
-                    href="/openapi-typescript-introduction/"
-                    title="openapi-typescript-introduction"
-                  >
-                    openapi-typescript-introduction
-                  </a>
-                </li>
-              </ul>
+                  <li class="list f5 f4-ns fw4 dib pr3">
+                    <a
+                      class="hover-white no-underline white-90"
+                      href="/coder-life/"
+                      title="coder-life page"
+                    >
+                      coder-life
+                    </a>
+                  </li>
+                  <li class="list f5 f4-ns fw4 dib pr3">
+                    <a
+                      class="hover-white no-underline white-90"
+                      href="/openapi-typescript-introduction/"
+                      title="openapi-typescript-introduction"
+                    >
+                      openapi-typescript-introduction
+                    </a>
+                  </li>
+                  <li class="list f5 f4-ns fw4 dib pr3">
+                    <a
+                      class="hover-white no-underline white-90"
+                      href="https://github.com/superwf/share-doc/blob/master/jest/README.md"
+                      title="前端单元测试经验分享"
+                    >
+                      前端单元测试经验分享
+                    </a>
+                  </li>
+                  <li class="list f5 f4-ns fw4 dib pr3">
+                    <a
+                      class="hover-white no-underline white-90"
+                      href="https://github.com/superwf/share-doc/blob/master/web-component/README.md"
+                      title="跨React/Vue技术栈解决方案"
+                    >
+                      跨React/Vue技术栈解决方案
+                    </a>
+                  </li>
+                  <li class="list f5 f4-ns fw4 dib pr3">
+                    <a
+                      class="hover-white no-underline white-90"
+                      href="https://github.com/superwf/share-doc/blob/master/standard-version/README.md"
+                      title="以git提交为核心的发布工作流"
+                    >
+                      以git提交为核心的发布工作流
+                    </a>
+                  </li>
+                </ul>
+              </div>
             </div>
           </div>
         </nav>
